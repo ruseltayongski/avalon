@@ -1,140 +1,664 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
-                </div>
-
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
+<!-- ====== Navbar Section Start -->
+<header
+   x-data="
+        {
+        navbarOpen: false,
+        }
+   "
+   class="absolute top-0 left-0 z-50 w-full"
+   >
+   <div class="container mx-auto">
+      <div class="relative flex items-center justify-between -mx-4">
+         <div class="max-w-full px-4 w-60">
+            <a href="javascript:void(0)" class="block w-full py-5">
+            <img
+               src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
+               alt="logo"
+               class="w-full"
+               />
+            </a>
+         </div>
+         <div class="flex items-center justify-between w-full px-4">
+            <div>
+               <button
+                  @click="navbarOpen = !navbarOpen"
+                  :class="navbarOpen && 'navbarTogglerActive'"
+                  id="navbarToggler"
+                  class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                  >
+               <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+                  ></span>
+               <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+                  ></span>
+               <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+                  ></span>
+               </button>
+               <nav
+                  :class="!navbarOpen && 'hidden' "
+                  id="navbarCollapse"
+                  class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
+                  >
+                  <ul class="block lg:flex">
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        About Us
                         </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
+                     </li>
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        Features
                         </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
+                     </li>
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        Pricing
                         </a>
-
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
-                </div>
+                     </li>
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        Support
+                        </a>
+                     </li>
+                  </ul>
+               </nav>
             </div>
-        </div>
-    </body>
-</html>
+            <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
+               <a
+                  href="javascript:void(0)"
+                  class="py-3 text-base font-medium bg-white rounded-md shadow-1 dark:shadow-none px-7 text-primary hover:bg-gray-2 hover:text-body-color"
+                  >
+               Get Started
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</header>
+<!-- ====== Navbar Section End -->
+
+<!-- ====== Hero Section Start -->
+<div
+   x-data="
+   {
+   videoOpen: false
+   }
+   "
+   class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
+   style="background-image: url('{{ asset('/images/hero-image-07.jpg') }}')"
+   >
+   <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%]"></div>
+   <div class="container mx-auto">
+      <div class="flex flex-wrap items-center -mx-4">
+         <div class="w-full px-4 lg:w-1/2">
+            <div class="mb-16 max-w-[500px] lg:mb-0">
+               <span
+                  class="block mb-5 text-base font-semibold text-white sm:text-lg md:text-xl"
+                  >
+               Digital Marketing
+               </span>
+               <h1
+                  class="mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl"
+                  >
+                  Grow your website traffic with TailGrids.
+               </h1>
+               <p class="text-base text-white mb-9">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  posuere arcu sit amet ligula feugiat eleifend.
+               </p>
+               <ul class="flex flex-wrap items-center gap-3">
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white rounded-md bg-primary px-7 hover:bg-blue-dark"
+                        >
+                     Know More
+                     </a>
+                  </li>
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="inline-flex items-center px-6 py-3 text-base font-medium text-white rounded-md bg-white/5 hover:bg-gray-2 hover:text-body-color"
+                        >
+                        Explore Services
+                        <span class="ml-2">
+                           <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="fill-current"
+                              >
+                              <path
+                                 d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3437 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2813 11.0312 17.2813C11.2187 17.2813 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z"
+                                 fill=""
+                                 />
+                           </svg>
+                        </span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="w-full px-4 lg:w-1/2">
+            <div
+               class="mx-auto max-w-[460px] rounded-[10px] bg-white dark:bg-dark-2 py-10 px-6 sm:px-10"
+               >
+               <h2
+                  class="mb-2.5 text-2xl font-bold text-dark !leading-[1.43] dark:text-white sm:text-3xl lg:text-2xl xl:text-[28px]"
+                  >
+                  Sign up to TailGrids
+               </h2>
+               <p
+                  class="mb-8 text-base font-medium text-body-color dark:text-dark-6"
+                  >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+               </p>
+               <div class="flex items-center mb-6 space-x-4">
+                  <button
+                     class="flex h-[50px] w-[50px] items-center justify-center shadow-btn-2 rounded-md bg-transparent border border-stroke dark:border-dark-3 text-sm font-medium text-body-color dark:text-dark-6 sm:w-auto sm:px-7"
+                     >
+                     <span class="sm:pr-3">
+                        <svg
+                           width="18"
+                           height="18"
+                           viewBox="0 0 18 18"
+                           fill="none"
+                           xmlns="http://www.w3.org/2000/svg"
+                           >
+                           <g clip-path="url(#clip0_1416_409)">
+                              <path
+                                 d="M18 9.19932C18.0109 8.58059 17.9457 7.96284 17.806 7.35938H9.18372V10.6993H14.2449C14.149 11.2849 13.9333 11.8455 13.6106 12.3473C13.288 12.8491 12.8651 13.2818 12.3674 13.6193L12.3497 13.7311L15.0761 15.8009L15.2649 15.8194C16.9995 14.2493 17.9997 11.9393 17.9997 9.19932"
+                                 fill="#4285F4"
+                                 />
+                              <path
+                                 d="M9.18382 18.0003C11.6633 18.0003 13.745 17.2003 15.2655 15.8203L12.3675 13.6202C11.592 14.1503 10.5512 14.5203 9.18382 14.5203C8.02249 14.5137 6.89279 14.1488 5.955 13.4775C5.0172 12.8061 4.31894 11.8624 3.95927 10.7803L3.85164 10.7893L1.01679 12.9392L0.979736 13.0402C1.74323 14.5314 2.91494 15.7851 4.36385 16.661C5.81276 17.537 7.48174 18.0007 9.18417 18.0003"
+                                 fill="#34A853"
+                                 />
+                              <path
+                                 d="M3.95921 10.7798C3.75834 10.2069 3.65469 9.60558 3.65239 8.99982C3.65609 8.39505 3.75591 7.79453 3.94828 7.21988L3.94316 7.10057L1.07355 4.91602L0.979681 4.95976C0.335608 6.21294 0.00012207 7.59658 0.00012207 8.99973C0.00012207 10.4029 0.335608 11.7865 0.979681 13.0397L3.95921 10.7798Z"
+                                 fill="#FBBC05"
+                                 />
+                              <path
+                                 d="M9.1838 3.47965C10.4997 3.45963 11.7725 3.93991 12.7348 4.81971L15.3267 2.33965C13.6644 0.811346 11.463 -0.0272143 9.1838 -0.000350488C7.48139 -0.000747434 5.81242 0.462942 4.36352 1.33887C2.91461 2.2148 1.74289 3.46843 0.97937 4.95959L3.94902 7.21971C4.31223 6.13773 5.01281 5.19476 5.95199 4.52376C6.89117 3.85275 8.02156 3.48755 9.1838 3.47965Z"
+                                 fill="#EB4335"
+                                 />
+                           </g>
+                           <defs>
+                              <clipPath id="clip0_1416_409">
+                                 <rect width="18" height="18" fill="white" />
+                              </clipPath>
+                           </defs>
+                        </svg>
+                     </span>
+                     <span class="hidden sm:inline-flex">
+                     Sign up with Google
+                     </span>
+                  </button>
+                  <button
+                     class="flex h-[50px] w-[50px] items-center justify-center rounded-md bg-[#03A9F4]"
+                     >
+                     <svg
+                        width="23"
+                        height="18"
+                        viewBox="0 0 23 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <g clip-path="url(#clip0_1416_400)">
+                           <path
+                              d="M22.8462 2.13028C21.9868 2.49377 21.0779 2.73537 20.1474 2.84761C21.128 2.28345 21.8611 1.39009 22.2078 0.336823C21.2899 0.86471 20.2857 1.2365 19.2386 1.43611C18.5964 0.77076 17.7626 0.308154 16.8457 0.108441C15.9287 -0.0912717 14.971 -0.0188534 14.0971 0.31628C13.2232 0.651413 12.4734 1.23376 11.9454 1.9876C11.4173 2.74144 11.1353 3.63191 11.1361 4.54322C11.1325 4.89097 11.1689 5.23803 11.2447 5.57795C9.38141 5.48937 7.55838 5.02044 5.89479 4.20183C4.23121 3.38322 2.76452 2.23336 1.59061 0.82742C0.987918 1.82652 0.801149 3.011 1.06842 4.13909C1.3357 5.26719 2.03687 6.25384 3.02882 6.89768C2.28774 6.87826 1.56234 6.68639 0.913726 6.33825V6.38774C0.914945 7.43656 1.28875 8.45295 1.97222 9.26583C2.6557 10.0787 3.6071 10.6384 4.66629 10.8508C4.26559 10.9532 3.85262 11.0035 3.43824 11.0004C3.1407 11.0055 2.84345 10.9795 2.55166 10.9228C2.85437 11.8242 3.43776 12.6124 4.22154 13.179C5.00531 13.7456 5.95093 14.0627 6.92822 14.0866C5.27035 15.3438 3.22573 16.0259 1.12111 16.0238C0.74641 16.0262 0.371941 16.0053 0 15.9612C2.14164 17.2995 4.63724 18.0074 7.18501 17.9994C15.8036 17.9994 20.5158 11.0764 20.5158 5.07543C20.5158 4.87456 20.5086 4.68088 20.4986 4.48833C21.4225 3.84724 22.218 3.04815 22.8462 2.13028Z"
+                              fill="white"
+                              />
+                        </g>
+                        <defs>
+                           <clipPath id="clip0_1416_400">
+                              <rect width="22.8462" height="18" fill="white" />
+                           </clipPath>
+                        </defs>
+                     </svg>
+                  </button>
+                  <button
+                     class="flex h-[50px] w-[50px] items-center justify-center rounded-md bg-[#0080FF]"
+                     >
+                     <svg
+                        width="10"
+                        height="20"
+                        viewBox="0 0 10 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <g clip-path="url(#clip0_1416_404)">
+                           <path
+                              d="M6.4908 19.9982V10.8773H9.43911L9.88051 7.3228H6.4908V5.05333C6.4908 4.02423 6.76604 3.32284 8.18733 3.32284L10 3.32197V0.14284C9.68636 0.0996795 8.61042 0.00292969 7.35864 0.00292969C4.74517 0.00292969 2.95593 1.65936 2.95593 4.70148V7.3229H0V10.8774H2.95584V19.9983L6.4908 19.9982Z"
+                              fill="white"
+                              />
+                        </g>
+                        <defs>
+                           <clipPath id="clip0_1416_404">
+                              <rect width="10" height="20" fill="white" />
+                           </clipPath>
+                        </defs>
+                     </svg>
+                  </button>
+               </div>
+               <div class="relative z-10 flex items-center justify-center mb-8">
+                  <span
+                     class="absolute left-0 hidden w-full h-px -translate-y-1/2 top-1/2 -z-10 bg-form-stroke sm:block"
+                     ></span>
+                  <p
+                     class="text-base font-medium bg-white dark:bg-dark-2 text-body-color dark:text-dark-6 sm:px-4"
+                     >
+                     Or create account with email
+                  </p>
+               </div>
+               <form>
+                  <div class="flex flex-wrap -mx-2">
+                     <div class="w-full px-2 sm:w-1/2">
+                        <div class="mb-4">
+                           <label
+                              for="name"
+                              class="block mb-2 text-base font-medium text-dark dark:text-white"
+                              >
+                           Full Name
+                           </label>
+                           <input
+                              type="text"
+                              name="name"
+                              class="w-full px-5 py-2.5 text-base font-medium bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 focus:border-primary"
+                              />
+                        </div>
+                     </div>
+                     <div class="w-full px-2 sm:w-1/2">
+                        <div class="mb-4">
+                           <label
+                              for="email"
+                              class="block mb-2 text-base font-medium text-dark dark:text-white"
+                              >
+                           Email address
+                           </label>
+                           <input
+                              type="email"
+                              name="email"
+                              class="w-full px-5 py-2.5 text-base font-medium bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 focus:border-primary"
+                              />
+                        </div>
+                     </div>
+                     <div class="w-full px-2">
+                        <div class="mb-6">
+                           <label
+                              for="password"
+                              class="block mb-2 text-base font-medium text-dark dark:text-white"
+                              >
+                           Password
+                           </label>
+                           <input
+                              type="password"
+                              name="password"
+                              class="w-full px-5 py-2.5 text-base font-medium bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 focus:border-primary"
+                              />
+                        </div>
+                     </div>
+                     <div class="w-full px-2">
+                        <button
+                           class="flex items-center justify-center w-full px-3 py-3 text-sm font-medium text-white rounded-md bg-primary hover:bg-blue-dark"
+                           >
+                        Create Account
+                        </button>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- ====== Hero Section End -->
+
+
+<!-- ====== Services Section Start -->
+<section class="bg-gray-2 dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+    <div class="container mx-auto">
+       <div class="-mx-4 flex flex-wrap">
+          <div class="w-full px-4">
+             <div class="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-[70px]">
+                <span class="text-primary mb-2 block text-lg font-semibold">
+                Project Planing
+                </span>
+                <h2
+                   class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
+                   >
+                   What we do for you?
+                </h2>
+                <p class="text-body-color text-base dark:text-dark-6">
+                   There are many variations of passages of Lorem Ipsum available
+                   but the majority have suffered alteration in some form.
+                </p>
+             </div>
+          </div>
+       </div>
+       <div class="-mx-4 flex flex-wrap justify-center">
+          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+             <div
+                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                >
+                <div
+                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                   >
+                   1
+                </div>
+                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                   RESEARCH
+                </h4>
+                <p class="text-body-color dark:text-dark-6 text-base">
+                   Lorem ipsum dolor amet adipiscing eiusmod.
+                </p>
+                <span
+                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                   ></span>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+             <div
+                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                >
+                <div
+                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                   >
+                   2
+                </div>
+                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                   SKETCHES
+                </h4>
+                <p class="text-body-color dark:text-dark-6 text-base">
+                   Lorem ipsum dolor amet adipiscing eiusmod.
+                </p>
+                <span
+                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                   ></span>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+             <div
+                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                >
+                <div
+                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                   >
+                   3
+                </div>
+                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                   CONCEPT
+                </h4>
+                <p class="text-body-color dark:text-dark-6 text-base">
+                   Lorem ipsum dolor amet adipiscing eiusmod.
+                </p>
+                <span
+                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                   ></span>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+             <div
+                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                >
+                <div
+                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                   >
+                   4
+                </div>
+                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                   PRESENTATION
+                </h4>
+                <p class="text-body-color dark:text-dark-6 text-base">
+                   Lorem ipsum dolor amet adipiscing eiusmod.
+                </p>
+                <span
+                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                   ></span>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!-- ====== Services Section End -->
+
+<!-- ====== CTA Section Start -->
+<section
+   class="relative z-10 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[120px]"
+   style="background-image: url(https://cdn.tailgrids.com/2.0/image/marketing/images/cta/cta.jpg)"
+   >
+   <span
+      class="absolute left-0 top-0 -z-10 h-full w-full bg-black/80"
+      ></span>
+   <div class="container">
+      <div class="mx-auto max-w-[575px] text-center">
+         <h4
+            class="mb-3 text-lg font-medium text-white sm:text-2xl"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Extra 30% Off Online
+         </h4>
+         <h2
+            class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Summer Season Sale
+         </h2>
+         <p
+            class="text-base text-white"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            vel dolor pellentesque, varius elit quis, malesuada quam.
+         </p>
+         <a
+            href="category.html"
+            class="mt-8 inline-flex rounded bg-primary px-8 py-3 font-semibold text-white hover:bg-opacity-90"
+            >
+         Shop Now
+         </a>
+      </div>
+   </div>
+</section>
+<!-- ====== CTA Section End -->
+
+<!-- ====== Services Section Start -->
+<section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+    <div class="container mx-auto">
+       <div class="-mx-4 mb-10 flex flex-wrap items-end lg:mb-[70px]">
+          <div class="w-full px-4 lg:w-8/12">
+             <div class="mb-5 max-w-[625px]">
+                <span class="text-primary mb-2 block text-lg font-semibold">
+                Project Planing
+                </span>
+                <h2
+                   class="text-3xl leading-[1.2] font-bold text-white sm:text-4xl md:text-[40px]"
+                   >
+                   We help our clients to build There Dream Projects
+                </h2>
+             </div>
+          </div>
+          <div class="w-full px-4 lg:w-4/12">
+             <div class="mb-5 flex lg:justify-end">
+                <a
+                   href="javascript:void(0)"
+                   class="group hover:text-primary text-lg font-medium text-white relative"
+                   >
+                EXPLORE SERVICES
+                <span class="block w-full h-0.5 bg-white absolute left-0 bottom-0 ease-linear duration-300 group-hover:w-full group-hover:bg-primary"></span>
+                </a>
+             </div>
+          </div>
+       </div>
+       <div class="-mx-4 flex flex-wrap justify-center">
+          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+             <div class="mb-10 bg-white dark:bg-dark-2">
+                <a href="javascript:void(0)" class="block w-full">
+                <img
+                   src="https://cdn.tailgrids.com/2.0/image/marketing/images/services/services-06/image-01.jpg"
+                   alt="image"
+                   class="w-full"
+                   />
+                </a>
+                <div class="p-8 sm:p-11 md:p-8 lg:px-6 xl:p-10 2xl:p-11">
+                   <h3>
+                      <a
+                         href="javascript:void(0)"
+                         class="text-dark dark:text-white hover:text-primary mb-4 block text-lg font-bold sm:leading-[35px] sm:text-[22px]"
+                         >
+                      Website Development
+                      </a>
+                   </h3>
+                   <p
+                      class="text-body-color dark:text-dark-6 mb-8 border-b border-stroke dark:border-dark-3 pb-8 text-base"
+                      >
+                      Lorem ipsum is simply dummy text of the printing typesetting
+                      lorem ipsum been dummy text.
+                   </p>
+                   <a
+                      href="javascript:void(0)"
+                      class="text-body-color dark:text-dark-6 hover:text-primary inline-flex items-center text-base"
+                      >
+                      View Details
+                      <span class="ml-3">
+                         <svg 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 20 20" 
+                            fill="none" 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="fill-current"
+                            >
+                            <path 
+                               d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3438 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2812 11.0312 17.2812C11.2187 17.2812 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z" 
+                               fill=""
+                               />
+                         </svg>
+                      </span>
+                   </a>
+                </div>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+             <div class="mb-10 bg-white dark:bg-dark-2">
+                <a href="javascript:void(0)" class="block w-full">
+                <img
+                   src="https://cdn.tailgrids.com/2.0/image/marketing/images/services/services-06/image-02.jpg"
+                   alt="image"
+                   class="w-full"
+                   />
+                </a>
+                <div class="p-8 sm:p-11 md:p-8 lg:px-6 xl:p-10 2xl:p-11">
+                   <h3>
+                      <a
+                         href="javascript:void(0)"
+                         class="text-dark dark:text-white hover:text-primary mb-4 block text-lg font-bold sm:leading-[35px] sm:text-[22px]"
+                         >
+                      Graphic Design
+                      </a>
+                   </h3>
+                   <p
+                      class="text-body-color dark:text-dark-6 mb-8 border-b border-stroke dark:border-dark-3 pb-8 text-base"
+                      >
+                      Lorem ipsum is simply dummy text of the printing typesetting
+                      lorem ipsum been dummy text.
+                   </p>
+                   <a
+                      href="javascript:void(0)"
+                      class="text-body-color dark:text-dark-6 hover:text-primary inline-flex items-center text-base"
+                      >
+                      View Details
+                      <span class="ml-3">
+                         <svg 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 20 20" 
+                            fill="none" 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="fill-current"
+                            >
+                            <path 
+                               d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3438 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2812 11.0312 17.2812C11.2187 17.2812 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z" 
+                               fill=""
+                               />
+                         </svg>
+                      </span>
+                   </a>
+                </div>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+             <div class="mb-10 bg-white dark:bg-dark-2">
+                <a href="javascript:void(0)" class="block w-full">
+                <img
+                   src="https://cdn.tailgrids.com/2.0/image/marketing/images/services/services-06/image-03.jpg"
+                   alt="image"
+                   class="w-full"
+                   />
+                </a>
+                <div class="p-8 sm:p-11 md:p-8 lg:px-6 xl:p-10 2xl:p-11">
+                   <h3>
+                      <a
+                         href="javascript:void(0)"
+                         class="text-dark dark:text-white hover:text-primary mb-4 block text-lg font-bold sm:leading-[35px] sm:text-[22px]"
+                         >
+                      App Development
+                      </a>
+                   </h3>
+                   <p
+                      class="text-body-color dark:text-dark-6 mb-8 border-b border-stroke dark:border-dark-3 pb-8 text-base"
+                      >
+                      Lorem ipsum is simply dummy text of the printing typesetting
+                      lorem ipsum been dummy text.
+                   </p>
+                   <a
+                      href="javascript:void(0)"
+                      class="text-body-color dark:text-dark-6 hover:text-primary inline-flex items-center text-base"
+                      >
+                      View Details
+                      <span class="ml-3">
+                         <svg 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 20 20" 
+                            fill="none" 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="fill-current"
+                            >
+                            <path 
+                               d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3438 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2812 11.0312 17.2812C11.2187 17.2812 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z" 
+                               fill=""
+                               />
+                         </svg>
+                      </span>
+                   </a>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!-- ====== Services Section End -->
+
+
+@endsection
