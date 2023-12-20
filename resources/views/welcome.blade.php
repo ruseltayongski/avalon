@@ -1,3 +1,14 @@
+@section('css')
+<style>
+    .background-rgb {
+        background: linear-gradient(to right, rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85), rgba(192, 214, 228, 0.85));
+    }
+    .what-we-do {
+      background: linear-gradient(to right, rgba(192, 214, 228, 0.85), rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85));
+    }
+  </style>
+@endsection
+
 @extends('layouts.app')
 
 @section('content')
@@ -103,9 +114,9 @@
    }
    "
    class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
-   style="background-image: url('{{ asset('/images/hero-image-07.jpg') }}')"
+   style="background-image: url('{{ asset('/images/hero.png') }}')"
    >
-   <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%]"></div>
+   <div class="absolute top-0 left-0 -z-10 h-full w-full {{-- bg-[#090E34]/[85%] --}} background-rgb"></div>
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center -mx-4">
          <div class="w-full px-4 lg:w-1/2">
@@ -336,9 +347,9 @@
 
 
 <!-- ====== Services Section Start -->
-<section class="bg-gray-2 dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+<section class="{{-- bg-gray-2 dark:bg-dark --}} what-we-do pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
     <div class="container mx-auto">
-       <div class="-mx-4 flex flex-wrap">
+      {{--  <div class="-mx-4 flex flex-wrap">
           <div class="w-full px-4">
              <div class="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-[70px]">
                 <span class="text-primary mb-2 block text-lg font-semibold">
@@ -355,88 +366,159 @@
                 </p>
              </div>
           </div>
+       </div> --}}
+       <div class="mb-24">
+         <div class="-mx-4 flex flex-wrap items-center justify-center">
+            <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
+               <div>
+                 <img
+                   src="{{ asset('/images/astronaut.png') }}"
+                   alt="Recent Product"
+                   class="w-full h-auto rounded-md"
+                 />
+               </div>
+             </div>
+           <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
+            <div class="mx-auto mb-[60px] max-w-[510px] lg:mb-[70px]">
+               <h2
+                  class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
+                  >
+                  What we do for you?
+               </h2>
+               <p class="text-body-color text-base dark:text-white">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu sit amet ligula feugiat eleifend.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu sit amet ligula feugiat eleifend.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu sit amet ligula feugiat eleifend.
+               </p>
+            </div>
+           </div>
+           
+         </div>
        </div>
        <div class="-mx-4 flex flex-wrap justify-center">
-          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-             <div
-                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                >
-                <div
-                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
-                   >
-                   1
-                </div>
-                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
-                   RESEARCH
-                </h4>
-                <p class="text-body-color dark:text-dark-6 text-base">
-                   Lorem ipsum dolor amet adipiscing eiusmod.
-                </p>
-                <span
-                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
-                   ></span>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-             <div
-                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                >
-                <div
-                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
-                   >
-                   2
-                </div>
-                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
-                   SKETCHES
-                </h4>
-                <p class="text-body-color dark:text-dark-6 text-base">
-                   Lorem ipsum dolor amet adipiscing eiusmod.
-                </p>
-                <span
-                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
-                   ></span>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-             <div
-                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                >
-                <div
-                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
-                   >
-                   3
-                </div>
-                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
-                   CONCEPT
-                </h4>
-                <p class="text-body-color dark:text-dark-6 text-base">
-                   Lorem ipsum dolor amet adipiscing eiusmod.
-                </p>
-                <span
-                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
-                   ></span>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-             <div
-                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                >
-                <div
-                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
-                   >
-                   4
-                </div>
-                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
-                   PRESENTATION
-                </h4>
-                <p class="text-body-color dark:text-dark-6 text-base">
-                   Lorem ipsum dolor amet adipiscing eiusmod.
-                </p>
-                <span
-                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
-                   ></span>
-             </div>
-          </div>
+         <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+            <div
+               class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+               >
+              
+               <div class="flex mb-3">
+                  <div class="pr-3">
+                     <svg class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"/>
+                      </svg>
+                  </div>
+                  <div class="w-5/6">
+                     <h3>
+                        <a
+                           href="javascript:void(0)"
+                           class="mb-3 text-lg font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
+                           >
+                           
+                           
+                           Lorem ipsum dolor sit amet
+                        </a>
+                     </h3>
+                  </div>
+               </div>
+               <p
+                  class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6"
+                  >
+                  Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona
+                  fringilla goes scelerisque Interdum et.
+               </p>
+               <a
+                  href="javascript:void(0)"
+                  class="inline-flex items-center px-4 py-2 font-semibold text-white rounded bg-primary hover:bg-opacity-90"
+                  >
+               Learn More
+               </a>
+               <span
+                  class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                  ></span>
+            </div>
+         </div>
+         <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+            <div
+               class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+               >
+              
+               <div class="flex mb-3">
+                  <div class="pr-3">
+                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                        <path d="M17 16h-1V2a1 1 0 1 0 0-2H2a1 1 0 0 0 0 2v14H1a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM5 4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4Zm0 5V8a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1Zm6 7H7v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3Zm2-7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1Zm0-4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1Z"/>
+                      </svg>
+                  </div>
+                  <div class="w-5/6">
+                     <h3>
+                        <a
+                           href="javascript:void(0)"
+                           class="mb-3 text-lg font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
+                           >
+                           
+                           
+                           Lorem ipsum dolor sit amet
+                        </a>
+                     </h3>
+                  </div>
+               </div>
+               <p
+                  class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6"
+                  >
+                  Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona
+                  fringilla goes scelerisque Interdum et.
+               </p>
+               <a
+                  href="javascript:void(0)"
+                  class="inline-flex items-center px-4 py-2 font-semibold text-white rounded bg-primary hover:bg-opacity-90"
+                  >
+               Learn More
+               </a>
+               <span
+                  class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                  ></span>
+            </div>
+         </div>
+         <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+            <div
+               class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+               >
+              
+               <div class="flex mb-3">
+                  <div class="pr-3">
+                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"/>
+                      </svg>
+                  </div>
+                  <div class="w-5/6">
+                     <h3>
+                        <a
+                           href="javascript:void(0)"
+                           class="mb-3 text-lg font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
+                           >
+                           
+                           
+                           Lorem ipsum dolor sit amet
+                        </a>
+                     </h3>
+                  </div>
+               </div>
+               <p
+                  class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6"
+                  >
+                  Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona
+                  fringilla goes scelerisque Interdum et.
+               </p>
+               <a
+                  href="javascript:void(0)"
+                  class="inline-flex items-center px-4 py-2 font-semibold text-white rounded bg-primary hover:bg-opacity-90"
+                  >
+               Learn More
+               </a>
+               <span
+                  class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                  ></span>
+            </div>
+         </div>
        </div>
     </div>
  </section>
