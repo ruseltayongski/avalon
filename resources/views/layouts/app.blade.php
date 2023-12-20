@@ -13,6 +13,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css'])
+    
+    @yield('css')
 </head>
 <body>
     <div id="app">
