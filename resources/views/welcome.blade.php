@@ -1,12 +1,41 @@
 @section('css')
 <style>
-    .background-rgb {
-        background: linear-gradient(to right, rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85), rgba(192, 214, 228, 0.85));
-    }
-    .what-we-do {
+   .background-rgb {
+      background: linear-gradient(to right, rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85), rgba(192, 214, 228, 0.85));
+   }
+
+   .what-we-do {
       background: linear-gradient(to right, rgba(192, 214, 228, 0.85), rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85));
-    }
-  </style>
+   }
+
+   .flex a svg {
+      transition: transform 0.3s ease;
+   }
+
+   .flex a:hover svg {
+      transform: translateY(-55px);
+   }
+
+   .flex a:hover {
+      cursor: pointer;
+      filter: brightness(1.2);
+   }
+
+   .flex:hover #svg-description {
+      opacity: 1;
+      color: white;
+   }
+
+   #svg-description {
+      opacity: 0;
+      /* transition: opacity 0.5s ease-in-out; */
+      margin-top:10px;
+   }
+
+   .flex a:not(:hover) #svg-description {
+      opacity: 0;
+   }
+</style>
 @endsection
 
 @extends('layouts.app')
@@ -62,7 +91,7 @@
                            href="javascript:void(0)"
                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
                            >
-                        About Us
+                        Home
                         </a>
                      </li>
                      <li>
@@ -70,7 +99,7 @@
                            href="javascript:void(0)"
                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
                            >
-                        Features
+                        About
                         </a>
                      </li>
                      <li>
@@ -78,7 +107,7 @@
                            href="javascript:void(0)"
                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
                            >
-                        Pricing
+                        Service
                         </a>
                      </li>
                      <li>
@@ -86,7 +115,7 @@
                            href="javascript:void(0)"
                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
                            >
-                        Support
+                        Contact
                         </a>
                      </li>
                   </ul>
@@ -95,9 +124,9 @@
             <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
                <a
                   href="javascript:void(0)"
-                  class="py-3 text-base font-medium bg-white rounded-md shadow-1 dark:shadow-none px-7 text-primary hover:bg-gray-2 hover:text-body-color"
+                  class="border-white dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white dark:text-white hover:bg-gray-4 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
                   >
-               Get Started
+                  Get Started
                </a>
             </div>
          </div>
@@ -341,6 +370,218 @@
             </div>
          </div>
       </div>
+
+      {{-- <div class="flex mt-24 relative" style="justify-content: center; align-items: center;">
+         <a href="javascript:void(0)" class="flex z-10 justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6 ">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+               <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+               <g id="SVGRepo_iconCarrier">
+                     <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+               </g>
+            </svg>
+         </a>
+         <p style="position: absolute;" id='svg-description'>hahaha</p>
+      </div> --}}
+
+      <!-- ====== Horizontal Menu Section Start -->
+      <header x-data="{navbarOpen: false}" class="pt-24 -mb-10">
+         <div class="mx-auto w-full">
+            <div class="flex justify-between xl:px-[30px] p-4">
+               <div class="flex w-full items-center justify-between">
+                  <div class="flex w-full" >
+                     <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
+                        <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white">
+                           <svg 
+                              width="21" 
+                              height="20" 
+                              viewBox="0 0 21 20" 
+                              fill="none" 
+                              xmlns="http://www.w3.org/2000/svg" 
+                              class="fill-current"
+                              >
+                              <g clip-path="url(#clip0_1052_7440)">
+                                 <path 
+                                    d="M19.3854 9.3125H1.88538C1.51038 9.3125 1.16663 9.625 1.16663 10.0312C1.16663 10.4062 1.47913 10.75 1.88538 10.75H19.3854C19.7604 10.75 20.1041 10.4375 20.1041 10.0312C20.1041 9.625 19.7604 9.3125 19.3854 9.3125Z" 
+                                    />
+                                 <path 
+                                    d="M19.3854 14.625H1.88538C1.51038 14.625 1.16663 14.9375 1.16663 15.3437C1.16663 15.75 1.47913 16.0625 1.88538 16.0625H19.3854C19.7604 16.0625 20.1041 15.75 20.1041 15.3437C20.1041 14.9375 19.7604 14.625 19.3854 14.625Z" 
+                                    />
+                                 <path 
+                                    d="M1.88538 5.375H19.3854C19.7604 5.375 20.1041 5.0625 20.1041 4.65625C20.1041 4.25 19.7916 3.9375 19.3854 3.9375H1.88538C1.51038 3.9375 1.16663 4.25 1.16663 4.65625C1.16663 5.0625 1.51038 5.375 1.88538 5.375Z" 
+                                    />
+                              </g>
+                              <defs>
+                                 <clipPath id="clip0_1052_7440">
+                                    <rect width="20" height="20" fill="white" transform="translate(0.635376)"/>
+                                 </clipPath>
+                              </defs>
+                           </svg>
+                        </button>
+                        <nav
+                           :class="navbarOpen ? 'visible opacity-100 top-full' : 'invisible opacity-0 top-[120%]'"
+                           class="absolute left-0 mt-2 w-[250px] rounded bg-primary shadow-card-2 duration-200"
+                           >
+                           <ul class="space-y-5 py-6 px-5">
+                              <li>
+                                 <a
+                                    href="javascript:void(0)"
+                                    class="relative block text-sm font-medium text-white opacity-70 duration-200 hover:opacity-100"
+                                    >
+                                 Dashboard
+                                 </a>
+                              </li>
+                              <li>
+                                 <a
+                                    href="javascript:void(0)"
+                                    class="relative block text-sm font-medium text-white opacity-70 duration-200 hover:opacity-100"
+                                    >
+                                 Products
+                                 </a>
+                              </li>
+                              <li>
+                                 <a
+                                    href="javascript:void(0)"
+                                    class="relative block text-sm font-medium text-white opacity-70 duration-200 hover:opacity-100"
+                                    >
+                                 Analytics
+                                 </a>
+                              </li>
+                              <li>
+                                 <a
+                                    href="javascript:void(0)"
+                                    class="relative block text-sm font-medium text-white opacity-70 duration-200 hover:opacity-100"
+                                    >
+                                 Support
+                                 </a>
+                              </li>
+                           </ul>
+                        </nav>
+                     </div>
+                     <div class="hidden md:block w-full">
+                        <nav>
+                           <ul class="flex space-x-[30px] justify-center">
+                              @for ($i=0; $i<12; $i++)
+                              <li>
+                                 <div class="relative">
+                                    <a href="javascript:void(0)" class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6 ">
+                                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                                          <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                                       </svg>
+                                       <p style="position: absolute;" id='svg-description'>hahaha</p>
+                                    </a>
+                                 </div>
+                              </li>
+                              @endfor
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- ====== Horizontal Menu Section End -->
+
+
+      {{-- <div class="flex items-center justify-between w-full px-4">
+         <div class="w-full">
+            <nav
+               id="navbarCollapse"
+               class="absolute right-4 top-full w-full max-w-[250px] justify-center rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:flex lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:px-0 lg:shadow-none"
+               >
+               <ul class="items-center block lg:flex">
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6"
+                        >
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                           <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                        </svg>
+                     </a>
+                  </li>
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6"
+                        >
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                           <g id="SVGRepo_iconCarrier"> <path d="M7.45508 2V3M11.3438 3.61084L10.6366 4.31795M4.27344 10.6821L3.56633 11.3892M1.95508 7.5H2.95508M3.56641 3.61084L4.27351 4.31795M6.50049 9.21251C6.38862 9.15163 6.2832 9.08038 6.18553 9.00006C5.73952 8.63325 5.45508 8.07714 5.45508 7.45459C5.45508 6.35002 6.35051 5.45459 7.45508 5.45459C8.21398 5.45459 8.87416 5.87727 9.21303 6.50006C9.29756 6.65541 9.3621 6.82321 9.40319 7M9.8 21C7.14903 21 5 18.9466 5 16.4137C5 14.3144 6.6 12.375 9 12C9.75283 10.274 11.5346 9 13.6127 9C16.2747 9 18.4504 10.9907 18.6 13.5C20.0127 14.0956 21 15.5574 21 17.1402C21 19.2719 19.2091 21 17 21L9.8 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                        </svg>
+                     </a>
+                  </li>
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6"
+                        >
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                           <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                        </svg>
+                     </a>
+                  </li>
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6"
+                        >
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                           <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                        </svg>
+                     </a>
+                  </li>
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6"
+                        >
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                           <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                        </svg>
+                     </a>
+                  </li>
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6"
+                        >
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                           <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                        </svg>
+                     </a>
+                  </li>
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6"
+                        >
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                           <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                        </svg>
+                     </a>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </div> --}}
+
    </div>
 </div>
 <!-- ====== Hero Section End -->
@@ -454,8 +695,6 @@
                            href="javascript:void(0)"
                            class="mb-3 text-lg font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
                            >
-                           
-                           
                            Lorem ipsum dolor sit amet
                         </a>
                      </h3>
@@ -495,8 +734,6 @@
                            href="javascript:void(0)"
                            class="mb-3 text-lg font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
                            >
-                           
-                           
                            Lorem ipsum dolor sit amet
                         </a>
                      </h3>

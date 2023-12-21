@@ -57,38 +57,46 @@
                   class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
                   >
                   <ul class="block lg:flex">
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        About Us
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        Features
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        Pricing
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        Support
-                        </a>
-                     </li>
+                        <li>
+                            <a
+                            href="javascript:void(0)"
+                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                            >
+                            Home
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                            href="javascript:void(0)"
+                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                            >
+                            About
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                            href="javascript:void(0)"
+                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                            >
+                            Services
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                            href="javascript:void(0)"
+                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                            >
+                            Packages
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                               href="javascript:void(0)"
+                               class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                               >
+                            Contact
+                            </a>
+                        </li>
                   </ul>
                </nav>
             </div>
@@ -112,13 +120,14 @@
    videoOpen: false
    }
    "
-   class="relative z-10 bg-cover  pt-[120px] pb-20 md:pt-[150px]"
-   style="background-image: url('{{ asset('/images/hero-image-07.jpg') }}');height:70svh;"
+   class="relative z-10 bg-cover bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
+   style="background-image: url('{{ asset('/images/hero-image-07.jpg') }}');"
    >
    {{-- <div class="absolute top-0 left-0 -z-10 h-full w-full " style="background: linear-gradient(to bottom, rgba(132, 16, 60, 0.85), rgba(186, 119, 109, 0.85));"></div> --}}
    <div class="absolute top-0 left-0 -z-10 h-full w-full background-rgb"></div>
    
-   <div class="container mx-auto mt-20">
+   {{-- <div class="container mx-auto mt-20"> --}}
+   <div class="container mx-auto">
       <div class="flex flex-wrap items-center -mx-4">
         <div class="w-full px-4 lg:w-1/2">
             <div class="mb-16 lg:mb-0">
@@ -235,9 +244,7 @@
 
 
 <!-- ====== Call To Action Section Start -->
-<section
-   class="relative z-10 overflow-hidden bg-primary py-20 lg:py-[50px]"
-   >
+<section class="relative z-10 overflow-hidden bg-primary py-4 lg:py-[15px]">
    <div class="container mx-auto">
       <div class="relative overflow-hidden">
          <div class="flex flex-wrap items-stretch -mx-4">
@@ -398,11 +405,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="w-full px-4 sm:w-2/3 lg:w-4/12 2xl:w-4/12" > <!-- Center this part -->
+            <div class="w-full px-4 sm:w-2/3 lg:w-4/12 2xl:w-4/12" >
                 <div class="w-full mb-10">
                     <a
                         href="javascript:void(0)"
-                        class="mb-6 inline-block max-w-[160px]"
+                        class="mb-6 inline-block max-w-[160px] xl:ml-12"
                         >
                         <img
                             src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
@@ -410,10 +417,10 @@
                             class="max-w-full"
                             />
                     </a>
-                    <p class="text-base mb-7 text-gray-7">
+                    <p class="text-base mb-7 text-gray-7 xl:ml-16">
                         We create digital
                     </p>
-                    <div class="flex items-center -mx-3">
+                    <div class="flex items-center -mx-3 xl:ml-16">
                         <a
                             href="javascript:void(0)"
                             class="px-3 text-gray-7 hover:text-white"
@@ -462,21 +469,6 @@
                                 />
                                 <path
                                 d="M13.5985 3.82184C13.2383 3.82184 12.9336 4.12013 12.9336 4.47266C12.9336 4.82519 13.2383 5.12349 13.5985 5.12349C13.9587 5.12349 14.2634 4.82519 14.2634 4.47266C14.2634 4.12013 13.9864 3.82184 13.5985 3.82184Z"
-                                />
-                            </svg>
-                        </a>
-                        <a
-                            href="javascript:void(0)"
-                            class="px-3 text-gray-7 hover:text-white"
-                            >
-                            <svg
-                                width="18"
-                                height="18"
-                                viewBox="0 0 18 18"
-                                class="fill-current"
-                                >
-                                <path
-                                d="M16.7821 0.947388H1.84847C1.14272 0.947388 0.578125 1.49747 0.578125 2.18508V16.7623C0.578125 17.4224 1.14272 18 1.84847 18H16.7257C17.4314 18 17.996 17.4499 17.996 16.7623V2.15757C18.0525 1.49747 17.4879 0.947388 16.7821 0.947388ZM5.7442 15.4421H3.17528V7.32837H5.7442V15.4421ZM4.44563 6.2007C3.59873 6.2007 2.94944 5.5406 2.94944 4.74297C2.94944 3.94535 3.62696 3.28525 4.44563 3.28525C5.26429 3.28525 5.94181 3.94535 5.94181 4.74297C5.94181 5.5406 5.32075 6.2007 4.44563 6.2007ZM15.4835 15.4421H12.9146V11.509C12.9146 10.5739 12.8864 9.33618 11.5596 9.33618C10.2045 9.33618 10.0069 10.3813 10.0069 11.4265V15.4421H7.438V7.32837H9.95046V8.45605H9.9787C10.3457 7.79594 11.1644 7.13584 12.4347 7.13584C15.0601 7.13584 15.54 8.7861 15.54 11.0414V15.4421H15.4835Z"
                                 />
                             </svg>
                         </a>
