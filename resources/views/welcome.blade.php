@@ -792,7 +792,7 @@
          </p>
          
       </div>
-      <div class="-mx-4 flex flex-wrap justify-center absolute absolute left-0 right-0">
+      <div class="flex flex-wrap justify-center absolute absolute left-0 right-0">
          <div class="w-full px-4 sm:w-1/2 lg:w-1/4 xl:w-1/4">
             <div class="group mb-8 bg-white dark:bg-dark-2">
                <div class="relative">
