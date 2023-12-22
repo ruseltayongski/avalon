@@ -12,7 +12,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <!-- ====== Navbar Section Start -->
 <header
    x-data="
@@ -56,7 +55,7 @@
                   id="navbarCollapse"
                   class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
                   >
-                  <ul class="block lg:flex justify-end" >
+                  <ul class="block lg:flex justify-end ">
                      <li>
                         <a
                         href="javascript:void(0)"
@@ -89,11 +88,6 @@
                   </ul>
                </nav>
             </div>
-            {{-- <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
-               <a href="javascript:void(0)" class="border-white dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white dark:text-white hover:bg-gray-4 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5">
-                  Contact Us
-               </a>
-            </div> --}}
          </div>
       </div>
    </div>

@@ -23,3 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/service',function() {
     return view('service');
 });
+Route::get('/test',function() {
+    return view('test');
+});
