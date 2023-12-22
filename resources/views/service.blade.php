@@ -517,77 +517,95 @@
 @endsection
 
 
-<!-- ====== Cards Section Start -->
-<section class="bg-gray-2 dark:bg-dark pt-20 pb-10 lg:pt-[120px] lg:pb-20">
-    <div class="container mx-auto">
-       <div class="flex flex-wrap justify-center -mx-4">
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-             <div
-                class="mb-10 bg-white border border-stroke dark:bg-dark-2 dark:border-dark-3"
-                >
-                <div class="py-5 border-b border-stroke px-7 dark:border-dark-3">
-                   <h3>
-                      <a
-                         href="javascript:void(0)"
-                         class="inline-block text-lg font-semibold hover:text-primary text-dark dark:text-white sm:text-xl lg:text-lg xl:text-xl"
-                         >
-                      Card Title here
-                      </a>
-                   </h3>
-                </div>
-                <div class="pt-6 px-7 pb-9">
-                   <p class="text-base dark:text-dark-6 text-body-color">
-                      Lorem ipsum dolor sit amet, vehiculaum ero felis loreum
-                      fitiona fringilla goes scelerisque Interdum et.
-                   </p>
-                </div>
+<!-- ====== Stats Section Start -->
+{{-- <section class="bg-gray-2 dark:bg-dark py-20 lg:py-[120px]">
+    <div class="mx-auto px-4 sm:container">
+       <div class="-mx-4 flex flex-wrap items-center">
+          <div class="w-full px-4 lg:w-7/12">
+             <div class="mb-12 max-w-[560px] lg:mb-8">
+                <span
+                   class="mb-4 inline-block rounded bg-primary py-1 px-3 text-base font-medium text-white"
+                   >
+                Some Fun Facts
+                </span>
+                <h2 class="mb-3 text-3xl leading-[1.2] font-bold text-dark dark:text-white md:text-[40px]">
+                   Our achievements
+                </h2>
+                <p class="text-base text-body-color dark:text-dark-6">
+                   There are many variations of passages of Lorem Ipsum available
+                   but the majority have suffered alteration in some form.
+                </p>
              </div>
           </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-             <div
-                class="mb-10 bg-white border border-stroke dark:bg-dark-2 dark:border-dark-3"
-                >
-                <div class="py-5 border-b border-stroke px-7 dark:border-dark-3">
-                   <h3>
-                      <a
-                         href="javascript:void(0)"
-                         class="inline-block text-lg font-semibold hover:text-primary text-dark dark:text-white sm:text-xl lg:text-lg xl:text-xl"
+          <div class="w-full px-4 lg:w-5/12">
+             <div class="-mx-3 flex flex-wrap md:-mx-4">
+                <div class="w-full px-3 xs:w-1/2 md:px-4">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                      >
+                      <h4
+                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
                          >
-                      Card Title here
-                      </a>
-                   </h3>
-                </div>
-                <div class="pt-6 px-7 pb-9">
-                   <p class="dark:text-darm-6 text-base text-body-color">
-                      Lorem ipsum dolor sit amet, vehiculaum ero felis loreum
-                      fitiona fringilla goes scelerisque Interdum et.
-                   </p>
-                </div>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-             <div
-                class="mb-10 bg-white border border-stroke dark:bg-dark-2 dark:border-dark-3"
-                >
-                <div class="py-5 border-b border-stroke px-7 dark:border-dark-3">
-                   <h3>
-                      <a
-                         href="javascript:void(0)"
-                         class="inline-block text-lg font-semibold hover:text-primary text-dark dark:text-white sm:text-xl lg:text-lg xl:text-xl"
+                         56,825
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
                          >
-                      Card Title here
-                      </a>
-                   </h3>
+                         Clients
+                      </p>
+                   </div>
                 </div>
-                <div class="pt-6 px-7 pb-9">
-                   <p class="dark:text-darm-6 text-base text-body-color">
-                      Lorem ipsum dolor sit amet, vehiculaum ero felis loreum
-                      fitiona fringilla goes scelerisque Interdum et.
-                   </p>
+                <div class="w-full px-3 xs:w-1/2 md:px-4">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                      >
+                      <h4
+                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                         >
+                         35,574
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         >
+                         Commits
+                      </p>
+                   </div>
+                </div>
+                <div class="w-full px-3 xs:w-1/2 md:px-4">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                      >
+                      <h4
+                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                         >
+                         570+
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         >
+                         Team Member
+                      </p>
+                   </div>
+                </div>
+                <div class="w-full px-3 xs:w-1/2 md:px-4">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                      >
+                      <h4
+                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                         >
+                         50%
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         >
+                         First Year of use
+                      </p>
+                   </div>
                 </div>
              </div>
           </div>
        </div>
     </div>
- </section>
- <!-- ====== Cards Section End -->
+ </section> --}}
+ <!-- ====== Stats Section End -->
