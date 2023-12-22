@@ -5,7 +5,12 @@
    }
 
    .what-we-do {
-      background: linear-gradient(to right, rgba(192, 214, 228, 0.85), rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85));
+      background: linear-gradient(to left, rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85), rgba(229, 240, 247, 0.85));
+
+   }
+
+   .card-bg {
+      background-color: rgba(79, 117, 155, 0.85);
    }
 
    .flex a svg {
@@ -506,11 +511,11 @@
           <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
            <div class="mx-auto mb-[60px] max-w-[510px] lg:mb-[70px]">
               <h2
-                 class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
+                 class="text-white dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
                  >
-                 What we do for you?
+                 What We Do?
               </h2>
-              <p class="text-body-color text-base dark:text-white">
+              <p class="text-body-color text-base dark:text-white text-white">
                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu sit amet ligula feugiat eleifend.
                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu sit amet ligula feugiat eleifend.
                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere arcu sit amet ligula feugiat eleifend.
@@ -521,14 +526,14 @@
         </div>
       </div>
       <div class="-mx-4 flex flex-wrap justify-center">
-        <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
            <div
-              class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+              class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
               >
              
               <div class="flex mb-3">
                  <div class="pr-3">
-                    <svg class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                    <svg class="text-gray-800 dark:text-white text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"/>
                      </svg>
                  </div>
@@ -536,7 +541,7 @@
                     <h3>
                        <a
                           href="javascript:void(0)"
-                          class="mb-3 text-lg font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
+                          class="mb-3 text-lg font-bold leading-tight text-white hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
                           >
                           
                           
@@ -546,7 +551,7 @@
                  </div>
               </div>
               <p
-                 class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6"
+                 class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6 text-white"
                  >
                  Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona
                  fringilla goes scelerisque Interdum et.
@@ -562,14 +567,14 @@
                  ></span>
            </div>
         </div>
-        <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
            <div
-              class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+              class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white card-bg dark:bg-dark-2 py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
               >
              
               <div class="flex mb-3">
                  <div class="pr-3">
-                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                        <path d="M17 16h-1V2a1 1 0 1 0 0-2H2a1 1 0 0 0 0 2v14H1a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM5 4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4Zm0 5V8a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1Zm6 7H7v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3Zm2-7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1Zm0-4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1Z"/>
                      </svg>
                  </div>
@@ -577,7 +582,7 @@
                     <h3>
                        <a
                           href="javascript:void(0)"
-                          class="mb-3 text-lg font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
+                          class="mb-3 text-lg font-bold leading-tight hover:text-primary text-white text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
                           >
                           Lorem ipsum dolor sit amet
                        </a>
@@ -585,7 +590,7 @@
                  </div>
               </div>
               <p
-                 class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6"
+                 class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6 text-white"
                  >
                  Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona
                  fringilla goes scelerisque Interdum et.
@@ -601,14 +606,14 @@
                  ></span>
            </div>
         </div>
-        <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+        <div class="w-full px-4 md:w-1/2 xl:w-1/3">
            <div
-              class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+              class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
               >
              
               <div class="flex mb-3">
                  <div class="pr-3">
-                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                        <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"/>
                      </svg>
                  </div>
@@ -616,7 +621,7 @@
                     <h3>
                        <a
                           href="javascript:void(0)"
-                          class="mb-3 text-lg font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
+                          class="mb-3 text-lg text-white font-bold leading-tight hover:text-primary text-dark dark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight"
                           >
                           Lorem ipsum dolor sit amet
                        </a>
@@ -624,7 +629,7 @@
                  </div>
               </div>
               <p
-                 class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6"
+                 class="mb-5 text-base font-medium leading-relaxed text-body-color dark:text-dark-6 text-white"
                  >
                  Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona
                  fringilla goes scelerisque Interdum et.
@@ -710,8 +715,7 @@
             </div>
          </div>
       </div>
-     <div class="mx-auto max-w-[700px] text-center mb-10 mt-24">
-        
+     <div class="mx-auto max-w-[700px] text-center mb-10 mt-24">    
         <h2
            class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
