@@ -763,14 +763,14 @@
 
 <!-- ====== CTA Section Start -->
 <section
-   class="relative z-10 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[120px]"
-   style="background-image: url(https://cdn.tailgrids.com/2.0/image/marketing/images/cta/cta.jpg)"
+   class="relative z-10 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px]"
+   style="background-image: url(https://cdn.tailgrids.com/2.0/image/marketing/images/cta/cta.jpg); height: 30rem;"
    >
    <span
       class="absolute left-0 top-0 -z-10 h-full w-full bg-black/80"
       ></span>
    <div class="container">
-      <div class="mx-auto max-w-[575px] text-center">
+      <div class="mx-auto max-w-[575px] text-center mb-10">
          <h4
             class="mb-3 text-lg font-medium text-white sm:text-2xl"
             style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
@@ -790,45 +790,71 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             vel dolor pellentesque, varius elit quis, malesuada quam.
          </p>
-         <a
-            href="category.html"
-            class="mt-8 inline-flex rounded bg-primary px-8 py-3 font-semibold text-white hover:bg-opacity-90"
-            >
-         Shop Now
-         </a>
+         
+      </div>
+      <div class="-mx-4 flex flex-wrap justify-center absolute absolute left-0 right-0">
+         <div class="w-full px-4 sm:w-1/2 lg:w-1/4 xl:w-1/4">
+            <div class="group mb-8 bg-white dark:bg-dark-2">
+               <div class="relative">
+                  <img
+                     src="https://cdn.tailgrids.com/1.0/assets/images/team/team-06/image-01.jpg"
+                     alt="team image"
+                     class="w-full"
+                     />
+               </div>
+            </div>
+         </div>
+         <div class="w-full px-4 sm:w-1/2 lg:w-1/4 xl:w-1/4">
+            <div class="group mb-8 bg-white dark:bg-dark-2">
+               <div class="relative">
+                  <img
+                     src="https://cdn.tailgrids.com/1.0/assets/images/team/team-06/image-02.jpg"
+                     alt="team image"
+                     class="w-full"
+                     />   
+               </div>
+            </div>
+         </div>
+         <div class="w-full px-4 sm:w-1/2 lg:w-1/4 xl:w-1/4">
+            <div class="group mb-8 bg-white dark:bg-dark-2">
+               <div class="relative">
+                  <img
+                     src="https://cdn.tailgrids.com/1.0/assets/images/team/team-06/image-03.jpg"
+                     alt="team image"
+                     class="w-full"
+                     />
+               </div>
+            </div>
+         </div>
+         
       </div>
    </div>
 </section>
-<!-- ====== CTA Section End -->
 
-<!-- ====== Services Section Start -->
 <section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
     <div class="container mx-auto">
-       <div class="-mx-4 mb-10 flex flex-wrap items-end lg:mb-[70px]">
-          <div class="w-full px-4 lg:w-8/12">
-             <div class="mb-5 max-w-[625px]">
-                <span class="text-primary mb-2 block text-lg font-semibold">
-                Project Planing
-                </span>
-                <h2
-                   class="text-3xl leading-[1.2] font-bold text-white sm:text-4xl md:text-[40px]"
-                   >
-                   We help our clients to build There Dream Projects
-                </h2>
-             </div>
-          </div>
-          <div class="w-full px-4 lg:w-4/12">
-             <div class="mb-5 flex lg:justify-end">
-                <a
-                   href="javascript:void(0)"
-                   class="group hover:text-primary text-lg font-medium text-white relative"
-                   >
-                EXPLORE SERVICES
-                <span class="block w-full h-0.5 bg-white absolute left-0 bottom-0 ease-linear duration-300 group-hover:w-full group-hover:bg-primary"></span>
-                </a>
-             </div>
-          </div>
-       </div>
+      <div class="mx-auto max-w-[575px] text-center mb-10 mt-36">
+         <h4
+            class="mb-3 text-lg font-medium text-white sm:text-2xl"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Extra 30% Off Online
+         </h4>
+         <h2
+            class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Summer Season Sale
+         </h2>
+         <p
+            class="text-base text-white"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            vel dolor pellentesque, varius elit quis, malesuada quam.
+         </p>
+         
+      </div>
        <div class="-mx-4 flex flex-wrap justify-center">
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
              <div class="mb-10 bg-white dark:bg-dark-2">
