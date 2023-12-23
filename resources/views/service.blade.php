@@ -24,7 +24,7 @@
    <div class="container mx-auto">
       <div class="relative flex items-center justify-between -mx-4">
          <div class="max-w-full px-4 w-60">
-            <a href="javascript:void(0)" class="block w-full py-5">
+            <a href="{{ route('welcome') }}" class="block w-full py-5">
             <img
                src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
                alt="logo"
@@ -56,35 +56,40 @@
                   class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
                   >
                   <ul class="block lg:flex justify-end ">
-                     <li>
-                        <a
-                        href="javascript:void(0)"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        Home
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                        href="javascript:void(0)"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        About
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                        href="javascript:void(0)"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        Services
-                        </a>
-                     </li>
-                     <li class="lg:ml-6">
-                        <a href="javascript:void(0)" class="lg:border-white lg:dark:border-dark-2 lg:border rounded-full inline-flex items-center justify-center py-3 lg:px-7 text-center text-base font-medium lg:text-white dark:text-white hover:bg-gray-4 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5">
-                           Contact Us
-                        </a>
-                     </li>
+                        {{-- <li>
+                            <div class="theme-switcher">
+                                <button class="theme-switcher-button theme-switcher-light bg-gray-200 border-gray-200 border-2 dark:bg-black dark:border-black p-2 focus:outline-none" title="Light"><i class="fas fa-sun pointer-events-none"></i> Light</button><button class="theme-switcher-button theme-switcher-dark bg-gray-200 border-gray-200 border-2 dark:bg-black dark:border-black p-2 focus:outline-none" title="Dark"><i class="fas fa-moon pointer-events-none"></i> Dark</button><button class="theme-switcher-button theme-switcher-auto bg-gray-200 border-gray-200 dark:bg-black border-2 dark:border-black p-2 focus:outline-none" title="Auto"><i class="fas fa-adjust pointer-events-none"></i> Auto</button>
+                            </div>
+                        </li> --}}
+                        <li>
+                            <a
+                            href="javascript:void(0)"
+                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                            >
+                            Home
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                            href="javascript:void(0)"
+                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                            >
+                            About
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                            href="javascript:void(0)"
+                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                            >
+                            Services
+                            </a>
+                        </li>
+                        <li class="lg:ml-6">
+                            <a href="javascript:void(0)" class="lg:border-white lg:border rounded-full inline-flex items-center justify-center py-3 lg:px-7 text-center text-base font-medium lg:text-white dark:text-white hover:bg-gray-4 dark:hover:bg-dark-3 disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5">
+                            Contact Us
+                            </a>
+                        </li>
                   </ul>
                </nav>
             </div>
@@ -173,7 +178,7 @@
                         </p>
                         <span class="bg-primary absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"></span>
 
-                        <a href="#" class="text-primary text-left absolute left-10 xl:mt-6 hover:underline">
+                        <a href="#" class="text-white px-4 py-2 bg-primary hover:bg-opacity-90 text-left absolute left-10 xl:mt-6">
                             Learn More
                         </a>
                     </div>
@@ -212,7 +217,7 @@
                         </p>
                         <span class="bg-primary absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"></span>
 
-                        <a href="#" class="text-primary text-left absolute left-10 xl:mt-6 hover:underline">
+                        <a href="#" class="text-white px-4 py-2 bg-primary hover:bg-opacity-90 text-left absolute left-10 xl:mt-6">
                             Learn More
                         </a>
                     </div>
@@ -493,6 +498,5 @@
        </div>
     </div>
 </footer>
- <!-- ====== Footer Section End -->
-
+<!-- ====== Footer Section End -->
 @endsection

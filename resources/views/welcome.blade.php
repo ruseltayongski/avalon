@@ -41,10 +41,6 @@
       opacity: 0;
    }
 
-   #contact-us:hover {
-      color:black;
-   }
-
    .icon-margin-top {
       padding-top: 2rem;
    }
@@ -122,14 +118,14 @@
                      </li>
                      <li>
                         <a
-                        href="javascript:void(0)"
+                        href="{{ route('service') }}"
                         class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
                         >
                         Services
                         </a>
                      </li>
                      <li class="lg:ml-6">
-                        <a href="javascript:void(0)" id="contact-us" class="lg:border-white lg:dark:border-dark-2 lg:border rounded-full inline-flex items-center 
+                        <a href="javascript:void(0)" class="lg:border-white lg:dark:border-white lg:border rounded-full inline-flex items-center 
                               justify-center py-3 lg:px-7 text-center text-base font-medium lg:text-white 
                                dark:text-white hover:bg-gray-4 dark:hover:bg-dark-3 disabled:bg-gray-3
                                 disabled:border-gray-3 disabled:text-dark-5">
@@ -1077,5 +1073,4 @@
    </div>
 </footer>
 <!-- ====== Services Section End -->
-
 @endsection

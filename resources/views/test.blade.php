@@ -7,218 +7,68 @@
 @section('content')
 
 
-<a
-   href="javascript:void(0)"
-   class="bg-secondary border-secondary border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:bg-[#0BB489] hover:border-[#0BB489] disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+<label
+   for="themeSwitcherThree"
+   class="themeSwitcherThree relative inline-flex cursor-pointer select-none items-center"
    >
-   <span class="pr-[10px]">
-      <svg 
-         width="20" 
-         height="20" 
-         viewBox="0 0 20 20" 
-         fill="none" 
-         xmlns="http://www.w3.org/2000/svg"
-         class="fill-current"
-         >
-         <g clip-path="url(#clip0_906_8052)">
-            <path 
-               d="M13.1875 9.28125H10.6875V6.8125C10.6875 6.4375 10.375 6.125 9.96875 6.125C9.59375 6.125 9.28125 6.4375 9.28125 6.84375V9.3125H6.8125C6.4375 9.3125 6.125 9.625 6.125 10.0312C6.125 10.4062 6.4375 10.7187 6.84375 10.7187H9.3125V13.1875C9.3125 13.5625 9.625 13.875 10.0312 13.875C10.4062 13.875 10.7187 13.5625 10.7187 13.1562V10.6875H13.1875C13.5625 10.6875 13.875 10.375 13.875 9.96875C13.875 9.59375 13.5625 9.28125 13.1875 9.28125Z"
-               />
-            <path 
-               d="M10 0.5625C4.78125 0.5625 0.5625 4.78125 0.5625 10C0.5625 15.2188 4.8125 19.4688 10.0312 19.4688C15.25 19.4688 19.5 15.2188 19.5 10C19.4688 4.78125 15.2188 0.5625 10 0.5625ZM10 18.0625C5.5625 18.0625 1.96875 14.4375 1.96875 10C1.96875 5.5625 5.5625 1.96875 10 1.96875C14.4375 1.96875 18.0625 5.5625 18.0625 10C18.0625 14.4375 14.4375 18.0625 10 18.0625Z" 
-               />
-         </g>
-         <defs>
-            <clipPath id="clip0_906_8052">
-               <rect 
-                  width="20" 
-                  height="20" 
-                  fill="white"
-                  />
-            </clipPath>
-         </defs>
-      </svg>
+   <input
+      type="checkbox"
+      name="themeSwitcherThree"
+      id="themeSwitcherThree"
+      class="sr-only"
+      />
+   <span
+      class="mr-[18px] text-sm font-medium text-dark dark:text-white"
+      >
+   Switch Version
    </span>
-   Button
-</a>
-
-
-<!-- ====== Services Section Start -->
-<section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
-    <div class="container mx-auto">
-       <div class="-mx-4 mb-10 flex flex-wrap items-end lg:mb-[70px]">
-          <div class="w-full px-4 lg:w-8/12">
-             <div class="mb-5 max-w-[625px]">
-                <span class="text-primary mb-2 block text-lg font-semibold">
-                Project Planing
-                </span>
-                <h2
-                   class="text-3xl leading-[1.2] font-bold text-white sm:text-4xl md:text-[40px]"
-                   >
-                   We help our clients to build There Dream Projects
-                </h2>
-             </div>
-          </div>
-          <div class="w-full px-4 lg:w-4/12">
-             <div class="mb-5 flex lg:justify-end">
-                <a
-                   href="javascript:void(0)"
-                   class="group hover:text-primary text-lg font-medium text-white relative"
-                   >
-                EXPLORE SERVICES
-                <span class="block w-full h-0.5 bg-white absolute left-0 bottom-0 ease-linear duration-300 group-hover:w-full group-hover:bg-primary"></span>
-                </a>
-             </div>
-          </div>
-       </div>
-       <div class="-mx-4 flex flex-wrap justify-center">
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-             <div class="mb-10 bg-white dark:bg-dark-2">
-                <a href="javascript:void(0)" class="block w-full">
-                <img
-                   src="https://cdn.tailgrids.com/2.0/image/marketing/images/services/services-06/image-01.jpg"
-                   alt="image"
-                   class="w-full"
-                   />
-                </a>
-                <div class="p-8 sm:p-11 md:p-8 lg:px-6 xl:p-10 2xl:p-11">
-                   <h3>
-                      <a
-                         href="javascript:void(0)"
-                         class="text-dark dark:text-white hover:text-primary mb-4 block text-lg font-bold sm:leading-[35px] sm:text-[22px]"
-                         >
-                      Website Development
-                      </a>
-                   </h3>
-                   <p
-                      class="text-body-color dark:text-dark-6 mb-8 border-b border-stroke dark:border-dark-3 pb-8 text-base"
-                      >
-                      Lorem ipsum is simply dummy text of the printing typesetting
-                      lorem ipsum been dummy text.
-                   </p>
-                   <a
-                      href="javascript:void(0)"
-                      class="text-body-color dark:text-dark-6 hover:text-primary inline-flex items-center text-base"
-                      >
-                      View Details
-                      <span class="ml-3">
-                         <svg 
-                            width="20" 
-                            height="20" 
-                            viewBox="0 0 20 20" 
-                            fill="none" 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            class="fill-current"
-                            >
-                            <path 
-                               d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3438 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2812 11.0312 17.2812C11.2187 17.2812 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z" 
-                               fill=""
-                               />
-                         </svg>
-                      </span>
-                   </a>
-                </div>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-             <div class="mb-10 bg-white dark:bg-dark-2">
-                <a href="javascript:void(0)" class="block w-full">
-                <img
-                   src="https://cdn.tailgrids.com/2.0/image/marketing/images/services/services-06/image-02.jpg"
-                   alt="image"
-                   class="w-full"
-                   />
-                </a>
-                <div class="p-8 sm:p-11 md:p-8 lg:px-6 xl:p-10 2xl:p-11">
-                   <h3>
-                      <a
-                         href="javascript:void(0)"
-                         class="text-dark dark:text-white hover:text-primary mb-4 block text-lg font-bold sm:leading-[35px] sm:text-[22px]"
-                         >
-                      Graphic Design
-                      </a>
-                   </h3>
-                   <p
-                      class="text-body-color dark:text-dark-6 mb-8 border-b border-stroke dark:border-dark-3 pb-8 text-base"
-                      >
-                      Lorem ipsum is simply dummy text of the printing typesetting
-                      lorem ipsum been dummy text.
-                   </p>
-                   <a
-                      href="javascript:void(0)"
-                      class="text-body-color dark:text-dark-6 hover:text-primary inline-flex items-center text-base"
-                      >
-                      View Details
-                      <span class="ml-3">
-                         <svg 
-                            width="20" 
-                            height="20" 
-                            viewBox="0 0 20 20" 
-                            fill="none" 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            class="fill-current"
-                            >
-                            <path 
-                               d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3438 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2812 11.0312 17.2812C11.2187 17.2812 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z" 
-                               fill=""
-                               />
-                         </svg>
-                      </span>
-                   </a>
-                </div>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-             <div class="mb-10 bg-white dark:bg-dark-2">
-                <a href="javascript:void(0)" class="block w-full">
-                <img
-                   src="https://cdn.tailgrids.com/2.0/image/marketing/images/services/services-06/image-03.jpg"
-                   alt="image"
-                   class="w-full"
-                   />
-                </a>
-                <div class="p-8 sm:p-11 md:p-8 lg:px-6 xl:p-10 2xl:p-11">
-                   <h3>
-                      <a
-                         href="javascript:void(0)"
-                         class="text-dark dark:text-white hover:text-primary mb-4 block text-lg font-bold sm:leading-[35px] sm:text-[22px]"
-                         >
-                      App Development
-                      </a>
-                   </h3>
-                   <p
-                      class="text-body-color dark:text-dark-6 mb-8 border-b border-stroke dark:border-dark-3 pb-8 text-base"
-                      >
-                      Lorem ipsum is simply dummy text of the printing typesetting
-                      lorem ipsum been dummy text.
-                   </p>
-                   <a
-                      href="javascript:void(0)"
-                      class="text-body-color dark:text-dark-6 hover:text-primary inline-flex items-center text-base"
-                      >
-                      View Details
-                      <span class="ml-3">
-                         <svg 
-                            width="20" 
-                            height="20" 
-                            viewBox="0 0 20 20" 
-                            fill="none" 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            class="fill-current"
-                            >
-                            <path 
-                               d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3438 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2812 11.0312 17.2812C11.2187 17.2812 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z" 
-                               fill=""
-                               />
-                         </svg>
-                      </span>
-                   </a>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
- </section>
- <!-- ====== Services Section End -->
+   <div
+      class="shadow-two flex h-[46px] w-[82px] items-center justify-center rounded-md bg-white dark:bg-dark-2"
+      >
+      <span
+         class="light bg-primary flex h-9 w-9 items-center justify-center rounded text-white"
+         >
+         <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <g clip-path="url(#clip0_3128_692)">
+               <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M8 0C8.36819 0 8.66667 0.298477 8.66667 0.666667V2C8.66667 2.36819 8.36819 2.66667 8 2.66667C7.63181 2.66667 7.33333 2.36819 7.33333 2V0.666667C7.33333 0.298477 7.63181 0 8 0ZM8 5.33333C6.52724 5.33333 5.33333 6.52724 5.33333 8C5.33333 9.47276 6.52724 10.6667 8 10.6667C9.47276 10.6667 10.6667 9.47276 10.6667 8C10.6667 6.52724 9.47276 5.33333 8 5.33333ZM4 8C4 5.79086 5.79086 4 8 4C10.2091 4 12 5.79086 12 8C12 10.2091 10.2091 12 8 12C5.79086 12 4 10.2091 4 8ZM8.66667 14C8.66667 13.6318 8.36819 13.3333 8 13.3333C7.63181 13.3333 7.33333 13.6318 7.33333 14V15.3333C7.33333 15.7015 7.63181 16 8 16C8.36819 16 8.66667 15.7015 8.66667 15.3333V14ZM2.3411 2.3424C2.60145 2.08205 3.02356 2.08205 3.28391 2.3424L4.23057 3.28906C4.49092 3.54941 4.49092 3.97152 4.23057 4.23187C3.97022 4.49222 3.54811 4.49222 3.28776 4.23187L2.3411 3.28521C2.08075 3.02486 2.08075 2.60275 2.3411 2.3424ZM12.711 11.7682C12.4506 11.5078 12.0285 11.5078 11.7682 11.7682C11.5078 12.0285 11.5078 12.4506 11.7682 12.711L12.7148 13.6577C12.9752 13.918 13.3973 13.918 13.6577 13.6577C13.918 13.3973 13.918 12.9752 13.6577 12.7148L12.711 11.7682ZM0 8C0 7.63181 0.298477 7.33333 0.666667 7.33333H2C2.36819 7.33333 2.66667 7.63181 2.66667 8C2.66667 8.36819 2.36819 8.66667 2 8.66667H0.666667C0.298477 8.66667 0 8.36819 0 8ZM14 7.33333C13.6318 7.33333 13.3333 7.63181 13.3333 8C13.3333 8.36819 13.6318 8.66667 14 8.66667H15.3333C15.7015 8.66667 16 8.36819 16 8C16 7.63181 15.7015 7.33333 15.3333 7.33333H14ZM4.23057 11.7682C4.49092 12.0285 4.49092 12.4506 4.23057 12.711L3.28391 13.6577C3.02356 13.918 2.60145 13.918 2.3411 13.6577C2.08075 13.3973 2.08075 12.9752 2.3411 12.7148L3.28776 11.7682C3.54811 11.5078 3.97022 11.5078 4.23057 11.7682ZM13.6577 3.28521C13.918 3.02486 13.918 2.60275 13.6577 2.3424C13.3973 2.08205 12.9752 2.08205 12.7148 2.3424L11.7682 3.28906C11.5078 3.54941 11.5078 3.97152 11.7682 4.23187C12.0285 4.49222 12.4506 4.49222 12.711 4.23187L13.6577 3.28521Z"
+                  fill="currentColor"
+                  />
+            </g>
+            <defs>
+               <clipPath id="clip0_3128_692">
+                  <rect width="16" height="16" fill="white" />
+               </clipPath>
+            </defs>
+         </svg>
+      </span>
+      <span
+         class="dark text-body-color flex h-9 w-9 items-center justify-center rounded"
+         >
+         <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <path
+               fill-rule="evenodd"
+               clip-rule="evenodd"
+               d="M8.0547 1.67334C8.18372 1.90227 8.16622 2.18562 8.01003 2.39693C7.44055 3.16737 7.16651 4.11662 7.23776 5.07203C7.30901 6.02744 7.72081 6.92554 8.39826 7.60299C9.07571 8.28044 9.97381 8.69224 10.9292 8.76349C11.8846 8.83473 12.8339 8.5607 13.6043 7.99122C13.8156 7.83502 14.099 7.81753 14.3279 7.94655C14.5568 8.07556 14.6886 8.32702 14.6644 8.58868C14.5479 9.84957 14.0747 11.0512 13.3002 12.053C12.5256 13.0547 11.4818 13.8152 10.2909 14.2454C9.09992 14.6756 7.81108 14.7577 6.57516 14.4821C5.33925 14.2065 4.20738 13.5846 3.312 12.6892C2.41661 11.7939 1.79475 10.662 1.51917 9.42608C1.24359 8.19017 1.32569 6.90133 1.75588 5.71038C2.18606 4.51942 2.94652 3.47561 3.94828 2.70109C4.95005 1.92656 6.15168 1.45335 7.41257 1.33682C7.67423 1.31264 7.92568 1.44442 8.0547 1.67334ZM6.21151 2.96004C5.6931 3.1476 5.20432 3.41535 4.76384 3.75591C3.96242 4.37553 3.35405 5.21058 3.00991 6.16334C2.66576 7.11611 2.60008 8.14718 2.82054 9.13591C3.04101 10.1246 3.5385 11.0301 4.25481 11.7464C4.97111 12.4627 5.87661 12.9602 6.86534 13.1807C7.85407 13.4012 8.88514 13.3355 9.8379 12.9913C10.7907 12.6472 11.6257 12.0388 12.2453 11.2374C12.5859 10.7969 12.8536 10.3081 13.0412 9.78974C12.3391 10.0437 11.586 10.1495 10.8301 10.0931C9.55619 9.99813 8.35872 9.44907 7.45545 8.5458C6.55218 7.64253 6.00312 6.44506 5.90812 5.17118C5.85174 4.4152 5.9575 3.66212 6.21151 2.96004Z"
+               fill="currentColor"
+               />
+         </svg>
+      </span>
+   </div>
+</label>
 
 @endsection
