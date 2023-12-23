@@ -6,6 +6,9 @@
     .background-rgb {
         background: linear-gradient(to right, rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85), rgba(192, 214, 228, 0.85));
     }
+    .card-bg {
+      background-color: rgba(79, 117, 155, 0.85);
+   }
   </style>
 @endsection
 
