@@ -9,5 +9,8 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("tailgrids/plugin")],
+  plugins: [
+    require("tailgrids/plugin"),
+    require('tailwindcss-animated')
+  ],
 }

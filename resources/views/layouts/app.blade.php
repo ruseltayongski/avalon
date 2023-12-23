@@ -19,6 +19,7 @@
 <body>
     <div id="app">
         @yield('content')
+        @include('layouts._footer')
     </div>
     <div class="dark:bg-dark-3 shadow-1 dark:shadow-box-dark fixed bottom-10 right-10 flex h-11 w-11 items-center justify-center rounded bg-white">
         <label for="themeSwitcher" class="inline-flex cursor-pointer items-center" aria-label="themeSwitcher" name="themeSwitcher">
@@ -51,4 +52,5 @@
         </label>
     </div>
 </body>
+@yield('js')
 </html>

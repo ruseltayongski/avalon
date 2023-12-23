@@ -27,7 +27,6 @@ function setActive(selectedButton) {
 
 function getTheme() {
     const localTheme = localStorage.theme;
-    console.log(localTheme)
     // let selectedButton;
 
     if (localTheme === 'dark') {
