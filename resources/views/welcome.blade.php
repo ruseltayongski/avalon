@@ -66,92 +66,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-<!-- ====== Navbar Section Start -->
-<header
-   x-data="
-        {
-        navbarOpen: false,
-        }
-   "
-   class="absolute top-0 left-0 z-50 w-full animate-fade"
-   >
-   <div class="container mx-auto">
-      <div class="relative flex items-center justify-between -mx-4">
-         <div class="max-w-full px-4 w-60">
-            <a href="javascript:void(0)" class="block w-full py-5">
-            <img
-               src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
-               alt="logo"
-               class="w-full"
-               />
-            </a>
-         </div>
-         <div class="flex items-center justify-between w-full px-4">
-            <div class="w-full">
-               <button
-                  @click="navbarOpen = !navbarOpen"
-                  :class="navbarOpen && 'navbarTogglerActive'"
-                  id="navbarToggler"
-                  class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-                  >
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               </button>
-               <nav
-                  :class="!navbarOpen && 'hidden' "
-                  id="navbarCollapse"
-                  class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
-                  >
-                  <ul class="block lg:flex justify-end" >
-                     <li>
-                        <a
-                        href="javascript:void(0)"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        Home
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                        href="javascript:void(0)"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        About
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                        href="{{ route('service') }}"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        Services
-                        </a>
-                     </li>
-                     <li class="lg:ml-6">
-                        <a href="javascript:void(0)" class="lg:border-white lg:dark:border-white lg:border rounded-full inline-flex items-center 
-                              justify-center py-3 lg:px-7 text-center text-base font-medium lg:text-white 
-                               dark:text-white hover:bg-gray-4 dark:hover:bg-dark-3 disabled:bg-gray-3
-                                disabled:border-gray-3 disabled:text-dark-5">
-                           Contact Us
-                        </a>
-                     </li>
-                  </ul>
-               </nav>
-            </div>
-         </div>
-      </div>
-   </div>
-</header>
-<!-- ====== Navbar Section End -->
-
 <!-- ====== Hero Section Start -->
 <div
    x-data="
@@ -159,7 +73,7 @@
    videoOpen: false
    }
    "
-   class="animate-fade-down relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
+   class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
    style="background-image: url('{{ asset('/images/hero.png') }}')"
    >
    <div class="absolute top-0 left-0 -z-10 h-full w-full {{-- bg-[#090E34]/[85%] --}} background-rgb"></div>
@@ -240,8 +154,9 @@
                      <div class="hidden md:block w-full ">
                         <nav >
                            <ul class="flex space-x-[25px] justify-center">
+                              <?php $delay = 0; ?>
                               @for ($i=0; $i<12; $i++)
-                              <li>
+                              <li class="fade-right animate-fade-right animate-delay-{{ $delay }}">
                                  <div class="relative">
                                     <a href="javascript:void(0)" class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6 ">
                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,6 +168,7 @@
                                     </a>
                                  </div>
                               </li>
+                              <?php $delay += 25; ?>
                               @endfor
                            </ul>
                         </nav>
@@ -801,7 +717,7 @@
             <div class="-mx-3 flex flex-wrap md:-mx-4">
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
-                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                      >
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -817,7 +733,7 @@
                </div>
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
-                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                      >
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -833,7 +749,7 @@
                </div>
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
-                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                      >
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -849,7 +765,7 @@
                </div>
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
-                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                      >
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -873,46 +789,44 @@
 
 @section('js')
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var elementIds = ["whatWeDoImage", "whatWeDoText", "digitalMarketer", "digitalAxis", "funFacts"];
-    var elementCards = [];
-    var delayIncrement = 100; // Delay increment in milliseconds
+   document.addEventListener("DOMContentLoaded", function() {
+      var elementIds = ["whatWeDoImage", "whatWeDoText", "digitalMarketer", "digitalAxis", "funFacts"];
+      var elementCards = [];
+      var delayIncrement = 100; // Delay increment in milliseconds
 
-    for (var i = 0; i < 5; i++) {
-      elementCards.push("cards" + i); 
-    }
-
-    var observer = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
-          
-          if (entry.target.classList.contains('fade-right') || entry.target.classList.contains('fun-facts')) {
-            entry.target.classList.add("animate-fade-right");
-          } else if(entry.target.classList.contains('digital-marketer')) {
-            entry.target.classList.add("animate-fade");
-          } else if(entry.target.classList.contains('digital-axis')) {
-            entry.target.classList.add("animate-fade");
-          }
-           else {
-            entry.target.classList.add("animate-fade-up");
-          }
-
-          entry.target.classList.add(delayClass);
-          observer.unobserve(entry.target);
-        } else {
-          entry.target.style.opacity = 0;
-        }
-      });
-    }, { threshold: 0.5 });
-
-    elementIds.concat(elementCards).forEach(function(elementId) {
-      var element = document.getElementById(elementId);
-      if (element) {
-        observer.observe(element);
+      for (var i = 0; i < 5; i++) {
+         elementCards.push("cards" + i); 
       }
-    });
 
+      var observer = new IntersectionObserver(function(entries, observer) {
+         entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+               var delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
+               if (entry.target.classList.contains('fade-right') || entry.target.classList.contains('fun-facts')) {
+                  entry.target.classList.add("animate-fade-right");
+               } else if(entry.target.classList.contains('digital-marketer')) {
+                  entry.target.classList.add("animate-fade");
+               } else if(entry.target.classList.contains('digital-axis')) {
+                  entry.target.classList.add("animate-fade");
+               }
+               else {
+                  entry.target.classList.add("animate-fade-up");
+               }
+
+               entry.target.classList.add(delayClass);
+               observer.unobserve(entry.target);
+            } else {
+               entry.target.style.opacity = 0;
+            }
+         });
+      }, { threshold: 0.5 });
+
+      elementIds.concat(elementCards).forEach(function(elementId) {
+         var element = document.getElementById(elementId);
+         if (element) {
+            observer.observe(element);
+         }
+      });
   });
 </script>
 @endsection
