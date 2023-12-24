@@ -270,8 +270,8 @@
 <!-- ====== About Section Start -->
 <section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
    <div class="container mx-auto">
-      <div class="flex flex-wrap items-center justify-between -mx-4">
-         <div class="w-full px-4 lg:w-6/12">
+      <div class="flex flex-wrap items-center -mx-4">
+         <div class="w-full px-4 lg:w-6/12" id="whatWeDoImage">
             <div class="relative mx-auto flex h-[500px] max-w-[440px]">
                <div class="absolute left-0 z-1 mr-14 max-w-[270px] rounded-lg">
                   <img
@@ -457,9 +457,9 @@
                </div>
             </div>
          </div>
-         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
+         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12" id="whatWeDoText">
             <div class="sm:mt-10 lg:mt-0">
-               <h2 class="mb-11 text-3xl font-bold leading-tight text-[#1d5b80] dark:text-white sm:text-4xl sm:leading-tight md:text-[40px]/[48px]">
+               <h2 class="mb-11 text-3xl font-bold leading-tight text-[#1d5b80] dark:text-white sm:text-4xl sm:leading-tight md:text-[40px]/[48px]t">
                   What We Do?
                </h2>
                <p class="text-base text-body-color dark:text-dark-6 mb-9">
@@ -478,6 +478,7 @@
          x-data="
          {
             slides: ['1','2','3', '4', '5'],
+            activeSlide: 0
          }
          "
          >
@@ -488,7 +489,9 @@
                   x-ref="carousel"
                   >
                   @for($i = 0; $i < 5; $i++)
-                  <div class="mx-auto h-full min-w-[300px] px-4 xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[325px]">
+                  <div 
+                  class="mx-auto h-full min-w-[300px] px-4 xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[325px] fade-right"
+                  id="cards{{ $i }}">
                      <div>
                         <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
                            <div class="flex mb-3">
@@ -573,7 +576,8 @@
 <!-- ====== About Section End -->
 
 <!-- ====== CTA Section Start -->
-<section class="relative z-0 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px]"
+<section class="relative z-0 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px] digital-marketer"
+   id="digitalMarketer"
    style="background-image: url(https://cdn.tailgrids.com/2.0/image/marketing/images/cta/cta.jpg); height: 25rem;">
    <span class="absolute left-0 top-0 -z-10 h-full w-full background-rgb"></span>
    
@@ -772,7 +776,7 @@
          </div>
       </div>
 
-     <div class="mx-auto max-w-[700px] text-center mb-10 mt-24">    
+     <div class="mx-auto max-w-[700px] text-center mb-10 mt-36 digital-axis" id="digitalAxis">    
         <h2
            class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
@@ -786,15 +790,14 @@
            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
            vel dolor pellentesque, varius elit quis, malesuada quam.
         </p>
-        
-        <h2
-           class="mt-24 mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+     </div>
+      <div class="w-full px-4 fun-facts text-center" id="funFacts">
+         <h2
+           class="mt-24 mb-10 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
            >
            Fun Facts
         </h2>
-     </div>
-      <div class="w-full px-4">
             <div class="-mx-3 flex flex-wrap md:-mx-4">
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
@@ -865,4 +868,51 @@
    </div>
 </section>
 
+@endsection
+
+
+@section('js')
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var elementIds = ["whatWeDoImage", "whatWeDoText", "digitalMarketer", "digitalAxis", "funFacts"];
+    var elementCards = [];
+    var delayIncrement = 100; // Delay increment in milliseconds
+
+    for (var i = 0; i < 5; i++) {
+      elementCards.push("cards" + i); 
+    }
+
+    var observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
+          
+          if (entry.target.classList.contains('fade-right') || entry.target.classList.contains('fun-facts')) {
+            entry.target.classList.add("animate-fade-right");
+          } else if(entry.target.classList.contains('digital-marketer')) {
+            entry.target.classList.add("animate-fade");
+          } else if(entry.target.classList.contains('digital-axis')) {
+            entry.target.classList.add("animate-fade");
+          }
+           else {
+            entry.target.classList.add("animate-fade-up");
+          }
+
+          entry.target.classList.add(delayClass);
+          observer.unobserve(entry.target);
+        } else {
+          entry.target.style.opacity = 0;
+        }
+      });
+    }, { threshold: 0.5 });
+
+    elementIds.concat(elementCards).forEach(function(elementId) {
+      var element = document.getElementById(elementId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+  });
+</script>
 @endsection
