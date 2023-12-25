@@ -403,6 +403,7 @@
                <div
                   class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]"
                   x-ref="carousel"
+                  x-on:mouseenter="clearInterval" x-on:mouseleave="startInterval"
                   >
                   @for($i = 0; $i < 5; $i++)
                   <div 
@@ -827,6 +828,29 @@
             observer.observe(element);
          }
       });
+
+      var carousel = document.querySelector('[x-ref="carousel"]');
+var slides = ['1', '2', '3', '4', '5'];
+var activeSlide = 0;
+var intervalId;
+
+function nextSlide() {
+  activeSlide = (activeSlide + 1) % slides.length;
+  carousel.scrollLeft = activeSlide * carousel.clientWidth;
+}
+
+
+function startInterval() {
+   if (!intervalId) {
+      intervalId = setInterval(nextSlide, 5000);
+   }
+}
+
+function clearInterval() {
+   clearInterval(intervalId);
+   intervalId = null;
+}
+
   });
 </script>
 @endsection
