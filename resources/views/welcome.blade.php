@@ -184,7 +184,7 @@
 <!-- ====== Hero Section End -->
 
 <!-- ====== About Section Start -->
-<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] opacity-0" id="section2">
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center -mx-4">
          <div class="w-full px-4 lg:w-6/12" id="whatWeDoImage">
@@ -728,7 +728,6 @@
 
 @endsection
 
-
 @section('js')
 <script>
    document.addEventListener("DOMContentLoaded", function() {
@@ -744,6 +743,8 @@
          entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                var delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
+               var myElement = document.getElementById('section2');
+               myElement.classList.remove('opacity-0');
                if (entry.target.classList.contains('fade-right') || entry.target.classList.contains('fun-facts')) {
                   entry.target.classList.add("animate-fade-right");
                } else if(entry.target.classList.contains('digital-marketer')) {

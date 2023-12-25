@@ -25,4 +25,10 @@
     @include('layouts._themeSwitcher')
 </body>
 @yield('js')
+<script>
+    function triggerModal() {
+        var myElementCheckoutmodal = document.getElementById('checkoutmodal');
+        myElementCheckoutmodal.classList.remove('opacity-0');
+    }
+</script>
 </html>

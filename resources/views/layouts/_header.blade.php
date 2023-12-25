@@ -76,6 +76,7 @@
                            <section x-data="{modalOpen: false}">
                               <button
                                  @click="modalOpen = true"
+                                 onclick="triggerModal()"
                                  type="button"
                                  class="flex h-11 min-w-[44px] items-center justify-center rounded-full bg-[#1d5b80] text-white"
                                  >
@@ -99,6 +100,7 @@
                            <section x-data="{modalOpen: false}">
                               <button
                                  @click="modalOpen = true"
+                                 onclick="triggerModal()"
                                  type="button"
                                  class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
                                  >

@@ -1,5 +1,6 @@
 <div x-show="modalOpen" 
-    class="fixed top-0 left-0 flex 
+    id="checkoutmodal"
+    class="opacity-0 fixed top-0 left-0 flex 
     items-center justify-center w-full h-screen py-10 overflow-y-scroll
      bg-gray-2 dark:bg-dark">
     <div @click.outside="modalOpen = false" class="mx-auto 
