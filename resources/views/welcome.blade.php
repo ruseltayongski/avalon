@@ -572,65 +572,6 @@
    </div>
 </section>
 
-{{-- <section class="pt-20 pb-10 lg:pt-[120px] lg:pb-20 dark:bg-dark hidden sm:block">
-   <div class="container mx-auto">
-      <div class="-mx-4 flex flex-wrap justify-center">
-         @for($i = 0; $i < 3; $i++)
-         <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-            <div class="mx-auto mb-10 w-full max-w-[370px] relative overflow-hidden rounded-l">
-               <div class="relative">
-                  <img
-                     src="https://cdn.tailgrids.com/1.0/assets/images/team/team-01/image-01.jpg"
-                     alt="image"
-                     class="w-full"
-                  />
-                  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-70"></div>
-               </div>
-               <div class="absolute top-5 left-0 w-full text-center">
-                  <div class="relative mx-5 overflow-hidden rounded-lg  py-5 px-3">
-                     <h3 class="text-white dark:text-white text-base font-semibold">
-                        Coriss Ambady
-                     </h3>
-                     <p class="text-dark-6 dark:text-dark-6 text-xs">Web Developer</p>
-                     <div>
-                        <span class="absolute left-0 bottom-0">
-                           <svg
-                              width="61"
-                              height="30"
-                              viewBox="0 0 61 30"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <circle
-                                 cx="16"
-                                 cy="45"
-                                 r="45"
-                                 fill="#13C296"
-                                 fill-opacity="0.11"
-                                 />
-                           </svg>
-                        </span>
-                        <span class="absolute top-0 right-0">
-                           <svg
-                              width="20"
-                              height="25"
-                              viewBox="0 0 20 25"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <!-- SVG circles here -->
-                           </svg>
-                        </span>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         @endfor
-      </div>
-   </div>
-</section> --}}
-
 <!-- ====== Team Section End -->
 <section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
    <div class="container mx-auto">

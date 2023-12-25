@@ -3,20 +3,27 @@
     .dark-background {
       background-color: #182537;
     }
+
     /* .background-rgb {
-        background: linear-gradient(to right, rgba(10, 31, 68, 0.85), rgba(79, 117, 155, 0.85), rgba(192, 214, 228, 0.85));
-    } */
-    .background-rgb {
         background: linear-gradient(
         to right, 
         rgba(29,91,128,0.85),
         rgba(50,118,155,0.85),
         rgba(159,202,218,0.85)
         );
+    } */
+
+    .background-rgb {
+        background: rgb(202,226,238);
+        background: linear-gradient(156deg, rgba(202,226,238,0.85) 0%, rgba(30,88,126,0.85) 100%);
     }
+
     .card-bg {
-      background-color: rgba(79, 117, 155, 0.85);
-   }
+        background-color: rgba(79, 117, 155, 0.85);
+    }
+    .parent-card:hover + .shadow-for-card {
+        opacity: 14%;
+    }
   </style>
 @endsection
 
@@ -70,10 +77,10 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-wrap justify-center -mx-4 ">
+        <div class="flex flex-wrap justify-center -mx-4 opacity-0" id="whatswedocard">
             @for($i = 0; $i < 12; $i++)
-                <div class="w-full px-4 sm:w-4/5 md:w-1/2 lg:w-1/2 mb-8">
-                    <div id="whatswedo{{ $i }}" class="group relative mb-8 rounded-xl border border-stroke dark:border-dark-3 bg-white h-full dark:bg-dark-2 p-10 text-center md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]" >
+                <div class="relative w-full px-4 sm:w-4/5 md:w-1/2 lg:w-1/2 mb-8">
+                    <div id="whatswedo{{ $i }}" class="parent-card group relative mb-8 rounded-xl border border-stroke dark:border-dark-3 bg-white h-full dark:bg-dark-2 p-10 text-center md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]">
                         <div class="relative z-10 inline-flex items-center mx-auto mb-10 h-11">
                             <span class="bg-primary absolute -right-3 top-0 z-[-1] h-[34px] w-[34px] rounded-full opacity-10"></span>
                             <svg
@@ -95,11 +102,11 @@
                         <p class="text-body-color dark:text-dark-6">
                             Lorem Ipsum is simply dummy text of the printing and industry Lorem Ipsum is simply dummy text of the printing and industry.
                         </p>
-                        <span class="bg-primary absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"></span>
                         <a href="#" class="text-[#1d5b80] px-4 py-2 border border-[#1d5b80] hover:bg-opacity-90 left-4 absolute xl:mt-6">
                             Learn More
                         </a>
                     </div>
+                    <span class="bg-primary shadow-for-card absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"></span>
                 </div>    
             @endfor
         </div>
@@ -111,30 +118,32 @@
 @section('js')
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-    // Array of element IDs to be animated
-    var elementIds = [];
-    for(i = 0; i < 12; i++) {
-        elementIds.push("whatswedo"+i);
-    }
+        // Array of element IDs to be animated
+        var elementIds = [];
+        for(i = 0; i < 12; i++) {
+            elementIds.push("whatswedo"+i);
+        }
 
-    // Set up the Intersection Observer
-    var observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(function(entry) {
-            // If the entry is in the viewport
-            if (entry.isIntersecting) {
-                // Get the element and add the animate-jump class
-                var element = entry.target;
-                element.classList.add("fade-right");
-                element.classList.add("animate-fade-right");
-                element.classList.add("animate-delay-100");
+        // Set up the Intersection Observer
+        var observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                // If the entry is in the viewport
+                if (entry.isIntersecting) {
+                    // Get the element and add the animate-jump class
+                    var element = entry.target;
+                    element.classList.add("fade-right");
+                    element.classList.add("animate-fade-right");
+                    element.classList.add("animate-delay-100");
 
-                // Stop observing once the animation is applied
-                observer.unobserve(element);
-            } else {
-               entry.target.style.opacity = 0;
-            }
-        });
-    }, { threshold: 0.5 }); // Adjust the threshold as needed
+                    // Stop observing once the animation is applied
+                    observer.unobserve(element);
+                    var myElement = document.getElementById('whatswedocard');
+                    myElement.classList.remove('opacity-0');
+                } else {
+                    entry.target.style.opacity = 0;
+                }
+            });
+        }, { threshold: 0.5 }); // Adjust the threshold as needed
 
         // Start observing each element with the specified IDs
         elementIds.forEach(function(elementId) {
@@ -143,6 +152,7 @@
                 observer.observe(element);
             }
         });
+
     });
 </script>
   
