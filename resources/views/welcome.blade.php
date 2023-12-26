@@ -60,6 +60,16 @@
          padding-top: 6rem;
       }
    }
+
+   .blog-image {
+      width: 275px;
+      position: absolute;
+      z-index: 10;
+      right: -73px;
+      top: -184px;
+      overflow: hidden;
+
+   }
 </style>
 @endsection
 
@@ -345,21 +355,39 @@
                            />
                      </svg>
                   </span>
-                  <span class="absolute left-5 -bottom-10 z-[-1] sm:left-16">
-                     <svg
-                        width="112"
-                        height="112"
+                  <span class="absolute -left-36 -bottom-20 z-[-1] -sm:left-72">
+                    {{--  <svg
+                     width="600"
+                     height="300"
                         viewBox="0 0 112 112"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                         >
                         <path
-                           fill-rule="evenodd"
-                           clip-rule="evenodd"
+                        d="M100,200
+                        Q250,100 400,200
+                        T600 200"
                            d="M56 96C78.0914 96 96 78.0914 96 56C96 33.9086 78.0914 16 56 16C33.9086 16 16 33.9086 16 56C16 78.0914 33.9086 96 56 96ZM56 112C86.9279 112 112 86.9279 112 56C112 25.0721 86.9279 0 56 0C25.0721 0 0 25.0721 0 56C0 86.9279 25.0721 112 56 112Z"
-                           fill="#13C296"
+                           fill="#1d5b80"
                            />
-                     </svg>
+                     </svg> --}}
+                     <svg xmlns="http://www.w3.org/2000/svg" width="757" height="450" viewBox="0 0 757 450" fill="none">
+                        <g filter="url(#filter0_d)">
+                        <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" stroke="#1d5b80" stroke-width="10" stroke-linecap="round"/>
+                        </g>
+                        <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" stroke="#1d5b80" stroke-width="12" stroke-linecap="round"/>
+                       {{--  <defs>
+                        <filter id="filter0_d" x="1" y="1" width="755" height="447.673" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                        <feOffset dy="10"/>
+                        <feGaussianBlur stdDeviation="5.5"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0.996078 0 0 0 0 0.337255 0 0 0 0 0.376471 0 0 0 0.14 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                        </defs> --}}
+                        </svg>   
                   </span>
                </div>
                <div
@@ -386,6 +414,13 @@
                <p class="text-base text-body-color dark:text-dark-6">
                   Proin gravida nibh vel velit auctor aliquet. aks Aenean
                </p>
+
+               <a
+                  href="javascript:void(0)"
+                  class="mt-10 bg-[#1d5b80] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                  >
+                  About us
+              </a>
             </div>
          </div>
       </div>
@@ -400,6 +435,7 @@
          >
          <div class="relative flex justify-center mt-20">
             <div class="relative w-full">
+               <img src="{{ asset('/images/blob.svg') }}" class="blog-image" alt="">
                <div
                   class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]"
                   x-ref="carousel"
@@ -412,13 +448,14 @@
                         <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
                            <div class="flex mb-3">
                               <div class="pr-3">
-                                 <svg class="text-[#1d5b80] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                                 <svg class="text-[#1d5b80] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"/>
                                   </svg>
                               </div>
+                             
                               <div class="w-5/6">
                                  <h3>
-                                    <a href="javascript:void(0)" class="mb-3 text-lg font-bold leading-tight text-[#1d5b80] dark:text-white hover:text-primardark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight">
+                                    <a href="javascript:void(0)" class="mb-3 text-lg font-bold leading-tight text-[#1d5b80] dark:text-white hover:text-primardark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight text-center">
                                        Lorem ipsum
                                     </a>
                                  </h3>
@@ -484,9 +521,9 @@
          </div>
       </div>
 
-      <div class="w-full px-4">
+      {{-- <div class="w-full px-4">
          <input type="text" class="w-full bg-transparent rounded-md border border-[#1d5b80] dark:border-dark-3 pt-[10px] px-5 text-dark-6 outline-none transition focus:border-[#1d5b80] active:border-[#1d5b80] disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
-      </div>
+      </div> --}}
    </div>
 </section>
 <!-- ====== About Section End -->
