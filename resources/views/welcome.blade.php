@@ -70,6 +70,15 @@
       overflow: hidden;
 
    }
+
+   .bacground-image-hero { 
+      background: url("http://localhost:8000/images/hero1.png") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 100% 100%;;
+      height: 100vh;
+   }
 </style>
 @endsection
 
@@ -77,16 +86,12 @@
 
 @section('content')
 <!-- ====== Hero Section Start -->
-<div
-   x-data="
-   {
-   videoOpen: false
-   }
-   "
-   class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
-   style="background-image: url('{{ asset('/images/hero1.png') }}')"
+<div x-data="{ videoOpen: false }"
+   {{-- class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px] bacground-image-hero" --}}
+   class="z-10 relative pt-[120px] md:pt-[120px] bacground-image-hero"
    >
-   <div class="absolute top-0 left-0 -z-10 h-full w-full {{-- bg-[#090E34]/[85%] --}} background-rgb"></div>
+   {{-- <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div> --}}
+   {{-- <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div> --}}
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center -mx-4">
          <div class="w-full px-4 lg:w-1/2">

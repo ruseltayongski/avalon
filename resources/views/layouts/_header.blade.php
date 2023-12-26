@@ -1,10 +1,6 @@
 <!-- ====== Navbar Section Start -->
 <header
-   x-data="
-        {
-        navbarOpen: false,
-        }
-   "
+   x-data=" { navbarOpen: false }"
    class="absolute top-0 left-0 z-50 w-full animate-fade-down"
    >
    <div class="container mx-auto">
