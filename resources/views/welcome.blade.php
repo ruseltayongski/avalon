@@ -76,7 +76,7 @@
    }
 
    .bacground-image-hero { 
-      background: url("http://localhost:8000/images/hero-image-07.jpg") no-repeat center center fixed; 
+      background: url("http://localhost:8000/images/banner.jpg") no-repeat center center fixed; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
