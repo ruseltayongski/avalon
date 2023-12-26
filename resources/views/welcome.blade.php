@@ -65,7 +65,7 @@
       }
    } */
 
-   .blog-image {
+   .blob-image {
       width: 275px;
       position: absolute;
       z-index: 10;
@@ -445,7 +445,7 @@
          >
          <div class="relative flex justify-center mt-20">
             <div class="relative w-full">
-               <img src="{{ asset('/images/blob.svg') }}" class="blog-image" alt="">
+               <img src="{{ asset('/images/blob.svg') }}" class="blob-image" alt="">
                <div
                   class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]"
                   x-ref="carousel"
