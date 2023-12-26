@@ -118,7 +118,7 @@
    {{-- class="z-10 relative pt-[120px] md:pt-[120px] bacground-image-hero" --}}
    >
    <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div>
-   <div class="container mx-auto h-full flex items-center">
+   <div class="container mx-auto h-full lg:flex lg:items-center">
       <div class="flex flex-wrap items-center -mx-4 ">
          {{-- <div class="w-full px-4 lg:w-1/2"> --}}
          <div class="w-full px-4 ">
@@ -194,7 +194,7 @@
                            </ul>
                         </nav>
                      </div>
-                     <div class="hidden md:block w-full ">
+                     <div class="hidden md:block w-full">
                         <nav >
                            <ul class="flex space-x-[25px] justify-center">
                               <?php $delay = 0; ?>
