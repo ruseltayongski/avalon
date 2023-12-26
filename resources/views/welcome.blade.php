@@ -55,7 +55,7 @@
    .icon-margin-top {
       /* padding-top: 2rem; */
       /* background-color: yellow; */
-      position:absolute;
+      /* position:absolute; */
       bottom: 0;
       padding-bottom: 2rem;
    }
@@ -76,7 +76,7 @@
    }
 
    .bacground-image-hero { 
-      background: url("http://localhost:8000/images/banner.jpg") no-repeat center center fixed; 
+      background: url("{{ asset('/images/banner.jpg') }}") no-repeat center center fixed; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -89,18 +89,28 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- ====== Hero Section Start -->
+<!-- ====== Hero Section Start 768 820-->
 <div 
-   {{-- class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px] bacground-image-hero"> --}}
-   class="z-10 relative pt-[120px] md:pt-[120px] bacground-image-hero"
-   {{-- <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div> --}}
+   x-data="{ isMobile: window.innerWidth <= 1024 }"
+   x-init="() => {
+      window.addEventListener('resize', () => {
+         isMobile = window.innerWidth <= 1024;
+      });
+   }"
+   :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
+   :style="isMobile ? 'background-image: url({{ asset('/images/banner.jpg') }})' : ''"
+   {{-- class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
+   style="background-image: url('{{ asset('/images/hero1.png') }}')" --}}
+   {{-- class="z-10 relative pt-[120px] md:pt-[120px] bacground-image-hero" --}}
    >
-   <div class="container mx-auto">
-      <div class="flex flex-wrap items-center -mx-4">
-         <div class="w-full px-4 lg:w-1/2">
+   <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div>
+   <div class="container mx-auto h-full flex items-center">
+      <div class="flex flex-wrap items-center -mx-4 ">
+         {{-- <div class="w-full px-4 lg:w-1/2"> --}}
+         <div class="w-full px-4 ">
             {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
-            <div class="max-w-[500px] lg:mb-0">   
-               <h1 class="animate-fade-up mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl">
+            <div class="animate-fade-up max-w-[500px] ">   
+               <h1 class="mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl">
                   Let's Us Build Brands<br>
                   Together, Shall We?
                </h1>
@@ -108,8 +118,7 @@
                   <li>
                      <a
                         href="javascript:void(0)"
-                        class="bg-[#103448] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
-                        >
+                        class="bg-[#103448] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5">
                         Get Started
                      </a>
                   </li>
@@ -120,8 +129,8 @@
 
       <!-- ====== Horizontal Menu Section Start -->
       {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
-      <header x-data="{navbarOpen: false}" class="icon-margin-top">
-         <div class="mx-auto w-full ">
+      <header x-data="{navbarOpen: false}" class="icon-margin-top lg:absolute">
+         <div class="mx-auto w-full " :class="{ 'mt-12': isMobile }">
             <div class="flex justify-between ">
                <div class="flex w-full items-center justify-between ">
                   <div class="flex w-full">
