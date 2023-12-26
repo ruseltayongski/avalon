@@ -3,9 +3,9 @@
    .background-rgb {
       background: linear-gradient(
       to right, 
-      rgba(29,91,128,0.85),
-      rgba(50,118,155,0.85),
-      rgba(159,202,218,0.85)
+      rgba(29,91,128,0.3),
+      rgba(50,118,155,0.3),
+      rgba(159,202,218,0.3)
       );
    }
 
@@ -74,7 +74,7 @@
    }
    "
    class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
-   style="background-image: url('{{ asset('/images/hero.png') }}')"
+   style="background-image: url('{{ asset('/images/hero1.png') }}')"
    >
    <div class="absolute top-0 left-0 -z-10 h-full w-full {{-- bg-[#090E34]/[85%] --}} background-rgb"></div>
    <div class="container mx-auto">
@@ -394,7 +394,7 @@
          x-data="
          {
             slides: ['1','2','3', '4', '5'],
-            activeSlide: 0
+            activeSlide: 0,
          }
          "
          >
@@ -403,7 +403,6 @@
                <div
                   class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]"
                   x-ref="carousel"
-                  x-on:mouseenter="clearInterval" x-on:mouseleave="startInterval"
                   >
                   @for($i = 0; $i < 5; $i++)
                   <div 
@@ -737,7 +736,7 @@
 
       for (var i = 0; i < 5; i++) {
          elementCards.push("cards" + i); 
-      }
+      }  
 
       var observer = new IntersectionObserver(function(entries, observer) {
          entries.forEach(function(entry) {
@@ -770,29 +769,6 @@
             observer.observe(element);
          }
       });
-
-      var carousel = document.querySelector('[x-ref="carousel"]');
-var slides = ['1', '2', '3', '4', '5'];
-var activeSlide = 0;
-var intervalId;
-
-function nextSlide() {
-  activeSlide = (activeSlide + 1) % slides.length;
-  carousel.scrollLeft = activeSlide * carousel.clientWidth;
-}
-
-
-function startInterval() {
-   if (!intervalId) {
-      intervalId = setInterval(nextSlide, 5000);
-   }
-}
-
-function clearInterval() {
-   clearInterval(intervalId);
-   intervalId = null;
-}
-
-  });
+   });
 </script>
 @endsection
