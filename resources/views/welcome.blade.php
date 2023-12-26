@@ -53,13 +53,17 @@
    }
 
    .icon-margin-top {
-      padding-top: 2rem;
+      /* padding-top: 2rem; */
+      /* background-color: yellow; */
+      position:absolute;
+      bottom: 0;
+      padding-bottom: 2rem;
    }
-   @media screen and (min-width: 960px) {
+   /* @media screen and (min-width: 960px) {
       .icon-margin-top {
          padding-top: 6rem;
       }
-   }
+   } */
 
    .blog-image {
       width: 275px;
@@ -72,7 +76,7 @@
    }
 
    .bacground-image-hero { 
-      background: url("http://localhost:8000/images/hero1.png") no-repeat center center fixed; 
+      background: url("http://localhost:8000/images/hero-image-07.jpg") no-repeat center center fixed; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -95,7 +99,8 @@
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center -mx-4">
          <div class="w-full px-4 lg:w-1/2">
-            <div class="mb-16 max-w-[500px] lg:mb-0">
+            {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
+            <div class="max-w-[500px] lg:mb-0">   
                <h1 class="animate-fade-up mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl">
                   Let's Us Build Brands<br>
                   Together, Shall We?
@@ -115,7 +120,8 @@
       </div>
 
       <!-- ====== Horizontal Menu Section Start -->
-      <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 ">
+      {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
+      <header x-data="{navbarOpen: false}" class="icon-margin-top">
          <div class="mx-auto w-full ">
             <div class="flex justify-between ">
                <div class="flex w-full items-center justify-between ">
