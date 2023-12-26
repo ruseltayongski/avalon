@@ -83,6 +83,20 @@
       background-size: 100% 100%;;
       height: 100vh;
    }
+   /* .box {
+      content: "";
+    width: 275px;
+    height: 275px;
+    position: absolute;
+    right: -137.5px;
+    bottom: -137.5px;
+    background-color: #faf8fd;
+    z-index: -1;
+    border-radius: 100%;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+    */
 </style>
 @endsection
 
@@ -460,11 +474,30 @@
                   x-ref="carousel"
                   >
                   @for($i = 0; $i < 5; $i++)
+                  
+                 
                   <div 
-                  class="mx-auto h-full min-w-[300px] px-4 xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[325px] fade-right"
-                  id="cards{{ $i }}">
+                  class="mx-auto relative overflow-hidden h-full min-w-[300px] {{-- px-1 --}} xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[299px] fade-right"
+                  id="cards{{ $i }}"
+                  style="margin-right: 20px;"
+                  >
                      <div>
-                        <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
+                        <div class="group mb-10 rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
+                           <style>
+                              #cards{{ $i }}::before {
+                                 content: "";
+                                 width: 225px;
+                                 height: 175px;
+                                 position: absolute;
+                                 right: -133.5px;
+                                 bottom: 38.5px;
+                                 background-color: rgb(50 118 155);
+                                 opacity: 0.3;
+                                 z-index: 2;
+                                 border-radius: 100%;
+                                 transition: all 0.3s;
+                              }
+                          </style>
                            <div class="flex mb-3">
                               <div class="pr-3">
                                  <svg class="text-[#1d5b80] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="none" viewBox="0 0 20 20">
