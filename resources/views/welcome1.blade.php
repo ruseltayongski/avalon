@@ -3,9 +3,9 @@
    .background-rgb {
       background: linear-gradient(
       to right, 
-      rgba(29,91,128,0.85),
-      rgba(50,118,155,0.85),
-      rgba(159,202,218,0.85)
+      rgba(29,91,128,0.3),
+      rgba(50,118,155,0.3),
+      rgba(159,202,218,0.3)
       );
    }
 
@@ -52,13 +52,57 @@
       opacity: 0;
    }
 
-   .icon-margin-top {
-      padding-top: 2rem;
+   .icon-padding-bottom {
+      /* padding-top: 2rem; */
+      /* background-color: yellow; */
+      /* position:absolute; */
+      bottom: 0;
+      padding-bottom: 2rem;
    }
-   @media screen and (min-width: 960px) {
+   /* @media screen and (min-width: 960px) {
       .icon-margin-top {
          padding-top: 6rem;
       }
+   } */
+
+   .blob-image {
+      width: 275px;
+      position: absolute;
+      z-index: 10;
+      right: -73px;
+      top: -184px;
+      overflow: hidden;
+   }
+
+   .bacground-image-hero { 
+      background: url("{{ asset('/images/v2.png') }}") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 100% 100%;;
+      height: 100vh;
+   }
+   /* .box {
+      content: "";
+    width: 275px;
+    height: 275px;
+    position: absolute;
+    right: -137.5px;
+    bottom: -137.5px;
+    background-color: #faf8fd;
+    z-index: -1;
+    border-radius: 100%;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+    */
+
+   .media-section {
+      border-radius: 276px 0 250px 0;
+    }
+
+   .text-shadow {
+      text-shadow: 3px -3px 3px rgba(0, 0, 0, 0.6); /* You may adjust these values as needed */
    }
 </style>
 @endsection
@@ -66,108 +110,28 @@
 @extends('layouts.app')
 
 @section('content')
-
-<!-- ====== Navbar Section Start -->
-<header
-   x-data="
-        {
-        navbarOpen: false,
-        }
-   "
-   class="absolute top-0 left-0 z-50 w-full animate-fade"
+<!-- ====== Hero Section Start 768 820-->
+<div 
+   x-data="{ isMobile: window.innerWidth <= 1024 }"
+   x-init="() => {
+      window.addEventListener('resize', () => {
+         isMobile = window.innerWidth <= 1024;
+      });
+   }"
+   :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px] overflow-x-hidden': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
+   :style="isMobile ? 'background-image: url({{ asset('/images/banner.jpg') }})' : ''"
+   {{-- class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
+   style="background-image: url('{{ asset('/images/hero1.png') }}')" --}}
+   {{-- class="z-10 relative pt-[120px] md:pt-[120px] bacground-image-hero" --}}
    >
-   <div class="container mx-auto">
-      <div class="relative flex items-center justify-between -mx-4">
-         <div class="max-w-full px-4 w-60">
-            <a href="javascript:void(0)" class="block w-full py-5">
-            <img
-               src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
-               alt="logo"
-               class="w-full"
-               />
-            </a>
-         </div>
-         <div class="flex items-center justify-between w-full px-4">
-            <div class="w-full">
-               <button
-                  @click="navbarOpen = !navbarOpen"
-                  :class="navbarOpen && 'navbarTogglerActive'"
-                  id="navbarToggler"
-                  class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-                  >
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               </button>
-               <nav
-                  :class="!navbarOpen && 'hidden' "
-                  id="navbarCollapse"
-                  class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
-                  >
-                  <ul class="block lg:flex justify-end" >
-                     <li>
-                        <a
-                        href="javascript:void(0)"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        Home
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                        href="javascript:void(0)"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        About
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                        href="{{ route('service') }}"
-                        class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
-                        >
-                        Services
-                        </a>
-                     </li>
-                     <li class="lg:ml-6">
-                        <a href="javascript:void(0)" class="lg:border-white lg:dark:border-white lg:border rounded-full inline-flex items-center 
-                              justify-center py-3 lg:px-7 text-center text-base font-medium lg:text-white 
-                               dark:text-white hover:bg-gray-4 dark:hover:bg-dark-3 disabled:bg-gray-3
-                                disabled:border-gray-3 disabled:text-dark-5">
-                           Contact Us
-                        </a>
-                     </li>
-                  </ul>
-               </nav>
-            </div>
-         </div>
-      </div>
-   </div>
-</header>
-<!-- ====== Navbar Section End -->
-
-<!-- ====== Hero Section Start -->
-<div
-   x-data="
-   {
-   videoOpen: false
-   }
-   "
-   class="animate-fade-down relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
-   style="background-image: url('{{ asset('/images/hero.png') }}')"
-   >
-   <div class="absolute top-0 left-0 -z-10 h-full w-full {{-- bg-[#090E34]/[85%] --}} background-rgb"></div>
-   <div class="container mx-auto">
-      <div class="flex flex-wrap items-center -mx-4">
-         <div class="w-full px-4 lg:w-1/2">
-            <div class="mb-16 max-w-[500px] lg:mb-0">
-               <h1 class="animate-fade-up mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl">
+   {{-- <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div> --}}
+   <div class="container mx-auto h-full lg:flex lg:items-center ">
+      <div class="flex flex-wrap items-center justify-center -mx-4 w-full">
+         {{-- <div class="w-full px-4 lg:w-1/2"> --}}
+         <div class="p-4">
+            {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
+            <div class="animate-fade-up">   
+               <h1 class="mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl text-shadow">
                   Let's Us Build Brands<br>
                   Together, Shall We?
                </h1>
@@ -175,8 +139,7 @@
                   <li>
                      <a
                         href="javascript:void(0)"
-                        class="bg-[#103448] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
-                        >
+                        class="bg-[#103448] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5">
                         Get Started
                      </a>
                   </li>
@@ -186,10 +149,11 @@
       </div>
 
       <!-- ====== Horizontal Menu Section Start -->
-      <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 ">
-         <div class="mx-auto w-full ">
-            <div class="flex justify-between ">
-               <div class="flex w-full items-center justify-between ">
+      {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
+      <header x-data="{navbarOpen: false}" class="icon-padding-bottom lg:absolute ">
+         <div class="mx-auto w-full " :class="{ 'mt-12': isMobile }">
+            <div class="flex items-center justify-center">
+               <div class="flex w-full">
                   <div class="flex w-full">
                      <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
                         <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
@@ -237,11 +201,12 @@
                            </ul>
                         </nav>
                      </div>
-                     <div class="hidden md:block w-full ">
-                        <nav >
-                           <ul class="flex space-x-[25px] justify-center">
+                     <div class="hidden md:block w-full mt-12">
+                        <nav>
+                           <ul class="flex space-x-[25px] justify-center" :class="{ 'space-x-2': isMobile }">
+                              <?php $delay = 0; ?>
                               @for ($i=0; $i<12; $i++)
-                              <li>
+                              <li class="fade-right animate-fade-right animate-delay-{{ $delay }}">
                                  <div class="relative">
                                     <a href="javascript:void(0)" class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6 ">
                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,6 +218,7 @@
                                     </a>
                                  </div>
                               </li>
+                              <?php $delay += 25; ?>
                               @endfor
                            </ul>
                         </nav>
@@ -268,10 +234,10 @@
 <!-- ====== Hero Section End -->
 
 <!-- ====== About Section Start -->
-<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] opacity-0" id="section2">
    <div class="container mx-auto">
-      <div class="flex flex-wrap items-center justify-between -mx-4">
-         <div class="w-full px-4 lg:w-6/12">
+      <div class="flex flex-wrap items-center -mx-4">
+         <div class="w-full px-4 lg:w-6/12" id="whatWeDoImage">
             <div class="relative mx-auto flex h-[500px] max-w-[440px]">
                <div class="absolute left-0 z-1 mr-14 max-w-[270px] rounded-lg">
                   <img
@@ -429,34 +395,43 @@
                            />
                      </svg>
                   </span>
-                  <span class="absolute left-5 -bottom-10 z-[-1] sm:left-16">
-                     <svg
-                        width="112"
-                        height="112"
+                  <span class="absolute -left-36 -bottom-20 z-[-1] -sm:left-72">
+                    {{--  <svg
+                     width="600"
+                     height="300"
                         viewBox="0 0 112 112"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                         >
                         <path
-                           fill-rule="evenodd"
-                           clip-rule="evenodd"
+                        d="M100,200
+                        Q250,100 400,200
+                        T600 200"
                            d="M56 96C78.0914 96 96 78.0914 96 56C96 33.9086 78.0914 16 56 16C33.9086 16 16 33.9086 16 56C16 78.0914 33.9086 96 56 96ZM56 112C86.9279 112 112 86.9279 112 56C112 25.0721 86.9279 0 56 0C25.0721 0 0 25.0721 0 56C0 86.9279 25.0721 112 56 112Z"
-                           fill="#13C296"
+                           fill="#1d5b80"
                            />
-                     </svg>
+                     </svg> --}}
+                     <svg xmlns="http://www.w3.org/2000/svg" width="757" height="450" viewBox="0 0 757 450" fill="none">
+                        <g filter="url(#filter0_d)">
+                        <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" stroke="#1d5b80" stroke-width="10" stroke-linecap="round"/>
+                        </g>
+                        <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" stroke="#1d5b80" stroke-width="12" stroke-linecap="round"/>
+                       {{--  <defs>
+                        <filter id="filter0_d" x="1" y="1" width="755" height="447.673" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                        <feOffset dy="10"/>
+                        <feGaussianBlur stdDeviation="5.5"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0.996078 0 0 0 0 0.337255 0 0 0 0 0.376471 0 0 0 0.14 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                        </defs> --}}
+                        </svg>   
                   </span>
                </div>
                <div
-                  class="absolute right-0 top-20 z-2 ml-14 max-w-[300px] rounded-lg" x-data="{ isScrolled: false }"
-                  x-init="
-                  window.addEventListener('scroll', function() {
-                     var element = document.getElementById('whatWeDo');
-                     var rect = element.getBoundingClientRect();
-                     isScrolled = rect.top <= window.innerHeight;
-                  });
-               "
-               x-bind:class="{ 'animate-fade-right': isScrolled }"
-               id="whatWeDo"
+                  class="absolute right-0 top-20 z-2 ml-14 max-w-[300px] rounded-lg"
                   >
                   <img
                      src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-05/image-02.jpg"
@@ -466,18 +441,9 @@
                </div>
             </div>
          </div>
-         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12" x-data="{ isScrolled: false }"
-         x-init="
-            window.addEventListener('scroll', function() {
-               var element = document.getElementById('whatWeDo');
-               var rect = element.getBoundingClientRect();
-               isScrolled = rect.top <= window.innerHeight;
-            });
-         "
-         x-bind:class="{ 'animate-fade-right': isScrolled }"
-         id="whatWeDo">
+         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12" id="whatWeDoText">
             <div class="sm:mt-10 lg:mt-0">
-               <h2 class="mb-11 text-3xl font-bold leading-tight text-[#1d5b80] dark:text-white sm:text-4xl sm:leading-tight md:text-[40px]/[48px]">
+               <h2 class="mb-11 text-3xl font-bold leading-tight text-[#1d5b80] dark:text-white sm:text-4xl sm:leading-tight md:text-[40px]/[48px]t">
                   What We Do?
                </h2>
                <p class="text-base text-body-color dark:text-dark-6 mb-9">
@@ -488,6 +454,13 @@
                <p class="text-base text-body-color dark:text-dark-6">
                   Proin gravida nibh vel velit auctor aliquet. aks Aenean
                </p>
+
+               <a
+                  href="javascript:void(0)"
+                  class="mt-10 bg-[#1d5b80] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                  >
+                  About us
+              </a>
             </div>
          </div>
       </div>
@@ -496,41 +469,52 @@
          x-data="
          {
             slides: ['1','2','3', '4', '5'],
+            activeSlide: 0,
          }
          "
          >
          <div class="relative flex justify-center mt-20">
             <div class="relative w-full">
+               <img src="{{ asset('/images/blob.svg') }}" class="blob-image" alt="">
                <div
                   class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]"
-                  {{-- x-data="{ isScrolled: false}"
                   x-ref="carousel"
-                  x-init="
-            window.addEventListener('scroll', function() {
-               var element = document.getElementById('cards');
-               var rect = element.getBoundingClientRect();
-               isScrolled = rect.top <= window.innerHeight && rect.bottom >= 0;
-            });
-         "
-         x-bind:class="{ 'animate-fade-right': isScrolled }"
-         id="cards" --}}
                   >
                   @for($i = 0; $i < 5; $i++)
-                  <div class="mx-auto h-full min-w-[300px] px-4 xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[325px]">
+                  
+                 
+                  <div 
+                  class="mx-auto relative overflow-hidden h-full min-w-[300px] {{-- px-1 --}} xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[299px] fade-right"
+                  id="cards{{ $i }}"
+                  style="margin-right: 20px;"
+                  >
                      <div>
-                        <div 
-                           class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                          {{--  id="cards{{ $i }}" --}}
-                           >
+                        <div class="group mb-10 rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
+                           <style>
+                              #cards{{ $i }}::before {
+                                 content: "";
+                                 width: 225px;
+                                 height: 175px;
+                                 position: absolute;
+                                 right: -133.5px;
+                                 bottom: 38.5px;
+                                 background-color: rgb(50 118 155);
+                                 opacity: 0.3;
+                                 z-index: 2;
+                                 border-radius: 100%;
+                                 transition: all 0.3s;
+                              }
+                          </style>
                            <div class="flex mb-3">
                               <div class="pr-3">
-                                 <svg class="text-[#1d5b80] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                                 <svg class="text-[#1d5b80] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"/>
                                   </svg>
                               </div>
+                             
                               <div class="w-5/6">
                                  <h3>
-                                    <a href="javascript:void(0)" class="mb-3 text-lg font-bold leading-tight text-[#1d5b80] dark:text-white hover:text-primardark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight">
+                                    <a href="javascript:void(0)" class="mb-3 text-lg font-bold leading-tight text-[#1d5b80] dark:text-white hover:text-primardark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight text-center">
                                        Lorem ipsum
                                     </a>
                                  </h3>
@@ -596,15 +580,16 @@
          </div>
       </div>
 
-      <div class="w-full px-4">
+      {{-- <div class="w-full px-4">
          <input type="text" class="w-full bg-transparent rounded-md border border-[#1d5b80] dark:border-dark-3 pt-[10px] px-5 text-dark-6 outline-none transition focus:border-[#1d5b80] active:border-[#1d5b80] disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
-      </div>
+      </div> --}}
    </div>
 </section>
 <!-- ====== About Section End -->
 
 <!-- ====== CTA Section Start -->
-<section class="relative z-0 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px]"
+<section class="relative z-0 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px] digital-marketer mb-10"
+   id="digitalMarketer"
    style="background-image: url(https://cdn.tailgrids.com/2.0/image/marketing/images/cta/cta.jpg); height: 25rem;">
    <span class="absolute left-0 top-0 -z-10 h-full w-full background-rgb"></span>
    
@@ -683,67 +668,8 @@
    </div>
 </section>
 
-{{-- <section class="pt-20 pb-10 lg:pt-[120px] lg:pb-20 dark:bg-dark hidden sm:block">
-   <div class="container mx-auto">
-      <div class="-mx-4 flex flex-wrap justify-center">
-         @for($i = 0; $i < 3; $i++)
-         <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-            <div class="mx-auto mb-10 w-full max-w-[370px] relative overflow-hidden rounded-l">
-               <div class="relative">
-                  <img
-                     src="https://cdn.tailgrids.com/1.0/assets/images/team/team-01/image-01.jpg"
-                     alt="image"
-                     class="w-full"
-                  />
-                  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-70"></div>
-               </div>
-               <div class="absolute top-5 left-0 w-full text-center">
-                  <div class="relative mx-5 overflow-hidden rounded-lg  py-5 px-3">
-                     <h3 class="text-white dark:text-white text-base font-semibold">
-                        Coriss Ambady
-                     </h3>
-                     <p class="text-dark-6 dark:text-dark-6 text-xs">Web Developer</p>
-                     <div>
-                        <span class="absolute left-0 bottom-0">
-                           <svg
-                              width="61"
-                              height="30"
-                              viewBox="0 0 61 30"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <circle
-                                 cx="16"
-                                 cy="45"
-                                 r="45"
-                                 fill="#13C296"
-                                 fill-opacity="0.11"
-                                 />
-                           </svg>
-                        </span>
-                        <span class="absolute top-0 right-0">
-                           <svg
-                              width="20"
-                              height="25"
-                              viewBox="0 0 20 25"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <!-- SVG circles here -->
-                           </svg>
-                        </span>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         @endfor
-      </div>
-   </div>
-</section> --}}
-
 <!-- ====== Team Section End -->
-<section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+<section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] media-section mb-10">
    <div class="container mx-auto">
       
       <div class="md:hidden sm:block -my-24">
@@ -803,7 +729,7 @@
          </div>
       </div>
 
-     <div class="mx-auto max-w-[700px] text-center mb-10 mt-36">    
+     <div class="mx-auto max-w-[700px] text-center mb-10 mt-36 digital-axis" id="digitalAxis">    
         <h2
            class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
@@ -817,19 +743,18 @@
            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
            vel dolor pellentesque, varius elit quis, malesuada quam.
         </p>
-        
-        <h2
-           class="mt-24 mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+     </div>
+      <div class="w-full px-4 fun-facts text-center" id="funFacts">
+         <h2
+           class="mt-24 mb-10 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
            >
            Fun Facts
         </h2>
-     </div>
-      <div class="w-full px-4">
             <div class="-mx-3 flex flex-wrap md:-mx-4">
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
-                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                      >
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -845,7 +770,7 @@
                </div>
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
-                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                      >
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -861,7 +786,7 @@
                </div>
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
-                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                      >
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -877,7 +802,7 @@
                </div>
                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                   <div
-                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-primary md:mb-8"
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                      >
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -898,40 +823,48 @@
 
 @endsection
 
-
 @section('js')
-   <script>
-      document.addEventListener("DOMContentLoaded", function() {
-      // Array of element IDs to be animated
-      var elementIds = [];
-      for(i = 0; i < 12; i++) {
-         elementIds.push("cards"+i);
-      }
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+      var elementIds = ["whatWeDoImage", "whatWeDoText", "digitalMarketer", "digitalAxis", "funFacts"];
+      var elementCards = [];
+      var delayIncrement = 100; // Delay increment in milliseconds
 
+      for (var i = 0; i < 5; i++) {
+         elementCards.push("cards" + i); 
+      }  
 
-      // Set up the Intersection Observer
       var observer = new IntersectionObserver(function(entries, observer) {
          entries.forEach(function(entry) {
-            // If the entry is in the viewport
             if (entry.isIntersecting) {
-                  // Get the element and add the animate-jump class
-                  var element = entry.target;
-                  element.classList.add("animate-fade-right");
-          /*         element.classList.add("animate-delay-300"); */
+               var delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
+               var myElement = document.getElementById('section2');
+               myElement.classList.remove('opacity-0');
+               if (entry.target.classList.contains('fade-right') || entry.target.classList.contains('fun-facts')) {
+                  entry.target.classList.add("animate-fade-right");
+               } else if(entry.target.classList.contains('digital-marketer')) {
+                  entry.target.classList.add("animate-fade");
+               } else if(entry.target.classList.contains('digital-axis')) {
+                  entry.target.classList.add("animate-fade");
+               }
+               else {
+                  entry.target.classList.add("animate-fade-up");
+               }
 
-                  // Stop observing once the animation is applied
-                  observer.unobserve(element);
-                  }
-            });
-         }, { threshold: 0.5 }); // Adjust the threshold as needed
-
-         // Start observing each element with the specified IDs
-         elementIds.forEach(function(elementId) {
-            var element = document.getElementById(elementId);
-            if (element) {
-                  observer.observe(element);
+               entry.target.classList.add(delayClass);
+               observer.unobserve(entry.target);
+            } else {
+               entry.target.style.opacity = 0;
             }
          });
+      }, { threshold: 0.5 });
+
+      elementIds.concat(elementCards).forEach(function(elementId) {
+         var element = document.getElementById(elementId);
+         if (element) {
+            observer.observe(element);
+         }
       });
-   </script>
+   });
+</script>
 @endsection

@@ -52,7 +52,7 @@
       opacity: 0;
    }
 
-   .icon-margin-top {
+   .icon-padding-bottom {
       /* padding-top: 2rem; */
       /* background-color: yellow; */
       /* position:absolute; */
@@ -72,7 +72,6 @@
       right: -73px;
       top: -184px;
       overflow: hidden;
-
    }
 
    .bacground-image-hero { 
@@ -98,9 +97,13 @@
 }
     */
 
-    .media-section {
+   .media-section {
       border-radius: 276px 0 250px 0;
     }
+
+   .text-shadow {
+      text-shadow: 3px -3px 3px rgba(0, 0, 0, 0.6); /* You may adjust these values as needed */
+   }
 </style>
 @endsection
 
@@ -121,14 +124,14 @@
    style="background-image: url('{{ asset('/images/hero1.png') }}')" --}}
    {{-- class="z-10 relative pt-[120px] md:pt-[120px] bacground-image-hero" --}}
    >
-   <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div>
-   <div class="container mx-auto h-full lg:flex lg:items-center">
-      <div class="flex flex-wrap items-center -mx-4 ">
+   {{-- <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div> --}}
+   <div class="container mx-auto h-full lg:flex lg:items-center ">
+      <div class="flex flex-wrap items-center justify-center -mx-4 w-full">
          {{-- <div class="w-full px-4 lg:w-1/2"> --}}
-         <div class="w-full px-4 ">
+         <div class="p-4">
             {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
-            <div class="animate-fade-up max-w-[500px] ">   
-               <h1 class="mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl">
+            <div class="animate-fade-up">   
+               <h1 class="mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl text-shadow">
                   Let's Us Build Brands<br>
                   Together, Shall We?
                </h1>
@@ -147,10 +150,10 @@
 
       <!-- ====== Horizontal Menu Section Start -->
       {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
-      <header x-data="{navbarOpen: false}" class="icon-margin-top lg:absolute">
+      <header x-data="{navbarOpen: false}" class="icon-padding-bottom lg:absolute ">
          <div class="mx-auto w-full " :class="{ 'mt-12': isMobile }">
-            <div class="flex justify-between ">
-               <div class="flex w-full items-center justify-between ">
+            <div class="flex items-center justify-center">
+               <div class="flex w-full">
                   <div class="flex w-full">
                      <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
                         <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
@@ -198,9 +201,9 @@
                            </ul>
                         </nav>
                      </div>
-                     <div class="hidden md:block w-full">
-                        <nav >
-                           <ul class="flex space-x-[25px] justify-center">
+                     <div class="hidden md:block w-full mt-12">
+                        <nav>
+                           <ul class="flex space-x-[25px] justify-center" :class="{ 'space-x-2': isMobile }">
                               <?php $delay = 0; ?>
                               @for ($i=0; $i<12; $i++)
                               <li class="fade-right animate-fade-right animate-delay-{{ $delay }}">

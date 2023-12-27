@@ -1,673 +1,863 @@
 @section('css')
+<style>
+   .background-rgb {
+      background: linear-gradient(
+      to right, 
+      rgba(29,91,128,0.3),
+      rgba(50,118,155,0.3),
+      rgba(159,202,218,0.3)
+      );
+   }
 
+   .what-we-do {
+      background: linear-gradient(
+         to left, 
+         rgba(39, 104, 142, 0.3), 
+         rgba(38, 58, 150, 0.3), /* medium blue */
+         rgba(90, 120, 190, 0.3), /* lighter blue */
+         rgba(143, 161, 180, 0.3), /* soft blue transitioning to warm */
+         rgba(244, 241, 239, 0.3)  /* sunset orange */
+      );
+   }
+   
+   /* .card-bg {
+      background-color: rgba(79, 117, 155, 0.85);
+   } */
+
+   .flex a svg {
+      transition: transform 0.3s ease;
+   }
+
+   .flex a:hover svg {
+      transform: translateY(-55px);
+   }
+
+   .flex a:hover {
+      cursor: pointer;
+      filter: brightness(1.2);
+   }
+
+   .flex:hover #svg-description {
+      opacity: 1;
+      color: white;
+   }
+
+   #svg-description {
+      opacity: 0;
+      /* transition: opacity 0.5s ease-in-out; */
+      margin-top:10px;
+   }
+   
+   .flex a:not(:hover) #svg-description {
+      opacity: 0;
+   }
+
+   .icon-margin-top {
+      /* padding-top: 2rem; */
+      /* background-color: yellow; */
+      /* position:absolute; */
+      bottom: 0;
+      padding-bottom: 2rem;
+   }
+   /* @media screen and (min-width: 960px) {
+      .icon-margin-top {
+         padding-top: 6rem;
+      }
+   } */
+
+   .blob-image {
+      width: 275px;
+      position: absolute;
+      z-index: 10;
+      right: -73px;
+      top: -184px;
+      overflow: hidden;
+
+   }
+
+   .bacground-image-hero { 
+      background: url("{{ asset('/images/banner.jpg') }}") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 100% 100%;;
+      height: 100vh;
+   }
+   /* .box {
+      content: "";
+    width: 275px;
+    height: 275px;
+    position: absolute;
+    right: -137.5px;
+    bottom: -137.5px;
+    background-color: #faf8fd;
+    z-index: -1;
+    border-radius: 100%;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+    */
+</style>
 @endsection
 
 @extends('layouts.app')
 
 @section('content')
-
- <!-- ====== Modal Section Start -->
-<section x-data="{modalOpen: false}">
-   <button
-      @click="modalOpen = true"
-      type="button"
-      class="flex h-11 min-w-[44px] items-center justify-center rounded-full bg-[#1d5b80] text-white"
-      >
-      <svg
-         width="20"
-         height="20"
-         viewBox="0 0 20 20"
-         class="fill-current"
-         >
-         <path
-            d="M15.3437 19.156C12.7812 19.156 9.09373 17.3123 5.71873 14.0935C1.12498 9.7185 -0.843773 4.8435 1.15623 2.7185C1.24998 2.62475 1.34373 2.56225 1.46873 2.49975L4.09373 1.031C4.68748 0.718502 5.43748 0.874752 5.81248 1.406L7.71873 4.12475C7.90623 4.406 7.99998 4.74975 7.93748 5.06225C7.87498 5.406 7.68748 5.68725 7.40623 5.87475L6.24998 6.62475C6.18748 6.656 6.18748 6.68725 6.18748 6.7185C6.18748 6.74975 6.18748 6.781 6.21873 6.81225C7.06248 8.06225 9.46873 11.2498 13.2812 13.531C13.375 13.5935 13.5312 13.5623 13.5937 13.4998L14.4062 12.406C14.8125 11.8435 15.5937 11.7185 16.1875 12.0935L19.0312 13.906C19.625 14.281 19.8125 15.031 19.4375 15.6248L17.875 18.1248C17.8125 18.2498 17.7187 18.3435 17.625 18.406C17.0312 18.9373 16.25 19.156 15.3437 19.156ZM4.74998 1.93725C4.71873 1.93725 4.68748 1.93725 4.62498 1.9685L1.99998 3.43725C1.96873 3.4685 1.96873 3.4685 1.93748 3.4685C0.624977 4.87475 2.12498 9.156 6.49998 13.3123C10.875 17.4685 15.4062 18.906 16.9062 17.6248C16.9062 17.6248 16.9062 17.6248 16.9375 17.5935L18.5 15.0935C18.5312 15.031 18.5312 14.9373 18.4375 14.8748L15.5937 13.0623C15.5 12.9998 15.3437 13.031 15.2812 13.0935L14.4687 14.1873C14.0625 14.7185 13.3125 14.8748 12.7187 14.531C8.68748 12.1248 6.18748 8.781 5.31248 7.43725C5.12498 7.156 5.06248 6.8435 5.12498 6.49975C5.18748 6.18725 5.37498 5.87475 5.65623 5.7185L6.81248 4.93725C6.87498 4.906 6.87498 4.87475 6.87498 4.8435C6.87498 4.81225 6.87498 4.781 6.84373 4.7185L4.93748 1.99975C4.90623 1.9685 4.81248 1.93725 4.74998 1.93725Z"
-            />
-      </svg>
-   </button>
-   <div x-show="modalOpen" class="fixed top-0 left-0 flex items-center justify-center w-full h-screen py-10 overflow-y-scroll bg-gray-2 dark:bg-dark">
-      <div @click.outside="modalOpen = false" class="mx-auto 
-       rounded-[10px] bg-white 
-      dark:bg-dark-2 p-8 shadow-1 dark:shadow-3">
-          <!-- ====== Checkout Section Start -->
-          <section class="bg-gray-2 dark:bg-dark pt-20 pb-10 lg:pt-[120px] lg:pb-20">
-              <div class="container mx-auto">
-              <div class="flex flex-wrap -mx-4">
-                  <div class="w-full px-4 xl:w-8/12">
-                      <div>
-                          <h3
-                          class="mb-8 text-xl font-semibold text-dark dark:text-white sm:leading-[40px] sm:text-[28px]"
-                          >
-                          Shopping Cart
-                          </h3>
-                          <div
-                          class="mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark"
-                          >
-                          <div
-                              class="max-w-full mb-8 overflow-x-auto border-b border-stroke dark:border-dark-3"
-                              >
-                              <table class="w-full table-auto">
-                                  <thead>
-                                      <tr class="text-left">
-                                      <th
-                                          class="min-w-[300px] py-4 px-4 text-sm font-medium text-dark dark:text-white xl:pl-9"
-                                          >
-                                          Product
-                                      </th>
-                                      <th
-                                          class="min-w-[150px] py-4 px-4 text-sm font-medium text-dark dark:text-white"
-                                          >
-                                          Quantity
-                                      </th>
-                                      <th
-                                          class="min-w-[120px] py-4 px-4 text-sm font-medium text-dark dark:text-white"
-                                          >
-                                          Total Price
-                                      </th>
-                                      <th
-                                          class="min-w-[100px] py-4 px-4 text-center text-sm font-medium text-dark dark:text-white xl:pr-9"
-                                          ></th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3 xl:pl-11"
-                                          >
-                                          <div class="flex items-center">
-                                              <img
-                                                  src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/checkout/checkout-03/image-01.jpg"
-                                                  alt="image"
-                                                  class="mr-[22px] h-12 w-12 rounded"
-                                                  />
-                                              <div>
-                                                  <h5
-                                                  class="text-base font-medium text-dark dark:text-white"
-                                                  >
-                                                  <a
-                                                      href="javascript:void(0)"
-                                                      class="hover:text-primary"
-                                                      >
-                                                  Red colour ladies bag
-                                                  </a>
-                                                  </h5>
-                                                  <p
-                                                  class="text-sm text-body-color dark:text-dark-6"
-                                                  >
-                                                  Color: Red
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </td>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3"
-                                          >
-                                          <div
-                                              x-data="
-                                              {
-                                              quantity: 1
-                                              }
-                                              "
-                                              class="inline-flex h-9 items-center rounded border-[0.5px] border-stroke dark:border-dark-3 bg-gray-1 dark:bg-dark text-base font-medium text-dark dark:text-white"
-                                              >
-                                              <span
-                                                  @click=" quantity > 1 && quantity-- "
-                                                  class="cursor-pointer select-none border-r-[0.5px] border-stroke dark:border-dark-3 py-[6px] px-3"
-                                                  >
-                                              -
-                                              </span>
-                                              <span class="py-[6px] px-[18px]" x-text="quantity">
-                                              </span>
-                                              <span
-                                                  @click=" quantity++ "
-                                                  class="cursor-pointer select-none border-l-[0.5px] border-stroke dark:border-dark-3 py-[6px] px-3"
-                                                  >
-                                              +
-                                              </span>
-                                          </div>
-                                      </td>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3"
-                                          >
-                                          <p
-                                              class="text-base font-medium text-dark dark:text-white"
-                                              >
-                                              $110.99
-                                          </p>
-                                      </td>
-                                      <td
-                                          class="p-4 text-center border-t border-stroke dark:border-dark-3 pr-11"
-                                          >
-                                          <button
-                                              class="text-dark dark:text-white hover:text-red"
-                                              >
-                                              <svg
-                                                  width="14"
-                                                  height="14"
-                                                  viewBox="0 0 14 14"
-                                                  fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  class="fill-current"
-                                                  >
-                                                  <g clip-path="url(#clip0_1006_33743)">
-                                                  <path
-                                                      d="M7.7001 6.99998L13.0376 1.66248C13.2345 1.4656 13.2345 1.15935 13.0376 0.962476C12.8407 0.765601 12.5345 0.765601 12.3376 0.962476L7.0001 6.29998L1.6626 0.962476C1.46572 0.765601 1.15947 0.765601 0.962598 0.962476C0.765723 1.15935 0.765723 1.4656 0.962598 1.66248L6.3001 6.99998L0.962598 12.3375C0.765723 12.5344 0.765723 12.8406 0.962598 13.0375C1.0501 13.125 1.18135 13.1906 1.3126 13.1906C1.44385 13.1906 1.5751 13.1469 1.6626 13.0375L7.0001 7.69998L12.3376 13.0375C12.4251 13.125 12.5563 13.1906 12.6876 13.1906C12.8188 13.1906 12.9501 13.1469 13.0376 13.0375C13.2345 12.8406 13.2345 12.5344 13.0376 12.3375L7.7001 6.99998Z"
-                                                      fill=""
-                                                      />
-                                                  </g>
-                                                  <defs>
-                                                  <clipPath id="clip0_1006_33743">
-                                                      <rect width="14" height="14" fill="white" />
-                                                  </clipPath>
-                                                  </defs>
-                                              </svg>
-                                          </button>
-                                      </td>
-                                      </tr>
-                                      <tr>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3 xl:pl-11"
-                                          >
-                                          <div class="flex items-center">
-                                              <img
-                                                  src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/checkout/checkout-03/image-02.jpg"
-                                                  alt="image"
-                                                  class="mr-[22px] h-12 w-12 rounded"
-                                                  />
-                                              <div>
-                                                  <h5
-                                                  class="text-base font-medium text-dark dark:text-white"
-                                                  >
-                                                  <a
-                                                      href="javascript:void(0)"
-                                                      class="hover:text-primary"
-                                                      >
-                                                  Orange colour ladies bag
-                                                  </a>
-                                                  </h5>
-                                                  <p
-                                                  class="text-sm text-body-color dark:text-dark-6"
-                                                  >
-                                                  Color: Orange
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </td>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3"
-                                          >
-                                          <div
-                                              x-data="
-                                              {
-                                              quantity: 1
-                                              }
-                                              "
-                                              class="inline-flex h-9 items-center rounded border-[0.5px] border-stroke dark:border-dark-3 bg-gray-1 dark:bg-dark text-base font-medium text-dark dark:text-white"
-                                              >
-                                              <span
-                                                  @click=" quantity > 1 && quantity-- "
-                                                  class="cursor-pointer select-none border-r-[0.5px] border-stroke dark:border-dark-3 py-[6px] px-3"
-                                                  >
-                                              -
-                                              </span>
-                                              <span class="py-[6px] px-[18px]" x-text="quantity">
-                                              </span>
-                                              <span
-                                                  @click=" quantity++ "
-                                                  class="cursor-pointer select-none border-l-[0.5px] border-stroke dark:border-dark-3 py-[6px] px-3"
-                                                  >
-                                              +
-                                              </span>
-                                          </div>
-                                      </td>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3"
-                                          >
-                                          <p
-                                              class="text-base font-medium text-dark dark:text-white"
-                                              >
-                                              $110.99
-                                          </p>
-                                      </td>
-                                      <td
-                                          class="p-4 text-center border-t border-stroke dark:border-dark-3 pr-11"
-                                          >
-                                          <button
-                                              class="text-dark dark:text-white hover:text-red"
-                                              >
-                                              <svg
-                                                  width="14"
-                                                  height="14"
-                                                  viewBox="0 0 14 14"
-                                                  fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  class="fill-current"
-                                                  >
-                                                  <g clip-path="url(#clip0_1006_33743)">
-                                                  <path
-                                                      d="M7.7001 6.99998L13.0376 1.66248C13.2345 1.4656 13.2345 1.15935 13.0376 0.962476C12.8407 0.765601 12.5345 0.765601 12.3376 0.962476L7.0001 6.29998L1.6626 0.962476C1.46572 0.765601 1.15947 0.765601 0.962598 0.962476C0.765723 1.15935 0.765723 1.4656 0.962598 1.66248L6.3001 6.99998L0.962598 12.3375C0.765723 12.5344 0.765723 12.8406 0.962598 13.0375C1.0501 13.125 1.18135 13.1906 1.3126 13.1906C1.44385 13.1906 1.5751 13.1469 1.6626 13.0375L7.0001 7.69998L12.3376 13.0375C12.4251 13.125 12.5563 13.1906 12.6876 13.1906C12.8188 13.1906 12.9501 13.1469 13.0376 13.0375C13.2345 12.8406 13.2345 12.5344 13.0376 12.3375L7.7001 6.99998Z"
-                                                      fill=""
-                                                      />
-                                                  </g>
-                                                  <defs>
-                                                  <clipPath id="clip0_1006_33743">
-                                                      <rect width="14" height="14" fill="white" />
-                                                  </clipPath>
-                                                  </defs>
-                                              </svg>
-                                          </button>
-                                      </td>
-                                      </tr>
-                                      <tr>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3 xl:pl-11"
-                                          >
-                                          <div class="flex items-center">
-                                              <img
-                                                  src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/checkout/checkout-03/image-03.jpg"
-                                                  alt="image"
-                                                  class="mr-[22px] h-12 w-12 rounded"
-                                                  />
-                                              <div>
-                                                  <h5
-                                                  class="text-base font-medium text-dark dark:text-white"
-                                                  >
-                                                  <a
-                                                      href="javascript:void(0)"
-                                                      class="hover:text-primary"
-                                                      >
-                                                  Black bag for man
-                                                  </a>
-                                                  </h5>
-                                                  <p
-                                                  class="text-sm text-body-color dark:text-dark-6"
-                                                  >
-                                                  Color: Black
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </td>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3"
-                                          >
-                                          <div
-                                              x-data="
-                                              {
-                                              quantity: 1
-                                              }
-                                              "
-                                              class="inline-flex h-9 items-center rounded border-[0.5px] border-stroke dark:border-dark-3 bg-gray-1 dark:bg-dark text-base font-medium text-dark dark:text-white"
-                                              >
-                                              <span
-                                                  @click=" quantity > 1 && quantity-- "
-                                                  class="cursor-pointer select-none border-r-[0.5px] border-stroke dark:border-dark-3 py-[6px] px-3"
-                                                  >
-                                              -
-                                              </span>
-                                              <span class="py-[6px] px-[18px]" x-text="quantity">
-                                              </span>
-                                              <span
-                                                  @click=" quantity++ "
-                                                  class="cursor-pointer select-none border-l-[0.5px] border-stroke dark:border-dark-3 py-[6px] px-3"
-                                                  >
-                                              +
-                                              </span>
-                                          </div>
-                                      </td>
-                                      <td
-                                          class="p-4 border-t border-stroke dark:border-dark-3"
-                                          >
-                                          <p
-                                              class="text-base font-medium text-dark dark:text-white"
-                                              >
-                                              $110.99
-                                          </p>
-                                      </td>
-                                      <td
-                                          class="p-4 text-center border-t border-stroke dark:border-dark-3 pr-11"
-                                          >
-                                          <button
-                                              class="text-dark dark:text-white hover:text-red"
-                                              >
-                                              <svg
-                                                  width="14"
-                                                  height="14"
-                                                  viewBox="0 0 14 14"
-                                                  fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  class="fill-current"
-                                                  >
-                                                  <g clip-path="url(#clip0_1006_33743)">
-                                                  <path
-                                                      d="M7.7001 6.99998L13.0376 1.66248C13.2345 1.4656 13.2345 1.15935 13.0376 0.962476C12.8407 0.765601 12.5345 0.765601 12.3376 0.962476L7.0001 6.29998L1.6626 0.962476C1.46572 0.765601 1.15947 0.765601 0.962598 0.962476C0.765723 1.15935 0.765723 1.4656 0.962598 1.66248L6.3001 6.99998L0.962598 12.3375C0.765723 12.5344 0.765723 12.8406 0.962598 13.0375C1.0501 13.125 1.18135 13.1906 1.3126 13.1906C1.44385 13.1906 1.5751 13.1469 1.6626 13.0375L7.0001 7.69998L12.3376 13.0375C12.4251 13.125 12.5563 13.1906 12.6876 13.1906C12.8188 13.1906 12.9501 13.1469 13.0376 13.0375C13.2345 12.8406 13.2345 12.5344 13.0376 12.3375L7.7001 6.99998Z"
-                                                      fill=""
-                                                      />
-                                                  </g>
-                                                  <defs>
-                                                  <clipPath id="clip0_1006_33743">
-                                                      <rect width="14" height="14" fill="white" />
-                                                  </clipPath>
-                                                  </defs>
-                                              </svg>
-                                          </button>
-                                      </td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                          </div>
-                          <div class="px-8 pb-10">
-                              <div class="flex flex-wrap justify-between -mx-4">
-                                  <div class="w-full px-4 mb-10 md:mb-0 md:w-1/2">
-                                      <div class="lg:max-w-[300px]">
-                                      <div
-                                          class="pb-4 mb-8 border-b border-stroke dark:border-dark-3"
-                                          >
-                                          <h4
-                                              class="mb-[6px] text-lg font-semibold text-dark dark:text-white"
-                                              >
-                                              Coupon Code
-                                          </h4>
-                                          <p class="text-sm text-body-color dark:text-dark-6">
-                                              Enter code to get discount instantly
-                                          </p>
-                                      </div>
-                                      <form class="relative">
-                                          <input
-                                              type="text"
-                                              placeholder="Coupon code"
-                                              class="w-full rounded-[5px] bg-transparent border border-stroke dark:border-dark-3 py-3 pl-5 pr-20 text-body-color dark:text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                              />
-                                          <button
-                                              class="absolute right-2 top-1/2 mb-3 h-[34px] -translate-y-1/2 rounded bg-dark px-5 text-sm font-medium text-white transition hover:bg-opacity-90"
-                                              >
-                                          Apply
-                                          </button>
-                                      </form>
-                                      </div>
-                                  </div>
-                                  <div class="w-full px-4 md:w-1/2">
-                                      <div class="lg:max-w-[250px]">
-                                      <div class="space-y-4">
-                                          <p
-                                              class="flex justify-between text-base text-dark dark:text-white"
-                                              >
-                                              <span> Subtotal </span>
-                                              <span class="font-medium"> $108 </span>
-                                          </p>
-                                          <p
-                                              class="flex justify-between text-base text-dark dark:text-white"
-                                              >
-                                              <span> Shipping Cost </span>
-                                              <span class="font-medium"> $10.85 </span>
-                                          </p>
-                                          <p
-                                              class="flex justify-between text-base text-dark dark:text-white"
-                                              >
-                                              <span> Discount </span>
-                                              <span class="font-medium"> $9.00 </span>
-                                          </p>
-                                      </div>
-                                      <div
-                                          class="mt-[18px] border-t border-stroke dark:border-dark-3 pt-[18px]"
-                                          >
-                                          <p
-                                              class="flex justify-between text-base text-dark dark:text-white"
-                                              >
-                                              <span> Total Payable </span>
-                                              <span class="font-medium"> $88.15 </span>
-                                          </p>
-                                      </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="w-full px-4 xl:w-4/12">
-                      <div>
-                          <h3
-                          class="mb-8 text-xl font-semibold text-dark dark:text-white sm:leading-[40px] sm:text-[28px]"
-                          >
-                          Payment Info
-                          </h3>
-                          <div
-                          class="overflow-hidden bg-white border rounded-lg border-stroke dark:border-dark-3 dark:bg-dark-2 p-9 shadow-testimonial-6 dark:shadow-box-dark"
-                          >
-                          <h3
-                              class="mb-6 text-xl font-semibold text-dark dark:text-white"
-                              >
-                              Payment Method
-                          </h3>
-                          <div x-data="{paymentMethod: 'creditCard'}">
-                              <div class="mb-4">
-                                  <label
-                                      for="paymentCheckbox"
-                                      class="flex items-center cursor-pointer select-none"
-                                      >
-                                      <div class="relative">
-                                      <input
-                                          type="radio"
-                                          id="paymentCheckbox"
-                                          name="payment"
-                                          class="sr-only"
-                                          @change="paymentMethod = 'creditCard'"
-                                          />
-                                      <div
-                                          class="mr-[10px] flex h-5 w-5 items-center justify-center rounded-full border"
-                                          :class="paymentMethod === 'creditCard' ? 'border-primary bg-[#F1F4FF] dark:bg-transparent' : 'border-stroke dark:border-dark-3'"
-                                          >
-                                          <span
-                                              class="h-[10px] w-[10px] rounded-full"
-                                              :class="paymentMethod === 'creditCard' ? 'bg-primary' : 'bg-transparent'"
-                                              >
-                                          </span>
-                                      </div>
-                                      </div>
-                                      <span class="text-dark dark:text-white">Credit Card</span>
-                                  </label>
-                              </div>
-                              <div class="mb-4">
-                                  <label
-                                      for="paymentCheckbox2"
-                                      class="flex items-center cursor-pointer select-none"
-                                      >
-                                      <div class="relative">
-                                      <input
-                                          type="radio"
-                                          id="paymentCheckbox2"
-                                          name="payment"
-                                          class="sr-only"
-                                          @change="paymentMethod = 'paypal'"
-                                          />
-                                      <div
-                                          class="mr-[10px] flex h-5 w-5 items-center justify-center rounded-full border"
-                                          :class="paymentMethod === 'paypal' ? 'border-primary bg-[#F1F4FF] dark:bg-transparent' : 'border-stroke dark:border-dark-3'"
-                                          >
-                                          <span
-                                              class="h-[10px] w-[10px] rounded-full"
-                                              :class="paymentMethod === 'paypal' ? 'bg-primary' : 'bg-transparent'"
-                                              >
-                                          </span>
-                                      </div>
-                                      </div>
-                                      <span class="text-dark dark:text-white">Paypal</span>
-                                  </label>
-                              </div>
-                              <div class="mb-4">
-                                  <label
-                                      for="paymentCheckbox3"
-                                      class="flex items-center cursor-pointer select-none"
-                                      >
-                                      <div class="relative">
-                                      <input
-                                          type="radio"
-                                          id="paymentCheckbox3"
-                                          name="payment"
-                                          class="sr-only"
-                                          @change="paymentMethod = 'cash'"
-                                          />
-                                      <div
-                                          class="mr-[10px] flex h-5 w-5 items-center justify-center rounded-full border"
-                                          :class="paymentMethod === 'cash' ? 'border-primary bg-[#F1F4FF] dark:bg-transparent' : 'border-stroke dark:border-dark-3'"
-                                          >
-                                          <span
-                                              class="h-[10px] w-[10px] rounded-full"
-                                              :class="paymentMethod === 'cash' ? 'bg-primary' : 'bg-transparent'"
-                                              >
-                                          </span>
-                                      </div>
-                                      </div>
-                                      <span class="text-dark dark:text-white"
-                                      >Cash on delivery</span
-                                      >
-                                  </label>
-                              </div>
-                          </div>
-                          <div
-                              class="pt-8 mt-8 border-t border-stroke dark:border-dark-3"
-                              >
-                              <form>
-                                  <div class="flex flex-wrap -mx-2">
-                                      <div class="w-full px-2">
-                                      <div class="mb-5">
-                                          <label
-                                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                              >
-                                          Name on Card:
-                                          </label>
-                                          <input
-                                              type="text"
-                                              placeholder="Jhon deo"
-                                              class="w-full px-5 py-3 bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 focus:border-primary"
-                                              />
-                                      </div>
-                                      </div>
-                                      <div class="w-full px-2">
-                                      <div class="mb-5">
-                                          <label
-                                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                              >
-                                          Card Number:
-                                          </label>
-                                          <input
-                                              type="text"
-                                              placeholder="0000 0000 0000 1248"
-                                              class="w-full px-5 py-3 bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 focus:border-primary"
-                                              />
-                                      </div>
-                                      </div>
-                                      <div class="w-full px-2">
-                                      <div class="mb-6">
-                                          <label
-                                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                              >
-                                          Expiration Date:
-                                          </label>
-                                          <div class="flex -mx-2">
-                                              <div class="w-4/12 px-2">
-                                                  <div class="relative">
-                                                  <select
-                                                      class="w-full px-5 py-3 font-medium transition bg-transparent border rounded-md outline-none appearance-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 focus:border-primary"
-                                                      >
-                                                      <option value="" class="dark:bg-dark-2">
-                                                          05
-                                                      </option>
-                                                      <option value="" class="dark:bg-dark-2">
-                                                          04
-                                                      </option>
-                                                      <option value="" class="dark:bg-dark-2">
-                                                          03
-                                                      </option>
-                                                  </select>
-                                                  <span
-                                                      class="absolute -translate-y-1/2 right-5 top-1/2 text-body-color dark:text-dark-6"
-                                                      >
-                                                      <svg
-                                                          width="16"
-                                                          height="16"
-                                                          viewBox="0 0 16 16"
-                                                          fill="none"
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                          class="fill-current stroke-current"
-                                                          >
-                                                          <path
-                                                              d="M2.4142 5.03575L2.41418 5.03577L2.417 5.03852L7.767 10.2635L8.00101 10.4921L8.23393 10.2624L13.5839 4.98741L13.5839 4.98741L13.5856 4.98575C13.6804 4.89093 13.8194 4.89093 13.9142 4.98575C14.0087 5.0803 14.009 5.2187 13.915 5.31351C13.9148 5.31379 13.9145 5.31407 13.9142 5.31435L8.16628 10.9623L8.16627 10.9623L8.1642 10.9643C8.06789 11.0607 8.02303 11.0667 7.9999 11.0667C7.94098 11.0667 7.88993 11.0523 7.82015 10.9991L2.08477 5.36351C1.99078 5.26871 1.99106 5.1303 2.0856 5.03575C2.18043 4.94093 2.31937 4.94093 2.4142 5.03575Z"
-                                                              fill=""
-                                                              stroke=""
-                                                              stroke-width="0.666667"
-                                                              />
-                                                      </svg>
-                                                  </span>
-                                                  </div>
-                                              </div>
-                                              <div class="w-5/12 px-2">
-                                                  <div class="relative">
-                                                  <select
-                                                      class="w-full px-5 py-3 font-medium transition bg-transparent border rounded-md outline-none appearance-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 focus:border-primary"
-                                                      >
-                                                      <option value="" class="dark:bg-dark-2">
-                                                          2000
-                                                      </option>
-                                                      <option value="" class="dark:bg-dark-2">
-                                                          2001
-                                                      </option>
-                                                      <option value="" class="dark:bg-dark-2">
-                                                          2002
-                                                      </option>
-                                                  </select>
-                                                  <span
-                                                      class="absolute -translate-y-1/2 right-5 top-1/2 text-body-color dark:text-dark-6"
-                                                      >
-                                                      <svg
-                                                          width="16"
-                                                          height="16"
-                                                          viewBox="0 0 16 16"
-                                                          fill="none"
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                          class="fill-current stroke-current"
-                                                          >
-                                                          <path
-                                                              d="M2.4142 5.03575L2.41418 5.03577L2.417 5.03852L7.767 10.2635L8.00101 10.4921L8.23393 10.2624L13.5839 4.98741L13.5839 4.98741L13.5856 4.98575C13.6804 4.89093 13.8194 4.89093 13.9142 4.98575C14.0087 5.0803 14.009 5.2187 13.915 5.31351C13.9148 5.31379 13.9145 5.31407 13.9142 5.31435L8.16628 10.9623L8.16627 10.9623L8.1642 10.9643C8.06789 11.0607 8.02303 11.0667 7.9999 11.0667C7.94098 11.0667 7.88993 11.0523 7.82015 10.9991L2.08477 5.36351C1.99078 5.26871 1.99106 5.1303 2.0856 5.03575C2.18043 4.94093 2.31937 4.94093 2.4142 5.03575Z"
-                                                              fill=""
-                                                              stroke=""
-                                                              stroke-width="0.666667"
-                                                              />
-                                                      </svg>
-                                                  </span>
-                                                  </div>
-                                              </div>
-                                              <div class="w-3/12 px-2">
-                                                  <input
-                                                  type="text"
-                                                  placeholder="05"
-                                                  class="w-full px-5 py-3 text-center bg-transparent border rounded-md outline-none border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 focus:border-primary"
-                                                  />
-                                              </div>
-                                          </div>
-                                      </div>
-                                      </div>
-                                      <div class="w-full px-2">
-                                          <button
-                                              @click="modalOpen = false"
-                                              type="button"
-                                              class="flex items-center justify-center w-full py-3 text-base font-medium text-center text-white rounded-md bg-primary px-7 hover:bg-blue-dark"
-                                              >
-                                          Place Order
-                                          </button>
-                                      </div>
-                                  </div>
-                              </form>
-                          </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              </div>
-          </section>
-          <!-- ====== Checkout Section End -->
+<!-- ====== Hero Section Start 768 820-->
+<div 
+   x-data="{ isMobile: window.innerWidth <= 1024 }"
+   x-init="() => {
+      window.addEventListener('resize', () => {
+         isMobile = window.innerWidth <= 1024;
+      });
+   }"
+   :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
+   :style="isMobile ? 'background-image: url({{ asset('/images/banner.jpg') }})' : ''"
+   {{-- class="relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]"
+   style="background-image: url('{{ asset('/images/hero1.png') }}')" --}}
+   {{-- class="z-10 relative pt-[120px] md:pt-[120px] bacground-image-hero" --}}
+   >
+   <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div>
+   <div class="container mx-auto h-full lg:flex lg:items-center">
+      <div class="flex flex-wrap items-center -mx-4 ">
+         {{-- <div class="w-full px-4 lg:w-1/2"> --}}
+         <div class="w-full px-4 ">
+            {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
+            <div class="animate-fade-up max-w-[500px] ">   
+               <h1 class="mb-4 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-5xl">
+                  Let's Us Build Brands<br>
+                  Together, Shall We?
+               </h1>
+               <ul class="flex flex-wrap items-center gap-3">
+                  <li>
+                     <a
+                        href="javascript:void(0)"
+                        class="bg-[#103448] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5">
+                        Get Started
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
       </div>
-   </div>   
-</section>
-<!-- ====== Modal Section End -->
 
+      <!-- ====== Horizontal Menu Section Start -->
+      {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
+      <header x-data="{navbarOpen: false}" class="icon-margin-top lg:absolute">
+         <div class="mx-auto w-full " :class="{ 'mt-12': isMobile }">
+            <div class="flex justify-between ">
+               <div class="flex w-full items-center justify-between ">
+                  <div class="flex w-full">
+                     <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
+                        <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
+                           <svg 
+                              width="21" 
+                              height="20" 
+                              viewBox="0 0 21 20" 
+                              fill="none" 
+                              xmlns="http://www.w3.org/2000/svg" 
+                              class="fill-current"
+                              >
+                              <g clip-path="url(#clip0_1052_7440)">
+                                 <path 
+                                    d="M19.3854 9.3125H1.88538C1.51038 9.3125 1.16663 9.625 1.16663 10.0312C1.16663 10.4062 1.47913 10.75 1.88538 10.75H19.3854C19.7604 10.75 20.1041 10.4375 20.1041 10.0312C20.1041 9.625 19.7604 9.3125 19.3854 9.3125Z" 
+                                    />
+                                 <path 
+                                    d="M19.3854 14.625H1.88538C1.51038 14.625 1.16663 14.9375 1.16663 15.3437C1.16663 15.75 1.47913 16.0625 1.88538 16.0625H19.3854C19.7604 16.0625 20.1041 15.75 20.1041 15.3437C20.1041 14.9375 19.7604 14.625 19.3854 14.625Z" 
+                                    />
+                                 <path 
+                                    d="M1.88538 5.375H19.3854C19.7604 5.375 20.1041 5.0625 20.1041 4.65625C20.1041 4.25 19.7916 3.9375 19.3854 3.9375H1.88538C1.51038 3.9375 1.16663 4.25 1.16663 4.65625C1.16663 5.0625 1.51038 5.375 1.88538 5.375Z" 
+                                    />
+                              </g>
+                              <defs>
+                                 <clipPath id="clip0_1052_7440">
+                                    <rect width="20" height="20" fill="white" transform="translate(0.635376)"/>
+                                 </clipPath>
+                              </defs>
+                           </svg>
+                        </button>
+                        <nav
+                           :class="navbarOpen ? 'visible opacity-100 top-full' : 'invisible opacity-0 top-[120%]'"
+                           class="absolute left-0 mt-2 w-[250px] rounded bg-[#1d5b80] shadow-card-2 duration-200"
+                           >
+                           <ul class="space-y-5 py-6 px-5">
+                              @for ($i=0; $i<12; $i++)
+                              <li>
+                                 <a
+                                    href="javascript:void(0)"
+                                    class="relative block text-sm font-medium text-white opacity-70 duration-200 hover:opacity-100"
+                                    >
+                                    iconmobile{{ $i }}
+                                 </a>
+                              </li>
+                              @endfor
+                           </ul>
+                        </nav>
+                     </div>
+                     <div class="hidden md:block w-full">
+                        <nav >
+                           <ul class="flex space-x-[25px] justify-center">
+                              <?php $delay = 0; ?>
+                              @for ($i=0; $i<12; $i++)
+                              <li class="fade-right animate-fade-right animate-delay-{{ $delay }}">
+                                 <div class="relative">
+                                    <a href="javascript:void(0)" class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6 ">
+                                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                                          <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                                       </svg>
+                                       <p class="absolute" id='svg-description'>icon{{ $i }}</p>
+                                    </a>
+                                 </div>
+                              </li>
+                              <?php $delay += 25; ?>
+                              @endfor
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- ====== Horizontal Menu Section End -->
+   </div>
+</div>
+<!-- ====== Hero Section End -->
+
+<!-- ====== About Section Start -->
+<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] opacity-0" id="section2">
+   <div class="container mx-auto">
+      <div class="flex flex-wrap items-center -mx-4">
+         <div class="w-full px-4 lg:w-6/12" id="whatWeDoImage">
+            <div class="relative mx-auto flex h-[500px] max-w-[440px]">
+               <div class="absolute left-0 z-1 mr-14 max-w-[270px] rounded-lg">
+                  <img
+                     src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-05/image-01.jpg"
+                     alt="about image"
+                     class="w-full rounded-lg"
+                     />
+                  <span class="absolute top-6 -right-14 -z-10">
+                     <svg
+                        width="61"
+                        height="47"
+                        viewBox="0 0 61 47"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <circle
+                           cx="15.6667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 15.6667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="44.6667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 44.6667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="29.9999"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 29.9999 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="58.9999"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 58.9999 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="15.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 15.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="44.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 44.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="29.9999"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 29.9999 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="58.9999"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 58.9999 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="15.6667"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 15.6667 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="15.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 15.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="44.6667"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 44.6667 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="44.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 44.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="29.9999"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 29.9999 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="29.9999"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 29.9999 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="58.9999"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 58.9999 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="58.9999"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 58.9999 1.66683)"
+                           fill="#3056D3"
+                           />
+                     </svg>
+                  </span>
+                  <span class="absolute -left-36 -bottom-20 z-[-1] -sm:left-72">
+                    {{--  <svg
+                     width="600"
+                     height="300"
+                        viewBox="0 0 112 112"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                        d="M100,200
+                        Q250,100 400,200
+                        T600 200"
+                           d="M56 96C78.0914 96 96 78.0914 96 56C96 33.9086 78.0914 16 56 16C33.9086 16 16 33.9086 16 56C16 78.0914 33.9086 96 56 96ZM56 112C86.9279 112 112 86.9279 112 56C112 25.0721 86.9279 0 56 0C25.0721 0 0 25.0721 0 56C0 86.9279 25.0721 112 56 112Z"
+                           fill="#1d5b80"
+                           />
+                     </svg> --}}
+                     <svg xmlns="http://www.w3.org/2000/svg" width="757" height="450" viewBox="0 0 757 450" fill="none">
+                        <g filter="url(#filter0_d)">
+                        <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" stroke="#1d5b80" stroke-width="10" stroke-linecap="round"/>
+                        </g>
+                        <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" stroke="#1d5b80" stroke-width="12" stroke-linecap="round"/>
+                       {{--  <defs>
+                        <filter id="filter0_d" x="1" y="1" width="755" height="447.673" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                        <feOffset dy="10"/>
+                        <feGaussianBlur stdDeviation="5.5"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0.996078 0 0 0 0 0.337255 0 0 0 0 0.376471 0 0 0 0.14 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                        </defs> --}}
+                        </svg>   
+                  </span>
+               </div>
+               <div
+                  class="absolute right-0 top-20 z-2 ml-14 max-w-[300px] rounded-lg"
+                  >
+                  <img
+                     src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-05/image-02.jpg"
+                     alt="about image"
+                     class="w-full rounded-lg"
+                     />
+               </div>
+            </div>
+         </div>
+         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12" id="whatWeDoText">
+            <div class="sm:mt-10 lg:mt-0">
+               <h2 class="mb-11 text-3xl font-bold leading-tight text-[#1d5b80] dark:text-white sm:text-4xl sm:leading-tight md:text-[40px]/[48px]t">
+                  What We Do?
+               </h2>
+               <p class="text-base text-body-color dark:text-dark-6 mb-9">
+                  Proin gravida nibh vel velit auctor aliquet. aks Aenean
+                  sollicitudin, lorem quis bibendum auctor, nisi elit consequat
+                  ipsum, nec sagittis sem, tidiomic consequat ipsum.
+               </p>
+               <p class="text-base text-body-color dark:text-dark-6">
+                  Proin gravida nibh vel velit auctor aliquet. aks Aenean
+               </p>
+
+               <a
+                  href="javascript:void(0)"
+                  class="mt-10 bg-[#1d5b80] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                  >
+                  About us
+              </a>
+            </div>
+         </div>
+      </div>
+
+      <div
+         x-data="
+         {
+            slides: ['1','2','3', '4', '5'],
+            activeSlide: 0,
+         }
+         "
+         >
+         <div class="relative flex justify-center mt-20">
+            <div class="relative w-full">
+               <img src="{{ asset('/images/blob.svg') }}" class="blob-image" alt="">
+               <div
+                  class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]"
+                  x-ref="carousel"
+                  >
+                  @for($i = 0; $i < 5; $i++)
+                  
+                 
+                  <div 
+                  class="mx-auto relative overflow-hidden h-full min-w-[300px] {{-- px-1 --}} xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[299px] fade-right"
+                  id="cards{{ $i }}"
+                  style="margin-right: 20px;"
+                  >
+                     <div>
+                        <div class="group mb-10 rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
+                           <style>
+                              #cards{{ $i }}::before {
+                                 content: "";
+                                 width: 225px;
+                                 height: 175px;
+                                 position: absolute;
+                                 right: -133.5px;
+                                 bottom: 38.5px;
+                                 background-color: rgb(50 118 155);
+                                 opacity: 0.3;
+                                 z-index: 2;
+                                 border-radius: 100%;
+                                 transition: all 0.3s;
+                              }
+                          </style>
+                           <div class="flex mb-3">
+                              <div class="pr-3">
+                                 <svg class="text-[#1d5b80] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"/>
+                                  </svg>
+                              </div>
+                             
+                              <div class="w-5/6">
+                                 <h3>
+                                    <a href="javascript:void(0)" class="mb-3 text-lg font-bold leading-tight text-[#1d5b80] dark:text-white hover:text-primardark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight text-center">
+                                       Lorem ipsum
+                                    </a>
+                                 </h3>
+                              </div>
+                           </div>
+                           <p
+                              class="mb-5 text-base font-medium leading-relaxex dark:text-white text-dark"
+                              >
+                              Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona
+                              fringilla goes scelerisque Interdum et.
+                           </p>
+                           <a
+                              href="javascript:void(0)"
+                              class="inline-flex items-center px-4 py-2 font-semibold text-white rounded bg-[#1d5b80] hover:bg-opacity-90"
+                              >
+                              Learn More
+                           </a>
+                           <span class="bg-[#1d5b80] absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span>
+                        </div>
+                     </div>
+                  </div>
+                  @endfor
+               </div>
+               <div
+                  class="absolute -left-4 -right-4 top-1/2 flex -translate-y-16 items-center justify-between"
+                  >
+                  <button
+                     class="mx-2 flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-dark-2 text-dark dark:text-white shadow-input transition-all hover:bg-primary hover:text-white"
+                     @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft - ($refs.carousel.scrollWidth / slides.length); activeSlide -= 1"
+                     >
+                     <svg 
+                        width="20" 
+                        height="20" 
+                        viewBox="0 0 20 20" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="fill-current"
+                        >
+                        <path 
+                           d="M17.5 9.3125H4.15625L9.46875 3.90625C9.75 3.625 9.75 3.1875 9.46875 2.90625C9.1875 2.625 8.75 2.625 8.46875 2.90625L2 9.46875C1.71875 9.75 1.71875 10.1875 2 10.4688L8.46875 17.0312C8.59375 17.1563 8.78125 17.25 8.96875 17.25C9.15625 17.25 9.3125 17.1875 9.46875 17.0625C9.75 16.7812 9.75 16.3438 9.46875 16.0625L4.1875 10.7187H17.5C17.875 10.7187 18.1875 10.4062 18.1875 10.0312C18.1875 9.625 17.875 9.3125 17.5 9.3125Z" 
+                           />
+                     </svg>
+                  </button>
+                  <button
+                     class="mx-2 flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-dark-2 text-dark dark:text-white shadow-input transition-all hover:bg-primary hover:text-white"
+                     @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft + ($refs.carousel.scrollWidth / slides.length); activeSlide += 1"
+                     >
+                     <svg 
+                        width="20" 
+                        height="20" 
+                        viewBox="0 0 20 20" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="fill-current"
+                        >
+                        <path 
+                           d="M18 9.5L11.5312 2.9375C11.25 2.65625 10.8125 2.65625 10.5312 2.9375C10.25 3.21875 10.25 3.65625 10.5312 3.9375L15.7812 9.28125H2.5C2.125 9.28125 1.8125 9.59375 1.8125 9.96875C1.8125 10.3437 2.125 10.6875 2.5 10.6875H15.8437L10.5312 16.0938C10.25 16.375 10.25 16.8125 10.5312 17.0938C10.6562 17.2188 10.8437 17.2813 11.0312 17.2813C11.2187 17.2813 11.4062 17.2188 11.5312 17.0625L18 10.5C18.2812 10.2187 18.2812 9.78125 18 9.5Z" 
+                           />
+                     </svg>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      {{-- <div class="w-full px-4">
+         <input type="text" class="w-full bg-transparent rounded-md border border-[#1d5b80] dark:border-dark-3 pt-[10px] px-5 text-dark-6 outline-none transition focus:border-[#1d5b80] active:border-[#1d5b80] disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
+      </div> --}}
+   </div>
+</section>
+<!-- ====== About Section End -->
+
+<!-- ====== CTA Section Start -->
+<section class="relative z-0 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px] digital-marketer"
+   id="digitalMarketer"
+   style="background-image: url(https://cdn.tailgrids.com/2.0/image/marketing/images/cta/cta.jpg); height: 25rem;">
+   <span class="absolute left-0 top-0 -z-10 h-full w-full background-rgb"></span>
+   
+   <div class="container">
+      <div class="mx-auto max-w-[900px] text-center">
+         <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]">
+            Digital Marketing Never Been Better
+         </h2>
+         <p
+            class="text-base text-white opacity-75"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            vel dolor pellentesque, varius elit quis, malesuada quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            vel dolor pellentesque, varius elit quis, the quick brown fox jumps over the lazy dog.
+         </p>
+      </div>  
+
+      <div class="hidden md:block">
+         <div class="-mx-4 mt-10 flex flex-wrap justify-center ">
+            @for($i = 0; $i < 3; $i++)
+            <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+               <div class="mx-auto mb-10 w-full max-w-[370px] relative overflow-hidden rounded-l">
+                  <div class="relative">
+                     <img
+                        src="https://cdn.tailgrids.com/1.0/assets/images/team/team-01/image-01.jpg"
+                        alt="image"
+                        class="w-full"
+                     />
+                     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-70"></div>
+                  </div>
+                  <div class="absolute top-5 left-0 w-full text-center">
+                     <div class="relative mx-5 overflow-hidden rounded-lg  py-5 px-3">
+                        <h3 class="text-white dark:text-white text-base font-semibold">
+                           Coriss Ambady
+                        </h3>
+                        <p class="text-dark-6 dark:text-dark-6 text-xs">Web Developer</p>
+                        <div>
+                           <span class="absolute left-0 bottom-0">
+                              <svg
+                                 width="61"
+                                 height="30"
+                                 viewBox="0 0 61 30"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 >
+                                 <circle
+                                    cx="16"
+                                    cy="45"
+                                    r="45"
+                                    fill="#13C296"
+                                    fill-opacity="0.11"
+                                    />
+                              </svg>
+                           </span>
+                           <span class="absolute top-0 right-0">
+                              <svg
+                                 width="20"
+                                 height="25"
+                                 viewBox="0 0 20 25"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 >
+                                 <!-- SVG circles here -->
+                              </svg>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            @endfor
+         </div>
+      </div>
+   
+   </div>
+</section>
+
+<!-- ====== Team Section End -->
+<section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+   <div class="container mx-auto">
+      
+      <div class="md:hidden sm:block -my-24">
+         <div class="-mx-4 mt-16 flex flex-wrap justify-center ">
+            @for($i = 0; $i < 3; $i++)
+            <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+               <div class="mx-auto mb-10 w-full max-w-[370px] relative overflow-hidden rounded-l">
+                  <div class="relative">
+                     <img
+                        src="https://cdn.tailgrids.com/1.0/assets/images/team/team-01/image-01.jpg"
+                        alt="image"
+                        class="w-full"
+                     />
+                     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-70"></div>
+                  </div>
+                  <div class="absolute top-5 left-0 w-full text-center">
+                     <div class="relative mx-5 overflow-hidden rounded-lg  py-5 px-3">
+                        <h3 class="text-white dark:text-white text-base font-semibold">
+                           Coriss Ambady
+                        </h3>
+                        <p class="text-dark-6 dark:text-dark-6 text-xs">Web Developer</p>
+                        <div>
+                           <span class="absolute left-0 bottom-0">
+                              <svg
+                                 width="61"
+                                 height="30"
+                                 viewBox="0 0 61 30"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 >
+                                 <circle
+                                    cx="16"
+                                    cy="45"
+                                    r="45"
+                                    fill="#13C296"
+                                    fill-opacity="0.11"
+                                    />
+                              </svg>
+                           </span>
+                           <span class="absolute top-0 right-0">
+                              <svg
+                                 width="20"
+                                 height="25"
+                                 viewBox="0 0 20 25"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 >
+                                 <!-- SVG circles here -->
+                              </svg>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            @endfor
+         </div>
+      </div>
+
+     <div class="mx-auto max-w-[700px] text-center mb-10 mt-36 digital-axis" id="digitalAxis">    
+        <h2
+           class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+           style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+           >
+           Digital Axis Media is the Way!
+        </h2>
+        <p
+           class="text-base text-white opacity-75"
+           style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+           >
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+           vel dolor pellentesque, varius elit quis, malesuada quam.
+        </p>
+     </div>
+      <div class="w-full px-4 fun-facts text-center" id="funFacts">
+         <h2
+           class="mt-24 mb-10 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+           style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+           >
+           Fun Facts
+        </h2>
+            <div class="-mx-3 flex flex-wrap md:-mx-4">
+               <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                  <div
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                     >
+                     <h4
+                        class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                        >
+                        56,825+
+                     </h4>
+                     <p
+                        class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                        >
+                        Clients
+                     </p>
+                  </div>
+               </div>
+               <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                  <div
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                     >
+                     <h4
+                        class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                        >
+                        35,574+
+                     </h4>
+                     <p
+                        class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                        >
+                        Commits
+                     </p>
+                  </div>
+               </div>
+               <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                  <div
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                     >
+                     <h4
+                        class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                        >
+                        570+
+                     </h4>
+                     <p
+                        class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                        >
+                        Team Member
+                     </p>
+                  </div>
+               </div>
+               <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                  <div
+                     class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                     >
+                     <h4
+                        class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                        >
+                        50%+
+                     </h4>
+                     <p
+                        class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                        >
+                        First Year of use
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+   </div>
+</section>
+
+@endsection
+
+@section('js')
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+      var elementIds = ["whatWeDoImage", "whatWeDoText", "digitalMarketer", "digitalAxis", "funFacts"];
+      var elementCards = [];
+      var delayIncrement = 100; // Delay increment in milliseconds
+
+      for (var i = 0; i < 5; i++) {
+         elementCards.push("cards" + i); 
+      }  
+
+      var observer = new IntersectionObserver(function(entries, observer) {
+         entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+               var delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
+               var myElement = document.getElementById('section2');
+               myElement.classList.remove('opacity-0');
+               if (entry.target.classList.contains('fade-right') || entry.target.classList.contains('fun-facts')) {
+                  entry.target.classList.add("animate-fade-right");
+               } else if(entry.target.classList.contains('digital-marketer')) {
+                  entry.target.classList.add("animate-fade");
+               } else if(entry.target.classList.contains('digital-axis')) {
+                  entry.target.classList.add("animate-fade");
+               }
+               else {
+                  entry.target.classList.add("animate-fade-up");
+               }
+
+               entry.target.classList.add(delayClass);
+               observer.unobserve(entry.target);
+            } else {
+               entry.target.style.opacity = 0;
+            }
+         });
+      }, { threshold: 0.5 });
+
+      elementIds.concat(elementCards).forEach(function(elementId) {
+         var element = document.getElementById(elementId);
+         if (element) {
+            observer.observe(element);
+         }
+      });
+   });
+</script>
 @endsection
