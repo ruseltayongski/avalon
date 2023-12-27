@@ -97,6 +97,10 @@
     transition: all 0.3s;
 }
     */
+
+    .media-section {
+      border-radius: 276px 0 250px 0;
+    }
 </style>
 @endsection
 
@@ -581,7 +585,7 @@
 <!-- ====== About Section End -->
 
 <!-- ====== CTA Section Start -->
-<section class="relative z-0 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px] digital-marketer"
+<section class="relative z-0 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px] digital-marketer mb-10"
    id="digitalMarketer"
    style="background-image: url(https://cdn.tailgrids.com/2.0/image/marketing/images/cta/cta.jpg); height: 25rem;">
    <span class="absolute left-0 top-0 -z-10 h-full w-full background-rgb"></span>
@@ -662,7 +666,7 @@
 </section>
 
 <!-- ====== Team Section End -->
-<section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+<section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] media-section mb-10">
    <div class="container mx-auto">
       
       <div class="md:hidden sm:block -my-24">
