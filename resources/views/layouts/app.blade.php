@@ -13,10 +13,26 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css','resources/js/theme-switcher.js'])
+
+    <style>
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 1);
+            z-index: 1000;
+        }
+    </style>
     
     @yield('css')
 </head>
 <body>
+    @include('layouts._loading-container')
     <div id="app">
         @include('layouts._header')
         @yield('content')
@@ -30,5 +46,9 @@
         var myElementCheckoutmodal = document.getElementById('checkoutmodal');
         myElementCheckoutmodal.classList.remove('opacity-0');
     }
+    window.addEventListener('load', function() {
+      var loadingContainer = document.getElementById('loadingContainer');
+      loadingContainer.style.display = 'none';
+   });
 </script>
 </html>
