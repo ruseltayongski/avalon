@@ -76,7 +76,7 @@
    }
 
    .bacground-image-hero { 
-      background: url("{{ asset('/images/banner.jpg') }}") no-repeat center center fixed; 
+      background: url("{{ asset('/images/v2.png') }}") no-repeat center center fixed; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
