@@ -47,8 +47,8 @@
         myElementCheckoutmodal.classList.remove('opacity-0');
     }
     window.addEventListener('load', function() {
-      var loadingContainer = document.getElementById('loadingContainer');
-      loadingContainer.style.display = 'none';
-   });
+        var loadingContainer = document.getElementById('loadingContainer');
+        loadingContainer.style.display = 'none';
+    });
 </script>
 </html>
