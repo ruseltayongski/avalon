@@ -488,8 +488,6 @@
                   x-ref="carousel"
                   >
                   @for($i = 0; $i < 5; $i++)
-                  
-                 
                   <div 
                   class="mx-auto relative overflow-hidden h-full min-w-[300px] {{-- px-1 --}} xs:min-w-[368px] sm:min-w-[510px] md:min-w-[340px] lg:min-w-[312px] xl:min-w-[282px] 2xl:min-w-[299px] fade-right"
                   id="cards{{ $i }}"
@@ -596,12 +594,11 @@
 
 <!-- ====== CTA Section Start -->
 <section class="relative z-0 bg-cover bg-no-repeat py-20 lg:py-[100px] xl:py-[80px] digital-marketer mb-10"
-   id="digitalMarketer"
    style="background-image: url(https://cdn.tailgrids.com/2.0/image/marketing/images/cta/cta.jpg); height: 25rem;">
    <span class="absolute left-0 top-0 -z-10 h-full w-full background-rgb"></span>
    
    <div class="container">
-      <div class="mx-auto max-w-[900px] text-center">
+      <div class="mx-auto max-w-[900px] text-center" id="digitalMarketer">
          <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]">
             Digital Marketing Never Been Better
          </h2>
@@ -619,7 +616,7 @@
          <div class="-mx-4 mt-10 flex flex-wrap justify-center ">
             @for($i = 0; $i < 3; $i++)
             <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-               <div class="mx-auto mb-10 w-full max-w-[370px] relative overflow-hidden rounded-l">
+               <div class="mx-auto mb-10 w-full max-w-[370px] relative overflow-hidden rounded-l marketing-section" id="marketing{{ $i }}">
                   <div class="relative">
                      <img
                         src="https://cdn.tailgrids.com/1.0/assets/images/team/team-01/image-01.jpg"
@@ -682,9 +679,9 @@
       <div class="md:hidden sm:block -my-24">
          <div class="-mx-4 mt-16 flex flex-wrap justify-center ">
             @for($i = 0; $i < 3; $i++)
-            <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-               <div class="mx-auto mb-10 w-full max-w-[370px] relative overflow-hidden rounded-l">
-                  <div class="relative">
+            <div class="w-full px-4 md:w-1/2 xl:w-1/4 ">
+               <div class="mx-auto mb-10 w-full max-w-[370px] relative overflow-hidden rounded-l ">
+                  <div class="relative ">
                      <img
                         src="https://cdn.tailgrids.com/1.0/assets/images/team/team-01/image-01.jpg"
                         alt="image"
@@ -692,7 +689,7 @@
                      />
                      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-70"></div>
                   </div>
-                  <div class="absolute top-5 left-0 w-full text-center">
+                  <div class="absolute top-5 left-0 w-full text-center ">
                      <div class="relative mx-5 overflow-hidden rounded-lg  py-5 px-3">
                         <h3 class="text-white dark:text-white text-base font-semibold">
                            Coriss Ambady
@@ -841,18 +838,34 @@
          elementCards.push("cards" + i); 
       }  
 
+      for (var i = 0; i < 3; i++) {
+         elementCards.push("marketing" + i); 
+      }
+
+      var marketingDelayIncrement = 101;
       var observer = new IntersectionObserver(function(entries, observer) {
          entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-               var delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
+               var delayClass = "temp";
+               if(!entry.target.classList.contains('marketing-section')) {
+                  delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
+               }
+
                var myElement = document.getElementById('section2');
                myElement.classList.remove('opacity-0');
+
                if (entry.target.classList.contains('fade-right') || entry.target.classList.contains('fun-facts')) {
                   entry.target.classList.add("animate-fade-right");
                } else if(entry.target.classList.contains('digital-marketer')) {
                   entry.target.classList.add("animate-fade");
                } else if(entry.target.classList.contains('digital-axis')) {
                   entry.target.classList.add("animate-fade");
+               } else if(entry.target.classList.contains('marketing-section')) {
+                  setTimeout(function(){
+                     entry.target.classList.add(`animate-fade-right`);
+                  }, marketingDelayIncrement); //Time before execution
+                  //entry.target.classList.add(`animate-delay-${marketingDelayIncrement}ms`);
+                  marketingDelayIncrement += 300;
                }
                else {
                   entry.target.classList.add("animate-fade-up");
