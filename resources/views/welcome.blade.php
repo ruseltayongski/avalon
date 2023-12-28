@@ -132,7 +132,7 @@
    >
    {{-- <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div> --}}
    <div class="container mx-auto h-full lg:flex items-center justify-center ">
-      <div class="flex flex-wrap -mx-4 w-full">
+      <div class="flex flex-wrap -mx-4 w-full items-center justify-center">
          {{-- <div class="w-full px-4 lg:w-1/2"> --}}
          <div class="p-4">
             {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
