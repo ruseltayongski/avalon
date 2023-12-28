@@ -508,7 +508,7 @@
                   style="margin-right: 20px;"
                   >
                      <div>
-                        <div class="group mb-10 rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent shadow-xl">
+                        <div class="group mb-10 rounded-[10px] hover:bg-[#1d5b80] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent shadow-xl">
                           {{--  <style>
                               #cards{{ $i }}::before {
                                  content: "";
@@ -526,21 +526,21 @@
                           </style> --}}
                            <div class="flex mb-3">
                               <div class="pr-3">
-                                 <svg class="text-[#1d5b80] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="none" viewBox="0 0 20 20">
+                                 <svg class="text-[#1d5b80] dark:text-white group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"/>
                                   </svg>
                               </div>
                              
                               <div class="w-5/6">
                                  <h3>
-                                    <a href="javascript:void(0)" class="mb-3 text-lg font-bold leading-tight text-[#1d5b80] dark:text-white hover:text-primardark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight text-center">
+                                    <a href="javascript:void(0)" class="mb-3 group-hover:text-white text-lg font-bold leading-tight text-[#1d5b80] dark:text-white hover:text-primardark:text-white sm:text-xl sm:leading-tight lg:text-lg lg:leading-tight xl:text-xl xl:leading-tight text-center">
                                        Lorem ipsum
                                     </a>
                                  </h3>
                               </div>
                            </div>
                            <p
-                              class="mb-5 text-base font-medium leading-relaxex dark:text-white text-dark"
+                              class="mb-5 text-base font-medium leading-relaxex dark:text-white text-dark group-hover:text-white"
                               >
                               Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona
                               fringilla goes scelerisque Interdum et.
