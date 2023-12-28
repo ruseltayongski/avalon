@@ -52,13 +52,18 @@
       opacity: 0;
    }
 
-   .icon-padding-bottom {
+   .icon-bottom-padding {
       /* padding-top: 2rem; */
       /* background-color: yellow; */
       /* position:absolute; */
       bottom: 0;
       padding-bottom: 2rem;
    }
+
+   .icon-bottom {
+      bottom: 0;
+   }
+
    /* @media screen and (min-width: 960px) {
       .icon-margin-top {
          padding-top: 6rem;
@@ -116,6 +121,7 @@
    x-init="() => {
       window.addEventListener('resize', () => {
          isMobile = window.innerWidth <= 1024;
+         console.log(window.innerWidth);
       });
    }"
    :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
@@ -125,8 +131,8 @@
    {{-- class="z-10 relative pt-[120px] md:pt-[120px] bacground-image-hero" --}}
    >
    {{-- <div class="absolute top-0 left-0 -z-10 h-full w-full bg-[#090E34]/[85%] background-rgb"></div> --}}
-   <div class="container mx-auto h-full lg:flex lg:items-center ">
-      <div class="flex flex-wrap items-center justify-center -mx-4 w-full">
+   <div class="container mx-auto h-full lg:flex items-center justify-center ">
+      <div class="flex flex-wrap -mx-4 w-full">
          {{-- <div class="w-full px-4 lg:w-1/2"> --}}
          <div class="p-4">
             {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
@@ -150,11 +156,11 @@
 
       <!-- ====== Horizontal Menu Section Start -->
       {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
-      <header x-data="{navbarOpen: false}" class="icon-padding-bottom lg:absolute ">
+      <header x-data="{navbarOpen: false}" :class="{ 'icon-bottom-padding lg:absolute' : window.innerWidth !== 1024,'icon-bottom lg:absolute': window.innerWidth === 1024 }">
          <div class="mx-auto w-full " :class="{ 'mt-12': isMobile }">
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center ">
                <div class="flex w-full">
-                  <div class="flex w-full">
+                  <div class="flex w-full ">
                      <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
                         <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
                            <svg 
@@ -203,7 +209,8 @@
                      </div>
                      <div class="hidden md:block w-full mt-12">
                         <nav>
-                           <ul class="flex space-x-[25px] justify-center" :class="{ 'space-x-2': isMobile }">
+                           {{-- <ul class="flex space-x-[25px] justify-center" :class="{ 'space-x-2': isMobile }"> --}}
+                           <ul :class="{'flex space-x-[25px] justify-center': !isMobile, 'flex space-x-2 justify-center': isMobile}">
                               <?php $delay = 0; ?>
                               @for ($i=0; $i<12; $i++)
                               <li class="fade-right animate-fade-right animate-delay-{{ $delay }}">
