@@ -87,6 +87,16 @@
       background-size: 100% 100%;;
       height: 100vh;
    }
+
+   .serives-bg {
+      background: url("{{ asset('/images/test.png') }}");
+      background-repeat: no-repeat;
+      margin-top: 90px;
+      padding: 90px 0;
+      background-position: center;
+      background-size: 100% 100%;
+      position: relative;
+      }
    /* .box {
       content: "";
     width: 275px;
@@ -464,7 +474,7 @@
 
                <a
                   href="javascript:void(0)"
-                  class="mt-10 bg-[#1d5b80] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                  class="mt-10 bg-[#fcd4c8] dark:bg-dark-2 border-[#fcd4c8] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-[#1d5b80] hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
                   >
                   About us
               </a>
@@ -479,10 +489,12 @@
             activeSlide: 0,
          }
          "
+         class="serives-bg"
          >
+         <span class="flex justify-center text-white text-2xl sm:text-5xl font-bold mt-3 sm:mt-6" id="ourServices">Our Services</span>
          <div class="relative flex justify-center mt-20">
             <div class="relative w-full">
-               <img src="{{ asset('/images/blob.svg') }}" class="blob-image" alt="">
+            
                <div
                   class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]"
                   x-ref="carousel"
@@ -496,8 +508,8 @@
                   style="margin-right: 20px;"
                   >
                      <div>
-                        <div class="group mb-10 rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
-                           <style>
+                        <div class="group mb-10 rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 card-bg py-11 px-6 duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent shadow-xl">
+                          {{--  <style>
                               #cards{{ $i }}::before {
                                  content: "";
                                  width: 225px;
@@ -511,7 +523,7 @@
                                  border-radius: 100%;
                                  transition: all 0.3s;
                               }
-                          </style>
+                          </style> --}}
                            <div class="flex mb-3">
                               <div class="pr-3">
                                  <svg class="text-[#1d5b80] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="20" fill="none" viewBox="0 0 20 20">
@@ -535,11 +547,11 @@
                            </p>
                            <a
                               href="javascript:void(0)"
-                              class="inline-flex items-center px-4 py-2 font-semibold text-white rounded bg-[#1d5b80] hover:bg-opacity-90"
+                              class="inline-flex items-center px-4 py-2 font-semibold text-[#1d5b80] rounded bg-[#f5c1b6] hover:bg-opacity-90"
                               >
                               Learn More
                            </a>
-                           <span class="bg-[#1d5b80] absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span>
+                         {{--   <span class="bg-[#1d5b80] absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span> --}}
                         </div>
                      </div>
                   </div>
@@ -833,7 +845,7 @@
 @section('js')
 <script>
    document.addEventListener("DOMContentLoaded", function() {
-      var elementIds = ["whatWeDoImage", "whatWeDoText", "digitalMarketer", "digitalAxis", "funFacts"];
+      var elementIds = ["whatWeDoImage", "whatWeDoText", "digitalMarketer", "digitalAxis", "funFacts", 'ourServices'];
       var elementCards = [];
       var delayIncrement = 100; // Delay increment in milliseconds
 
@@ -851,9 +863,10 @@
                   entry.target.classList.add("animate-fade-right");
                } else if(entry.target.classList.contains('digital-marketer')) {
                   entry.target.classList.add("animate-fade");
+                  
                } else if(entry.target.classList.contains('digital-axis')) {
                   entry.target.classList.add("animate-fade");
-               }
+               } 
                else {
                   entry.target.classList.add("animate-fade-up");
                }
