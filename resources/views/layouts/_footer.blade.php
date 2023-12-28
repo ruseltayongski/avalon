@@ -310,7 +310,7 @@
                          <span class="pr-0.5">Let's Create Brands Together!</span>
                          <a
                              href="javascript:void(0)"
-                             class="ml-8 bg-[#1d5b80] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                             class="ml-8 bg-[#fcd4c8] dark:bg-dark-2 border-[#1d5b80] dark:border-dark-2 border rounded-full inline-flex items-center justify-center py-3 px-9 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
                              >
                              Button
                          </a>

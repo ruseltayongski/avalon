@@ -778,7 +778,7 @@
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
                         >
-                        56,825+
+                        56,825<span style="color: #d29383;" class="font-extrabold">+</span>
                      </h4>
                      <p
                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
@@ -794,7 +794,7 @@
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
                         >
-                        35,574+
+                        35,574<span style="color: #d29383;" class="font-extrabold">+</span>
                      </h4>
                      <p
                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
@@ -810,7 +810,7 @@
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
                         >
-                        570+
+                        570<span style="color: #d29383;" class="font-extrabold">+</span>
                      </h4>
                      <p
                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
@@ -826,7 +826,7 @@
                      <h4
                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
                         >
-                        50%+
+                        50%<span style="color: #d29383;" class="font-extrabold">+</span>
                      </h4>
                      <p
                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
