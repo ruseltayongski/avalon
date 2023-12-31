@@ -36,7 +36,7 @@
     <div id="app">
         @include('layouts._header')
         @yield('content')
-        @include('layouts._footer')
+        {{-- @include('layouts._footer') --}}
     </div>
     @include('layouts._themeSwitcher')
 </body>

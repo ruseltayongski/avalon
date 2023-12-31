@@ -2,20 +2,22 @@
 
 <style>
   .footer {
-    background-color: #1d4d80;
-    color: #fff;
-}
-.footer-wave-svg {
-    background-color: transparent;
-    display: block;
-    height: 30px;
-    position: relative;
-    top: -1px;
-    width: 100%;
-}
-.footer-wave-path {
-    fill: #fffff2;
-}
+      background-color: #1d4d80;
+      color: #fff;
+  }
+
+  .footer-wave-svg {
+      background-color: transparent;
+      display: block;
+      height: 30px;
+      position: relative;
+      top: -1px;
+      width: 100%;
+  }
+
+  .footer-wave-path {
+      fill: #fffff2;
+  }
 
 .footer-content {
     margin-left: auto;
@@ -118,9 +120,6 @@
     color: #fff;
     text-decoration: none;
 }
-
-
-
 
 
 .footer-social-links {

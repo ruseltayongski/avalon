@@ -1,26 +1,1112 @@
+@section('css')
+<style>
+    .bacground-image-hero { 
+        background: url("{{ asset('/images/v2.png') }}") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: 100% 100%;;
+        height: 100vh;
+    }
+
+    .icon-bottom {
+        bottom: 0;
+    }
+
+    .icon-bottom-padding {
+        bottom: 0;
+        padding-bottom: 2rem;
+    }
+
+    .flex a svg {
+        transition: transform 0.3s ease;
+    }
+
+    .flex a:hover svg {
+        transform: translateY(-55px);
+    }
+
+    .flex a:hover {
+        cursor: pointer;
+        filter: brightness(1.2);
+    }
+
+    .flex:hover #svg-description {
+        opacity: 1;
+        color: white;
+    }
+
+    #svg-description {
+        opacity: 0;
+        /* transition: opacity 0.5s ease-in-out; */
+        margin-top:10px;
+    }
+    
+    .flex a:not(:hover) #svg-description {
+        opacity: 0;
+    }
+
+    /* WAVES */
+    .waves-content {
+        position:relative;
+        text-align:center;
+        color:white;
+        margin-bottom: -80px;
+        margin-top: -1px;
+    }
+
+    .waves-inner {
+        height:5vh;
+        width:100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .waves {
+        position:relative;
+        width: 100%;
+        height:15vh;
+        margin-bottom:-7px; /*Fix for safari gap*/
+        min-height:100px;
+        max-height:150px;
+    }
+
+    /* Animation */
+
+    .parallax > use {
+        animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    }
+    .parallax > use:nth-child(1) {
+        animation-delay: -2s;
+        animation-duration: 7s;
+    }
+    .parallax > use:nth-child(2) {
+        animation-delay: -3s;
+        animation-duration: 10s;
+    }
+    .parallax > use:nth-child(3) {
+        animation-delay: -4s;
+        animation-duration: 13s;
+    }
+    .parallax > use:nth-child(4) {
+        animation-delay: -5s;
+        animation-duration: 20s;
+    }
+    @keyframes move-forever {
+        0% {
+            transform: translate3d(-90px,0,0);
+        }
+        100% { 
+            transform: translate3d(85px,0,0);
+        }
+    }
+    /*Shrinking for mobile*/
+    @media (max-width: 768px) {
+        .waves {
+            height:60px;
+            min-height:40px;
+        }
+    }
+</style>
+@endsection
 @extends('layouts.app')
 
 @section('content')
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-</h1>
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+<!-- ====== Hero Section Start 768 820-->
+<div 
+    x-data="{ isMobile: window.innerWidth <= 1024 }"
+    x-init="() => {
+        window.addEventListener('resize', () => {
+            isMobile = window.innerWidth <= 1024;
+            console.log(window.innerWidth);
+        });
+    }"
+    :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
+    :style="isMobile ? 'background-image: url({{ asset('/images/banner.jpg') }})' : ''">
+    <div class="container mx-auto h-full lg:flex justify-center pt-[80px]">
+        <div class="flex flex-wrap -mx-4 w-full justify-center">
+            {{-- <div class="w-full px-4 lg:w-1/2"> --}}
+            <div class="p-4">
+                {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
+                <div class="animate-fade-up">   
+                <h1 class="mb-16 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-4xl">
+                    Empowering your<br>
+                    business presence.
+                </h1>
+                <ul class="flex flex-wrap items-center justify-center lg:pr-6">
+                    <li>
+                        <a
+                            href="javascript:void(0)"
+                            class="bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-2 px-4 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                        >
+                            Know More
+                        </a>
+                    </li>
+                </ul>
                 </div>
             </div>
         </div>
+
+        <!-- ====== Horizontal Menu Section Start -->
+        {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
+        <header x-data="{navbarOpen: false}" :class="{ 'icon-bottom-padding lg:absolute' : window.innerWidth !== 1024,'icon-bottom lg:absolute': window.innerWidth === 1024 }">
+            <div class="mx-auto w-full " :class="{ 'mt-12': isMobile }">
+                <div class="flex items-center justify-center ">
+                    <div class="flex w-full">
+                        <div class="flex w-full ">
+                            <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
+                                <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
+                                <svg 
+                                    width="21" 
+                                    height="20" 
+                                    viewBox="0 0 21 20" 
+                                    fill="none" 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    class="fill-current"
+                                    >
+                                    <g clip-path="url(#clip0_1052_7440)">
+                                        <path 
+                                            d="M19.3854 9.3125H1.88538C1.51038 9.3125 1.16663 9.625 1.16663 10.0312C1.16663 10.4062 1.47913 10.75 1.88538 10.75H19.3854C19.7604 10.75 20.1041 10.4375 20.1041 10.0312C20.1041 9.625 19.7604 9.3125 19.3854 9.3125Z" 
+                                            />
+                                        <path 
+                                            d="M19.3854 14.625H1.88538C1.51038 14.625 1.16663 14.9375 1.16663 15.3437C1.16663 15.75 1.47913 16.0625 1.88538 16.0625H19.3854C19.7604 16.0625 20.1041 15.75 20.1041 15.3437C20.1041 14.9375 19.7604 14.625 19.3854 14.625Z" 
+                                            />
+                                        <path 
+                                            d="M1.88538 5.375H19.3854C19.7604 5.375 20.1041 5.0625 20.1041 4.65625C20.1041 4.25 19.7916 3.9375 19.3854 3.9375H1.88538C1.51038 3.9375 1.16663 4.25 1.16663 4.65625C1.16663 5.0625 1.51038 5.375 1.88538 5.375Z" 
+                                            />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1052_7440">
+                                            <rect width="20" height="20" fill="white" transform="translate(0.635376)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                </button>
+                                <nav
+                                :class="navbarOpen ? 'visible opacity-100 top-full' : 'invisible opacity-0 top-[120%]'"
+                                class="absolute left-0 mt-2 w-[250px] rounded bg-[#1d5b80] shadow-card-2 duration-200"
+                                >
+                                <ul class="space-y-5 py-6 px-5">
+                                    @for ($i=0; $i<12; $i++)
+                                    <li>
+                                        <a
+                                            href="javascript:void(0)"
+                                            class="relative block text-sm font-medium text-white opacity-70 duration-200 hover:opacity-100"
+                                            >
+                                            iconmobile{{ $i }}
+                                        </a>
+                                    </li>
+                                    @endfor
+                                </ul>
+                                </nav>
+                            </div>
+                            <div class="hidden md:block w-full mt-12 ">
+                                <nav>
+                                {{-- <ul class="flex space-x-[25px] justify-center" :class="{ 'space-x-2': isMobile }"> --}}
+                                <ul :class="{'flex space-x-[25px] justify-center': !isMobile, 'flex space-x-2 justify-center': isMobile}">
+                                    <?php $delay = 0; ?>
+                                    @for ($i=0; $i<12; $i++)
+                                    <li class="fade-right animate-fade-right animate-delay-{{ $delay }}">
+                                        <div class="relative">
+                                            <a href="javascript:void(0)" class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6 ">
+                                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
+                                            </svg>
+                                            <p class="absolute" id='svg-description'>icon{{ $i }}</p>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <?php $delay += 25; ?>
+                                    @endfor
+                                </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ====== Horizontal Menu Section End -->
     </div>
-</div> --}}
+</div>
+<!-- ====== Hero Section End -->
+
+<div class="waves-content bg-[#011523] ">
+    <div class="waves-inner"></div>
+    <svg class="waves " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,253,255,0.1)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,253,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+    </svg>
+</div>
+
+<!-- ====== About Section Start -->
+<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+   <div class="container mx-auto">
+      <div class="flex flex-wrap items-center justify-between -mx-4">
+         <div class="w-full px-4 lg:w-6/12">
+            <div class="relative mx-auto flex h-[500px] max-w-[440px]">
+               <div class="absolute left-0 z-30 mr-14 max-w-[270px] rounded-lg">
+                  <img
+                     src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-05/image-01.jpg"
+                     alt="about image"
+                     class="w-full rounded-lg"
+                     />
+                  <span class="absolute top-6 -right-14 -z-10">
+                     <svg
+                        width="61"
+                        height="47"
+                        viewBox="0 0 61 47"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <circle
+                           cx="15.6667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 15.6667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="44.6667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 44.6667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="29.9999"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 29.9999 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="58.9999"
+                           cy="30.9998"
+                           r="1.66667"
+                           transform="rotate(-90 58.9999 30.9998)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="15.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 15.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="44.6667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 44.6667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="29.9999"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 29.9999 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="58.9999"
+                           cy="16.3333"
+                           r="1.66667"
+                           transform="rotate(-90 58.9999 16.3333)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="15.6667"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 15.6667 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="15.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 15.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="44.6667"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 44.6667 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="44.6667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 44.6667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="1.66667"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 1.66667 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="29.9999"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 29.9999 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="29.9999"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 29.9999 1.66683)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="58.9999"
+                           cy="45.3336"
+                           r="1.66667"
+                           transform="rotate(-90 58.9999 45.3336)"
+                           fill="#3056D3"
+                           />
+                        <circle
+                           cx="58.9999"
+                           cy="1.66683"
+                           r="1.66667"
+                           transform="rotate(-90 58.9999 1.66683)"
+                           fill="#3056D3"
+                           />
+                     </svg>
+                  </span>
+                  <span class="absolute left-5 -bottom-10 z-[-1] sm:left-16">
+                     <svg
+                        width="112"
+                        height="112"
+                        viewBox="0 0 112 112"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                           fill-rule="evenodd"
+                           clip-rule="evenodd"
+                           d="M56 96C78.0914 96 96 78.0914 96 56C96 33.9086 78.0914 16 56 16C33.9086 16 16 33.9086 16 56C16 78.0914 33.9086 96 56 96ZM56 112C86.9279 112 112 86.9279 112 56C112 25.0721 86.9279 0 56 0C25.0721 0 0 25.0721 0 56C0 86.9279 25.0721 112 56 112Z"
+                           fill="#13C296"
+                           />
+                     </svg>
+                  </span>
+               </div>
+               <div
+                  class="absolute right-0 top-20 z-30 ml-14 max-w-[300px] rounded-lg"
+                  >
+                  <img
+                     src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-05/image-02.jpg"
+                     alt="about image"
+                     class="w-full rounded-lg"
+                     />
+               </div>
+            </div>
+         </div>
+         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
+            <div class="sm:mt-10 lg:mt-0">
+               <span
+                  class="block mb-2 text-lg font-semibold uppercase text-primary"
+                  >
+               WHAT WE ACHIEVED
+               </span>
+               <h2
+                  class="mb-11 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-4xl sm:leading-tight md:text-[40px]/[48px]"
+                  >
+                  We grow your business with full potential by the innovation.
+               </h2>
+               <h3 class="mb-4 text-lg font-bold text-dark dark:text-white">
+                  Company Benefits
+               </h3>
+               <p class="text-base text-body-color dark:text-dark-6 mb-9">
+                  Proin gravida nibh vel velit auctor aliquet. aks Aenean
+                  sollicitudin, lorem quis bibendum auctor, nisi elit consequat
+                  ipsum, nec sagittis sem, tidiomic consequat ipsum.
+               </p>
+               <h3 class="mb-4 text-lg font-bold text-dark dark:text-white">
+                  Competitive Salary
+               </h3>
+               <p class="text-base text-body-color dark:text-dark-6">
+                  Proin gravida nibh vel velit auctor aliquet. aks Aenean
+                  sollicitudin, lorem quis bibendum auctor.
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ====== About Section End -->
+
+<!-- ====== Services Section Start -->
+<section class="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] dark:bg-dark">
+    <div class="container mx-auto">
+       <div class="flex flex-wrap -mx-4">
+          <div class="w-full px-4">
+             <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+                <span class="block mb-2 text-lg font-semibold text-primary">
+                What we Serve
+                </span>
+                <h2
+                   class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
+                   >
+                   Our Best Services
+                </h2>
+                <p class="text-base text-body-color dark:text-dark-6">
+                   There are many variations of passages of Lorem Ipsum available
+                   but the majority have suffered alteration in some form.
+                </p>
+             </div>
+          </div>
+       </div>
+       <div class="flex flex-wrap justify-center -mx-4">
+          <div class="w-full px-4 sm:w-4/5 md:w-1/2 lg:w-1/3">
+             <div
+                class="group relative mb-8 rounded-xl border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 p-10 text-center md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]"
+                >
+                <div
+                   class="relative z-10 inline-flex items-center mx-auto mb-10 h-11"
+                   >
+                   <span
+                      class="bg-primary absolute -right-3 top-0 z-[-1] h-[34px] w-[34px] rounded-full opacity-10"
+                      ></span>
+                   <svg
+                      width="51"
+                      height="50"
+                      viewBox="0 0 51 50"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      >
+                      <path
+                         d="M48.2129 27.75H46.3848C45.7676 27.75 45.2441 27.0312 45.2441 26.1875V14.375C45.2441 13.5078 45.8066 12.75 46.4473 12.75H48.2129C48.6273 12.75 49.0247 12.5853 49.3177 12.2923C49.6108 11.9993 49.7754 11.6019 49.7754 11.1875C49.7754 10.7731 49.6108 10.3756 49.3177 10.0826C49.0247 9.78958 48.6273 9.62496 48.2129 9.62496H46.4473C45.6834 9.63491 44.9363 9.85058 44.2846 10.2493C43.6329 10.648 43.1008 11.215 42.7441 11.8906H32.5176L31.0254 10.5859C29.6979 9.3961 28.1019 8.54574 26.3739 8.10763C24.6459 7.66951 22.8375 7.65669 21.1035 8.07027C16.7285 9.17964 13.8379 12.7031 12.8301 14.1562H11.2676C11.2851 12.9959 10.8506 11.8743 10.056 11.0287C9.26132 10.183 8.1689 9.6796 7.00977 9.62496H2.90039C2.48599 9.62496 2.08856 9.78958 1.79554 10.0826C1.50251 10.3756 1.33789 10.7731 1.33789 11.1875C1.33789 11.6019 1.50251 11.9993 1.79554 12.2923C2.08856 12.5853 2.48599 12.75 2.90039 12.75H6.99414C7.61133 12.75 8.13477 13.4609 8.13477 14.3125V26.1171C8.13477 26.9843 7.57227 27.75 6.93164 27.75H2.90039C2.48599 27.75 2.08856 27.9146 1.79554 28.2076C1.50251 28.5006 1.33789 28.8981 1.33789 29.3125C1.33789 29.7269 1.50251 30.1243 1.79554 30.4173C2.08856 30.7103 2.48599 30.875 2.90039 30.875H6.93164C7.69117 30.8592 8.4327 30.6409 9.07961 30.2426C9.72651 29.8443 10.2553 29.2804 10.6113 28.6093H11.1582C11.7521 28.6105 12.3357 28.7638 12.8535 29.0546C12.8139 29.2662 12.8185 29.4837 12.8669 29.6934C12.9153 29.9031 13.0065 30.1006 13.1348 30.2734L14.9395 32.6875C15.1519 32.9635 15.4479 33.1635 15.7832 33.2578L18.1738 33.8984L19.2441 36.1796C19.3399 36.3842 19.4789 36.5656 19.6516 36.7112C19.8242 36.8569 20.0264 36.9634 20.2441 37.0234L22.7598 37.7109L24.3926 40.3046C24.5986 40.6321 24.9187 40.8715 25.291 40.9765L29.6426 42.1875C29.7797 42.2275 29.9216 42.2485 30.0645 42.25C30.3204 42.2503 30.5725 42.1879 30.7986 42.068C31.0248 41.9481 31.218 41.7745 31.3613 41.5625L39.5254 29.4375C39.5971 29.3314 39.6937 29.2446 39.8067 29.1847C39.9198 29.1248 40.0459 29.0935 40.1738 29.0937H43.041C43.4169 29.6348 43.9162 30.0786 44.4977 30.3883C45.0791 30.6981 45.726 30.8649 46.3848 30.875H48.2129C48.6273 30.875 49.0247 30.7103 49.3177 30.4173C49.6108 30.1243 49.7754 29.7269 49.7754 29.3125C49.7754 28.8981 49.6108 28.5006 49.3177 28.2076C49.0247 27.9146 48.6273 27.75 48.2129 27.75ZM15.3535 15.9687C16.1895 14.789 18.4785 11.9531 21.8691 11.0937C23.1138 10.8063 24.4095 10.8238 25.646 11.1448C26.8824 11.4659 28.023 12.0808 28.9707 12.9375L32.166 15.7187C32.5549 16.0161 32.8127 16.4532 32.8848 16.9375C32.8908 17.0594 32.8718 17.1812 32.8288 17.2955C32.7857 17.4097 32.7197 17.5139 32.6348 17.6015L31.3066 19.0234C30.9691 19.3887 30.5075 19.615 30.0121 19.6584C29.5166 19.7017 29.0228 19.5589 28.627 19.2578L28.3145 19.0234C27.3474 18.2923 26.1483 17.9361 24.939 18.0209C23.7297 18.1056 22.5919 18.6255 21.7363 19.4843L14.8379 26.6171C13.7811 25.8988 12.5374 25.5051 11.2598 25.4843V17.2812H12.8223C13.318 17.2789 13.8062 17.1587 14.2463 16.9305C14.6864 16.7023 15.066 16.3726 15.3535 15.9687ZM36.9395 27.6875L29.4004 38.875L26.7129 38.0937L25.0801 35.5C24.8722 35.171 24.549 34.9314 24.1738 34.8281L21.7676 34.1718L20.6895 31.8828C20.5937 31.6782 20.4547 31.4968 20.282 31.3512C20.1094 31.2055 19.9072 31.099 19.6895 31.039L17.1191 30.3515L16.4316 29.4375L23.9473 21.625C24.2729 21.3043 24.703 21.1114 25.159 21.0813C25.615 21.0512 26.0666 21.1859 26.4316 21.4609L26.7441 21.6953C27.7581 22.4607 29.02 22.8229 30.2856 22.7118C31.5512 22.6007 32.7306 22.0241 33.5957 21.0937L34.9316 19.7343C35.3031 19.3396 35.5908 18.8738 35.7775 18.3649C35.9641 17.8561 36.0458 17.3147 36.0176 16.7734C35.9849 16.1594 35.8197 15.5597 35.5332 15.0156H42.1191V25.9531H40.1738C39.5339 25.9551 38.9042 26.1144 38.3403 26.4168C37.7763 26.7192 37.2953 27.1555 36.9395 27.6875Z"
+                         fill="#3758F9"
+                         />
+                   </svg>
+                </div>
+                <h4
+                   class="text-dark dark:text-white mb-[14px] text-2xl font-bold"
+                   >
+                   Marketing Solutions
+                </h4>
+                <p class="text-body-color dark:text-dark-6">
+                   Lorem Ipsum is simply dummy text of the printing and industry.
+                </p>
+                <span
+                   class="bg-primary absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"
+                   ></span>
+             </div>
+          </div>
+          <div class="w-full px-4 sm:w-4/5 md:w-1/2 lg:w-1/3">
+             <div
+                class="group relative mb-8 rounded-xl border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 p-10 text-center md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]"
+                >
+                <div
+                   class="relative z-10 inline-flex items-center mx-auto mb-10 h-11"
+                   >
+                   <span
+                      class="bg-primary absolute -right-3 top-0 z-[-1] h-[34px] w-[34px] rounded-full opacity-10"
+                      ></span>
+                   <svg
+                      width="51"
+                      height="50"
+                      viewBox="0 0 51 50"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      >
+                      <path
+                         d="M48.1348 34.7656C47.1191 31.4062 43.7598 29.5312 40.5566 30.4687C37.9004 31.25 34.2285 32.3437 31.3379 33.2031C31.5723 32.2656 31.416 31.4844 31.1816 30.8594C30.4004 28.9844 28.3691 28.125 26.5723 28.125H18.6816C18.0566 28.125 17.3535 27.8125 16.6504 27.1875C15.791 26.4062 14.6191 25.9375 13.4473 25.9375H7.11914C4.30664 25.9375 1.96289 28.3594 1.96289 31.3281V41.4844C1.96289 44.5312 4.30664 46.9531 7.19727 46.9531H14.9316C15.8691 46.9531 16.8848 46.6406 17.7441 46.0938C20.0098 47.3438 22.5879 47.9688 25.166 47.9688C26.7285 47.9688 28.291 47.7344 29.6973 47.2656L43.916 42.9688H43.9941C48.291 41.3281 48.916 37.5781 48.1348 34.7656ZM7.19727 43.4375C6.25977 43.4375 5.47852 42.5781 5.47852 41.4844V31.3281C5.47852 30.3125 6.18164 29.4531 7.11914 29.4531H13.5254C13.916 29.4531 14.2285 29.6094 14.3848 29.7656C14.6191 30 14.8535 30.1562 15.0879 30.3125V43.3594C15.0098 43.3594 15.0098 43.3594 14.9316 43.3594H7.19727V43.4375ZM42.8223 39.6094L28.5254 43.9844C27.4316 44.2969 26.2598 44.5313 25.0098 44.5313C22.9785 44.5313 21.0254 43.9844 19.3066 43.0469L18.5254 42.6562V31.7187C18.6035 31.7187 18.6035 31.7187 18.6816 31.7187H26.6504C27.3535 31.7187 27.9004 32.0312 27.9785 32.2656C28.0566 32.5 27.9004 33.3594 26.2598 34.9219L25.2441 35.8594L25.9473 37.0313C26.6504 38.2813 27.3535 38.0469 30.0879 37.2656C31.3379 36.875 33.0566 36.4063 34.7754 35.9375C38.1348 34.9219 41.5723 33.9063 41.5723 33.9063C42.9004 33.5156 44.3066 34.375 44.7754 35.8594C45.166 37.1094 45.0879 38.75 42.8223 39.6094Z"
+                         fill="#3758F9"
+                         />
+                      <path
+                         d="M47.4316 17.6563H45.4785V3.75C45.4785 2.8125 44.6973 1.95312 43.6816 1.95312C42.666 1.95312 41.9629 2.8125 41.9629 3.75V17.6563H37.666V6.09375C37.666 5.15625 36.8848 4.29688 35.8691 4.29688C34.8535 4.29688 34.1504 5.15625 34.1504 6.09375V17.6563H29.8535V10C29.8535 9.0625 29.0723 8.20313 28.0566 8.20313C27.041 8.20313 26.2598 8.98438 26.2598 10V17.6563H25.0879C24.1504 17.6563 23.291 18.4375 23.291 19.4531C23.291 20.4688 24.0723 21.25 25.0879 21.25H47.4316C48.3691 21.25 49.2285 20.4688 49.2285 19.4531C49.2285 18.4375 48.3691 17.6563 47.4316 17.6563Z"
+                         fill="#3758F9"
+                         />
+                   </svg>
+                </div>
+                <h4
+                   class="text-dark dark:text-white mb-[14px] text-2xl font-bold"
+                   >
+                   Business Analytics
+                </h4>
+                <p class="text-body-color dark:text-dark-6">
+                   Lorem Ipsum is simply dummy text of the printing and industry.
+                </p>
+                <span
+                   class="bg-primary absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"
+                   ></span>
+             </div>
+          </div>
+          <div class="w-full px-4 sm:w-4/5 md:w-1/2 lg:w-1/3">
+             <div
+                class="group relative mb-8 rounded-xl border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 p-10 text-center md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]"
+                >
+                <div
+                   class="relative z-10 inline-flex items-center mx-auto mb-10 h-11"
+                   >
+                   <span
+                      class="bg-primary absolute -right-3 top-0 z-[-1] h-[34px] w-[34px] rounded-full opacity-10"
+                      ></span>
+                   <svg
+                      width="51"
+                      height="50"
+                      viewBox="0 0 51 50"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      >
+                      <path
+                         d="M45.9473 17.2656H41.2598V8.125C41.2598 5.46875 39.1504 3.35938 36.4941 3.35938H10.7129C8.05664 3.35938 5.94727 5.46875 5.94727 8.125V21.7969C5.47852 22.1875 5.08789 22.7344 4.85352 23.4375L1.96289 37.5C1.80664 38.2813 2.04102 39.1406 2.58789 39.7656C3.05664 40.3906 3.83789 40.7031 4.61914 40.7031H29.7754V43.4375C29.7754 45.2344 31.2598 46.7188 33.0566 46.7188H45.9473C47.7441 46.7188 49.2285 45.2344 49.2285 43.4375V20.5469C49.2285 18.75 47.7441 17.2656 45.9473 17.2656ZM5.63477 37.1875L8.21289 24.7656H8.60352H29.8535V37.1875H5.63477ZM29.7754 20.5469V21.25H9.46289V8.125C9.46289 7.42187 10.0098 6.875 10.7129 6.875H36.4941C37.1973 6.875 37.7441 7.42187 37.7441 8.125V17.2656H33.0566C31.2598 17.2656 29.7754 18.75 29.7754 20.5469ZM45.7129 43.125H33.291V20.7812H45.7129V43.125Z"
+                         fill="#3758F9"
+                         />
+                      <path
+                         d="M37.7441 26.7969H41.6504C42.5879 26.7969 43.4473 26.0156 43.4473 25C43.4473 24.0625 42.666 23.2031 41.6504 23.2031H37.7441C36.8066 23.2031 35.9473 23.9844 35.9473 25C35.9473 25.9375 36.7285 26.7969 37.7441 26.7969Z"
+                         fill="#3758F9"
+                         />
+                      <path
+                         d="M39.541 38.9063C39.4629 38.9063 39.3066 38.9844 39.2285 38.9844C39.1504 39.0625 38.9941 39.0625 38.916 39.1406C38.8379 39.2188 38.7598 39.2969 38.6816 39.375C38.3691 39.6875 38.1348 40.1563 38.1348 40.625C38.1348 41.0938 38.291 41.5625 38.6816 41.875C38.7598 41.9531 38.8379 42.0313 38.916 42.1094C38.9941 42.1875 39.1504 42.2656 39.2285 42.2656C39.3066 42.3438 39.4629 42.3438 39.541 42.3438C39.6191 42.3438 39.7754 42.3438 39.8535 42.3438C40.3223 42.3438 40.791 42.1875 41.1035 41.7969C41.416 41.4844 41.6504 41.0156 41.6504 40.5469C41.6504 40.0781 41.4941 39.6094 41.1035 39.2969C40.7129 38.9844 40.0879 38.8281 39.541 38.9063Z"
+                         fill="#3758F9"
+                         />
+                   </svg>
+                </div>
+                <h4
+                   class="text-dark dark:text-white mb-[14px] text-2xl font-bold"
+                   >
+                   UX & UI Design
+                </h4>
+                <p class="text-body-color dark:text-dark-6">
+                   Lorem Ipsum is simply dummy text of the printing and industry.
+                </p>
+                <span
+                   class="bg-primary absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"
+                   ></span>
+             </div>
+          </div>
+       </div>
+    </div>
+</section>
+<!-- ====== Services Section End -->
+
+<!-- ====== Services Section Start -->
+<section class="bg-gray-2 dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+    <div class="container mx-auto">
+       <div class="-mx-4 flex flex-wrap">
+          <div class="w-full px-4">
+             <div class="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-[70px]">
+                <span class="text-primary mb-2 block text-lg font-semibold">
+                Project Planing
+                </span>
+                <h2
+                   class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
+                   >
+                   What we do for you?
+                </h2>
+                <p class="text-body-color text-base dark:text-dark-6">
+                   There are many variations of passages of Lorem Ipsum available
+                   but the majority have suffered alteration in some form.
+                </p>
+             </div>
+          </div>
+       </div>
+       <div class="-mx-4 flex flex-wrap justify-center">
+          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+             <div
+                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                >
+                <div
+                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                   >
+                   1
+                </div>
+                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                   RESEARCH
+                </h4>
+                <p class="text-body-color dark:text-dark-6 text-base">
+                   Lorem ipsum dolor amet adipiscing eiusmod.
+                </p>
+                <span
+                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                   ></span>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+             <div
+                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                >
+                <div
+                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                   >
+                   2
+                </div>
+                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                   SKETCHES
+                </h4>
+                <p class="text-body-color dark:text-dark-6 text-base">
+                   Lorem ipsum dolor amet adipiscing eiusmod.
+                </p>
+                <span
+                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                   ></span>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+             <div
+                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                >
+                <div
+                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                   >
+                   3
+                </div>
+                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                   CONCEPT
+                </h4>
+                <p class="text-body-color dark:text-dark-6 text-base">
+                   Lorem ipsum dolor amet adipiscing eiusmod.
+                </p>
+                <span
+                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                   ></span>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+             <div
+                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                >
+                <div
+                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                   >
+                   4
+                </div>
+                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                   PRESENTATION
+                </h4>
+                <p class="text-body-color dark:text-dark-6 text-base">
+                   Lorem ipsum dolor amet adipiscing eiusmod.
+                </p>
+                <span
+                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                   ></span>
+             </div>
+          </div>
+       </div>
+    </div>
+</section>
+<!-- ====== Services Section End -->
+
+<section class="bg-[#090E34] dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] media-section mb-10">
+    <div class="container mx-auto">
+ 
+      <div class="mx-auto max-w-[700px] text-center mb-10 mt-36 digital-axis" id="digitalAxis">    
+         <h2
+            class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Digital Axis Media is the Way!
+         </h2>
+         <p
+            class="text-base text-white opacity-75"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            vel dolor pellentesque, varius elit quis, malesuada quam.
+         </p>
+      </div>
+       <div class="w-full px-4 fun-facts text-center" id="funFacts">
+          <h2
+            class="mt-24 mb-10 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+            style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            >
+            Fun Facts
+         </h2>
+             <div class="-mx-3 flex flex-wrap md:-mx-4">
+                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                      >
+                      <h4
+                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                         >
+                         56,825<span style="color: #d29383;" class="font-extrabold">+</span>
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         >
+                         Clients
+                      </p>
+                   </div>
+                </div>
+                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                      >
+                      <h4
+                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                         >
+                         35,574<span style="color: #d29383;" class="font-extrabold">+</span>
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         >
+                         Commits
+                      </p>
+                   </div>
+                </div>
+                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                      >
+                      <h4
+                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                         >
+                         570<span style="color: #d29383;" class="font-extrabold">+</span>
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         >
+                         Team Member
+                      </p>
+                   </div>
+                </div>
+                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                      >
+                      <h4
+                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                         >
+                         50%<span style="color: #d29383;" class="font-extrabold">+</span>
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         >
+                         First Year of use
+                      </p>
+                   </div>
+                </div>
+             </div>
+          </div>
+    </div>
+</section>
+
+
+<!-- ====== Call To Action Section Start -->
+<section
+   class="relative z-10 overflow-hidden bg-primary py-20 lg:py-[110px]"
+   >
+   <div class="container mx-auto">
+      <div class="relative overflow-hidden">
+         <div class="flex flex-wrap items-stretch -mx-4">
+            <div class="w-full px-4">
+               <div class="mx-auto max-w-[570px] text-center">
+                  <h2
+                     class="mb-2.5 text-3xl font-bold leading-snug text-white md:text-[40px]"
+                     >
+                     <span class="pr-0.5">What Are You Looking For?</span>
+                     <span class="font-normal"> Get Started Now </span>
+                  </h2>
+                  <p class="mb-6 text-base leading-relaxed text-white md:pr-10">
+                     There are many variations of passages of Lorem Ipsum but the
+                     majority have suffered in some form.
+                  </p>
+                  <a
+                     href="javascript:void(0)"
+                     class="inline-block py-3 text-base font-medium text-white transition border border-transparent rounded-md bg-secondary px-7 hover:bg-opacity-90"
+                     >
+                  Explore Now
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div>
+      <span class="absolute top-0 left-0">
+         <svg
+            width="495"
+            height="470"
+            viewBox="0 0 495 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <circle
+               cx="55"
+               cy="442"
+               r="138"
+               stroke="white"
+               stroke-opacity="0.04"
+               stroke-width="50"
+               />
+            <circle
+               cx="446"
+               r="39"
+               stroke="white"
+               stroke-opacity="0.04"
+               stroke-width="20"
+               />
+            <path
+               d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z"
+               stroke="white"
+               stroke-opacity="0.08"
+               stroke-width="12"
+               />
+         </svg>
+      </span>
+      <span class="absolute bottom-0 right-0">
+         <svg
+            width="493"
+            height="470"
+            viewBox="0 0 493 470"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <circle
+               cx="462"
+               cy="5"
+               r="138"
+               stroke="white"
+               stroke-opacity="0.04"
+               stroke-width="50"
+               />
+            <circle
+               cx="49"
+               cy="470"
+               r="39"
+               stroke="white"
+               stroke-opacity="0.04"
+               stroke-width="20"
+               />
+            <path
+               d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z"
+               stroke="white"
+               stroke-opacity="0.06"
+               stroke-width="13"
+               />
+         </svg>
+      </span>
+   </div>
+</section>
+<!-- ====== Call To Action Section End -->
+
+<!-- ====== Footer Section Start -->
+<footer class="relative z-10 bg-white dark:bg-dark pt-20 lg:pt-[120px]">
+    <div class="container mx-auto">
+       <div class="flex flex-wrap -mx-4 lg:mb-14">
+          <div class="w-full px-4 md:w-2/3 lg:w-1/3">
+             <div class="w-full mb-12">
+                <h4
+                   class="text-dark dark:text-white text-3xl font-medium xl:text-[32px]"
+                   >
+                   Please feel free to get in touch with us
+                </h4>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+             <div class="w-full mb-12">
+                <div class="flex">
+                   <div class="mr-6 h-9 w-9 text-primary">
+                      <svg
+                         width="35"
+                         height="35"
+                         viewBox="0 0 35 35"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg"
+                         >
+                         <path
+                            d="M17.5 0.984375C9.95312 0.984375 3.82812 6.89063 3.82812 14.1641C3.82812 19.6875 11.1562 28.4375 15.4766 33.1406C16.0234 33.7422 16.7344 34.0156 17.5 34.0156C18.2656 34.0156 18.9766 33.6875 19.5234 33.1406C23.8438 28.4375 31.1719 19.6875 31.1719 14.1641C31.1719 6.89063 25.0469 0.984375 17.5 0.984375ZM17.7188 31.5C17.6094 31.6094 17.4453 31.6094 17.2812 31.5C11.9766 25.7031 6.28906 18.1563 6.28906 14.1641C6.28906 8.25781 11.3203 3.44531 17.5 3.44531C23.6797 3.44531 28.7109 8.25781 28.7109 14.1641C28.7109 18.1563 23.0234 25.7031 17.7188 31.5Z"
+                            fill="currentColor"
+                            />
+                         <path
+                            d="M17.5 8.58594C14.2187 8.58594 11.5391 11.2656 11.5391 14.5469C11.5391 17.8281 14.2187 20.5625 17.5 20.5625C20.7812 20.5625 23.4609 17.8828 23.4609 14.6016C23.4609 11.3203 20.7812 8.58594 17.5 8.58594ZM17.5 18.1016C15.5312 18.1016 14 16.5156 14 14.6016C14 12.6875 15.5859 11.1016 17.5 11.1016C19.4141 11.1016 21 12.6875 21 14.6016C21 16.5156 19.4687 18.1016 17.5 18.1016Z"
+                            fill="currentColor"
+                            />
+                      </svg>
+                   </div>
+                   <div>
+                      <h5
+                         class="mb-4 text-lg font-semibold text-dark dark:text-white"
+                         >
+                         Our Location
+                      </h5>
+                      <p class="text-base text-body-color dark:text-dark-6">
+                         401 Broadway, 24th Floor, Orchard Cloud View, London
+                      </p>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+             <div class="w-full mb-12">
+                <div class="flex">
+                   <div class="mr-6 h-9 w-9 text-primary">
+                      <svg
+                         width="35"
+                         height="35"
+                         viewBox="0 0 35 35"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg"
+                         >
+                         <path
+                            d="M30.625 5.25H4.375C2.51562 5.25 0.929688 6.78125 0.929688 8.69531V26.4141C0.929688 28.2734 2.46094 29.8594 4.375 29.8594H30.625C32.4844 29.8594 34.0703 28.3281 34.0703 26.4141V8.64062C34.0703 6.78125 32.4844 5.25 30.625 5.25ZM30.625 7.71094C30.6797 7.71094 30.7344 7.71094 30.7891 7.71094L17.5 16.2422L4.21094 7.71094C4.26562 7.71094 4.32031 7.71094 4.375 7.71094H30.625ZM30.625 27.2891H4.375C3.82812 27.2891 3.39062 26.8516 3.39062 26.3047V10.1172L16.1875 18.3203C16.5703 18.5938 17.0078 18.7031 17.4453 18.7031C17.8828 18.7031 18.3203 18.5938 18.7031 18.3203L31.5 10.1172V26.3594C31.6094 26.9062 31.1719 27.2891 30.625 27.2891Z"
+                            fill="currentColor"
+                            />
+                      </svg>
+                   </div>
+                   <div>
+                      <h5
+                         class="mb-4 text-lg font-semibold text-dark dark:text-white"
+                         >
+                         How Can We Help?
+                      </h5>
+                      <p class="mb-2 text-base text-body-color dark:text-dark-6">
+                         info@yourdomain.com
+                      </p>
+                      <p class="text-base text-body-color dark:text-dark-6">
+                         contact@yourdomain.com
+                      </p>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="py-8 border-t border-stroke dark:border-dark-3">
+       <div class="container mx-auto">
+          <div class="flex flex-wrap items-center -mx-4">
+             <div class="w-full px-4 lg:w-3/12 xl:w-1/3">
+                <div class="w-full py-3 text-center lg:text-left">
+                   <a href="javascript:void(0)" class="inline-block max-w-[160px]">
+                   <img
+                      src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg"
+                      alt="logo"
+                      class="max-w-full dark:hidden"
+                      />
+                   <img
+                      src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
+                      alt="logo"
+                      class="max-w-full hidden dark:block"
+                      />
+                   </a>
+                </div>
+             </div>
+             <div class="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-1/3">
+                <div class="py-3 text-center">
+                   <p class="text-base text-body-color dark:text-dark-6">
+                      &copy; 2025 TailGrids | All Rights Reserved
+                   </p>
+                </div>
+             </div>
+             <div class="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-1/3">
+                <div class="w-full py-3">
+                   <div
+                      class="flex items-center justify-center -mx-3 lg:justify-end"
+                      >
+                      <a
+                         href="javascript:void(0)"
+                         class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
+                         >
+                         <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            class="fill-current"
+                            >
+                            <path
+                               d="M9.00007 6.82105H7.50006H6.96434V6.27097V4.56571V4.01562H7.50006H8.62507C8.91971 4.01562 9.16078 3.79559 9.16078 3.46554V0.550085C9.16078 0.247538 8.9465 0 8.62507 0H6.66969C4.55361 0 3.08038 1.54024 3.08038 3.82309V6.21596V6.76605H2.54466H0.72322C0.348217 6.76605 0 7.06859 0 7.50866V9.48897C0 9.87402 0.294645 10.2316 0.72322 10.2316H2.49109H3.02681V10.7817V16.31C3.02681 16.6951 3.32145 17.0526 3.75003 17.0526H6.26791C6.42862 17.0526 6.56255 16.9701 6.66969 16.8601C6.77684 16.7501 6.8572 16.5576 6.8572 16.3925V10.8092V10.2591H7.4197H8.62507C8.97328 10.2591 9.24114 10.0391 9.29471 9.709V9.6815V9.65399L9.66972 7.7562C9.6965 7.56367 9.66972 7.34363 9.509 7.1236C9.45543 6.98608 9.21436 6.84856 9.00007 6.82105Z"
+                               />
+                         </svg>
+                      </a>
+                      <a
+                         href="javascript:void(0)"
+                         class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
+                         >
+                         <svg
+                            width="19"
+                            height="15"
+                            viewBox="0 0 19 15"
+                            class="fill-current"
+                            >
+                            <path
+                               d="M16.2622 3.17878L17.33 1.93293C17.6391 1.59551 17.7234 1.33595 17.7515 1.20618C16.9085 1.67337 16.1217 1.82911 15.6159 1.82911H15.4192L15.3068 1.72528C14.6324 1.18022 13.7894 0.894714 12.8902 0.894714C10.9233 0.894714 9.37779 2.40012 9.37779 4.13913C9.37779 4.24295 9.37779 4.39868 9.40589 4.5025L9.49019 5.02161L8.90009 4.99565C5.30334 4.89183 2.35288 2.03675 1.87518 1.5436C1.08839 2.84136 1.53799 4.08722 2.01568 4.86587L2.97107 6.31937L1.45369 5.54071C1.48179 6.63084 1.93138 7.48736 2.80247 8.11029L3.56116 8.62939L2.80247 8.9149C3.28017 10.2386 4.34795 10.7837 5.13474 10.9913L6.17443 11.2509L5.19094 11.8738C3.61736 12.912 1.65039 12.8342 0.779297 12.7563C2.54957 13.8983 4.65705 14.1579 6.11823 14.1579C7.21412 14.1579 8.02901 14.0541 8.2257 13.9762C16.0936 12.2631 16.4589 5.77431 16.4589 4.47655V4.29486L16.6275 4.19104C17.5829 3.36047 17.9763 2.91923 18.2011 2.65967C18.1168 2.68563 18.0044 2.73754 17.892 2.7635L16.2622 3.17878Z"
+                               />
+                         </svg>
+                      </a>
+                      <a
+                         href="javascript:void(0)"
+                         class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
+                         >
+                         <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 18 18"
+                            class="fill-current"
+                            >
+                            <path
+                               d="M8.91688 12.4995C10.6918 12.4995 12.1306 11.0911 12.1306 9.35385C12.1306 7.61655 10.6918 6.20819 8.91688 6.20819C7.14197 6.20819 5.70312 7.61655 5.70312 9.35385C5.70312 11.0911 7.14197 12.4995 8.91688 12.4995Z"
+                               />
+                            <path
+                               d="M12.4078 0.947388H5.37075C2.57257 0.947388 0.300781 3.17104 0.300781 5.90993V12.7436C0.300781 15.5367 2.57257 17.7604 5.37075 17.7604H12.3524C15.2059 17.7604 17.4777 15.5367 17.4777 12.7978V5.90993C17.4777 3.17104 15.2059 0.947388 12.4078 0.947388ZM8.91696 13.4758C6.56206 13.4758 4.70584 11.6047 4.70584 9.35389C4.70584 7.10312 6.58976 5.23199 8.91696 5.23199C11.2165 5.23199 13.1004 7.10312 13.1004 9.35389C13.1004 11.6047 11.2442 13.4758 8.91696 13.4758ZM14.735 5.61164C14.4579 5.90993 14.0423 6.07264 13.5714 6.07264C13.1558 6.07264 12.7402 5.90993 12.4078 5.61164C12.103 5.31334 11.9368 4.9337 11.9368 4.47269C11.9368 4.01169 12.103 3.65916 12.4078 3.33375C12.7125 3.00834 13.1004 2.84563 13.5714 2.84563C13.9869 2.84563 14.4302 3.00834 14.735 3.30663C15.012 3.65916 15.2059 4.06593 15.2059 4.49981C15.1782 4.9337 15.012 5.31334 14.735 5.61164Z"
+                               />
+                            <path
+                               d="M13.5985 3.82184C13.2383 3.82184 12.9336 4.12013 12.9336 4.47266C12.9336 4.82519 13.2383 5.12349 13.5985 5.12349C13.9587 5.12349 14.2634 4.82519 14.2634 4.47266C14.2634 4.12013 13.9864 3.82184 13.5985 3.82184Z"
+                               />
+                         </svg>
+                      </a>
+                      <a
+                         href="javascript:void(0)"
+                         class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
+                         >
+                         <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 18 18"
+                            class="fill-current"
+                            >
+                            <path
+                               d="M16.7821 0.947388H1.84847C1.14272 0.947388 0.578125 1.49747 0.578125 2.18508V16.7623C0.578125 17.4224 1.14272 18 1.84847 18H16.7257C17.4314 18 17.996 17.4499 17.996 16.7623V2.15757C18.0525 1.49747 17.4879 0.947388 16.7821 0.947388ZM5.7442 15.4421H3.17528V7.32837H5.7442V15.4421ZM4.44563 6.2007C3.59873 6.2007 2.94944 5.5406 2.94944 4.74297C2.94944 3.94535 3.62696 3.28525 4.44563 3.28525C5.26429 3.28525 5.94181 3.94535 5.94181 4.74297C5.94181 5.5406 5.32075 6.2007 4.44563 6.2007ZM15.4835 15.4421H12.9146V11.509C12.9146 10.5739 12.8864 9.33618 11.5596 9.33618C10.2045 9.33618 10.0069 10.3813 10.0069 11.4265V15.4421H7.438V7.32837H9.95046V8.45605H9.9787C10.3457 7.79594 11.1644 7.13584 12.4347 7.13584C15.0601 7.13584 15.54 8.7861 15.54 11.0414V15.4421H15.4835Z"
+                               />
+                         </svg>
+                      </a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</footer>
+<!-- ====== Footer Section End -->
+
 @endsection
