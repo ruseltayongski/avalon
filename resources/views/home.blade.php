@@ -1,112 +1,128 @@
 @section('css')
 <style>
-    .bacground-image-hero { 
-        background: url("{{ asset('/images/v2.png') }}") no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: 100% 100%;;
-        height: 100vh;
-    }
+   .bacground-image-hero { 
+      background: url("{{ asset('/images/v2.png') }}") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 100% 100%;;
+      height: 100vh;
+   }
 
-    .icon-bottom {
-        bottom: 0;
-    }
+   .icon-bottom {
+      bottom: 0;
+   }
 
-    .icon-bottom-padding {
-        bottom: 0;
-        padding-bottom: 2rem;
-    }
+   .icon-bottom-padding {
+      bottom: 0;
+      padding-bottom: 2rem;
+   }
 
-    .flex a svg {
-        transition: transform 0.3s ease;
-    }
+   .flex a svg {
+      transition: transform 0.3s ease;
+   }
 
-    .flex a:hover svg {
-        transform: translateY(-55px);
-    }
+   .flex a:hover svg {
+      transform: translateY(-55px);
+   }
 
-    .flex a:hover {
-        cursor: pointer;
-        filter: brightness(1.2);
-    }
+   .flex a:hover {
+      cursor: pointer;
+      filter: brightness(1.2);
+   }
 
-    .flex:hover #svg-description {
-        opacity: 1;
-        color: white;
-    }
+   .flex:hover #svg-description {
+      opacity: 1;
+      color: white;
+   }
 
-    #svg-description {
-        opacity: 0;
-        /* transition: opacity 0.5s ease-in-out; */
-        margin-top:10px;
-    }
-    
-    .flex a:not(:hover) #svg-description {
-        opacity: 0;
-    }
+   #svg-description {
+      opacity: 0;
+      /* transition: opacity 0.5s ease-in-out; */
+      margin-top:10px;
+   }
+   
+   .flex a:not(:hover) #svg-description {
+      opacity: 0;
+   }
 
-    /* WAVES */
-    .waves-content {
-        position:relative;
-        text-align:center;
-        color:white;
-        margin-bottom: -80px;
-        margin-top: -1px;
-    }
+   /* WAVES */
+   .wave-container {
+      position: relative;
+      background: #011523;
+      /* min-height: 2vh; */
+      /* padding: 20px 50px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      top:0;
+      margin-top: -1px;
+   }
 
-    .waves-inner {
-        height:5vh;
-        width:100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .waves {
-        position:relative;
-        width: 100%;
-        height:15vh;
-        margin-bottom:-7px; /*Fix for safari gap*/
-        min-height:100px;
-        max-height:150px;
-    }
-
-    /* Animation */
-
-    .parallax > use {
-        animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
-    }
-    .parallax > use:nth-child(1) {
-        animation-delay: -2s;
-        animation-duration: 7s;
-    }
-    .parallax > use:nth-child(2) {
-        animation-delay: -3s;
-        animation-duration: 10s;
-    }
-    .parallax > use:nth-child(3) {
-        animation-delay: -4s;
-        animation-duration: 13s;
-    }
-    .parallax > use:nth-child(4) {
-        animation-delay: -5s;
-        animation-duration: 20s;
-    }
-    @keyframes move-forever {
-        0% {
-            transform: translate3d(-90px,0,0);
-        }
-        100% { 
-            transform: translate3d(85px,0,0);
-        }
-    }
-    /*Shrinking for mobile*/
-    @media (max-width: 768px) {
-        .waves {
-            height:60px;
-            min-height:40px;
-        }
-    }
+   @media screen and (max-width: 430px) {
+      .wave-container {
+         margin-bottom: 30px;
+      }
+   }
+   
+   .wave {
+      position: absolute;
+      top: 0px;
+      margin-top: -10px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      /* background: url("https://i.imgur.com/ZAts69f.png"); */
+      background: url("{{ asset('images/wave1.png') }}");
+      background-size: 1000px 100px;
+   }
+   
+   .wave#wave1 {
+      z-index: 2;
+      opacity: 1;
+      bottom: 0;
+      animation: animateWaves 4s linear infinite;
+   }
+   
+   .wave#wave2 {
+      z-index: 1;
+      opacity: 0.5;
+      bottom: 10px;
+      animation: animate 4s linear infinite !important;
+   }
+   
+   .wave#wave3 {
+      z-index: 2;
+      opacity: 0.2;
+      bottom: 15px;
+      animation: animateWaves 3s linear infinite;
+   }
+   
+   .wave#wave4 {
+      z-index: 1;
+      opacity: 0.7;
+      bottom: 20px;
+      animation: animate 3s linear infinite;
+   }
+   
+   @keyframes animateWaves {
+      0% {
+         background-position-x: 1000px;
+      }
+      100% {
+         background-positon-x: 0px;
+      }
+   }
+   
+   @keyframes animate {
+      0% {
+         background-position-x: -1000px;
+      }
+      100% {
+         background-positon-x: 0px;
+      }
+   }
 </style>
 @endsection
 @extends('layouts.app')
@@ -234,19 +250,13 @@
 </div>
 <!-- ====== Hero Section End -->
 
-<div class="waves-content bg-[#011523] ">
-    <div class="waves-inner"></div>
-    <svg class="waves " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,253,255,0.1)" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,253,255,0.3)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-        </g>
-    </svg>
+<div class="wave-container">
+	<div class="waves">
+		<div class="wave" id="wave1"></div>
+		<div class="wave" id="wave2"></div>
+		<div class="wave" id="wave3"></div>
+		<div class="wave" id="wave4"></div>
+	</div>
 </div>
 
 <!-- ====== About Section Start -->
