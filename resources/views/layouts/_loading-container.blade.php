@@ -3,3 +3,5 @@
         <div class="rounded-full h-20 w-20 bg-[#1d5b80] animate-ping"></div>
     </div> 
 </div>
+
+

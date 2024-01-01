@@ -89,7 +89,7 @@
    }
 
    .serives-bg {
-      background: url("{{ asset('/images/test.jpg') }}");
+      background: url("{{ asset('/images/test1.png') }}");
       background-repeat: no-repeat;
       margin-top: 90px;
       padding: 90px 0;
