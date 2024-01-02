@@ -129,6 +129,99 @@
 
 @section('content')
 
+<!-- ====== Navbar Section Start -->
+<header
+   x-data="
+   {
+   navbarOpen: false,
+   }
+   "
+   class="absolute top-0 left-0 z-50 w-full"
+   >
+   <div class="container mx-auto">
+      <div class="relative flex items-center justify-between -mx-4">
+         <div class="max-w-full px-4 w-60">
+            <a href="javascript:void(0)" class="block w-full py-5">
+            <img
+               src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
+               alt="logo"
+               class="w-full"
+               />
+            </a>
+         </div>
+         <div class="flex items-center justify-between w-full px-4">
+            <div>
+               <button
+                  @click="navbarOpen = !navbarOpen"
+                  :class="navbarOpen && 'navbarTogglerActive'"
+                  id="navbarToggler"
+                  class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                  >
+               <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+                  ></span>
+               <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+                  ></span>
+               <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
+                  ></span>
+               </button>
+               <nav
+                  :class="!navbarOpen && 'hidden' "
+                  id="navbarCollapse"
+                  class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
+                  >
+                  <ul class="block lg:flex">
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        About Us
+                        </a>
+                     </li>
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        Features
+                        </a>
+                     </li>
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        Pricing
+                        </a>
+                     </li>
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        Support
+                        </a>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+            <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
+               <a
+                  href="javascript:void(0)"
+                  class="py-3 text-base font-medium bg-white rounded-md shadow-1 dark:shadow-none px-7 text-primary hover:bg-gray-2 hover:text-body-color"
+                  >
+               Get Started
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</header>
+<!-- ====== Navbar Section End -->
+
 <!-- ====== Hero Section Start 768 820-->
 <div 
     x-data="{ isMobile: window.innerWidth <= 1024 }"
@@ -140,23 +233,23 @@
     }"
     :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
     :style="isMobile ? 'background-image: url({{ asset('/images/banner.jpg') }})' : ''">
-    <div class="container mx-auto h-full lg:flex justify-center pt-[80px]">
+    <div class="container mx-auto h-full lg:flex justify-center items-center xl:pb-[370px]">
         <div class="flex flex-wrap -mx-4 w-full justify-center">
             {{-- <div class="w-full px-4 lg:w-1/2"> --}}
             <div class="p-4">
                 {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
                 <div class="animate-fade-up">   
-                <h1 class="mb-16 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-4xl">
-                    Empowering your<br>
+                <h1 class="mb-16 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-6xl">
+                    Empowering your<br>            
                     business presence.
                 </h1>
                 <ul class="flex flex-wrap items-center justify-center lg:pr-6">
                     <li>
                         <a
-                            href="javascript:void(0)"
-                            class="bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-2 px-4 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                           href="javascript:void(0)"
+                           class="bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-2 px-4 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
                         >
-                            Know More
+                           Know More
                         </a>
                     </li>
                 </ul>
@@ -489,22 +582,54 @@
       <div class="flex flex-wrap -mx-4">
          <div class="w-full px-4">
             <div class="mx-auto mb-[60px] max-w-[510px] text-center">
-               <span class="block mb-2 text-lg font-semibold text-primary">
-               What we Serve
-               </span>
+               {{-- <span class="block mb-2 text-lg font-semibold text-primary">What we Serve</span> --}}
                <h2
                   class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
                   >
-                  Our Best Services
+                  Our Services
                </h2>
-               <p class="text-base text-body-color dark:text-dark-6">
+               <a
+                  href="javascript:void(0)"
+                  class="bg-dark dark:bg-dark-2 border-white dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-3 px-7 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                  >
+                  Explore Services
+                  <span class="pl-[10px]">
+                     <svg 
+                        width="20" 
+                        height="20" 
+                        viewBox="0 0 20 20" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="fill-current"
+                        >
+                        <g clip-path="url(#clip0_906_8052)">
+                           <path 
+                              d="M13.1875 9.28125H10.6875V6.8125C10.6875 6.4375 10.375 6.125 9.96875 6.125C9.59375 6.125 9.28125 6.4375 9.28125 6.84375V9.3125H6.8125C6.4375 9.3125 6.125 9.625 6.125 10.0312C6.125 10.4062 6.4375 10.7187 6.84375 10.7187H9.3125V13.1875C9.3125 13.5625 9.625 13.875 10.0312 13.875C10.4062 13.875 10.7187 13.5625 10.7187 13.1562V10.6875H13.1875C13.5625 10.6875 13.875 10.375 13.875 9.96875C13.875 9.59375 13.5625 9.28125 13.1875 9.28125Z"
+                              />
+                           <path 
+                              d="M10 0.5625C4.78125 0.5625 0.5625 4.78125 0.5625 10C0.5625 15.2188 4.8125 19.4688 10.0312 19.4688C15.25 19.4688 19.5 15.2188 19.5 10C19.4688 4.78125 15.2188 0.5625 10 0.5625ZM10 18.0625C5.5625 18.0625 1.96875 14.4375 1.96875 10C1.96875 5.5625 5.5625 1.96875 10 1.96875C14.4375 1.96875 18.0625 5.5625 18.0625 10C18.0625 14.4375 14.4375 18.0625 10 18.0625Z" 
+                              />
+                        </g>
+                        <defs>
+                           <clipPath id="clip0_906_8052">
+                              <rect 
+                                 width="20" 
+                                 height="20" 
+                                 fill="white"
+                                 />
+                           </clipPath>
+                        </defs>
+                     </svg>
+                  </span>
+               </a>
+               {{-- <p class="text-base text-body-color dark:text-dark-6">
                   There are many variations of passages of Lorem Ipsum available
                   but the majority have suffered alteration in some form.
-               </p>
+               </p> --}}
             </div>
          </div>
       </div>
-      <div class="flex flex-wrap justify-center -mx-4">
+      {{-- <div class="flex flex-wrap justify-center -mx-4">
          <div class="w-full px-4 sm:w-4/5 md:w-1/2 lg:w-1/3">
             <div
                class="group relative mb-8 rounded-xl border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 p-10 text-center md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]"
@@ -625,21 +750,19 @@
                   ></span>
             </div>
          </div>
-      </div>
+      </div> --}}
       <?php $slides = [1,2,3,4,5,6,7,8,9,10]; ?>
       <div x-data="{ slides: {{ '['.implode(', ', $slides).']' }} }">  
          <div class="relative flex justify-center">
-               <div class="relative w-full pb-16">
-                  <div
-                     class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px] pb-5"
-                     x-ref="carousel"
-                     id="carousel_control">
-                     <!-- Carousel Items -->
-                     @for($i = 1; $i <= count($slides); $i++)
-                        <div class="mx-auto h-full min-w-[300px] px-4 xs:min-w-[368px] sm:min-w-[510px] md:min-w-[350px] lg:min-w-[465px] xl:min-w-[370px] 2xl:min-w-[430px]">
-                           <div
-                           class="overflow-hidden rounded-lg bg-white dark:bg-dark-2 shadow-1 dark:shadow-box-dark"
-                           >
+            <div class="relative w-full pb-16">
+               <div
+                  class="flex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px] pb-5"
+                  x-ref="carousel"
+                  id="carousel_control">
+                  <!-- Carousel Items -->
+                  @for($i = 1; $i <= count($slides); $i++)
+                     <div class="mx-auto h-full min-w-[300px] px-4 xs:min-w-[368px] sm:min-w-[510px] md:min-w-[350px] lg:min-w-[465px] xl:min-w-[370px] 2xl:min-w-[430px]">
+                        {{-- <div class="overflow-hidden rounded-lg bg-white dark:bg-dark-2 shadow-1 dark:shadow-box-dark">
                            <div>
                               <img
                                     src="{{ 'https://source.unsplash.com/random/800x800/?img='.$i }}"
@@ -793,56 +916,80 @@
                                     </span>
                               </div>
                            </div>
+                        </div> --}}
+                        <div class="group relative mb-8 rounded-xl border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 p-10 md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]">
+                           <div class="relative z-10 mx-auto mb-10 h-11">
+                              {{-- <span class="bg-primary absolute top-0 z-[-1] h-[34px] w-[34px] rounded-full opacity-10"></span> --}}
+                              <svg
+                                 width="51"
+                                 height="50"
+                                 viewBox="0 0 51 50"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 >
+                                 <path
+                                    d="M48.2129 27.75H46.3848C45.7676 27.75 45.2441 27.0312 45.2441 26.1875V14.375C45.2441 13.5078 45.8066 12.75 46.4473 12.75H48.2129C48.6273 12.75 49.0247 12.5853 49.3177 12.2923C49.6108 11.9993 49.7754 11.6019 49.7754 11.1875C49.7754 10.7731 49.6108 10.3756 49.3177 10.0826C49.0247 9.78958 48.6273 9.62496 48.2129 9.62496H46.4473C45.6834 9.63491 44.9363 9.85058 44.2846 10.2493C43.6329 10.648 43.1008 11.215 42.7441 11.8906H32.5176L31.0254 10.5859C29.6979 9.3961 28.1019 8.54574 26.3739 8.10763C24.6459 7.66951 22.8375 7.65669 21.1035 8.07027C16.7285 9.17964 13.8379 12.7031 12.8301 14.1562H11.2676C11.2851 12.9959 10.8506 11.8743 10.056 11.0287C9.26132 10.183 8.1689 9.6796 7.00977 9.62496H2.90039C2.48599 9.62496 2.08856 9.78958 1.79554 10.0826C1.50251 10.3756 1.33789 10.7731 1.33789 11.1875C1.33789 11.6019 1.50251 11.9993 1.79554 12.2923C2.08856 12.5853 2.48599 12.75 2.90039 12.75H6.99414C7.61133 12.75 8.13477 13.4609 8.13477 14.3125V26.1171C8.13477 26.9843 7.57227 27.75 6.93164 27.75H2.90039C2.48599 27.75 2.08856 27.9146 1.79554 28.2076C1.50251 28.5006 1.33789 28.8981 1.33789 29.3125C1.33789 29.7269 1.50251 30.1243 1.79554 30.4173C2.08856 30.7103 2.48599 30.875 2.90039 30.875H6.93164C7.69117 30.8592 8.4327 30.6409 9.07961 30.2426C9.72651 29.8443 10.2553 29.2804 10.6113 28.6093H11.1582C11.7521 28.6105 12.3357 28.7638 12.8535 29.0546C12.8139 29.2662 12.8185 29.4837 12.8669 29.6934C12.9153 29.9031 13.0065 30.1006 13.1348 30.2734L14.9395 32.6875C15.1519 32.9635 15.4479 33.1635 15.7832 33.2578L18.1738 33.8984L19.2441 36.1796C19.3399 36.3842 19.4789 36.5656 19.6516 36.7112C19.8242 36.8569 20.0264 36.9634 20.2441 37.0234L22.7598 37.7109L24.3926 40.3046C24.5986 40.6321 24.9187 40.8715 25.291 40.9765L29.6426 42.1875C29.7797 42.2275 29.9216 42.2485 30.0645 42.25C30.3204 42.2503 30.5725 42.1879 30.7986 42.068C31.0248 41.9481 31.218 41.7745 31.3613 41.5625L39.5254 29.4375C39.5971 29.3314 39.6937 29.2446 39.8067 29.1847C39.9198 29.1248 40.0459 29.0935 40.1738 29.0937H43.041C43.4169 29.6348 43.9162 30.0786 44.4977 30.3883C45.0791 30.6981 45.726 30.8649 46.3848 30.875H48.2129C48.6273 30.875 49.0247 30.7103 49.3177 30.4173C49.6108 30.1243 49.7754 29.7269 49.7754 29.3125C49.7754 28.8981 49.6108 28.5006 49.3177 28.2076C49.0247 27.9146 48.6273 27.75 48.2129 27.75ZM15.3535 15.9687C16.1895 14.789 18.4785 11.9531 21.8691 11.0937C23.1138 10.8063 24.4095 10.8238 25.646 11.1448C26.8824 11.4659 28.023 12.0808 28.9707 12.9375L32.166 15.7187C32.5549 16.0161 32.8127 16.4532 32.8848 16.9375C32.8908 17.0594 32.8718 17.1812 32.8288 17.2955C32.7857 17.4097 32.7197 17.5139 32.6348 17.6015L31.3066 19.0234C30.9691 19.3887 30.5075 19.615 30.0121 19.6584C29.5166 19.7017 29.0228 19.5589 28.627 19.2578L28.3145 19.0234C27.3474 18.2923 26.1483 17.9361 24.939 18.0209C23.7297 18.1056 22.5919 18.6255 21.7363 19.4843L14.8379 26.6171C13.7811 25.8988 12.5374 25.5051 11.2598 25.4843V17.2812H12.8223C13.318 17.2789 13.8062 17.1587 14.2463 16.9305C14.6864 16.7023 15.066 16.3726 15.3535 15.9687ZM36.9395 27.6875L29.4004 38.875L26.7129 38.0937L25.0801 35.5C24.8722 35.171 24.549 34.9314 24.1738 34.8281L21.7676 34.1718L20.6895 31.8828C20.5937 31.6782 20.4547 31.4968 20.282 31.3512C20.1094 31.2055 19.9072 31.099 19.6895 31.039L17.1191 30.3515L16.4316 29.4375L23.9473 21.625C24.2729 21.3043 24.703 21.1114 25.159 21.0813C25.615 21.0512 26.0666 21.1859 26.4316 21.4609L26.7441 21.6953C27.7581 22.4607 29.02 22.8229 30.2856 22.7118C31.5512 22.6007 32.7306 22.0241 33.5957 21.0937L34.9316 19.7343C35.3031 19.3396 35.5908 18.8738 35.7775 18.3649C35.9641 17.8561 36.0458 17.3147 36.0176 16.7734C35.9849 16.1594 35.8197 15.5597 35.5332 15.0156H42.1191V25.9531H40.1738C39.5339 25.9551 38.9042 26.1144 38.3403 26.4168C37.7763 26.7192 37.2953 27.1555 36.9395 27.6875Z"
+                                    fill="#3758F9"
+                                    />
+                              </svg>
                            </div>
+                           <h4 class="text-dark dark:text-white mb-[14px] text-2xl font-bold">
+                              Marketing Solutions
+                           </h4>
+                           <p class="text-body-color dark:text-dark-6">
+                              Lorem Ipsum is simply dummy text of the printing and industry.
+                           </p>
+                           <span class="bg-primary absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"></span>
                         </div>
-                     @endfor
-                  </div>
-
-                  <!-- Carousel Controls -->
-                  <div class="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center">
-                     <button
-                           class="flex h-[30px] w-[30px] items-center justify-center rounded-full border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary hover:text-white"
-                           @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft - ($refs.carousel.scrollWidth / slides.length);"
-                           onclick="previousSlide()"
-                     >
-                           <!-- Left Arrow SVG Placeholder -->
-                           <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 14 14"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="fill-current"
-                           >
-                              <path
-                                 d="M12.25 6.51875H2.90935L6.6281 2.73438C6.82498 2.5375 6.82498 2.23125 6.6281 2.03437C6.43123 1.8375 6.12498 1.8375 5.9281 2.03437L1.39998 6.62813C1.2031 6.825 1.2031 7.13125 1.39998 7.32813L5.9281 11.9219C6.0156 12.0094 6.14685 12.075 6.2781 12.075C6.40935 12.075 6.51873 12.0313 6.6281 11.9438C6.82498 11.7469 6.82498 11.4406 6.6281 11.2438L2.93123 7.50313H12.25C12.5125 7.50313 12.7312 7.28438 12.7312 7.02188C12.7312 6.7375 12.5125 6.51875 12.25 6.51875Z"
-                              />
-                           </svg>
-                     </button>
-                  </div>
-
-                  <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center">
-                     <button
-                           class="flex h-[30px] w-[30px] items-center justify-center rounded-full border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary hover:text-white"
-                           @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft + ($refs.carousel.scrollWidth / slides.length);"
-                           onclick="nextSlide()"
-                     >
-                           <!-- Right Arrow SVG Placeholder -->
-                           <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 14 14"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="fill-current"
-                           >
-                              <path
-                                 d="M12.6008 6.6501L8.07266 2.05635C7.87578 1.85947 7.56953 1.85947 7.37266 2.05635C7.17578 2.25322 7.17578 2.55947 7.37266 2.75635L11.0477 6.49697H1.75078C1.48828 6.49697 1.26953 6.71572 1.26953 6.97822C1.26953 7.24072 1.48828 7.48135 1.75078 7.48135H11.0914L7.37266 11.2657C7.17578 11.4626 7.17578 11.7688 7.37266 11.9657C7.46016 12.0532 7.59141 12.097 7.72266 12.097C7.85391 12.097 7.98516 12.0532 8.07266 11.9438L12.6008 7.3501C12.7977 7.15322 12.7977 6.84697 12.6008 6.6501Z"
-                              />
-                           </svg>
-                     </button>
-                  </div>
+                     </div>
+                  @endfor
                </div>
+
+               <!-- Carousel Controls -->
+               <div class="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center">
+                  <button
+                        class="flex h-[30px] w-[30px] items-center justify-center rounded-full border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary hover:text-white"
+                        @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft - ($refs.carousel.scrollWidth / slides.length);"
+                        onclick="previousSlide()"
+                  >
+                        <!-- Left Arrow SVG Placeholder -->
+                        <svg
+                           width="14"
+                           height="14"
+                           viewBox="0 0 14 14"
+                           fill="none"
+                           xmlns="http://www.w3.org/2000/svg"
+                           class="fill-current"
+                        >
+                           <path
+                              d="M12.25 6.51875H2.90935L6.6281 2.73438C6.82498 2.5375 6.82498 2.23125 6.6281 2.03437C6.43123 1.8375 6.12498 1.8375 5.9281 2.03437L1.39998 6.62813C1.2031 6.825 1.2031 7.13125 1.39998 7.32813L5.9281 11.9219C6.0156 12.0094 6.14685 12.075 6.2781 12.075C6.40935 12.075 6.51873 12.0313 6.6281 11.9438C6.82498 11.7469 6.82498 11.4406 6.6281 11.2438L2.93123 7.50313H12.25C12.5125 7.50313 12.7312 7.28438 12.7312 7.02188C12.7312 6.7375 12.5125 6.51875 12.25 6.51875Z"
+                           />
+                        </svg>
+                  </button>
+               </div>
+
+               <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center">
+                  <button
+                        class="flex h-[30px] w-[30px] items-center justify-center rounded-full border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary hover:text-white"
+                        @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft + ($refs.carousel.scrollWidth / slides.length);"
+                        onclick="nextSlide()"
+                  >
+                        <!-- Right Arrow SVG Placeholder -->
+                        <svg
+                           width="14"
+                           height="14"
+                           viewBox="0 0 14 14"
+                           fill="none"
+                           xmlns="http://www.w3.org/2000/svg"
+                           class="fill-current"
+                        >
+                           <path
+                              d="M12.6008 6.6501L8.07266 2.05635C7.87578 1.85947 7.56953 1.85947 7.37266 2.05635C7.17578 2.25322 7.17578 2.55947 7.37266 2.75635L11.0477 6.49697H1.75078C1.48828 6.49697 1.26953 6.71572 1.26953 6.97822C1.26953 7.24072 1.48828 7.48135 1.75078 7.48135H11.0914L7.37266 11.2657C7.17578 11.4626 7.17578 11.7688 7.37266 11.9657C7.46016 12.0532 7.59141 12.097 7.72266 12.097C7.85391 12.097 7.98516 12.0532 8.07266 11.9438L12.6008 7.3501C12.7977 7.15322 12.7977 6.84697 12.6008 6.6501Z"
+                           />
+                        </svg>
+                  </button>
+               </div>
+            </div>
          </div>
       </div>
    </div>
@@ -855,9 +1002,6 @@
        <div class="-mx-4 flex flex-wrap">
           <div class="w-full px-4">
              <div class="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-[70px]">
-                <span class="text-primary mb-2 block text-lg font-semibold">
-                Project Planing
-                </span>
                 <h2
                    class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
                    >
@@ -871,86 +1015,95 @@
           </div>
        </div>
        <div class="-mx-4 flex flex-wrap justify-center">
-          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-             <div
-                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                >
-                <div
-                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
-                   >
-                   1
-                </div>
-                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
-                   RESEARCH
-                </h4>
-                <p class="text-body-color dark:text-dark-6 text-base">
-                   Lorem ipsum dolor amet adipiscing eiusmod.
-                </p>
-                <span
-                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
-                   ></span>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-             <div
-                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                >
-                <div
-                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
-                   >
-                   2
-                </div>
-                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
-                   SKETCHES
-                </h4>
-                <p class="text-body-color dark:text-dark-6 text-base">
-                   Lorem ipsum dolor amet adipiscing eiusmod.
-                </p>
-                <span
-                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
-                   ></span>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-             <div
-                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                >
-                <div
-                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
-                   >
-                   3
-                </div>
-                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
-                   CONCEPT
-                </h4>
-                <p class="text-body-color dark:text-dark-6 text-base">
-                   Lorem ipsum dolor amet adipiscing eiusmod.
-                </p>
-                <span
-                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
-                   ></span>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-             <div
-                class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
-                >
-                <div
-                   class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
-                   >
-                   4
-                </div>
-                <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
-                   PRESENTATION
-                </h4>
-                <p class="text-body-color dark:text-dark-6 text-base">
-                   Lorem ipsum dolor amet adipiscing eiusmod.
-                </p>
-                <span
-                   class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
-                   ></span>
-             </div>
-          </div>
+            @for($i = 0; $i < 4; $i++)
+            <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+               <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
+                  {{-- <div
+                     class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                     >
+                     1
+                  </div> --}}
+                  <div class="w-full mb-6 overflow-hidden rounded-md">
+                     <img
+                        src="https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg"
+                        alt="card image"
+                        class="object-cover object-center w-full h-full"
+                        />
+                     <div class="flex h-11 w-full z-50 max-w-[65px] items-center justify-center rounded-[10px] bg-[#5DDAB4] text-white">
+                        New
+                     </div>
+                  </div>
+                  
+                  <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                     RESEARCH
+                  </h4>
+                  <p class="text-body-color dark:text-dark-6 text-base">
+                     Lorem ipsum dolor amet adipiscing eiusmod.
+                  </p>
+                  <span class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span>
+               </div>
+            </div>
+            @endfor
+            {{-- <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+               <div
+                  class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                  >
+                  <div
+                     class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                     >
+                     2
+                  </div>
+                  <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                     SKETCHES
+                  </h4>
+                  <p class="text-body-color dark:text-dark-6 text-base">
+                     Lorem ipsum dolor amet adipiscing eiusmod.
+                  </p>
+                  <span
+                     class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                     ></span>
+               </div>
+            </div>
+            <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+               <div
+                  class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                  >
+                  <div
+                     class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                     >
+                     3
+                  </div>
+                  <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                     CONCEPT
+                  </h4>
+                  <p class="text-body-color dark:text-dark-6 text-base">
+                     Lorem ipsum dolor amet adipiscing eiusmod.
+                  </p>
+                  <span
+                     class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                     ></span>
+               </div>
+            </div>
+            <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+               <div
+                  class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-11 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent"
+                  >
+                  <div
+                     class="text-dark dark:text-white group-hover:border-primary group-hover:bg-primary mx-auto mb-9 flex h-20 w-20 items-center justify-center rounded-full border border-stroke dark:border-dark-3 text-3xl font-semibold drop-shadow-feature group-hover:text-white"
+                     >
+                     4
+                  </div>
+                  <h4 class="text-primary mb-[14px] text-lg font-semibold uppercase">
+                     PRESENTATION
+                  </h4>
+                  <p class="text-body-color dark:text-dark-6 text-base">
+                     Lorem ipsum dolor amet adipiscing eiusmod.
+                  </p>
+                  <span
+                     class="bg-primary absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"
+                     ></span>
+               </div>
+            </div> --}}
        </div>
     </div>
 </section>
