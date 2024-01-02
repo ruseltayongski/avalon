@@ -53,7 +53,7 @@
                         </li>
                         <li>
                            <a
-                           href="javascript:void(0)"
+                           href="#about"
                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
                            >
                            About
@@ -61,7 +61,7 @@
                         </li>
                         <li>
                            <a
-                           href="{{ route('service') }}"
+                           href="{{ route('service2') }}"
                            class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-[#1d5b80] lg:ml-10 lg:inline-flex lg:text-white"
                            >
                            Services

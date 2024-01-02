@@ -1,125 +1,22 @@
 @section('css')
-<style>
-   .background-rgb {
-      background: linear-gradient(
-      to right, 
-      rgba(29,91,128,0.3),
-      rgba(50,118,155,0.3),
-      rgba(159,202,218,0.3)
-      );
-   }
+    <style>
+        .bacground-image-hero { 
+            background: url("{{ asset('/images/v2crop.png') }}") no-repeat center center; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;;
+            height: 20vh;
+        }
+        .newsletter-bg {
+            background: url("{{ asset('/images/newsletter.png') }}") no-repeat center; 
+            background-size: 100% 100%;
+        }
+    </style>
 
-   .what-we-do {
-      background: linear-gradient(
-         to left, 
-         rgba(39, 104, 142, 0.3), 
-         rgba(38, 58, 150, 0.3), /* medium blue */
-         rgba(90, 120, 190, 0.3), /* lighter blue */
-         rgba(143, 161, 180, 0.3), /* soft blue transitioning to warm */
-         rgba(244, 241, 239, 0.3)  /* sunset orange */
-      );
-   }
-   
-   /* .card-bg {
-      background-color: rgba(79, 117, 155, 0.85);
-   } */
+    
 
-   .flex a svg {
-      transition: transform 0.3s ease;
-   }
-
-   .flex a:hover svg {
-      transform: translateY(-55px);
-   }
-
-   .flex a:hover {
-      cursor: pointer;
-      filter: brightness(1.2);
-   }
-
-   .flex:hover #svg-description {
-      opacity: 1;
-      color: white;
-   }
-
-   #svg-description {
-      opacity: 0;
-      /* transition: opacity 0.5s ease-in-out; */
-      margin-top:10px;
-   }
-   
-   .flex a:not(:hover) #svg-description {
-      opacity: 0;
-   }
-
-   .icon-padding-bottom {
-      /* padding-top: 2rem; */
-      /* background-color: yellow; */
-      /* position:absolute; */
-      bottom: 0;
-      padding-bottom: 2rem;
-   }
-   /* @media screen and (min-width: 960px) {
-      .icon-margin-top {
-         padding-top: 6rem;
-      }
-   } */
-
-   .blob-image {
-      width: 275px;
-      position: absolute;
-      z-index: 10;
-      right: -73px;
-      top: -184px;
-      overflow: hidden;
-   }
-
-   .bacground-image-hero { 
-      background: url("{{ asset('/images/v2crop.png') }}") no-repeat center center; 
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: 100% 100%;;
-      height: 20vh;
-   }
-
-   .newsletter-bg {
-    background: url("{{ asset('/images/newsletter.png') }}") no-repeat center; 
-    background-size: 100% 100%;
- /*    background-size: cover; */
-   /*  height: 100vh; */
-   /*    background-size: 100% 100%;; */
-   }
-   .avalon-logo-footer {
-    background: url("{{ asset('/images/avalonlogo.png') }}") no-repeat center; 
-    width: 100%;
-    height: auto;
-/*     background-size: 100% auto; */
-   }
-   /* .box {
-      content: "";
-    width: 275px;
-    height: 275px;
-    position: absolute;
-    right: -137.5px;
-    bottom: -137.5px;
-    background-color: #faf8fd;
-    z-index: -1;
-    border-radius: 100%;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-}
-    */
-
-   .media-section {
-      border-radius: 276px 0 250px 0;
-    }
-
-   .text-shadow {
-      text-shadow: 3px -3px 3px rgba(0, 0, 0, 0.6); /* You may adjust these values as needed */
-   }
-
-</style>
+@endsection
 
 @extends('layouts.app')
 
@@ -138,171 +35,275 @@
 </div>
 
 <section class="relative z-40 py-20 lg:py-[120px] dark:bg-[#011523]">
-   <div
-      class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3"
-      ></div>
-   <div class="container mx-auto">
-      <div class="flex flex-wrap items-center -mx-4">
-         <div class="w-full px-4 lg:w-6/12 xl:w-7/12">
-            <div class="mb-[60px] lg:mb-[100px] xl:mb-[150px]">
-               <span
-                  class="block mb-6 text-base font-medium text-white dark:text-white"
-                  >
-               CONTACT US
-               </span>
-               <h2
-                  class="text-[35px] font-semibold leading-tight text-white dark:text-white"
-                  >
-                  Let’s talk about <br />
-                  your plans.
-               </h2>
+    <div class="absolute top-0 left-0 z-[-1] h-auto w-full bg-[#011523] dark:bg-dark-3 pt-10 pb-20">
+        <div class="container mx-auto">
+            <div class="relative overflow-hidden">
+                <div class="-mx-4 flex flex-wrap items-stretch">
+                    <div class="w-full px-4">
+                        <div class="mx-auto max-w-[570px] text-center">
+                            <h2 class="mb-2.5 text-xl font-bold text-white md:text-[32px] md:leading-[1.44]">
+                                <p class="text-1xl font-normal md:text-[30px] pb-3">Our Services</p>
+                                <span class="block text-3xl md:text-[38px] pb-3">What We Offer</span>
+                            </h2>
+                            <p class="mx-auto mb-6 max-w-[515px] text-base leading-[1.5] text-white">
+                                There are many variations of passages of Lorem Ipsum but the majority have suffered in some form.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-wrap -mx-4" 
-               x-data="{ isMobile: window.innerWidth <= 912 }"
-               x-init="() => {
-                  window.addEventListener('resize', () => {
-                     isMobile = window.innerWidth <= 912;
-                  });
-               }">
-               <div class="w-full max-w-[330px] px-4">
-                  <div class="w-full mb-12">
-                     <div class="flex">
-                        <div class="mr-6 text-primary h-9 w-9">
-                           <svg
-                              width="32"
-                              height="32"
-                              viewBox="0 0 32 32"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <path
-                                 d="M16 0.899902C9.1 0.899902 3.5 6.2999 3.5 12.9499C3.5 17.9999 10.2 25.9999 14.15 30.2999C14.65 30.8499 15.3 31.0999 16 31.0999C16.7 31.0999 17.35 30.7999 17.85 30.2999C21.8 25.9999 28.5 17.9999 28.5 12.9499C28.5 6.2999 22.9 0.899902 16 0.899902ZM16.2 28.7999C16.1 28.8999 15.95 28.8999 15.8 28.7999C10.95 23.4999 5.75 16.5999 5.75 12.9499C5.75 7.5499 10.35 3.1499 16 3.1499C21.65 3.1499 26.25 7.5499 26.25 12.9499C26.25 16.5999 21.05 23.4999 16.2 28.7999Z"
-                                 :fill="isMobile ? 'white' : '#011523'"
-                                 />
-                              <path
-                                 d="M16 7.84985C13 7.84985 10.55 10.2999 10.55 13.2999C10.55 16.2999 13 18.7999 16 18.7999C19 18.7999 21.45 16.3499 21.45 13.3499C21.45 10.3499 19 7.84985 16 7.84985ZM16 16.5499C14.2 16.5499 12.8 15.0999 12.8 13.3499C12.8 11.5999 14.25 10.1499 16 10.1499C17.75 10.1499 19.2 11.5999 19.2 13.3499C19.2 15.0999 17.8 16.5499 16 16.5499Z"
-                                 :fill="isMobile ? 'white' : '#011523'"
-                                 />
-                           </svg>
-                        </div>
-                        <div>
-                           <h5
-                              class="mb-4 text-lg font-medium text-dark dark:text-white"
-                              :style="isMobile ? 'color: white;' : ''">
-                              Our Location
-                           </h5>
-                           <p class="text-base text-body-color dark:text-dark-6"
-                           
-                           :style="isMobile ? 'color: white;' : ''">
-                           401 Broadway, 24th Floor, Orchard Cloud View, London
-                          </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="w-full max-w-[330px] px-4">
-                  <div class="w-full mb-12">
-                     <div class="flex">
-                        <div class="mr-6 text-primary h-9 w-9">
-                           <svg
-                              width="32"
-                              height="32"
-                              viewBox="0 0 32 32"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <path
-                                 d="M28 4.80005H4.00001C2.30001 4.80005 0.850006 6.20005 0.850006 7.95005V24.15C0.850006 25.85 2.25001 27.3 4.00001 27.3H28C29.7 27.3 31.15 25.9 31.15 24.15V7.90005C31.15 6.20005 29.7 4.80005 28 4.80005ZM28 7.05005C28.05 7.05005 28.1 7.05005 28.15 7.05005L16 14.85L3.85001 7.05005C3.90001 7.05005 3.95001 7.05005 4.00001 7.05005H28ZM28 24.9501H4.00001C3.50001 24.9501 3.10001 24.55 3.10001 24.05V9.25005L14.8 16.75C15.15 17 15.55 17.1 15.95 17.1C16.35 17.1 16.75 17 17.1 16.75L28.8 9.25005V24.1C28.9 24.6 28.5 24.9501 28 24.9501Z"
-                                 :fill="isMobile ? 'white' : '#011523'"
-                                 />
-                           </svg>
-                        </div>
-                        <div>
-                           <h5
-                              class="mb-4 text-lg font-medium text-dark dark:text-white"
-                              :style="isMobile ? 'color: white;' : ''">
-                              How Can We Help?
-                           </h5>
-                           <p
-                              class="mb-2 text-base text-body-color dark:text-dark-6"
-                              :style="isMobile ? 'color: white;' : ''">
-                              info@yourdomain.com
-                           </p>
-                           <p class="text-base text-body-color dark:text-dark-6" :style="isMobile ? 'color: white;' : ''">
-                              contact@yourdomain.com
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="w-full px-4 lg:w-6/12 xl:w-5/12">
-            <div
-               class="xl:p-[60px] rounded-lg bg-white py-12 px-8 shadow-3 dark:bg-dark-2 sm:p-[60px] lg:px-12"
-               >
-               <h3
-                  class="mb-8 text-2xl font-semibold text-dark dark:text-white sm:text-[28px]"
-                  >
-                  Send us a Message
-               </h3>
-               <form>
-                  <div class="mb-6">
-                     <label class="block text-xs text-body-color dark:text-dark-6">
-                     Full Name*
-                     </label>
-                     <input
-                        type="text"
-                        placeholder="Adam Gelius"
-                        class="text-body-color focus:border-[#011523] w-full border-b border-[#f1f1f1] placeholder:opacity-30 dark:border-dark-3 dark:text-dark-6 bg-transparent py-4 text-base outline-none focus-visible:shadow-none"
-                        />
-                  </div>
-                  <div class="mb-6">
-                     <label class="block text-xs text-body-color dark:text-dark-6">
-                     Email*
-                     </label>
-                     <input
-                        type="email"
-                        placeholder="example@yourmail.com"
-                        class="text-body-color focus:border-[#011523] w-full border-b border-[#f1f1f1] placeholder:opacity-30 dark:border-dark-3 dark:text-dark-6 bg-transparent py-4 text-base outline-none focus-visible:shadow-none"
-                        />
-                  </div>
-                  <div class="mb-6">
-                     <label class="block text-xs text-body-color dark:text-dark-6">
-                     Phone*
-                     </label>
-                     <input
-                        type="text"
-                        placeholder="+885 1254 5211 552"
-                        class="text-body-color focus:border-[#011523] w-full border-b border-[#f1f1f1] placeholder:opacity-30 dark:border-dark-3 dark:text-dark-6 bg-transparent py-4 text-base outline-none focus-visible:shadow-none"
-                        />
-                  </div>
-                  <div class="mb-6">
-                     <label class="block text-xs text-body-color dark:text-dark-6">
-                     Message*
-                     </label>
-                     <textarea
-                        rows="1"
-                        placeholder="Type your message here"
-                        class="text-body-color focus:border-[#011523] w-full resize-none border-b border-[#f1f1f1] placeholder:opacity-30 dark:border-dark-3 dark:text-dark-6 bg-transparent py-4 text-base outline-none focus-visible:shadow-none"
-                        ></textarea>
-                  </div>
-                  <div>
-                     <button
-                        type="submit"
-                        class="px-10 py-3 text-base font-medium text-white transition rounded bg-[#011523] hover:bg-[#011523]/90"
-                        >
-                     Send
-                     </button>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 </section>
 
-
+<section
+    x-data="
+    {
+        showCards: 'all',
+        activeClasses: 'bg-[#011523] text-white',
+        inactiveClasses: 'text-body-color hover:bg-[#011523]/80 hover:text-white',
+    }
+    "
+    class="pt-40 pb-12 lg:pt-[140px] lg:pb-[90px]"
+    >
+    <div class="container mx-auto">
+        <div class="-mx-4 flex flex-wrap justify-center">
+            <div class="w-full px-4">
+            <ul
+                class="mb-12 flex flex-wrap justify-center space-y-1 space-x-1 lg:space-x-3"
+            >
+                <li>
+                <button
+                    @click="showCards = 'all' "
+                    :class="showCards == 'all' ? activeClasses : inactiveClasses "
+                    class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                    All Projects
+                </button>
+                </li>
+                <li>
+                <button
+                    @click="showCards = 'branding' "
+                    :class="showCards == 'branding' ? activeClasses : inactiveClasses "
+                    class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                    Branding
+                </button>
+                </li>
+                <li>
+                <button
+                    @click="showCards = 'design' "
+                    :class="showCards == 'design' ? activeClasses : inactiveClasses "
+                    class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                    Design
+                </button>
+                </li>
+                <li>
+                <button
+                    @click="showCards = 'marketing' "
+                    :class="showCards == 'marketing' ? activeClasses : inactiveClasses "
+                    class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                    Marketing
+                </button>
+                </li>
+                <li>
+                <button
+                    @click="showCards = 'development' "
+                    :class="showCards == 'development' ? activeClasses : inactiveClasses "
+                    class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                    Development
+                </button>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <div class="-mx-4 flex flex-wrap">
+            <div
+            :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 xl:w-1/3"
+            >
+            <div class="relative mb-12">
+                <div class="overflow-hidden rounded-lg">
+                <img
+                    src="{{ asset('/images/portfolio/portfolio-01/image-01.jpg') }}"
+                    alt="portfolio"
+                    class="w-full"
+                />
+                </div>
+                <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                >
+                <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                    Branding
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                    Branding Design
+                </h3>
+                <a
+                    href="javascript:void(0)"
+                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                >
+                    View Details
+                </a>
+                </div>
+            </div>
+            </div>
+            <div
+            :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 xl:w-1/3"
+            >
+            <div class="relative mb-12">
+                <div class="overflow-hidden rounded-lg">
+                <img
+                    src="{{ asset('/images/portfolio/portfolio-01/image-02.jpg') }}"
+                    alt="portfolio"
+                    class="w-full"
+                />
+                </div>
+                <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                >
+                <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                    Marketing
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                    Best Marketing tips
+                </h3>
+                <a
+                    href="javascript:void(0)"
+                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                >
+                    View Details
+                </a>
+                </div>
+            </div>
+            </div>
+            <div
+            :class="showCards == 'all' || showCards == 'development' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 xl:w-1/3"
+            >
+            <div class="relative mb-12">
+                <div class="overflow-hidden rounded-lg">
+                <img
+                    src="{{ asset('/images/portfolio/portfolio-01/image-03.jpg') }}"
+                    alt="portfolio"
+                    class="w-full"
+                />
+                </div>
+                <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                >
+                <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                    Development
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                    Web Design Trend
+                </h3>
+                <a
+                    href="javascript:void(0)"
+                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                >
+                    View Details
+                </a>
+                </div>
+            </div>
+            </div>
+            <div
+            :class="showCards == 'all' || showCards == 'design' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 xl:w-1/3"
+            >
+            <div class="relative mb-12">
+                <div class="overflow-hidden rounded-lg">
+                <img
+                    src="{{ asset('/images/portfolio/portfolio-01/image-04.jpg') }}"
+                    alt="portfolio"
+                    class="w-full"
+                />
+                </div>
+                <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                >
+                <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                    Design
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                    Business Card Design
+                </h3>
+                <a
+                    href="javascript:void(0)"
+                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                >
+                    View Details
+                </a>
+                </div>
+            </div>
+            </div>
+            <div
+            :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 xl:w-1/3"
+            >
+            <div class="relative mb-12">
+                <div class="overflow-hidden rounded-lg">
+                <img
+                    src="{{ asset('/images/portfolio/portfolio-01/image-05.jpg') }}"
+                    alt="portfolio"
+                    class="w-full"
+                />
+                </div>
+                <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                >
+                <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                    Marketing
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                    Digital marketing
+                </h3>
+                <a
+                    href="javascript:void(0)"
+                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                >
+                    View Details
+                </a>
+                </div>
+            </div>
+            </div>
+            <div
+            :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 xl:w-1/3"
+            >
+            <div class="relative mb-12">
+                <div class="overflow-hidden rounded-lg">
+                <img
+                    src="{{ asset('/images/portfolio/portfolio-01/image-06.jpg') }}"
+                    alt="portfolio"
+                    class="w-full"
+                />
+                </div>
+                <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                >
+                <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                    Branding
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                    Creative Agency
+                </h3>
+                <a
+                    href="javascript:void(0)"
+                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                >
+                    View Details
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section
    class="relative z-10 newsletter-bg"
    x-data="{ isMobile: window.innerWidth <= 600 }"

@@ -27,6 +27,15 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/service2', function () {
+    return view('service2');
+})->name('service2');
+
+Route::get('/checkout', function () {
+    return view('checkout');
+})->name('checkout');
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

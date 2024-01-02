@@ -137,171 +137,305 @@
     
 </div>
 
-<section class="relative z-40 py-20 lg:py-[120px] dark:bg-[#011523]">
-   <div
-      class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3"
-      ></div>
-   <div class="container mx-auto">
-      <div class="flex flex-wrap items-center -mx-4">
-         <div class="w-full px-4 lg:w-6/12 xl:w-7/12">
-            <div class="mb-[60px] lg:mb-[100px] xl:mb-[150px]">
-               <span
-                  class="block mb-6 text-base font-medium text-white dark:text-white"
-                  >
-               CONTACT US
-               </span>
-               <h2
-                  class="text-[35px] font-semibold leading-tight text-white dark:text-white"
-                  >
-                  Let’s talk about <br />
-                  your plans.
-               </h2>
-            </div>
-            <div class="flex flex-wrap -mx-4" 
-               x-data="{ isMobile: window.innerWidth <= 912 }"
-               x-init="() => {
-                  window.addEventListener('resize', () => {
-                     isMobile = window.innerWidth <= 912;
-                  });
-               }">
-               <div class="w-full max-w-[330px] px-4">
-                  <div class="w-full mb-12">
-                     <div class="flex">
-                        <div class="mr-6 text-primary h-9 w-9">
-                           <svg
-                              width="32"
-                              height="32"
-                              viewBox="0 0 32 32"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <path
-                                 d="M16 0.899902C9.1 0.899902 3.5 6.2999 3.5 12.9499C3.5 17.9999 10.2 25.9999 14.15 30.2999C14.65 30.8499 15.3 31.0999 16 31.0999C16.7 31.0999 17.35 30.7999 17.85 30.2999C21.8 25.9999 28.5 17.9999 28.5 12.9499C28.5 6.2999 22.9 0.899902 16 0.899902ZM16.2 28.7999C16.1 28.8999 15.95 28.8999 15.8 28.7999C10.95 23.4999 5.75 16.5999 5.75 12.9499C5.75 7.5499 10.35 3.1499 16 3.1499C21.65 3.1499 26.25 7.5499 26.25 12.9499C26.25 16.5999 21.05 23.4999 16.2 28.7999Z"
-                                 :fill="isMobile ? 'white' : '#011523'"
-                                 />
-                              <path
-                                 d="M16 7.84985C13 7.84985 10.55 10.2999 10.55 13.2999C10.55 16.2999 13 18.7999 16 18.7999C19 18.7999 21.45 16.3499 21.45 13.3499C21.45 10.3499 19 7.84985 16 7.84985ZM16 16.5499C14.2 16.5499 12.8 15.0999 12.8 13.3499C12.8 11.5999 14.25 10.1499 16 10.1499C17.75 10.1499 19.2 11.5999 19.2 13.3499C19.2 15.0999 17.8 16.5499 16 16.5499Z"
-                                 :fill="isMobile ? 'white' : '#011523'"
-                                 />
-                           </svg>
-                        </div>
-                        <div>
-                           <h5
-                              class="mb-4 text-lg font-medium text-dark dark:text-white"
-                              :style="isMobile ? 'color: white;' : ''">
-                              Our Location
-                           </h5>
-                           <p class="text-base text-body-color dark:text-dark-6"
-                           
-                           :style="isMobile ? 'color: white;' : ''">
-                           401 Broadway, 24th Floor, Orchard Cloud View, London
-                          </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="w-full max-w-[330px] px-4">
-                  <div class="w-full mb-12">
-                     <div class="flex">
-                        <div class="mr-6 text-primary h-9 w-9">
-                           <svg
-                              width="32"
-                              height="32"
-                              viewBox="0 0 32 32"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <path
-                                 d="M28 4.80005H4.00001C2.30001 4.80005 0.850006 6.20005 0.850006 7.95005V24.15C0.850006 25.85 2.25001 27.3 4.00001 27.3H28C29.7 27.3 31.15 25.9 31.15 24.15V7.90005C31.15 6.20005 29.7 4.80005 28 4.80005ZM28 7.05005C28.05 7.05005 28.1 7.05005 28.15 7.05005L16 14.85L3.85001 7.05005C3.90001 7.05005 3.95001 7.05005 4.00001 7.05005H28ZM28 24.9501H4.00001C3.50001 24.9501 3.10001 24.55 3.10001 24.05V9.25005L14.8 16.75C15.15 17 15.55 17.1 15.95 17.1C16.35 17.1 16.75 17 17.1 16.75L28.8 9.25005V24.1C28.9 24.6 28.5 24.9501 28 24.9501Z"
-                                 :fill="isMobile ? 'white' : '#011523'"
-                                 />
-                           </svg>
-                        </div>
-                        <div>
-                           <h5
-                              class="mb-4 text-lg font-medium text-dark dark:text-white"
-                              :style="isMobile ? 'color: white;' : ''">
-                              How Can We Help?
-                           </h5>
-                           <p
-                              class="mb-2 text-base text-body-color dark:text-dark-6"
-                              :style="isMobile ? 'color: white;' : ''">
-                              info@yourdomain.com
-                           </p>
-                           <p class="text-base text-body-color dark:text-dark-6" :style="isMobile ? 'color: white;' : ''">
-                              contact@yourdomain.com
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="w-full px-4 lg:w-6/12 xl:w-5/12">
-            <div
-               class="xl:p-[60px] rounded-lg bg-white py-12 px-8 shadow-3 dark:bg-dark-2 sm:p-[60px] lg:px-12"
-               >
-               <h3
-                  class="mb-8 text-2xl font-semibold text-dark dark:text-white sm:text-[28px]"
-                  >
-                  Send us a Message
-               </h3>
-               <form>
-                  <div class="mb-6">
-                     <label class="block text-xs text-body-color dark:text-dark-6">
-                     Full Name*
-                     </label>
-                     <input
-                        type="text"
-                        placeholder="Adam Gelius"
-                        class="text-body-color focus:border-[#011523] w-full border-b border-[#f1f1f1] placeholder:opacity-30 dark:border-dark-3 dark:text-dark-6 bg-transparent py-4 text-base outline-none focus-visible:shadow-none"
-                        />
-                  </div>
-                  <div class="mb-6">
-                     <label class="block text-xs text-body-color dark:text-dark-6">
-                     Email*
-                     </label>
-                     <input
-                        type="email"
-                        placeholder="example@yourmail.com"
-                        class="text-body-color focus:border-[#011523] w-full border-b border-[#f1f1f1] placeholder:opacity-30 dark:border-dark-3 dark:text-dark-6 bg-transparent py-4 text-base outline-none focus-visible:shadow-none"
-                        />
-                  </div>
-                  <div class="mb-6">
-                     <label class="block text-xs text-body-color dark:text-dark-6">
-                     Phone*
-                     </label>
-                     <input
-                        type="text"
-                        placeholder="+885 1254 5211 552"
-                        class="text-body-color focus:border-[#011523] w-full border-b border-[#f1f1f1] placeholder:opacity-30 dark:border-dark-3 dark:text-dark-6 bg-transparent py-4 text-base outline-none focus-visible:shadow-none"
-                        />
-                  </div>
-                  <div class="mb-6">
-                     <label class="block text-xs text-body-color dark:text-dark-6">
-                     Message*
-                     </label>
-                     <textarea
-                        rows="1"
-                        placeholder="Type your message here"
-                        class="text-body-color focus:border-[#011523] w-full resize-none border-b border-[#f1f1f1] placeholder:opacity-30 dark:border-dark-3 dark:text-dark-6 bg-transparent py-4 text-base outline-none focus-visible:shadow-none"
-                        ></textarea>
-                  </div>
-                  <div>
-                     <button
-                        type="submit"
-                        class="px-10 py-3 text-base font-medium text-white transition rounded bg-[#011523] hover:bg-[#011523]/90"
-                        >
-                     Send
-                     </button>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
+<section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]">
+   <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3">
    </div>
+   <div class="container mx-auto">
+    <div class="flex flex-wrap -mx-4">
+       <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
+          <div class="mb-12 lg:mb-0">
+             <h3
+                class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]"
+                >
+                Payment Information
+             </h3>
+             <div
+                class="mb-10 overflow-hidden rounded-[10px] {{-- border border-stroke dark:border-dark-3 --}} bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10"
+                >
+                <h4
+                   class="mb-8 text-lg font-semibold text-dark dark:text-white"
+                   >
+                   Personal Details
+                </h4>
+                <form
+                   class="pb-4 mb-10 border-b border-stroke dark:border-dark-3"
+                   >
+                   <div class="flex flex-wrap -mx-4">
+                      <div class="w-full px-4 md:w-1/2">
+                         <div class="mb-5">
+                            <label
+                               for=""
+                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                               >
+                            Full Name
+                            </label>
+                            <input
+                               type="text"
+                               placeholder="Mark Litho"
+                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                               />
+                         </div>
+                      </div>
+                      <div class="w-full px-4 md:w-1/2">
+                         <div class="mb-5">
+                            <label
+                               for=""
+                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                               >
+                            Email1
+                            </label>
+                            <input
+                               type="text"
+                               placeholder="Email"
+                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                               />
+                         </div>
+                      </div>
+                      <div class="w-full px-4 md:w-1/2">
+                         <div class="mb-5">
+                            <label
+                               for=""
+                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                               >
+                            Email2
+                            </label>
+                            <input
+                               type="email"
+                               placeholder="Email"
+                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                               />
+                         </div>
+                      </div>
+                      <div class="w-full px-4 md:w-1/2">
+                         <div class="mb-5">
+                            <label
+                               for=""
+                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                               >
+                            Billing Address
+                            </label>
+                            <input
+                               type="text"
+                               placeholder="2707 Davis Anenue"
+                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                               />
+                         </div>
+                      </div>
+                      <div class="w-full px-4 md:w-1/3">
+                         <div class="mb-5">
+                            <label
+                               for=""
+                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                               >
+                            Country
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Country"
+                                class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                            />
+                         </div>
+                      </div>
+                      <div class="w-full px-4 md:w-1/3">
+                        <div class="mb-5">
+                           <label
+                              for=""
+                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                              >
+                           City
+                           </label>
+                           <input
+                               type="text"
+                               placeholder="City"
+                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                           />
+                        </div>
+                     </div>
+                     <div class="w-full px-4 md:w-1/3">
+                        <div class="mb-5">
+                           <label
+                              for=""
+                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                              >
+                           Post Code
+                           </label>
+                           <input
+                               type="number"
+                               placeholder="Post Code"
+                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                           />
+                        </div>
+                     </div>
+                     
+                      <div class="w-full px-4 md:w-1/3">
+                        <div class="mb-5">
+                           <label
+                              for=""
+                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                              >
+                           Type of Payment
+                           </label>
+                           <div class="relative">
+                              <select
+                                 class="w-full appearance-none bg-transparent rounded-md border border-stroke dark:border-dark-3 py-3 px-5 font-medium text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                 >
+                                 <option value="" class="dark:bg-dark-2">
+                                    Thru Gcash
+                                 </option>
+                                 <option value="" class="dark:bg-dark-2">
+                                    United Kingdom
+                                 </option>
+                                 <option value="" class="dark:bg-dark-2">
+                                    Canada
+                                 </option>
+                              </select>
+                              <span
+                                 class="absolute -translate-y-1/2 right-5 top-1/2 text-body-color dark:text-dark-6"
+                                 >
+                                 <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="fill-current stroke-current"
+                                    >
+                                    <path
+                                       d="M2.4142 5.03575L2.41418 5.03577L2.417 5.03852L7.767 10.2635L8.00101 10.4921L8.23393 10.2624L13.5839 4.98741L13.5839 4.98741L13.5856 4.98575C13.6804 4.89093 13.8194 4.89093 13.9142 4.98575C14.0087 5.0803 14.009 5.2187 13.915 5.31351C13.9148 5.31379 13.9145 5.31407 13.9142 5.31435L8.16628 10.9623L8.16627 10.9623L8.1642 10.9643C8.06789 11.0607 8.02303 11.0667 7.9999 11.0667C7.94098 11.0667 7.88993 11.0523 7.82015 10.9991L2.08477 5.36351C1.99078 5.26871 1.99106 5.1303 2.0856 5.03575C2.18043 4.94093 2.31937 4.94093 2.4142 5.03575Z"
+                                       fill=""
+                                       stroke=""
+                                       stroke-width="0.666667"
+                                       />
+                                 </svg>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                      <div class="w-full px-4 md:w-1/2">
+                         <div class="mb-5">
+                            <label
+                               for=""
+                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                               >
+                            Total Amount to be Processed
+                            </label>
+                            <input
+                               type="number"
+                               placeholder="Total Amount"
+                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                               />
+                         </div>
+                      </div>
+                   </div>
+                   <button
+                   class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
+                   >
+                   Pay Now
+                </button>
+                </form>  
+             </div>
+          </div>
+       </div>
+       <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
+          <div>
+             <h3
+                class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]"
+                >
+                Services Summary
+             </h3>
+             <div
+                class="mb-10 bg-white overflow-hidden rounded-[10px] {{-- border border-stroke dark:border-dark-3 --}} bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10"
+                >
+                <div class="flex items-center mb-9">
+                   <div
+                      class="mr-6 h-[90px] w-full max-w-[80px] overflow-hidden rounded-lg sm:h-[110px] sm:max-w-[100px] border border-stroke dark:border-dark-3"
+                      >
+                      <img
+                         src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/checkout/checkout-04/product-01.jpg"
+                         alt="product"
+                         class="object-cover object-center w-full h-full"
+                         />
+                   </div>
+                   <div class="w-full">
+                      <p
+                         class="mb-[6px] text-base font-medium text-dark dark:text-white"
+                         >
+                         Trendy Ladies Pants
+                      </p>
+                      <p
+                         class="text-sm font-medium text-body-color dark:text-dark-6"
+                         >
+                         $59.99
+                      </p>
+                      <p
+                         class="text-sm font-medium text-body-color dark:text-dark-6"
+                         >
+                         <span class="pr-0.5"> Quantity: </span> <span>1</span>
+                      </p>
+                   </div>
+                </div>
+                <div class="flex items-center mb-9">
+                   <div
+                      class="mr-6 h-[90px] w-full max-w-[80px] overflow-hidden rounded-lg sm:h-[110px] sm:max-w-[100px] border border-stroke dark:border-dark-3"
+                      >
+                      <img
+                         src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/checkout/checkout-04/product-02.jpg"
+                         alt="product"
+                         class="object-cover object-center w-full h-full"
+                         />
+                   </div>
+                   <div class="w-full">
+                      <p
+                         class="mb-[6px] text-base font-medium text-dark dark:text-white"
+                         >
+                         Men's Sendo T-shirt
+                      </p>
+                      <p
+                         class="text-sm font-medium text-body-color dark:text-dark-6"
+                         >
+                         $80.99
+                      </p>
+                      <p
+                         class="text-sm font-medium text-body-color dark:text-dark-6"
+                         >
+                         <span class="pr-0.5"> Quantity: </span> <span>2</span>
+                      </p>
+                   </div>
+                </div>
+                <div class="pt-6 border-t border-stroke dark:border-dark-3">
+                   <p
+                      class="mb-[10px] flex items-center justify-between text-base text-dark dark:text-white"
+                      >
+                      <span>Subtotal</span>
+                      <span class="font-medium"> $140.98 </span>
+                   </p>
+                   <p
+                      class="mb-[10px] flex items-center justify-between text-base text-dark dark:text-white"
+                      >
+                      <span>Shipping Cost</span>
+                      <span class="font-medium"> $10.99 </span>
+                   </p>
+                   <p
+                      class="flex items-center justify-between mb-5 text-base text-dark dark:text-white"
+                      >
+                      <span>Discount</span>
+                      <span class="font-medium"> $5.00 </span>
+                   </p>
+                </div>
+                <div class="pt-5 border-t border-stroke dark:border-dark-3">
+                   <p
+                      class="flex items-center justify-between mb-6 text-base text-dark dark:text-white"
+                      >
+                      <span>Total Amount</span>
+                      <span class="font-medium"> $124.99 </span>
+                   </p>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
 </section>
-
 
 <section
    class="relative z-10 newsletter-bg"
@@ -534,5 +668,6 @@
        </div>
     </div>
 </footer>
+
 
 @endsection
