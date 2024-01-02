@@ -6,231 +6,383 @@
 
 @section('content')
 
-<!-- ====== About Section Start -->
+<!-- ====== Shopping Cart Section Start -->
 <section
-   class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
+   x-data="
+   {
+   modalOpen: true
+   }
+   "
+   class="overflow-x-hidden"
    >
-   <div class="container mx-auto">
-      <div class="flex flex-wrap items-center justify-between -mx-4">
-         <div class="w-full px-4 lg:w-6/12">
-            <div class="relative mx-auto flex h-[500px] max-w-[440px]">
-               <div class="absolute left-0 z-30 mr-14 max-w-[270px] rounded-lg">
-                  <img
-                     src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-05/image-01.jpg"
-                     alt="about image"
-                     class="w-full rounded-lg"
-                     />
-                  <span class="absolute top-6 -right-14 -z-10">
-                     <svg
-                        width="61"
-                        height="47"
-                        viewBox="0 0 61 47"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        >
-                        <circle
-                           cx="15.6667"
-                           cy="30.9998"
-                           r="1.66667"
-                           transform="rotate(-90 15.6667 30.9998)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="44.6667"
-                           cy="30.9998"
-                           r="1.66667"
-                           transform="rotate(-90 44.6667 30.9998)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="1.66667"
-                           cy="30.9998"
-                           r="1.66667"
-                           transform="rotate(-90 1.66667 30.9998)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="29.9999"
-                           cy="30.9998"
-                           r="1.66667"
-                           transform="rotate(-90 29.9999 30.9998)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="58.9999"
-                           cy="30.9998"
-                           r="1.66667"
-                           transform="rotate(-90 58.9999 30.9998)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="15.6667"
-                           cy="16.3333"
-                           r="1.66667"
-                           transform="rotate(-90 15.6667 16.3333)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="44.6667"
-                           cy="16.3333"
-                           r="1.66667"
-                           transform="rotate(-90 44.6667 16.3333)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="1.66667"
-                           cy="16.3333"
-                           r="1.66667"
-                           transform="rotate(-90 1.66667 16.3333)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="29.9999"
-                           cy="16.3333"
-                           r="1.66667"
-                           transform="rotate(-90 29.9999 16.3333)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="58.9999"
-                           cy="16.3333"
-                           r="1.66667"
-                           transform="rotate(-90 58.9999 16.3333)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="15.6667"
-                           cy="45.3336"
-                           r="1.66667"
-                           transform="rotate(-90 15.6667 45.3336)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="15.6667"
-                           cy="1.66683"
-                           r="1.66667"
-                           transform="rotate(-90 15.6667 1.66683)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="44.6667"
-                           cy="45.3336"
-                           r="1.66667"
-                           transform="rotate(-90 44.6667 45.3336)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="44.6667"
-                           cy="1.66683"
-                           r="1.66667"
-                           transform="rotate(-90 44.6667 1.66683)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="1.66667"
-                           cy="45.3336"
-                           r="1.66667"
-                           transform="rotate(-90 1.66667 45.3336)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="1.66667"
-                           cy="1.66683"
-                           r="1.66667"
-                           transform="rotate(-90 1.66667 1.66683)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="29.9999"
-                           cy="45.3336"
-                           r="1.66667"
-                           transform="rotate(-90 29.9999 45.3336)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="29.9999"
-                           cy="1.66683"
-                           r="1.66667"
-                           transform="rotate(-90 29.9999 1.66683)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="58.9999"
-                           cy="45.3336"
-                           r="1.66667"
-                           transform="rotate(-90 58.9999 45.3336)"
-                           fill="#3056D3"
-                           />
-                        <circle
-                           cx="58.9999"
-                           cy="1.66683"
-                           r="1.66667"
-                           transform="rotate(-90 58.9999 1.66683)"
-                           fill="#3056D3"
-                           />
-                     </svg>
-                  </span>
-                  <span class="absolute left-5 -bottom-10 z-[-1] sm:left-16">
-                     <svg
-                        width="112"
-                        height="112"
-                        viewBox="0 0 112 112"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        >
-                        <path
-                           fill-rule="evenodd"
-                           clip-rule="evenodd"
-                           d="M56 96C78.0914 96 96 78.0914 96 56C96 33.9086 78.0914 16 56 16C33.9086 16 16 33.9086 16 56C16 78.0914 33.9086 96 56 96ZM56 112C86.9279 112 112 86.9279 112 56C112 25.0721 86.9279 0 56 0C25.0721 0 0 25.0721 0 56C0 86.9279 25.0721 112 56 112Z"
-                           fill="#13C296"
-                           />
-                     </svg>
-                  </span>
-               </div>
+   <div class="container mx-auto py-14 text-center">
+      <button
+         @click=" modalOpen = true "
+         class="rounded-md bg-primary py-3 px-7 text-base font-medium text-white hover:bg-blue-dark"
+         >
+      Open Modal
+      </button>
+   </div>
+   <div
+      :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' "
+      class="fixed top-0 right-0 h-full w-full bg-body-color dark:bg-dark transition-all duration-100"
+      ></div>
+   <div
+      :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' "
+      class="fixed top-0 right-0 h-screen w-full max-w-[500px] overflow-y-auto bg-white dark:bg-dark-2 py-10 px-5 transition-all duration-200 sm:px-8 md:p-[50px]"
+      >
+      <button @click=" modalOpen = false " class="absolute top-9 right-9 text-body-color dark:text-dark-6">
+         <svg 
+            width="20" 
+            height="20" 
+            viewBox="0 0 20 20" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-current"
+            >
+            <path 
+               d="M11 10L18.625 2.375C18.9062 2.09375 18.9062 1.65625 18.625 1.375C18.3438 1.09375 17.9063 1.09375 17.625 1.375L10 9L2.375 1.375C2.09375 1.09375 1.65625 1.09375 1.375 1.375C1.09375 1.65625 1.09375 2.09375 1.375 2.375L9 10L1.375 17.625C1.09375 17.9063 1.09375 18.3438 1.375 18.625C1.5 18.75 1.6875 18.8438 1.875 18.8438C2.0625 18.8438 2.25 18.7812 2.375 18.625L10 11L17.625 18.625C17.75 18.75 17.9375 18.8438 18.125 18.8438C18.3125 18.8438 18.5 18.7812 18.625 18.625C18.9062 18.3438 18.9062 17.9063 18.625 17.625L11 10Z" 
+               />
+         </svg>
+      </button>
+      <h3 class="mb-11 text-2xl font-semibold text-dark dark:text-white md:leading-[40px] md:text-[28px]">
+         Shopping cart
+      </h3>
+      <div class="space-y-10">
+         <div class="border-b border-stroke dark:border-dark-3 pb-7">
+            <div class="flex items-center">
                <div
-                  class="absolute right-0 top-20 z-30 ml-14 max-w-[300px] rounded-lg"
+                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
                   >
                   <img
-                     src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-05/image-02.jpg"
-                     alt="about image"
-                     class="w-full rounded-lg"
+                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-01.jpg"
+                     alt="product"
+                     class="h-full w-full object-cover object-center"
                      />
+               </div>
+               <div class="w-full">
+                  <div class="flex flex-wrap justify-between">
+                     <a
+                        href="javascript:void(0)"
+                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
+                        >
+                     Modern Lounge Chair
+                     </a>
+                     <div class="text-right">
+                        <span class="text-base font-medium text-dark dark:text-white"> $385 </span>
+                     </div>
+                  </div>
+                  <p
+                     class="mb-3 text-sm text-body-color dark:text-dark-6"
+                     >
+                     Quantity: 1
+                  </p>
+                  <div class="flex items-center gap-[10px]">
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Edit
+                     </button>
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Remove
+                     </button>
+                  </div>
                </div>
             </div>
          </div>
-         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
-            <div class="sm:mt-10 lg:mt-0">
-               <span
-                  class="block mb-2 text-lg font-semibold uppercase text-primary"
+         <div class="border-b border-stroke dark:border-dark-3 pb-7">
+            <div class="flex items-center">
+               <div
+                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
                   >
-               WHAT WE ACHIEVED
-               </span>
-               <h2
-                  class="mb-11 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-4xl sm:leading-tight md:text-[40px]/[48px]"
-                  >
-                  We grow your business with full potential by the innovation.
-               </h2>
-               <h3 class="mb-4 text-lg font-bold text-dark dark:text-white">
-                  Company Benefits
-               </h3>
-               <p class="text-base text-body-color dark:text-dark-6 mb-9">
-                  Proin gravida nibh vel velit auctor aliquet. aks Aenean
-                  sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                  ipsum, nec sagittis sem, tidiomic consequat ipsum.
-               </p>
-               <h3 class="mb-4 text-lg font-bold text-dark dark:text-white">
-                  Competitive Salary
-               </h3>
-               <p class="text-base text-body-color dark:text-dark-6">
-                  Proin gravida nibh vel velit auctor aliquet. aks Aenean
-                  sollicitudin, lorem quis bibendum auctor.
-               </p>
+                  <img
+                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-02.jpg"
+                     alt="product"
+                     class="h-full w-full object-cover object-center"
+                     />
+               </div>
+               <div class="w-full">
+                  <div class="flex flex-wrap justify-between">
+                     <a
+                        href="javascript:void(0)"
+                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
+                        >
+                     Mini Basic Table Lamp
+                     </a>
+                     <div class="text-right">
+                        <span class="text-base font-medium text-dark dark:text-white"> $129 </span>
+                     </div>
+                  </div>
+                  <p
+                     class="mb-3 text-sm text-body-color dark:text-dark-6"
+                     >
+                     Quantity: 2
+                  </p>
+                  <div class="flex items-center gap-[10px]">
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Edit
+                     </button>
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Remove
+                     </button>
+                  </div>
+               </div>
             </div>
+         </div>
+         <div class="border-b border-stroke dark:border-dark-3 pb-7">
+            <div class="flex items-center">
+               <div
+                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
+                  >
+                  <img
+                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-03.jpg"
+                     alt="product"
+                     class="h-full w-full object-cover object-center"
+                     />
+               </div>
+               <div class="w-full">
+                  <div class="flex flex-wrap justify-between">
+                     <a
+                        href="javascript:void(0)"
+                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
+                        >
+                     Wooden Side Table
+                     </a>
+                     <div class="text-right">
+                        <span class="text-base font-medium text-dark dark:text-white"> $459 </span>
+                     </div>
+                  </div>
+                  <p
+                     class="mb-3 text-sm text-body-color dark:text-dark-6"
+                     >
+                     Quantity: 1
+                  </p>
+                  <div class="flex items-center gap-[10px]">
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Edit
+                     </button>
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Remove
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="flex items-center justify-end">
+            <p
+               class="mr-6 flex items-center text-base text-body-color dark:text-dark-6"
+               >
+               <span> Subtotal: </span>
+               <span class="pl-2 font-medium text-dark dark:text-white">$973</span>
+            </p>
+            <button
+               class="inline-flex items-center justify-center rounded-md bg-primary py-[10px] px-7 text-center text-base font-semibold text-white hover:bg-blue-dark"
+               >
+            Checkout
+            </button>
          </div>
       </div>
    </div>
 </section>
-<!-- ====== About Section End -->
+<!-- ====== Shopping Cart Section End --><!-- ====== Shopping Cart Section Start -->
+<section
+   x-data="
+   {
+   modalOpen: true
+   }
+   "
+   class="overflow-x-hidden"
+   >
+   <div class="container mx-auto py-14 text-center">
+      <button
+         @click=" modalOpen = true "
+         class="rounded-md bg-primary py-3 px-7 text-base font-medium text-white hover:bg-blue-dark"
+         >
+      Open Modal
+      </button>
+   </div>
+   <div
+      :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' "
+      class="fixed top-0 right-0 h-full w-full bg-body-color dark:bg-dark transition-all duration-100"
+      ></div>
+   <div
+      :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' "
+      class="fixed top-0 right-0 h-screen w-full max-w-[500px] overflow-y-auto bg-white dark:bg-dark-2 py-10 px-5 transition-all duration-200 sm:px-8 md:p-[50px]"
+      >
+      <button @click=" modalOpen = false " class="absolute top-9 right-9 text-body-color dark:text-dark-6">
+         <svg 
+            width="20" 
+            height="20" 
+            viewBox="0 0 20 20" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-current"
+            >
+            <path 
+               d="M11 10L18.625 2.375C18.9062 2.09375 18.9062 1.65625 18.625 1.375C18.3438 1.09375 17.9063 1.09375 17.625 1.375L10 9L2.375 1.375C2.09375 1.09375 1.65625 1.09375 1.375 1.375C1.09375 1.65625 1.09375 2.09375 1.375 2.375L9 10L1.375 17.625C1.09375 17.9063 1.09375 18.3438 1.375 18.625C1.5 18.75 1.6875 18.8438 1.875 18.8438C2.0625 18.8438 2.25 18.7812 2.375 18.625L10 11L17.625 18.625C17.75 18.75 17.9375 18.8438 18.125 18.8438C18.3125 18.8438 18.5 18.7812 18.625 18.625C18.9062 18.3438 18.9062 17.9063 18.625 17.625L11 10Z" 
+               />
+         </svg>
+      </button>
+      <h3 class="mb-11 text-2xl font-semibold text-dark dark:text-white md:leading-[40px] md:text-[28px]">
+         Shopping cart
+      </h3>
+      <div class="space-y-10">
+         <div class="border-b border-stroke dark:border-dark-3 pb-7">
+            <div class="flex items-center">
+               <div
+                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
+                  >
+                  <img
+                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-01.jpg"
+                     alt="product"
+                     class="h-full w-full object-cover object-center"
+                     />
+               </div>
+               <div class="w-full">
+                  <div class="flex flex-wrap justify-between">
+                     <a
+                        href="javascript:void(0)"
+                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
+                        >
+                     Modern Lounge Chair
+                     </a>
+                     <div class="text-right">
+                        <span class="text-base font-medium text-dark dark:text-white"> $385 </span>
+                     </div>
+                  </div>
+                  <p
+                     class="mb-3 text-sm text-body-color dark:text-dark-6"
+                     >
+                     Quantity: 1
+                  </p>
+                  <div class="flex items-center gap-[10px]">
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Edit
+                     </button>
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Remove
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="border-b border-stroke dark:border-dark-3 pb-7">
+            <div class="flex items-center">
+               <div
+                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
+                  >
+                  <img
+                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-02.jpg"
+                     alt="product"
+                     class="h-full w-full object-cover object-center"
+                     />
+               </div>
+               <div class="w-full">
+                  <div class="flex flex-wrap justify-between">
+                     <a
+                        href="javascript:void(0)"
+                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
+                        >
+                     Mini Basic Table Lamp
+                     </a>
+                     <div class="text-right">
+                        <span class="text-base font-medium text-dark dark:text-white"> $129 </span>
+                     </div>
+                  </div>
+                  <p
+                     class="mb-3 text-sm text-body-color dark:text-dark-6"
+                     >
+                     Quantity: 2
+                  </p>
+                  <div class="flex items-center gap-[10px]">
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Edit
+                     </button>
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Remove
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="border-b border-stroke dark:border-dark-3 pb-7">
+            <div class="flex items-center">
+               <div
+                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
+                  >
+                  <img
+                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-03.jpg"
+                     alt="product"
+                     class="h-full w-full object-cover object-center"
+                     />
+               </div>
+               <div class="w-full">
+                  <div class="flex flex-wrap justify-between">
+                     <a
+                        href="javascript:void(0)"
+                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
+                        >
+                     Wooden Side Table
+                     </a>
+                     <div class="text-right">
+                        <span class="text-base font-medium text-dark dark:text-white"> $459 </span>
+                     </div>
+                  </div>
+                  <p
+                     class="mb-3 text-sm text-body-color dark:text-dark-6"
+                     >
+                     Quantity: 1
+                  </p>
+                  <div class="flex items-center gap-[10px]">
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Edit
+                     </button>
+                     <button
+                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                        >
+                     Remove
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="flex items-center justify-end">
+            <p
+               class="mr-6 flex items-center text-base text-body-color dark:text-dark-6"
+               >
+               <span> Subtotal: </span>
+               <span class="pl-2 font-medium text-dark dark:text-white">$973</span>
+            </p>
+            <button
+               class="inline-flex items-center justify-center rounded-md bg-primary py-[10px] px-7 text-center text-base font-semibold text-white hover:bg-blue-dark"
+               >
+            Checkout
+            </button>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ====== Shopping Cart Section End -->
 
 @endsection
 

@@ -5,8 +5,25 @@
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
-      background-size: 100% 100%;;
+      background-size: 100% 100%;
       height: 100vh;
+   }
+   
+   .img-icon {
+      width: 70%;
+      height: 70%;
+   }
+
+   .avalon-logo {
+      width: 40%;
+      height: 40%;
+   }
+
+   #cart-badge {
+      font-size:5pt;
+      padding:3px 5px;
+      top:0;
+      right:0;
    }
 
    .icon-bottom {
@@ -15,14 +32,14 @@
 
    .icon-bottom-padding {
       bottom: 0;
-      padding-bottom: 2rem;
+      padding-bottom: 3rem;
    }
 
-   .flex a svg {
+   .flex a img {
       transition: transform 0.3s ease;
    }
 
-   .flex a:hover svg {
+   .img-up:hover img {
       transform: translateY(-55px);
    }
 
@@ -31,18 +48,19 @@
       filter: brightness(1.2);
    }
 
-   .flex:hover #svg-description {
+   .flex:hover .img-description {
       opacity: 1;
       color: white;
+      margin-top: 20px;
    }
 
-   #svg-description {
+   .img-description {
       opacity: 0;
+      position: absolute;
       /* transition: opacity 0.5s ease-in-out; */
-      margin-top:10px;
    }
    
-   .flex a:not(:hover) #svg-description {
+   .flex a:not(:hover) .img-description {
       opacity: 0;
    }
 
@@ -138,18 +156,18 @@
    "
    class="absolute top-0 left-0 z-50 w-full"
    >
-   <div class="container mx-auto">
-      <div class="relative flex items-center justify-between -mx-4">
+   <div class="container mx-auto lg:px-24">
+      <div class="relative flex items-center justify-between -mx-4 ">
          <div class="max-w-full px-4 w-60">
-            <a href="javascript:void(0)" class="block w-full py-5">
-            <img
-               src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
-               alt="logo"
-               class="w-full"
+            <a href="javascript:void(0)" class="block w-full">
+               <img
+                  src="{{ asset('images/avalon-logo.png') }}"
+                  alt="logo"
+                  class="avalon-logo mt-6"
                />
             </a>
          </div>
-         <div class="flex items-center justify-between w-full px-4">
+         <div class=" flex items-center justify-between w-full -mt-4">
             <div>
                <button
                   @click="navbarOpen = !navbarOpen"
@@ -172,11 +190,19 @@
                   id="navbarCollapse"
                   class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
                   >
-                  <ul class="block lg:flex">
+                  <ul class="block lg:flex ">
                      <li>
                         <a
                            href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white"
+                           >
+                        Home
+                        </a>
+                     </li>
+                     <li>
+                        <a
+                           href="javascript:void(0)"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white"
                            >
                         About Us
                         </a>
@@ -184,37 +210,60 @@
                      <li>
                         <a
                            href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
+                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white"
                            >
-                        Features
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        Pricing
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-primary lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        Support
+                        Services
                         </a>
                      </li>
                   </ul>
                </nav>
             </div>
             <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
-               <a
-                  href="javascript:void(0)"
-                  class="py-3 text-base font-medium bg-white rounded-md shadow-1 dark:shadow-none px-7 text-primary hover:bg-gray-2 hover:text-body-color"
-                  >
-               Get Started
-               </a>
+               <div class="flex items-center">
+                  <div class="flex h-8 min-w-[50px] items-center justify-center rounded-full text-white relative">
+                     <section x-data="{modalOpen: false}">
+                        <button type="button" @click="modalOpen = true" onclick="triggerModal()">
+                           <?xml version="1.0" encoding="utf-8"?>
+                           <svg width="25" height="25" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <defs>
+                                 <clipPath id="clip-cart">
+                                    <rect width="96" height="96"/>
+                                 </clipPath>
+                              </defs>
+                              <g id="cart" clip-path="url(#clip-cart)">
+                                 <g id="pills" transform="translate(0 -116)">
+                                    <g id="Group_154" data-name="Group 154">
+                                    <path id="Path_188" data-name="Path 188" d="M92,132H84.619a8.361,8.361,0,0,0-7.956,5.47L63.712,174.53A8.364,8.364,0,0,1,55.755,180H21.321a8.4,8.4,0,0,1-7.773-4.994l-8.925-21C2.387,148.746,6.445,143,12.4,143H57" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+                                    <circle id="Ellipse_335" data-name="Ellipse 335" cx="4.5" cy="4.5" r="4.5" transform="translate(20 187)" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+                                    <circle id="Ellipse_336" data-name="Ellipse 336" cx="4.5" cy="4.5" r="4.5" transform="translate(49 187)" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+                                    </g>
+                                 </g>
+                              </g>
+                           </svg>
+                           <span class="inline-flex items-center justify-center leading-none bg-dark rounded-full absolute z-1" id="cart-badge">3</span>
+                        </button>
+                        @include('layouts._cart')  
+                     </section>
+                     {{-- <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        class="fill-current"
+                        >
+                        <path
+                           d="M15.3437 19.156C12.7812 19.156 9.09373 17.3123 5.71873 14.0935C1.12498 9.7185 -0.843773 4.8435 1.15623 2.7185C1.24998 2.62475 1.34373 2.56225 1.46873 2.49975L4.09373 1.031C4.68748 0.718502 5.43748 0.874752 5.81248 1.406L7.71873 4.12475C7.90623 4.406 7.99998 4.74975 7.93748 5.06225C7.87498 5.406 7.68748 5.68725 7.40623 5.87475L6.24998 6.62475C6.18748 6.656 6.18748 6.68725 6.18748 6.7185C6.18748 6.74975 6.18748 6.781 6.21873 6.81225C7.06248 8.06225 9.46873 11.2498 13.2812 13.531C13.375 13.5935 13.5312 13.5623 13.5937 13.4998L14.4062 12.406C14.8125 11.8435 15.5937 11.7185 16.1875 12.0935L19.0312 13.906C19.625 14.281 19.8125 15.031 19.4375 15.6248L17.875 18.1248C17.8125 18.2498 17.7187 18.3435 17.625 18.406C17.0312 18.9373 16.25 19.156 15.3437 19.156ZM4.74998 1.93725C4.71873 1.93725 4.68748 1.93725 4.62498 1.9685L1.99998 3.43725C1.96873 3.4685 1.96873 3.4685 1.93748 3.4685C0.624977 4.87475 2.12498 9.156 6.49998 13.3123C10.875 17.4685 15.4062 18.906 16.9062 17.6248C16.9062 17.6248 16.9062 17.6248 16.9375 17.5935L18.5 15.0935C18.5312 15.031 18.5312 14.9373 18.4375 14.8748L15.5937 13.0623C15.5 12.9998 15.3437 13.031 15.2812 13.0935L14.4687 14.1873C14.0625 14.7185 13.3125 14.8748 12.7187 14.531C8.68748 12.1248 6.18748 8.781 5.31248 7.43725C5.12498 7.156 5.06248 6.8435 5.12498 6.49975C5.18748 6.18725 5.37498 5.87475 5.65623 5.7185L6.81248 4.93725C6.87498 4.906 6.87498 4.87475 6.87498 4.8435C6.87498 4.81225 6.87498 4.781 6.84373 4.7185L4.93748 1.99975C4.90623 1.9685 4.81248 1.93725 4.74998 1.93725Z"
+                           />
+                     </svg> --}}
+                  </div>
+                  <div class="ml-4 w-full whitespace-nowrap">
+                     <a
+                        href="javascript:void(0)"
+                        class="py-3 text-base font-medium bg-white rounded-md shadow-1 dark:shadow-none px-7 text-dark hover:bg-gray-2 hover:text-body-color"
+                        >
+                        Contact Us
+                     </a>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
@@ -233,13 +282,13 @@
     }"
     :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
     :style="isMobile ? 'background-image: url({{ asset('/images/banner.jpg') }})' : ''">
-    <div class="container mx-auto h-full lg:flex justify-center items-center xl:pb-[370px]">
-        <div class="flex flex-wrap -mx-4 w-full justify-center">
+    <div class="container mx-auto h-full lg:flex justify-center items-center xl:pb-[210px] 2xl:pb-[370px]">
+        <div class="flex flex-wrap w-full justify-center ">
             {{-- <div class="w-full px-4 lg:w-1/2"> --}}
             <div class="p-4">
                 {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
                 <div class="animate-fade-up">   
-                <h1 class="mb-16 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] xl:text-6xl">
+                <h1 class="mb-12 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] 2xl:text-6xl">
                     Empowering your<br>            
                     business presence.
                 </h1>
@@ -260,9 +309,9 @@
         <!-- ====== Horizontal Menu Section Start -->
         {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
         <header x-data="{navbarOpen: false}" :class="{ 'icon-bottom-padding lg:absolute' : window.innerWidth !== 1024,'icon-bottom lg:absolute': window.innerWidth === 1024 }">
-            <div class="mx-auto w-full " :class="{ 'mt-12': isMobile }">
+            <div class="mx-auto" :class="{ 'mt-12': isMobile }">
                 <div class="flex items-center justify-center ">
-                    <div class="flex w-full">
+                    <div class="flex w-full ">
                         <div class="flex w-full ">
                             <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
                                 <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
@@ -310,26 +359,84 @@
                                 </ul>
                                 </nav>
                             </div>
-                            <div class="hidden md:block w-full mt-12 ">
+                            <div class="hidden md:block w-full mt-12 xl:px-24">
                                 <nav>
                                 {{-- <ul class="flex space-x-[25px] justify-center" :class="{ 'space-x-2': isMobile }"> --}}
-                                <ul :class="{'flex space-x-[25px] justify-center': !isMobile, 'flex space-x-2 justify-center': isMobile}">
-                                    <?php $delay = 0; ?>
-                                    @for ($i=0; $i<12; $i++)
-                                    <li class="fade-right animate-fade-right animate-delay-{{ $delay }}">
-                                        <div class="relative">
-                                            <a href="javascript:void(0)" class="flex justify-between py-2 text-base font-medium text-white dark:text-dark-6 hover:text-primary lg:mx-4 lg:inline-flex lg:py-6 ">
-                                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <ul :class="{'flex space-x-[25px] justify-center ': !isMobile, 'flex space-x-2 justify-center': isMobile}">
+                                    <?php 
+                                       $delay = 0;
+                                       $icon_images = [
+                                          [
+                                             'filepath' => 'books.png',
+                                             'filename' => 'Books'
+                                          ],
+                                          [
+                                             'filepath' => 'volume.png',
+                                             'filename' => 'Volume'
+                                          ],
+                                          [
+                                             'filepath' => 'global.png',
+                                             'filename' => 'Global'
+                                          ],
+                                          [
+                                             'filepath' => 'code.png',
+                                             'filename' => 'Code'
+                                          ],
+                                          [
+                                             'filepath' => 'megaphone.png',
+                                             'filename' => 'Megaphone'
+                                          ],
+                                          [
+                                             'filepath' => 'volume.png',
+                                             'filename' => 'Volume'
+                                          ],
+                                          [
+                                             'filepath' => 'headset.png',
+                                             'filename' => 'Headset'
+                                          ],
+                                          [
+                                             'filepath' => 'youtube.png',
+                                             'filename' => 'Youtube'
+                                          ],
+                                          [
+                                             'filepath' => 'head-idea.png',
+                                             'filename' => 'Idea'
+                                          ],
+                                          [
+                                             'filepath' => 'building.png',
+                                             'filename' => 'Building'
+                                          ],
+                                          [
+                                             'filepath' => 'video-alt.png',
+                                             'filename' => 'Video'
+                                          ],
+                                          [
+                                             'filepath' => 'video-alt-1.png',
+                                             'filename' => 'Video1'
+                                          ]
+                                          ,[
+                                             'filepath' => 'video-camera.png',
+                                             'filename' => 'Camera'
+                                          ],
+                                       ];
+                                    ?>
+                                    {{-- @for ($i=0; $i<13; $i++) --}}
+                                    @foreach($icon_images as $row)
+                                    <li class="fade-right animate-fade-right animate-delay-{{ $delay }} ">
+                                       <div class="relative ">
+                                          <a href="javascript:void(0)" class="flex justify-center items-center img-up text-base font-medium text-white dark:text-dark-6 hover:text-primary">
+                                             {{-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
                                                 <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
-                                            </svg>
-                                            <p class="absolute" id='svg-description'>icon{{ $i }}</p>
-                                            </a>
-                                        </div>
+                                             </svg> --}}
+                                             <img src="{{ asset('images/page1_icon').'/'.$row['filepath'] }}" class="img-icon" alt="img-icon">
+                                             <p class="img-description">{{ $row['filename'] }}</p>
+                                          </a>
+                                       </div>
                                     </li>
                                     <?php $delay += 25; ?>
-                                    @endfor
+                                    @endforeach
                                 </ul>
                                 </nav>
                             </div>
