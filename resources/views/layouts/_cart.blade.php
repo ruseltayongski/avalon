@@ -2,30 +2,45 @@
     id="checkoutmodal"
     class="opacity-0 fixed top-0 left-0 flex 
     items-center justify-center w-full h-screen py-10 overflow-y-scroll
-     bg-gray-2 dark:bg-dark">
-    <div @click.outside="modalOpen = false" class="mx-auto 
-     rounded-[10px] bg-white 
+    bg-[#000000] bg-opacity-20 dark:bg-dark">
+    <div @click.outside="modalOpen = false" class="mx-auto rounded-[10px] bg-white
     dark:bg-dark-2 p-8 shadow-1 dark:shadow-3">
         <!-- ====== Checkout Section Start -->
-        <section class="bg-gray-2 dark:bg-dark pt-20 pb-10 lg:pt-[120px] lg:pb-20">
-            <div class="container mx-auto">
+        <section class=" dark:bg-dark">
+            <div :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' " 
+            class=" min-w-[500px] overflow-y-auto dark:bg-dark-2
+            transition-all duration-200 pl-4 pr-8">
+                <button @click=" modalOpen = false " class="bg-red p-1 absolute right-0 rounded-[5px] text-white dark:text-dark-6">
+                    <svg 
+                        width="20" 
+                        height="20" 
+                        viewBox="0 0 20 20" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="fill-current"
+                        >
+                        <path 
+                        d="M11 10L18.625 2.375C18.9062 2.09375 18.9062 1.65625 18.625 1.375C18.3438 1.09375 17.9063 1.09375 17.625 1.375L10 9L2.375 1.375C2.09375 1.09375 1.65625 1.09375 1.375 1.375C1.09375 1.65625 1.09375 2.09375 1.375 2.375L9 10L1.375 17.625C1.09375 17.9063 1.09375 18.3438 1.375 18.625C1.5 18.75 1.6875 18.8438 1.875 18.8438C2.0625 18.8438 2.25 18.7812 2.375 18.625L10 11L17.625 18.625C17.75 18.75 17.9375 18.8438 18.125 18.8438C18.3125 18.8438 18.5 18.7812 18.625 18.625C18.9062 18.3438 18.9062 17.9063 18.625 17.625L11 10Z" 
+                        />
+                    </svg>
+                </button>
                 <h3 class="mb-11 text-2xl font-semibold text-dark dark:text-white md:leading-[40px] md:text-[28px]">
                     Shopping cart
                 </h3>
                 <div class="space-y-10">
                     <div class="border-b border-stroke dark:border-dark-3 pb-7">
                         <div class="flex items-center">
-                            <div
-                                class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                                >
-                                <img
+                        <div
+                            class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
+                            >
+                            <img
                                 src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-01.jpg"
                                 alt="product"
                                 class="h-full w-full object-cover object-center"
                                 />
-                            </div>
-                            <div class="w-full">
-                                <div class="flex flex-wrap justify-between">
+                        </div>
+                        <div class="w-full">
+                            <div class="flex flex-wrap justify-between">
                                 <a
                                     href="javascript:void(0)"
                                     class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
@@ -35,40 +50,35 @@
                                 <div class="text-right">
                                     <span class="text-base font-medium text-dark dark:text-white"> $385 </span>
                                 </div>
-                                </div>
-                                <p
+                            </div>
+                            <p
                                 class="mb-3 text-sm text-body-color dark:text-dark-6"
                                 >
                                 Quantity: 1
-                                </p>
-                                <div class="flex items-center gap-[10px]">
-                                <button
-                                    class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                                    >
-                                Edit
-                                </button>
+                            </p>
+                            <div class="flex items-center gap-[10px]">
                                 <button
                                     class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
                                     >
                                 Remove
                                 </button>
-                                </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                     <div class="border-b border-stroke dark:border-dark-3 pb-7">
                         <div class="flex items-center">
-                            <div
-                                class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                                >
-                                <img
+                        <div
+                            class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
+                            >
+                            <img
                                 src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-02.jpg"
                                 alt="product"
                                 class="h-full w-full object-cover object-center"
                                 />
-                            </div>
-                            <div class="w-full">
-                                <div class="flex flex-wrap justify-between">
+                        </div>
+                        <div class="w-full">
+                            <div class="flex flex-wrap justify-between">
                                 <a
                                     href="javascript:void(0)"
                                     class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
@@ -78,40 +88,35 @@
                                 <div class="text-right">
                                     <span class="text-base font-medium text-dark dark:text-white"> $129 </span>
                                 </div>
-                                </div>
-                                <p
+                            </div>
+                            <p
                                 class="mb-3 text-sm text-body-color dark:text-dark-6"
                                 >
                                 Quantity: 2
-                                </p>
-                                <div class="flex items-center gap-[10px]">
+                            </p>
+                            <div class="flex items-center gap-[10px]">
                                 <button
-                                    class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                                    >
-                                Edit
-                                </button>
-                                <button
-                                    class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                                    class="bg-red text-white rounded-[3px] border-[0.5px] border-red dark:border-dark-3 px-3 py-0.5 text-sm font-medium dark:text-white transition hover:border-dark hover:bg-dark"
                                     >
                                 Remove
                                 </button>
-                                </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                     <div class="border-b border-stroke dark:border-dark-3 pb-7">
                         <div class="flex items-center">
-                            <div
-                                class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                                >
-                                <img
+                        <div
+                            class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
+                            >
+                            <img
                                 src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-03.jpg"
                                 alt="product"
                                 class="h-full w-full object-cover object-center"
                                 />
-                            </div>
-                            <div class="w-full">
-                                <div class="flex flex-wrap justify-between">
+                        </div>
+                        <div class="w-full">
+                            <div class="flex flex-wrap justify-between">
                                 <a
                                     href="javascript:void(0)"
                                     class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
@@ -121,36 +126,33 @@
                                 <div class="text-right">
                                     <span class="text-base font-medium text-dark dark:text-white"> $459 </span>
                                 </div>
-                                </div>
-                                <p
+                            </div>
+                            <p
                                 class="mb-3 text-sm text-body-color dark:text-dark-6"
                                 >
                                 Quantity: 1
-                                </p>
-                                <div class="flex items-center gap-[10px]">
-                                <button
-                                    class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                                    >
-                                Edit
-                                </button>
+                            </p>
+                            <div class="flex items-center gap-[10px]">
                                 <button
                                     class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
                                     >
                                 Remove
                                 </button>
-                                </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                     <div class="flex items-center justify-end">
                         <p
-                            class="mr-6 flex items-center text-base text-body-color dark:text-dark-6"
-                            >
-                            <span> Subtotal: </span>
-                            <span class="pl-2 font-medium text-dark dark:text-white">$973</span>
+                        class="mr-6 flex items-center text-base text-body-color dark:text-dark-6"
+                        >
+                        <span> Subtotal: </span>
+                        <span class="pl-2 font-medium text-dark dark:text-white">$973</span>
                         </p>
-                        <button @click="modalOpen = false" class="inline-flex items-center justify-center rounded-md bg-primary py-[10px] px-7 text-center text-base font-semibold text-white hover:bg-blue-dark">
-                            Checkout
+                        <button
+                        class="inline-flex items-center justify-center rounded-md bg-dark py-[10px] px-7 text-center text-base font-semibold text-white hover:bg-blue-dark"
+                        >
+                        Checkout
                         </button>
                     </div>
                 </div>
