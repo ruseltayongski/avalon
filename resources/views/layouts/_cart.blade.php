@@ -4,7 +4,7 @@
     items-center justify-center w-full h-screen py-10 overflow-y-scroll
     bg-[#000000] bg-opacity-20 dark:bg-dark">
     <div @click.outside="modalOpen = false" class="mx-auto rounded-[10px] bg-white
-    dark:bg-dark-2 p-8 shadow-1 dark:shadow-3">
+    dark:bg-dark-2 p-8 shadow-1 dark:shadow-3 xl:mt-32">
         <!-- ====== Checkout Section Start -->
         <section class=" dark:bg-dark">
             <div :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' " 
@@ -51,12 +51,7 @@
                                     <span class="text-base font-medium text-dark dark:text-white"> $385 </span>
                                 </div>
                             </div>
-                            <p
-                                class="mb-3 text-sm text-body-color dark:text-dark-6"
-                                >
-                                Quantity: 1
-                            </p>
-                            <div class="flex items-center gap-[10px]">
+                            <div class="flex items-center gap-[10px] mt-3">
                                 <button
                                     class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
                                     >
@@ -89,12 +84,7 @@
                                     <span class="text-base font-medium text-dark dark:text-white"> $129 </span>
                                 </div>
                             </div>
-                            <p
-                                class="mb-3 text-sm text-body-color dark:text-dark-6"
-                                >
-                                Quantity: 2
-                            </p>
-                            <div class="flex items-center gap-[10px]">
+                            <div class="flex items-center gap-[10px] mt-3">
                                 <button
                                     class="bg-red text-white rounded-[3px] border-[0.5px] border-red dark:border-dark-3 px-3 py-0.5 text-sm font-medium dark:text-white transition hover:border-dark hover:bg-dark"
                                     >
@@ -127,12 +117,7 @@
                                     <span class="text-base font-medium text-dark dark:text-white"> $459 </span>
                                 </div>
                             </div>
-                            <p
-                                class="mb-3 text-sm text-body-color dark:text-dark-6"
-                                >
-                                Quantity: 1
-                            </p>
-                            <div class="flex items-center gap-[10px]">
+                            <div class="flex items-center gap-[10px] mt-3">
                                 <button
                                     class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
                                     >
@@ -150,7 +135,7 @@
                         <span class="pl-2 font-medium text-dark dark:text-white">$973</span>
                         </p>
                         <button
-                        class="inline-flex items-center justify-center rounded-md bg-dark py-[10px] px-7 text-center text-base font-semibold text-white hover:bg-blue-dark"
+                        class="inline-flex items-center justify-center rounded-md bg-dark py-[10px] px-7 text-center text-base font-semibold text-white hover:dark"
                         >
                         Checkout
                         </button>
