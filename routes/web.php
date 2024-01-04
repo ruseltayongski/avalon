@@ -27,9 +27,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/service2', function () {
-    return view('service2');
-})->name('service2');
+// Route::get('/service2', function () {
+//     return view('service2');
+// })->name('service2');
 
 Route::get('/checkout', function () {
     return view('checkout');
@@ -38,10 +38,11 @@ Route::get('/checkout', function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index'])->name('services');
 
-Route::get('/service',function() {
-    return view('service');
-})->name('service');
+// Route::get('/service',function() {
+//     return view('service');
+// })->name('service');
 
 Route::get('/test',function() {
     return view('test');

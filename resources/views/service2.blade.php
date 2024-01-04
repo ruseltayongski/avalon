@@ -120,187 +120,167 @@
             </ul>
             </div>
         </div>
-        <div class="-mx-4 flex flex-wrap">
-            <div
-            :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' "
-            class="w-full px-4 md:w-1/2 xl:w-1/3"
-            >
-            <div class="relative mb-12">
-                <div class="overflow-hidden rounded-lg">
-                <img
-                    src="{{ asset('/images/portfolio/portfolio-01/image-01.jpg') }}"
-                    alt="portfolio"
-                    class="w-full"
-                />
+        <div class="-mx-4 flex flex-wrap" x-data='{ services: @json($services), capitalizeFirstChar: function(str) { return str.charAt(0).toUpperCase() + str.slice(1); } }'>
+            <template x-for="service in services" :key="service.id">
+                <div x-show="showCards === 'all' || showCards === service.category" class="w-full px-4 md:w-1/2 xl:w-1/3">
+                    <div class="relative mb-12">
+                        <div class="overflow-hidden rounded-lg">
+                        <img
+                            x-bind:src="'fileupload/services/'+service.picture"
+                            alt="portfolio"
+                            class="w-full"
+                        />
+                        </div>
+                        <div
+                        class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                        >
+                        <span class="mb-2 block text-sm font-semibold text-[#011523]" x-text="capitalizeFirstChar(service.category)"></span>
+                        <h3 class="mb-4 text-xl font-bold text-dark" x-text="service.title"></h3>
+                        <a
+                            href="javascript:void(0)"
+                            class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                        >
+                            View Details
+                        </a>
+                        </div>
+                    </div>
                 </div>
-                <div
-                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-                >
-                <span class="mb-2 block text-sm font-semibold text-[#011523]">
-                    Branding
-                </span>
-                <h3 class="mb-4 text-xl font-bold text-dark">
-                    Branding Design
-                </h3>
-                <a
-                    href="javascript:void(0)"
-                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
-                >
-                    View Details
-                </a>
-                </div>
-            </div>
-            </div>
-            <div
-            :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' "
-            class="w-full px-4 md:w-1/2 xl:w-1/3"
-            >
-            <div class="relative mb-12">
-                <div class="overflow-hidden rounded-lg">
-                <img
-                    src="{{ asset('/images/portfolio/portfolio-01/image-02.jpg') }}"
-                    alt="portfolio"
-                    class="w-full"
-                />
-                </div>
-                <div
-                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-                >
-                <span class="mb-2 block text-sm font-semibold text-[#011523]">
-                    Marketing
-                </span>
-                <h3 class="mb-4 text-xl font-bold text-dark">
-                    Best Marketing tips
-                </h3>
-                <a
-                    href="javascript:void(0)"
-                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
-                >
-                    View Details
-                </a>
+            </template>
+            {{-- <div :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' " class="w-full px-4 md:w-1/2 xl:w-1/3">
+                <div class="relative mb-12">
+                    <div class="overflow-hidden rounded-lg">
+                    <img
+                        src="{{ asset('/images/portfolio/portfolio-01/image-02.jpg') }}"
+                        alt="portfolio"
+                        class="w-full"
+                    />
+                    </div>
+                    <div
+                    class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                    >
+                    <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                        Marketing
+                    </span>
+                    <h3 class="mb-4 text-xl font-bold text-dark">
+                        Best Marketing tips
+                    </h3>
+                    <a
+                        href="javascript:void(0)"
+                        class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                    >
+                        View Details
+                    </a>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div
-            :class="showCards == 'all' || showCards == 'development' ? 'block' : 'hidden' "
-            class="w-full px-4 md:w-1/2 xl:w-1/3"
-            >
-            <div class="relative mb-12">
-                <div class="overflow-hidden rounded-lg">
-                <img
-                    src="{{ asset('/images/portfolio/portfolio-01/image-03.jpg') }}"
-                    alt="portfolio"
-                    class="w-full"
-                />
-                </div>
-                <div
-                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-                >
-                <span class="mb-2 block text-sm font-semibold text-[#011523]">
-                    Development
-                </span>
-                <h3 class="mb-4 text-xl font-bold text-dark">
-                    Web Design Trend
-                </h3>
-                <a
-                    href="javascript:void(0)"
-                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
-                >
-                    View Details
-                </a>
+            <div :class="showCards == 'all' || showCards == 'development' ? 'block' : 'hidden' " class="w-full px-4 md:w-1/2 xl:w-1/3">
+                <div class="relative mb-12">
+                    <div class="overflow-hidden rounded-lg">
+                    <img
+                        src="{{ asset('/images/portfolio/portfolio-01/image-03.jpg') }}"
+                        alt="portfolio"
+                        class="w-full"
+                    />
+                    </div>
+                    <div
+                    class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                    >
+                    <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                        Development
+                    </span>
+                    <h3 class="mb-4 text-xl font-bold text-dark">
+                        Web Design Trend
+                    </h3>
+                    <a
+                        href="javascript:void(0)"
+                        class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                    >
+                        View Details
+                    </a>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div
-            :class="showCards == 'all' || showCards == 'design' ? 'block' : 'hidden' "
-            class="w-full px-4 md:w-1/2 xl:w-1/3"
-            >
-            <div class="relative mb-12">
-                <div class="overflow-hidden rounded-lg">
-                <img
-                    src="{{ asset('/images/portfolio/portfolio-01/image-04.jpg') }}"
-                    alt="portfolio"
-                    class="w-full"
-                />
-                </div>
-                <div
-                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-                >
-                <span class="mb-2 block text-sm font-semibold text-[#011523]">
-                    Design
-                </span>
-                <h3 class="mb-4 text-xl font-bold text-dark">
-                    Business Card Design
-                </h3>
-                <a
-                    href="javascript:void(0)"
-                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
-                >
-                    View Details
-                </a>
+            <div :class="showCards == 'all' || showCards == 'design' ? 'block' : 'hidden' " class="w-full px-4 md:w-1/2 xl:w-1/3">
+                <div class="relative mb-12">
+                    <div class="overflow-hidden rounded-lg">
+                    <img
+                        src="{{ asset('/images/portfolio/portfolio-01/image-04.jpg') }}"
+                        alt="portfolio"
+                        class="w-full"
+                    />
+                    </div>
+                    <div
+                    class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                    >
+                    <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                        Design
+                    </span>
+                    <h3 class="mb-4 text-xl font-bold text-dark">
+                        Business Card Design
+                    </h3>
+                    <a
+                        href="javascript:void(0)"
+                        class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                    >
+                        View Details
+                    </a>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div
-            :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' "
-            class="w-full px-4 md:w-1/2 xl:w-1/3"
-            >
-            <div class="relative mb-12">
-                <div class="overflow-hidden rounded-lg">
-                <img
-                    src="{{ asset('/images/portfolio/portfolio-01/image-05.jpg') }}"
-                    alt="portfolio"
-                    class="w-full"
-                />
-                </div>
-                <div
-                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-                >
-                <span class="mb-2 block text-sm font-semibold text-[#011523]">
-                    Marketing
-                </span>
-                <h3 class="mb-4 text-xl font-bold text-dark">
-                    Digital marketing
-                </h3>
-                <a
-                    href="javascript:void(0)"
-                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
-                >
-                    View Details
-                </a>
+            <div :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' " class="w-full px-4 md:w-1/2 xl:w-1/3">
+                <div class="relative mb-12">
+                    <div class="overflow-hidden rounded-lg">
+                    <img
+                        src="{{ asset('/images/portfolio/portfolio-01/image-05.jpg') }}"
+                        alt="portfolio"
+                        class="w-full"
+                    />
+                    </div>
+                    <div
+                    class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                    >
+                    <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                        Marketing
+                    </span>
+                    <h3 class="mb-4 text-xl font-bold text-dark">
+                        Digital marketing
+                    </h3>
+                    <a
+                        href="javascript:void(0)"
+                        class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                    >
+                        View Details
+                    </a>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div
-            :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' "
-            class="w-full px-4 md:w-1/2 xl:w-1/3"
-            >
-            <div class="relative mb-12">
-                <div class="overflow-hidden rounded-lg">
-                <img
-                    src="{{ asset('/images/portfolio/portfolio-01/image-06.jpg') }}"
-                    alt="portfolio"
-                    class="w-full"
-                />
+            <div :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' " class="w-full px-4 md:w-1/2 xl:w-1/3">
+                <div class="relative mb-12">
+                    <div class="overflow-hidden rounded-lg">
+                    <img
+                        src="{{ asset('/images/portfolio/portfolio-01/image-06.jpg') }}"
+                        alt="portfolio"
+                        class="w-full"
+                    />
+                    </div>
+                    <div
+                    class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+                    >
+                    <span class="mb-2 block text-sm font-semibold text-[#011523]">
+                        Branding
+                    </span>
+                    <h3 class="mb-4 text-xl font-bold text-dark">
+                        Creative Agency
+                    </h3>
+                    <a
+                        href="javascript:void(0)"
+                        class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
+                    >
+                        View Details
+                    </a>
+                    </div>
                 </div>
-                <div
-                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-                >
-                <span class="mb-2 block text-sm font-semibold text-[#011523]">
-                    Branding
-                </span>
-                <h3 class="mb-4 text-xl font-bold text-dark">
-                    Creative Agency
-                </h3>
-                <a
-                    href="javascript:void(0)"
-                    class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white"
-                >
-                    View Details
-                </a>
-                </div>
-            </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>

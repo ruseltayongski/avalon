@@ -216,21 +216,116 @@
       animation: animate 5s linear infinite;
    }
    
-   @keyframes animateWaves {
+   .bacground-our-services { 
+      background: url("{{ asset('/images/our_services.png') }}") no-repeat center center ; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 80% 100%;
+   }
+
+   @media (min-width: 390px) and (max-width: 430px) {
+      .bacground-our-services {
+         background-size: cover;
+      }
+   }
+
+   #bacground-our-services-wave1 {
+      background: url("{{ asset('/images/our_services.png') }}") no-repeat center center ; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 80% 100%;
+      
+      bottom: 0;
+      animation: animateBubbles 4s linear infinite;
+   }
+
+   @media (min-width: 390px) and (max-width: 430px) {
+      #bacground-our-services-wave1 {
+         background-size: cover;
+      }
+   }
+
+   #bacground-our-services-wave2 {
+      background: url("{{ asset('/images/our_services.png') }}") no-repeat center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 80% 100%;
+
+      bottom: 0;
+      animation: bubbles 4s linear infinite;
+   }
+
+   @media (min-width: 390px) and (max-width: 430px) {
+      #bacground-our-services-wave2 {
+         background-size: cover;
+      }
+   }
+
+
+   #bacground-our-services-wave3 {
+      background: url("{{ asset('/images/our_services.png') }}") no-repeat center center ; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 80% 100%;
+      
+      bottom: 0;
+      animation: animateBubbles 3s linear infinite;
+   }
+
+   @media (min-width: 390px) and (max-width: 430px) {
+      #bacground-our-services-wave3 {
+         background-size: cover;
+      }
+   }
+
+   #bacground-our-services-wave4 {
+      background: url("{{ asset('/images/our_services.png') }}") no-repeat center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: 80% 100%;
+
+      bottom: 0;
+      animation: bubbles 3s linear infinite;
+   }
+
+   @media (min-width: 390px) and (max-width: 430px) {
+      #bacground-our-services-wave4 {
+         background-size: cover;
+      }
+   }
+
+   @keyframes animateBubbles {
       0% {
-         background-position-x: 1000px;
+         transform: translateY(0) scale(1);
+         opacity: 1;
+      }
+      50% {
+         transform: translateY(20px) scale(1.05);
+         opacity: 0.5;
       }
       100% {
-         background-positon-x: 0px;
+         transform: translateY(50px) scale(1);
+         opacity: 0;
       }
    }
    
-   @keyframes animate {
+   @keyframes bubbles {
       0% {
-         background-position-x: -1000px;
+         transform: translateY(0) scale(1);
+         opacity: 1;
+      }
+      50% {
+         transform: translateY(-20px) scale(1.05);
+         opacity: 0.5;
       }
       100% {
-         background-positon-x: 0px;
+         transform: translateY(-50px) scale(1);
+         opacity: 0;
       }
    }
 </style>
@@ -768,160 +863,167 @@
 </section>
 <!-- ====== About Section End -->
 
-<!-- ====== Services Section Start -->
-<section class="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] dark:bg-dark">
-   <div class="container mx-auto">
-      <div class="flex flex-wrap -mx-4">
-         <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[510px] text-center">
-               {{-- <span class="block mb-2 text-lg font-semibold text-primary">What we Serve</span> --}}
-               <h2
-                  class="text-dark dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
-                  >
-                  Our Services
-               </h2>
-               <a
-                  href="javascript:void(0)"
-                  class="bg-dark dark:bg-dark-2 dark:border-dark-2 border border-white rounded-md inline-flex items-center 
-                  justify-center py-3 px-5 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color 
-                  disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
-                  >
-                  Explore Services
-                  <span class="pl-[10px]">
-                     <svg viewBox="0 0 40 40" width="20" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg" 
-                        xmlns:xlink="http://www.w3.org/1999/xlink" 
-                        xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">  <defs> </defs> 
-                           <g id="Page-1" stroke="none" stroke-width="1" 
-                           fill="none" fill-rule="evenodd" sketch:type="MSPage"> 
-                           <g id="Icon-Set" sketch:type="MSLayerGroup" 
-                           transform="translate(-464.000000, -983.000000)" fill="#ffffff">
-                           <path d="M494,1011 C494,1012.1 493.104,1013 492,1013 L468,1013 C466.896,1013 466,1012.1 466,1011 L466,987 C466,
-                           985.896 466.896,985 468,985 L492,985 C493.104,985 494,
-                           985.896 494,987 L494,1011 L494,1011 Z M492,983 L468,
-                           983 C465.791,983 464,984.791 464,987 L464,1011 C464,
-                           1013.21 465.791,1015 468,1015 L492,1015 C494.209,1015 496,1013.21 496,
-                           1011 L496,987 C496,984.791 494.209,983 492,983 L492,983 Z M487.535,
-                           998.121 L481.879,992.465 C481.488,992.074 480.855,992.074 480.465,
-                           992.465 C480.074,992.854 480.074,993.488 480.465,993.879 L484.586,998 L474,
-                           998 C473.447,998 473,998.447 473,999 C473,999.552 473.447,1000 
-                           474,1000 L484.586,1000 L480.465,1004.12 C480.074,1004.51 480.074,
-                           1005.14 480.465,1005.54 C480.855,1005.93 481.488,1005.93 481.879,
-                           1005.54 L487.535,999.879 C487.775,999.639 487.85,999.311 487.795,
-                           999 C487.85,998.689 487.775,998.361 487.535,998.121 L487.535,998.121 Z" 
-                           id="arrow-right-square" sketch:type="MSShapeGroup"> </path> 
-                     </g> </g> </g></svg>
-                  </span>
-               </a>
+
+<div class="flex justify-center items-center  py-20 overflow-hidden" x-data="{ isMobile: window.innerWidth <= 600 }">
+   <!-- ====== Services Section Start -->
+   <section class="relative pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] dark:bg-dark bacground-our-services w-full z-40">
+      <span class="absolute -z-10 h-full w-full" id="bacground-our-services-wave1"></span>
+      <span class="absolute -z-10 h-full w-full" id="bacground-our-services-wave2"></span>
+      <span class="absolute -z-10 h-full w-full" id="bacground-our-services-wave3"></span>
+      <span class="absolute -z-10 h-full w-full" id="bacground-our-services-wave4"></span>
+      <div class="container mx-auto">
+         <div class="flex flex-wrap -mx-4">
+            <div class="w-full px-4">
+               <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+                  {{-- <span class="block mb-2 text-lg font-semibold text-primary">What we Serve</span> --}}
+                  <h2
+                     class="text-white dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
+                     >
+                     Our Services
+                  </h2>
+                  <a
+                     href="javascript:void(0)"
+                     class="bg-dark dark:bg-dark-2 dark:border-dark-2 border border-white rounded-md inline-flex items-center 
+                     justify-center py-3 px-5 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color 
+                     disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                     >
+                     Explore Services
+                     <span class="pl-[10px]">
+                        <svg viewBox="0 0 40 40" width="20" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg" 
+                           xmlns:xlink="http://www.w3.org/1999/xlink" 
+                           xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000">
+                           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                           <g id="SVGRepo_iconCarrier">  <defs> </defs> 
+                              <g id="Page-1" stroke="none" stroke-width="1" 
+                              fill="none" fill-rule="evenodd" sketch:type="MSPage"> 
+                              <g id="Icon-Set" sketch:type="MSLayerGroup" 
+                              transform="translate(-464.000000, -983.000000)" fill="#ffffff">
+                              <path d="M494,1011 C494,1012.1 493.104,1013 492,1013 L468,1013 C466.896,1013 466,1012.1 466,1011 L466,987 C466,
+                              985.896 466.896,985 468,985 L492,985 C493.104,985 494,
+                              985.896 494,987 L494,1011 L494,1011 Z M492,983 L468,
+                              983 C465.791,983 464,984.791 464,987 L464,1011 C464,
+                              1013.21 465.791,1015 468,1015 L492,1015 C494.209,1015 496,1013.21 496,
+                              1011 L496,987 C496,984.791 494.209,983 492,983 L492,983 Z M487.535,
+                              998.121 L481.879,992.465 C481.488,992.074 480.855,992.074 480.465,
+                              992.465 C480.074,992.854 480.074,993.488 480.465,993.879 L484.586,998 L474,
+                              998 C473.447,998 473,998.447 473,999 C473,999.552 473.447,1000 
+                              474,1000 L484.586,1000 L480.465,1004.12 C480.074,1004.51 480.074,
+                              1005.14 480.465,1005.54 C480.855,1005.93 481.488,1005.93 481.879,
+                              1005.54 L487.535,999.879 C487.775,999.639 487.85,999.311 487.795,
+                              999 C487.85,998.689 487.775,998.361 487.535,998.121 L487.535,998.121 Z" 
+                              id="arrow-right-square" sketch:type="MSShapeGroup"> </path> 
+                        </g> </g> </g></svg>
+                     </span>
+                  </a>
+               </div>
             </div>
          </div>
-      </div>
-      <?php $slides = [1,2,3,4,5,6,7,8,9,10]; ?>
-      <div x-data="{ slides: {{ '['.implode(', ', $slides).']' }} }">  
-         <div class="relative flex justify-center ">
-            <div class="relative w-full ">
-               <div
-                  class="bgflex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] 
-                  sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px] "
-                  x-ref="carousel"
-                  id="carousel_control">
-                  <!-- Carousel Items -->
-                  <?php $count = 0; ?>
-                  @for($i = 1; $i <= count($slides); $i++)
-                     <?php
-                        if($count == 3){
-                           $count = 0;
-                        }
-                        $count++;
-                     ?>
-                     <div class="mx-auto h-full min-w-[300px] px-4 pb-8 xs:min-w-[360px] sm:min-w-[510px] 
-                           md:min-w-[350px] lg:min-w-[465px] xl:min-w-[380px] 2xl:min-w-[440px] ">
-                        <div class="group relative rounded-xl border border-stroke dark:border-dark-3 
-                           bg-white dark:bg-dark-2 p-10 md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]">
-                           <div class="relative z-10 mx-auto mb-10">
-                              {{-- <svg
-                                 width="51"
-                                 height="50"
-                                 viewBox="0 0 51 50"
-                                 fill="none"
-                                 xmlns="http://www.w3.org/2000/svg"
-                                 >
-                                 <path
-                                    d="M48.2129 27.75H46.3848C45.7676 27.75 45.2441 27.0312 45.2441 26.1875V14.375C45.2441 13.5078 45.8066 12.75 46.4473 12.75H48.2129C48.6273 12.75 49.0247 12.5853 49.3177 12.2923C49.6108 11.9993 49.7754 11.6019 49.7754 11.1875C49.7754 10.7731 49.6108 10.3756 49.3177 10.0826C49.0247 9.78958 48.6273 9.62496 48.2129 9.62496H46.4473C45.6834 9.63491 44.9363 9.85058 44.2846 10.2493C43.6329 10.648 43.1008 11.215 42.7441 11.8906H32.5176L31.0254 10.5859C29.6979 9.3961 28.1019 8.54574 26.3739 8.10763C24.6459 7.66951 22.8375 7.65669 21.1035 8.07027C16.7285 9.17964 13.8379 12.7031 12.8301 14.1562H11.2676C11.2851 12.9959 10.8506 11.8743 10.056 11.0287C9.26132 10.183 8.1689 9.6796 7.00977 9.62496H2.90039C2.48599 9.62496 2.08856 9.78958 1.79554 10.0826C1.50251 10.3756 1.33789 10.7731 1.33789 11.1875C1.33789 11.6019 1.50251 11.9993 1.79554 12.2923C2.08856 12.5853 2.48599 12.75 2.90039 12.75H6.99414C7.61133 12.75 8.13477 13.4609 8.13477 14.3125V26.1171C8.13477 26.9843 7.57227 27.75 6.93164 27.75H2.90039C2.48599 27.75 2.08856 27.9146 1.79554 28.2076C1.50251 28.5006 1.33789 28.8981 1.33789 29.3125C1.33789 29.7269 1.50251 30.1243 1.79554 30.4173C2.08856 30.7103 2.48599 30.875 2.90039 30.875H6.93164C7.69117 30.8592 8.4327 30.6409 9.07961 30.2426C9.72651 29.8443 10.2553 29.2804 10.6113 28.6093H11.1582C11.7521 28.6105 12.3357 28.7638 12.8535 29.0546C12.8139 29.2662 12.8185 29.4837 12.8669 29.6934C12.9153 29.9031 13.0065 30.1006 13.1348 30.2734L14.9395 32.6875C15.1519 32.9635 15.4479 33.1635 15.7832 33.2578L18.1738 33.8984L19.2441 36.1796C19.3399 36.3842 19.4789 36.5656 19.6516 36.7112C19.8242 36.8569 20.0264 36.9634 20.2441 37.0234L22.7598 37.7109L24.3926 40.3046C24.5986 40.6321 24.9187 40.8715 25.291 40.9765L29.6426 42.1875C29.7797 42.2275 29.9216 42.2485 30.0645 42.25C30.3204 42.2503 30.5725 42.1879 30.7986 42.068C31.0248 41.9481 31.218 41.7745 31.3613 41.5625L39.5254 29.4375C39.5971 29.3314 39.6937 29.2446 39.8067 29.1847C39.9198 29.1248 40.0459 29.0935 40.1738 29.0937H43.041C43.4169 29.6348 43.9162 30.0786 44.4977 30.3883C45.0791 30.6981 45.726 30.8649 46.3848 30.875H48.2129C48.6273 30.875 49.0247 30.7103 49.3177 30.4173C49.6108 30.1243 49.7754 29.7269 49.7754 29.3125C49.7754 28.8981 49.6108 28.5006 49.3177 28.2076C49.0247 27.9146 48.6273 27.75 48.2129 27.75ZM15.3535 15.9687C16.1895 14.789 18.4785 11.9531 21.8691 11.0937C23.1138 10.8063 24.4095 10.8238 25.646 11.1448C26.8824 11.4659 28.023 12.0808 28.9707 12.9375L32.166 15.7187C32.5549 16.0161 32.8127 16.4532 32.8848 16.9375C32.8908 17.0594 32.8718 17.1812 32.8288 17.2955C32.7857 17.4097 32.7197 17.5139 32.6348 17.6015L31.3066 19.0234C30.9691 19.3887 30.5075 19.615 30.0121 19.6584C29.5166 19.7017 29.0228 19.5589 28.627 19.2578L28.3145 19.0234C27.3474 18.2923 26.1483 17.9361 24.939 18.0209C23.7297 18.1056 22.5919 18.6255 21.7363 19.4843L14.8379 26.6171C13.7811 25.8988 12.5374 25.5051 11.2598 25.4843V17.2812H12.8223C13.318 17.2789 13.8062 17.1587 14.2463 16.9305C14.6864 16.7023 15.066 16.3726 15.3535 15.9687ZM36.9395 27.6875L29.4004 38.875L26.7129 38.0937L25.0801 35.5C24.8722 35.171 24.549 34.9314 24.1738 34.8281L21.7676 34.1718L20.6895 31.8828C20.5937 31.6782 20.4547 31.4968 20.282 31.3512C20.1094 31.2055 19.9072 31.099 19.6895 31.039L17.1191 30.3515L16.4316 29.4375L23.9473 21.625C24.2729 21.3043 24.703 21.1114 25.159 21.0813C25.615 21.0512 26.0666 21.1859 26.4316 21.4609L26.7441 21.6953C27.7581 22.4607 29.02 22.8229 30.2856 22.7118C31.5512 22.6007 32.7306 22.0241 33.5957 21.0937L34.9316 19.7343C35.3031 19.3396 35.5908 18.8738 35.7775 18.3649C35.9641 17.8561 36.0458 17.3147 36.0176 16.7734C35.9849 16.1594 35.8197 15.5597 35.5332 15.0156H42.1191V25.9531H40.1738C39.5339 25.9551 38.9042 26.1144 38.3403 26.4168C37.7763 26.7192 37.2953 27.1555 36.9395 27.6875Z"
-                                    fill="#3758F9"
-                                    />
-                              </svg> --}}
-                              <div class="bg-dark p-2 w-[60px] rounded-lg">
-                                 @if($count == 1)
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
-                                    <rect width="100%" height="100%" fill="none"/>
-                                    <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAfCAYAAACcai8CAAAAAXNSR0IArs4c6QAAAohJREFUWEfVmDFv00AUx9+/Qa2Eiu1KlVqoBM3GRvkGYURCQh0YmICJjYaVhWSBCbUwZiDZkGCpBIKx4gNUyYwQhKXJgrBjOhRV99C72OC4SYl8ZyucZMln+/3vd3fv7p0fKFXY8zw6Pt4gYF1fRJf0J8N7KV50xZbpeloyWe+mXv6tM8t9QEQ+MXdIqS4ODztpMcQPNKhSWwRUU0CnAeT9rktK1RGGrbghDaxhmfeIaCNvgkz6zA8xGOzoidbAjrMdjWwmvUKMgKvw/c4Q2HW5kEZNGmF+jsGgCl5crFCpJO4w66WLICiDHadKwPas00Y71ZIA7xCw9V8AHx3pEd4l4KYJ8K/V8zTf75lITGer1CbYdcV/K9NZjP/qy6MagZnWmo18wZW6J8Bt0/1XgL9fv6F7s/ayQReaDZP+T7aV/ZhdV0LiMPxmLElgkVjoHWjo5Q/vMipOMGOuC/AP01CcBo6bE/DLD+7bc5MI2DhoTAKOwZffv7Xj3xI8bES5fwELeOlnSKuvX5n5N3OrMOAY+uKLZ9l9u0jglTfD0T0ThtkXYhHA59r7VH5ao4WehcASLTrr25oM4Xz/gMpP6uS097OPaNoyD2BZXDL9EkCslwjYWqSz4qen9TIKzcZnif6t23T28ye70z8OXB9+HKdFwB3r05eHIHBNgGsEPM5D37omsAT2vLvE3LQubl/QRxBo4HVi/mpf37riRwRBJf5rNl541vHSgrJDhGErTqRUokRK7u1mbED/MYttMlU1q77cIWATvq/zcH+ApaL9WSn57ZeU1RXTg33G0RSzbzohyLybzKudAB7XgO7EaMZyNFupVJzVnIbPp7k5P/Gh3I9c8P3k+xOavwHw4CVK2+Ee+wAAAABJRU5ErkJggg==" x="0" y="0" width="44" height="31"/>
-                                 </svg>
-                                 @elseif($count == 2)
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
-                                    <rect width="100%" height="100%" fill="none"/>
-                                    <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAsCAYAAAD8WEF4AAAAAXNSR0IArs4c6QAAA5JJREFUWEftmD1P1WAUx8+pRhforYkLMOBNlBnCCuEykmjCookuwCcAPgGXhUkj6AQDl4nBiQQTR/ETSEwYHIw4gQkJba8hIcEec/qWvtLn1N5QEzu253meX/89r0UAADIMAxxnERDnAeAB3+vxdQiOs4Hd7o7kHHRhG43PADAqWViJLVEbbXtVdS8kXV8BxLbqgsrtEJtomscq+yI1Gt+DT3828xjOJ1vwu69fZW0pm1u/ujD85hXcOT3x1hOtom3HxHLd8upqFDRtDhANQFzmF2JYCk492t6Fi0cjpSAkiwa3t2CosxXA7qBtL7jcfX0t0LRZQJwDACOypwmIYzHYL+/24XJgQHJuKdsYLMAeEB0WBjd/gaiyNwSb+8Lsjuw2obvUDZYBfz59DmczT2Cwswn3P7yvFywDBsHdHRsPlW6utesFa4+Ow7e1l3DVn85AtYT9+nYz02//w0rzVzR1XTwcgaPO7r+hLFOyv5oTLTfIah1gSUkvBwbBnJiC02cvYGi7hqkrz41Y8dvdehUFLrUbQMS99FSu/9ek3H5Cy2q5jYxhcOM/D0TcyESHgLCR4V5ymI25PTyfzH85adTn2XPHdfckbBE30LaXkrZkGC1wnFn3vqatey2irrcBcaUqEPE+ouabG12ijzcy1iCuomkqTyneDMbAAEsZviIR6ofA+JhHKTTNA8EacGGlV3QUCtcSLaNtr0v3ktiLYckwOFo7GYdwxPLwZ0oAJLZy2MiACQCHMV/PGP4kMEW2ItjU2I7YBMdZAsRF/yAvHyqO1kVwyefKsG7CJuKfId7USeTmRzc4iXicD+6H06oUpsheHVbXd/wRmffkaJ4OFEzlau+ZKNKLQPm5EqyvKqvnXY6zEP1P5avLqgcl8gAta1oFQGKjBttocNFw6zeripbVTB6SyhI9ULcQNgWRUDUKTQovJVFSHGCJAhB2SFmHus2HV7q9q+JUdq2ypOucll6Hhys0HQl1Ky0UubB+ULFKXtAQKaWkVDBWqG4+bDxViZJ9RipT/gd7nU9nwqbUEbZyqUIBUEkqy4ZNFICsVFUU1b0oFClYSaoqBI43PX+tbho2fkBmASiCDDNXMpVdk6NV9ozB9qIKJQuF35WV6nlD2LKpqkiRKgtFFDY+ASgUgCLQ0B0SaRAt657q2qhdNqzfq5bZMKcMR3ve0nGQ9lnHMXox+Llu5jjzoGl7aJo8DomvP6u/VA3sq/WXAAAAAElFTkSuQmCC" x="0" y="0" width="43" height="44"/>
-                                 </svg>
-                                 @elseif($count == 3) 
-                                 <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" width="44" height="31">
-                                    <rect width="100%" height="100%" fill="none"/>
-                                    <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAArCAYAAAD7YZFOAAAAAXNSR0IArs4c6QAABC9JREFUWEfFWb1uG0cQ/mbXBIL8IDICuI0IhLJTmOQVpuyksNWkjfwElp7AUR/AMvIAtts00RuYegJJQACBbI6UAgQiDZBpgwS+InYAk7uT7P1Ix/vj3cXHXEnNzn47O9/M7CcCANu2196Jjx8T8Q5A6+a3Ep8DcFcp9fSe9eW0xPrYEjLAZuKjIxC134dDAM5M8dbX1sYg8Hdq/7ouINosxDppPdXQgzwHoN75+Akx9t8TMNcNM08J+hAkWwDModei/pmxv9lqPM3al/rD0QTkXSWDuoL4RXSB1rxDRI/8nQckaC9qozTagvCsyCHnSu19Zd16nraG+mdjDv5IClt3rMZx1Lg3vNgnEk98cCed1saDJIe94cWUSHyevBk5gP4NEJ8CHOS102k2rv9P4OgA0CdK1Y7vWXWXJKf2ZF3K+SQANFNshfMzDLTSyGlWe3db8WtbjDDvdpobB0nRqxTcv2XpoNP8YjchTbpE4lsvTdSLTuvWd6sHRxh0bjeszBxOsTFrKo4cEhO+Z7/aJskvfdCppFgAp5XaY/Bl8QxOLKV8BNBOGbYmJbwpylJeW0qKBXC5ahRzwVKSnPD9s1evAfaLc7JNcXCEgZrPY0XYHEzK2surDf2jpiR8b3ixlBQL4JhNkYx/RNIUzlgLyhXplITvD0fPQfTY93HcaTa2ov6KEyIXogWj0qQoDO7N7C3ezP5OhHjjw88Sf89DCqXm9eikUhjcL3+M8P3Pyb36x29+QDLAcqRYDbgUUvTPx0dgeENEgk114BgDkDvLASVJURk4BroEbGd1gf7ZyDwLfkqzqQycmUgEycvhMynho50ialMZOIB3mdkMqf7wWZwUVYPbXjYaZZGiUnBgtJd1gaxOUSk4VsJZNhplkaJScEqp4/BoVJQUhcEZ2v/+9s8c7csjQJ7RKGzD0A83mze75Sbh3I3fB7ekCxh3aaQoFbl8+HxwOUajMCk068O7rZtu8S4DziHCwySArPHssmUhuNbsLuBGLqVTFH9DgKed5kY9CdzC9fjglnUBF5w9akOSHfgMiFN8TC8IzovM8vdCEilWA244ti+vO218CtkESkGJN0Sxa3UjV5IUJQhRAtyS0ShOCm+P1YBLSfgwqaKkqKm/rq8EnG1P1mZy/voKTHx8itqYTrEScF7eZZPC1ablJ5PgfRwDF+5r4ZAvKJtZpSQk4ZphM6y79Yajg0C6NZrxXM/cQl6Tog02Yrm4HxbNlbpWp3DhdIVmEjHZFazNXBao7Q6zjunGROI+4L+kTOuJSLin5+MHknGUr/V5uh4VW5TPNUMfbja9/rh4A1fRS/fEJzVV27asukPGqDcc7xPBE6T/88dGA94JNOA4QLOXUeY90drTZ8SAwFMS1L1z+0owd8GZzwjJQrwr/R8cApyo86xzmv0+ABwToTS7fwBYiFECwk3OlAAAAABJRU5ErkJggg==" x="0" y="0" width="39" height="43"/>
-                                 </svg>
-                                 @endif
+         <?php $slides = [1,2,3,4,5,6,7,8,9,10]; ?>
+         <div x-data="{ slides: {{ '['.implode(', ', $slides).']' }} }">  
+            <div class="relative flex justify-center ">
+               <div class="relative w-full ">
+                  <div
+                     class="bgflex-no-wrap snap mx-auto flex h-auto w-full max-w-[300px] overflow-hidden transition-all xs:max-w-[400px] 
+                     sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px] "
+                     x-ref="carousel"
+                     id="carousel_control">
+                     <!-- Carousel Items -->
+                     <?php $count = 0; ?>
+                     @for($i = 1; $i <= count($slides); $i++)
+                        <?php
+                           if($count == 3){
+                              $count = 0;
+                           }
+                           $count++;
+                        ?>
+                        <div class="mx-auto h-full min-w-[300px] px-4 pb-8 xs:min-w-[360px] sm:min-w-[510px] 
+                              md:min-w-[350px] lg:min-w-[465px] xl:min-w-[380px] 2xl:min-w-[440px] ">
+                           <div class="group relative rounded-xl border border-stroke dark:border-dark-3 
+                              bg-white dark:bg-dark-2 p-10 md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]">
+                              <div class="relative z-10 mx-auto mb-10">
+                                 {{-- <svg
+                                    width="51"
+                                    height="50"
+                                    viewBox="0 0 51 50"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                    <path
+                                       d="M48.2129 27.75H46.3848C45.7676 27.75 45.2441 27.0312 45.2441 26.1875V14.375C45.2441 13.5078 45.8066 12.75 46.4473 12.75H48.2129C48.6273 12.75 49.0247 12.5853 49.3177 12.2923C49.6108 11.9993 49.7754 11.6019 49.7754 11.1875C49.7754 10.7731 49.6108 10.3756 49.3177 10.0826C49.0247 9.78958 48.6273 9.62496 48.2129 9.62496H46.4473C45.6834 9.63491 44.9363 9.85058 44.2846 10.2493C43.6329 10.648 43.1008 11.215 42.7441 11.8906H32.5176L31.0254 10.5859C29.6979 9.3961 28.1019 8.54574 26.3739 8.10763C24.6459 7.66951 22.8375 7.65669 21.1035 8.07027C16.7285 9.17964 13.8379 12.7031 12.8301 14.1562H11.2676C11.2851 12.9959 10.8506 11.8743 10.056 11.0287C9.26132 10.183 8.1689 9.6796 7.00977 9.62496H2.90039C2.48599 9.62496 2.08856 9.78958 1.79554 10.0826C1.50251 10.3756 1.33789 10.7731 1.33789 11.1875C1.33789 11.6019 1.50251 11.9993 1.79554 12.2923C2.08856 12.5853 2.48599 12.75 2.90039 12.75H6.99414C7.61133 12.75 8.13477 13.4609 8.13477 14.3125V26.1171C8.13477 26.9843 7.57227 27.75 6.93164 27.75H2.90039C2.48599 27.75 2.08856 27.9146 1.79554 28.2076C1.50251 28.5006 1.33789 28.8981 1.33789 29.3125C1.33789 29.7269 1.50251 30.1243 1.79554 30.4173C2.08856 30.7103 2.48599 30.875 2.90039 30.875H6.93164C7.69117 30.8592 8.4327 30.6409 9.07961 30.2426C9.72651 29.8443 10.2553 29.2804 10.6113 28.6093H11.1582C11.7521 28.6105 12.3357 28.7638 12.8535 29.0546C12.8139 29.2662 12.8185 29.4837 12.8669 29.6934C12.9153 29.9031 13.0065 30.1006 13.1348 30.2734L14.9395 32.6875C15.1519 32.9635 15.4479 33.1635 15.7832 33.2578L18.1738 33.8984L19.2441 36.1796C19.3399 36.3842 19.4789 36.5656 19.6516 36.7112C19.8242 36.8569 20.0264 36.9634 20.2441 37.0234L22.7598 37.7109L24.3926 40.3046C24.5986 40.6321 24.9187 40.8715 25.291 40.9765L29.6426 42.1875C29.7797 42.2275 29.9216 42.2485 30.0645 42.25C30.3204 42.2503 30.5725 42.1879 30.7986 42.068C31.0248 41.9481 31.218 41.7745 31.3613 41.5625L39.5254 29.4375C39.5971 29.3314 39.6937 29.2446 39.8067 29.1847C39.9198 29.1248 40.0459 29.0935 40.1738 29.0937H43.041C43.4169 29.6348 43.9162 30.0786 44.4977 30.3883C45.0791 30.6981 45.726 30.8649 46.3848 30.875H48.2129C48.6273 30.875 49.0247 30.7103 49.3177 30.4173C49.6108 30.1243 49.7754 29.7269 49.7754 29.3125C49.7754 28.8981 49.6108 28.5006 49.3177 28.2076C49.0247 27.9146 48.6273 27.75 48.2129 27.75ZM15.3535 15.9687C16.1895 14.789 18.4785 11.9531 21.8691 11.0937C23.1138 10.8063 24.4095 10.8238 25.646 11.1448C26.8824 11.4659 28.023 12.0808 28.9707 12.9375L32.166 15.7187C32.5549 16.0161 32.8127 16.4532 32.8848 16.9375C32.8908 17.0594 32.8718 17.1812 32.8288 17.2955C32.7857 17.4097 32.7197 17.5139 32.6348 17.6015L31.3066 19.0234C30.9691 19.3887 30.5075 19.615 30.0121 19.6584C29.5166 19.7017 29.0228 19.5589 28.627 19.2578L28.3145 19.0234C27.3474 18.2923 26.1483 17.9361 24.939 18.0209C23.7297 18.1056 22.5919 18.6255 21.7363 19.4843L14.8379 26.6171C13.7811 25.8988 12.5374 25.5051 11.2598 25.4843V17.2812H12.8223C13.318 17.2789 13.8062 17.1587 14.2463 16.9305C14.6864 16.7023 15.066 16.3726 15.3535 15.9687ZM36.9395 27.6875L29.4004 38.875L26.7129 38.0937L25.0801 35.5C24.8722 35.171 24.549 34.9314 24.1738 34.8281L21.7676 34.1718L20.6895 31.8828C20.5937 31.6782 20.4547 31.4968 20.282 31.3512C20.1094 31.2055 19.9072 31.099 19.6895 31.039L17.1191 30.3515L16.4316 29.4375L23.9473 21.625C24.2729 21.3043 24.703 21.1114 25.159 21.0813C25.615 21.0512 26.0666 21.1859 26.4316 21.4609L26.7441 21.6953C27.7581 22.4607 29.02 22.8229 30.2856 22.7118C31.5512 22.6007 32.7306 22.0241 33.5957 21.0937L34.9316 19.7343C35.3031 19.3396 35.5908 18.8738 35.7775 18.3649C35.9641 17.8561 36.0458 17.3147 36.0176 16.7734C35.9849 16.1594 35.8197 15.5597 35.5332 15.0156H42.1191V25.9531H40.1738C39.5339 25.9551 38.9042 26.1144 38.3403 26.4168C37.7763 26.7192 37.2953 27.1555 36.9395 27.6875Z"
+                                       fill="#3758F9"
+                                       />
+                                 </svg> --}}
+                                 <div class="bg-dark p-2 w-[60px] rounded-lg">
+                                    @if($count == 1)
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
+                                       <rect width="100%" height="100%" fill="none"/>
+                                       <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAfCAYAAACcai8CAAAAAXNSR0IArs4c6QAAAohJREFUWEfVmDFv00AUx9+/Qa2Eiu1KlVqoBM3GRvkGYURCQh0YmICJjYaVhWSBCbUwZiDZkGCpBIKx4gNUyYwQhKXJgrBjOhRV99C72OC4SYl8ZyucZMln+/3vd3fv7p0fKFXY8zw6Pt4gYF1fRJf0J8N7KV50xZbpeloyWe+mXv6tM8t9QEQ+MXdIqS4ODztpMcQPNKhSWwRUU0CnAeT9rktK1RGGrbghDaxhmfeIaCNvgkz6zA8xGOzoidbAjrMdjWwmvUKMgKvw/c4Q2HW5kEZNGmF+jsGgCl5crFCpJO4w66WLICiDHadKwPas00Y71ZIA7xCw9V8AHx3pEd4l4KYJ8K/V8zTf75lITGer1CbYdcV/K9NZjP/qy6MagZnWmo18wZW6J8Bt0/1XgL9fv6F7s/ayQReaDZP+T7aV/ZhdV0LiMPxmLElgkVjoHWjo5Q/vMipOMGOuC/AP01CcBo6bE/DLD+7bc5MI2DhoTAKOwZffv7Xj3xI8bES5fwELeOlnSKuvX5n5N3OrMOAY+uKLZ9l9u0jglTfD0T0ThtkXYhHA59r7VH5ao4WehcASLTrr25oM4Xz/gMpP6uS097OPaNoyD2BZXDL9EkCslwjYWqSz4qen9TIKzcZnif6t23T28ye70z8OXB9+HKdFwB3r05eHIHBNgGsEPM5D37omsAT2vLvE3LQubl/QRxBo4HVi/mpf37riRwRBJf5rNl541vHSgrJDhGErTqRUokRK7u1mbED/MYttMlU1q77cIWATvq/zcH+ApaL9WSn57ZeU1RXTg33G0RSzbzohyLybzKudAB7XgO7EaMZyNFupVJzVnIbPp7k5P/Gh3I9c8P3k+xOavwHw4CVK2+Ee+wAAAABJRU5ErkJggg==" x="0" y="0" width="44" height="31"/>
+                                    </svg>
+                                    @elseif($count == 2)
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
+                                       <rect width="100%" height="100%" fill="none"/>
+                                       <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAsCAYAAAD8WEF4AAAAAXNSR0IArs4c6QAAA5JJREFUWEftmD1P1WAUx8+pRhforYkLMOBNlBnCCuEykmjCookuwCcAPgGXhUkj6AQDl4nBiQQTR/ETSEwYHIw4gQkJba8hIcEec/qWvtLn1N5QEzu253meX/89r0UAADIMAxxnERDnAeAB3+vxdQiOs4Hd7o7kHHRhG43PADAqWViJLVEbbXtVdS8kXV8BxLbqgsrtEJtomscq+yI1Gt+DT3828xjOJ1vwu69fZW0pm1u/ujD85hXcOT3x1hOtom3HxHLd8upqFDRtDhANQFzmF2JYCk492t6Fi0cjpSAkiwa3t2CosxXA7qBtL7jcfX0t0LRZQJwDACOypwmIYzHYL+/24XJgQHJuKdsYLMAeEB0WBjd/gaiyNwSb+8Lsjuw2obvUDZYBfz59DmczT2Cwswn3P7yvFywDBsHdHRsPlW6utesFa4+Ow7e1l3DVn85AtYT9+nYz02//w0rzVzR1XTwcgaPO7r+hLFOyv5oTLTfIah1gSUkvBwbBnJiC02cvYGi7hqkrz41Y8dvdehUFLrUbQMS99FSu/9ek3H5Cy2q5jYxhcOM/D0TcyESHgLCR4V5ymI25PTyfzH85adTn2XPHdfckbBE30LaXkrZkGC1wnFn3vqatey2irrcBcaUqEPE+ouabG12ijzcy1iCuomkqTyneDMbAAEsZviIR6ofA+JhHKTTNA8EacGGlV3QUCtcSLaNtr0v3ktiLYckwOFo7GYdwxPLwZ0oAJLZy2MiACQCHMV/PGP4kMEW2ItjU2I7YBMdZAsRF/yAvHyqO1kVwyefKsG7CJuKfId7USeTmRzc4iXicD+6H06oUpsheHVbXd/wRmffkaJ4OFEzlau+ZKNKLQPm5EqyvKqvnXY6zEP1P5avLqgcl8gAta1oFQGKjBttocNFw6zeripbVTB6SyhI9ULcQNgWRUDUKTQovJVFSHGCJAhB2SFmHus2HV7q9q+JUdq2ypOucll6Hhys0HQl1Ky0UubB+ULFKXtAQKaWkVDBWqG4+bDxViZJ9RipT/gd7nU9nwqbUEbZyqUIBUEkqy4ZNFICsVFUU1b0oFClYSaoqBI43PX+tbho2fkBmASiCDDNXMpVdk6NV9ozB9qIKJQuF35WV6nlD2LKpqkiRKgtFFDY+ASgUgCLQ0B0SaRAt657q2qhdNqzfq5bZMKcMR3ve0nGQ9lnHMXox+Llu5jjzoGl7aJo8DomvP6u/VA3sq/WXAAAAAElFTkSuQmCC" x="0" y="0" width="43" height="44"/>
+                                    </svg>
+                                    @elseif($count == 3) 
+                                    <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" width="44" height="31">
+                                       <rect width="100%" height="100%" fill="none"/>
+                                       <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAArCAYAAAD7YZFOAAAAAXNSR0IArs4c6QAABC9JREFUWEfFWb1uG0cQ/mbXBIL8IDICuI0IhLJTmOQVpuyksNWkjfwElp7AUR/AMvIAtts00RuYegJJQACBbI6UAgQiDZBpgwS+InYAk7uT7P1Ix/vj3cXHXEnNzn47O9/M7CcCANu2196Jjx8T8Q5A6+a3Ep8DcFcp9fSe9eW0xPrYEjLAZuKjIxC134dDAM5M8dbX1sYg8Hdq/7ouINosxDppPdXQgzwHoN75+Akx9t8TMNcNM08J+hAkWwDModei/pmxv9lqPM3al/rD0QTkXSWDuoL4RXSB1rxDRI/8nQckaC9qozTagvCsyCHnSu19Zd16nraG+mdjDv5IClt3rMZx1Lg3vNgnEk98cCed1saDJIe94cWUSHyevBk5gP4NEJ8CHOS102k2rv9P4OgA0CdK1Y7vWXWXJKf2ZF3K+SQANFNshfMzDLTSyGlWe3db8WtbjDDvdpobB0nRqxTcv2XpoNP8YjchTbpE4lsvTdSLTuvWd6sHRxh0bjeszBxOsTFrKo4cEhO+Z7/aJskvfdCppFgAp5XaY/Bl8QxOLKV8BNBOGbYmJbwpylJeW0qKBXC5ahRzwVKSnPD9s1evAfaLc7JNcXCEgZrPY0XYHEzK2surDf2jpiR8b3ixlBQL4JhNkYx/RNIUzlgLyhXplITvD0fPQfTY93HcaTa2ov6KEyIXogWj0qQoDO7N7C3ezP5OhHjjw88Sf89DCqXm9eikUhjcL3+M8P3Pyb36x29+QDLAcqRYDbgUUvTPx0dgeENEgk114BgDkDvLASVJURk4BroEbGd1gf7ZyDwLfkqzqQycmUgEycvhMynho50ialMZOIB3mdkMqf7wWZwUVYPbXjYaZZGiUnBgtJd1gaxOUSk4VsJZNhplkaJScEqp4/BoVJQUhcEZ2v/+9s8c7csjQJ7RKGzD0A83mze75Sbh3I3fB7ekCxh3aaQoFbl8+HxwOUajMCk068O7rZtu8S4DziHCwySArPHssmUhuNbsLuBGLqVTFH9DgKed5kY9CdzC9fjglnUBF5w9akOSHfgMiFN8TC8IzovM8vdCEilWA244ti+vO218CtkESkGJN0Sxa3UjV5IUJQhRAtyS0ShOCm+P1YBLSfgwqaKkqKm/rq8EnG1P1mZy/voKTHx8itqYTrEScF7eZZPC1ablJ5PgfRwDF+5r4ZAvKJtZpSQk4ZphM6y79Yajg0C6NZrxXM/cQl6Tog02Yrm4HxbNlbpWp3DhdIVmEjHZFazNXBao7Q6zjunGROI+4L+kTOuJSLin5+MHknGUr/V5uh4VW5TPNUMfbja9/rh4A1fRS/fEJzVV27asukPGqDcc7xPBE6T/88dGA94JNOA4QLOXUeY90drTZ8SAwFMS1L1z+0owd8GZzwjJQrwr/R8cApyo86xzmv0+ABwToTS7fwBYiFECwk3OlAAAAABJRU5ErkJggg==" x="0" y="0" width="39" height="43"/>
+                                    </svg>
+                                    @endif
+                                 </div>
                               </div>
+                              <h4 class="text-dark dark:text-white mb-[14px] text-2xl font-bold">
+                                 Refreshing Design
+                              </h4>
+                              <p class="text-body-color dark:text-dark-6">
+                                 Lorem Ipsum is simply dummy text of the printing and industry.
+                              </p>
+                              <span class="bg-dark absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"></span>
                            </div>
-                           <h4 class="text-dark dark:text-white mb-[14px] text-2xl font-bold">
-                              Refreshing Design
-                           </h4>
-                           <p class="text-body-color dark:text-dark-6">
-                              Lorem Ipsum is simply dummy text of the printing and industry.
-                           </p>
-                           <span class="bg-dark absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"></span>
                         </div>
-                     </div>
-                  @endfor
-               </div>
+                     @endfor
+                  </div>
 
-               <div class="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center">
-                  <button
-                        class="flex lg:h-full lg:w-full items-center justify-center rounded-full dark:bg-white
-                        text-body-color dark:text-dark-6 hover:border-gray hover:bg-gray-300"
-                        @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft - ($refs.carousel.scrollWidth / slides.length);"
-                        onclick="previousSlide()"
-                  >
-                        <!-- Left Arrow SVG Placeholder -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="76" height="70">
-                           <rect width="100%" height="100%" fill="none"/>
-                           <image xlink:href="data:image/png;base64,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" x="0" y="0" width="76" height="70"/>
-                        </svg>
-                  </button>
-               </div>
+                  <div class="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center">
+                     <button
+                           class="flex lg:h-full lg:w-full items-center justify-center rounded-full dark:bg-white
+                           text-body-color dark:text-dark-6 hover:border-gray hover:bg-gray-300 xs:bg-gray-100 xs:-ml-7"
+                           @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft - ($refs.carousel.scrollWidth / slides.length);"
+                           onclick="previousSlide()"
+                     >
+                           <!-- Left Arrow SVG Placeholder -->
+                           <svg xmlns="http://www.w3.org/2000/svg" width="76" height="70">
+                              <rect width="100%" height="100%" fill="none"/>
+                              <image xlink:href="data:image/png;base64,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" x="0" y="0" width="76" height="70"/>
+                           </svg>
+                     </button>
+                  </div>
 
-               <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center">
-                  <button
-                        class="flex lg:h-full lg:w-full items-center justify-center rounded-full dark:bg-white
-                        text-body-color dark:text-dark-6 hover:border-gray hover:bg-gray-300"
-                        @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft + ($refs.carousel.scrollWidth / slides.length);"
-                        onclick="nextSlide()"
-                  >
-                        <!-- Right Arrow SVG Placeholder -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="76" height="70">
-                           <rect width="100%" height="100%" fill="none"/>
-                           <image xlink:href="data:image/png;base64,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" x="0" y="0" width="76" height="70"/>
-                        </svg>
-                  </button>
+                  <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center">
+                     <button
+                           class="flex lg:h-full lg:w-full items-center justify-center rounded-full dark:bg-white
+                           text-body-color dark:text-dark-6 hover:border-gray hover:bg-gray-300 xs:bg-gray-100 xs:-mr-7"
+                           @click="$refs.carousel.scrollLeft = $refs.carousel.scrollLeft + ($refs.carousel.scrollWidth / slides.length);"
+                           onclick="nextSlide()"
+                     >
+                           <!-- Right Arrow SVG Placeholder -->
+                           <svg xmlns="http://www.w3.org/2000/svg" width="76" height="70">
+                              <rect width="100%" height="100%" fill="none"/>
+                              <image xlink:href="data:image/png;base64,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" x="0" y="0" width="76" height="70"/>
+                           </svg>
+                     </button>
+                  </div>
                </div>
             </div>
          </div>
       </div>
-   </div>
-</section>
-<!-- ====== Services Section End -->
+   </section>
+   <!-- ====== Services Section End -->
+</div>
 
 <!-- ====== Services Section Start -->
-<section class="bg-gray-2 dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+<section class="bg-gray-2 dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] xs:mb-8">
    <div class="container mx-auto">
       <div class="-mx-4 flex flex-wrap">
          <div class="w-full px-4">
@@ -967,7 +1069,7 @@
 </section>
 <!-- ====== Services Section End -->
 
-<div class="wave-container-footer">
+<div class="wave-container-footer xs:-mb-1">
    <div class="waves">
       <div class="wave-footer" id="wave1"></div>
       <div class="wave-footer" id="wave2"></div>
@@ -1002,29 +1104,49 @@
          </h2>
              <div class="-mx-3 flex flex-wrap md:-mx-4">
                 <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
-                   <div
-                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
-                      >
-                      <h4
-                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
-                         >
-                         56,825<span style="color: #d29383;" class="font-extrabold">+</span>
-                      </h4>
-                      <p
-                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
-                         >
-                         Clients
-                      </p>
-                   </div>
+                     <div class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8">
+                        <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                           56,825
+                           &nbsp;
+                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                              <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
+                              </g> </g> <g> <g> 
+                                 <path d="M256,235.227v256h102.4v-256H256z M337.92,470.747h-61.44v-215.04h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M133.12,286.427v204.8h102.4v-204.8H133.12z M215.04,470.747L215.04,470.747H153.6v-163.84h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M0,347.867v143.36h112.64v-143.36H0z M92.16,470.747H20.48v-102.4h71.68V470.747z"></path> </g> </g> <g> <g> 
+                                 <polygon points="336.975,0.293 330.095,19.581 404.601,46.146 56.565,229.831 66.125,247.942 411.508,65.658 385.95,137.341 405.24,144.223 443.07,38.122 ">
+                                 </polygon> 
+                                 </g> 
+                                 </g> 
+                              </g>
+                           </svg>
+                        </h4>
+                        <p class="text-base text-body-color dark:text-dark-6 group-hover:text-white">
+                           Clients
+                        </p>
+                     </div>
                 </div>
                 <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                       >
-                      <h4
-                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
-                         >
-                         35,574<span style="color: #d29383;" class="font-extrabold">+</span>
+                      <h4 class="flex justify-center b-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                           35,574
+                           &nbsp;
+                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                              <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
+                              </g> </g> <g> <g> 
+                                 <path d="M256,235.227v256h102.4v-256H256z M337.92,470.747h-61.44v-215.04h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M133.12,286.427v204.8h102.4v-204.8H133.12z M215.04,470.747L215.04,470.747H153.6v-163.84h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M0,347.867v143.36h112.64v-143.36H0z M92.16,470.747H20.48v-102.4h71.68V470.747z"></path> </g> </g> <g> <g> 
+                                 <polygon points="336.975,0.293 330.095,19.581 404.601,46.146 56.565,229.831 66.125,247.942 411.508,65.658 385.95,137.341 405.24,144.223 443.07,38.122 ">
+                                 </polygon> 
+                                 </g> 
+                                 </g> 
+                              </g>
+                           </svg>
                       </h4>
                       <p
                          class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
@@ -1037,10 +1159,22 @@
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                       >
-                      <h4
-                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
-                         >
-                         570<span style="color: #d29383;" class="font-extrabold">+</span>
+                      <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                           570
+                           &nbsp;
+                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                              <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
+                              </g> </g> <g> <g> 
+                                 <path d="M256,235.227v256h102.4v-256H256z M337.92,470.747h-61.44v-215.04h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M133.12,286.427v204.8h102.4v-204.8H133.12z M215.04,470.747L215.04,470.747H153.6v-163.84h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M0,347.867v143.36h112.64v-143.36H0z M92.16,470.747H20.48v-102.4h71.68V470.747z"></path> </g> </g> <g> <g> 
+                                 <polygon points="336.975,0.293 330.095,19.581 404.601,46.146 56.565,229.831 66.125,247.942 411.508,65.658 385.95,137.341 405.24,144.223 443.07,38.122 ">
+                                 </polygon> 
+                                 </g> 
+                                 </g> 
+                              </g>
+                           </svg>
                       </h4>
                       <p
                          class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
@@ -1053,10 +1187,22 @@
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                       >
-                      <h4
-                         class="mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
-                         >
-                         50%<span style="color: #d29383;" class="font-extrabold">+</span>
+                      <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                           505
+                           &nbsp;
+                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                              <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
+                              </g> </g> <g> <g> 
+                                 <path d="M256,235.227v256h102.4v-256H256z M337.92,470.747h-61.44v-215.04h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M133.12,286.427v204.8h102.4v-204.8H133.12z M215.04,470.747L215.04,470.747H153.6v-163.84h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M0,347.867v143.36h112.64v-143.36H0z M92.16,470.747H20.48v-102.4h71.68V470.747z"></path> </g> </g> <g> <g> 
+                                 <polygon points="336.975,0.293 330.095,19.581 404.601,46.146 56.565,229.831 66.125,247.942 411.508,65.658 385.95,137.341 405.24,144.223 443.07,38.122 ">
+                                 </polygon> 
+                                 </g> 
+                                 </g> 
+                              </g>
+                           </svg>
                       </h4>
                       <p
                          class="text-base text-body-color dark:text-dark-6 group-hover:text-white"

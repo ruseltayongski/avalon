@@ -4,7 +4,7 @@
     items-center justify-center w-full h-screen py-10 overflow-y-scroll
     bg-[#000000] bg-opacity-20 dark:bg-dark">
     <div @click.outside="modalOpen = false" class="mx-auto rounded-[10px] bg-white
-    dark:bg-dark-2 p-8 shadow-1 dark:shadow-3 xl:mt-32">
+    dark:bg-dark-2 p-8 shadow-1 dark:shadow-3 xl:mt-32 2xl:mt-0">
         <!-- ====== Checkout Section Start -->
         <section class=" dark:bg-dark">
             <div :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' " 

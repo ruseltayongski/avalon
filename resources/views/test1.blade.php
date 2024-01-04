@@ -107,7 +107,20 @@
      1005.54 L487.535,999.879 C487.775,999.639 487.85,999.311 487.795,
      999 C487.85,998.689 487.775,998.361 487.535,998.121 L487.535,998.121 Z" 
      id="arrow-right-square" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-	<div class="wave-container-footer">
+
+
+    <svg fill="#13C296" height="20" width="20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
+        </g> </g> <g> <g> <path d="M256,235.227v256h102.4v-256H256z M337.92,470.747h-61.44v-215.04h61.44V470.747z"></path> </g> </g> <g> <g> 
+        <path d="M133.12,286.427v204.8h102.4v-204.8H133.12z M215.04,470.747L215.04,470.747H153.6v-163.84h61.44V470.747z"></path> </g> </g> <g> <g> 
+        <path d="M0,347.867v143.36h112.64v-143.36H0z M92.16,470.747H20.48v-102.4h71.68V470.747z"></path> </g> </g> <g> <g> 
+      <polygon points="336.975,0.293 330.095,19.581 404.601,46.146 56.565,229.831 66.125,247.942 411.508,65.658 385.95,137.341 405.24,144.223 443.07,38.122 ">
+      </polygon> </g> </g> </g>
+    </svg>
+	
+
+     <div class="wave-container-footer">
     <div class="waves">
       <div class="wave-footer" id="wave1"></div>
       <div class="wave-footer" id="wave2"></div>
