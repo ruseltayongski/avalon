@@ -30,6 +30,7 @@ class ServicesFactory extends Factory
             'title' => fake()->company(),
             'description' => fake()->catchPhrase(),
             'picture' => $filename,
+            'price' => fake()->randomNumber(2),
             'remember_token' => Str::random(10),
         ];
     }
