@@ -2,7 +2,7 @@
 <style>
    .background-rgb {
       background: linear-gradient(
-      to right, 
+      to right,
       rgba(29,91,128,0.3),
       rgba(50,118,155,0.3),
       rgba(159,202,218,0.3)
@@ -11,15 +11,15 @@
 
    .what-we-do {
       background: linear-gradient(
-         to left, 
-         rgba(39, 104, 142, 0.3), 
+         to left,
+         rgba(39, 104, 142, 0.3),
          rgba(38, 58, 150, 0.3), /* medium blue */
          rgba(90, 120, 190, 0.3), /* lighter blue */
          rgba(143, 161, 180, 0.3), /* soft blue transitioning to warm */
          rgba(244, 241, 239, 0.3)  /* sunset orange */
       );
    }
-   
+
    /* .card-bg {
       background-color: rgba(79, 117, 155, 0.85);
    } */
@@ -47,7 +47,7 @@
       /* transition: opacity 0.5s ease-in-out; */
       margin-top:10px;
    }
-   
+
    .flex a:not(:hover) #svg-description {
       opacity: 0;
    }
@@ -74,8 +74,8 @@
       overflow: hidden;
    }
 
-   .bacground-image-hero { 
-      background: url("{{ asset('/images/v2crop.png') }}") no-repeat center center; 
+   .bacground-image-hero {
+      background: url("{{ asset('/images/v2crop.png') }}") no-repeat center center;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -84,14 +84,14 @@
    }
 
    .newsletter-bg {
-    background: url("{{ asset('/images/newsletter.png') }}") no-repeat center; 
+    background: url("{{ asset('/images/newsletter.png') }}") no-repeat center;
     background-size: 100% 100%;
  /*    background-size: cover; */
    /*  height: 100vh; */
    /*    background-size: 100% 100%;; */
    }
    .avalon-logo-footer {
-    background: url("{{ asset('/images/avalonlogo.png') }}") no-repeat center; 
+    background: url("{{ asset('/images/avalonlogo.png') }}") no-repeat center;
     width: 100%;
     height: auto;
 /*     background-size: 100% auto; */
@@ -136,128 +136,7 @@
 @extends('layouts.app')
 
 @section('content')
-<header
-   x-data="
-   {
-   navbarOpen: false,
-   }
-   "
-   class="absolute top-0 left-0 z-50 w-full"
-   >
-   <div class="container mx-auto lg:px-24">
-      <div class="relative flex items-center justify-between -mx-4 ">
-         <div class="max-w-full px-4 w-60">
-            <a href="javascript:void(0)" class="block w-full">
-               <img
-                  src="{{ asset('images/avalon-logo.png') }}"
-                  alt="logo"
-                  class="avalon-logo mt-6 ml-8" 
-               />
-            </a>
-         </div>
-         <div class=" flex items-center justify-between w-full -mt-4">
-            <div>
-               <button
-                  @click="navbarOpen = !navbarOpen"
-                  :class="navbarOpen && 'navbarTogglerActive'"
-                  id="navbarToggler"
-                  class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-                  >
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               <span
-                  class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-               </button>
-               <nav
-                  :class="!navbarOpen && 'hidden' "
-                  id="navbarCollapse"
-                  class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11"
-                  >
-                  <ul class="block lg:flex ">
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        Home
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        About Us
-                        </a>
-                     </li>
-                     <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white"
-                           >
-                        Services
-                        </a>
-                     </li>
-                  </ul>
-               </nav>
-            </div>
-            <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
-               <div class="flex items-center">
-                  <div class="flex h-8 min-w-[50px] items-center justify-center rounded-full text-white relative">
-                     <section x-data="{modalOpen: false}">
-                        <button type="button" @click="modalOpen = true" onclick="triggerModal()">
-                           <?xml version="1.0" encoding="utf-8"?>
-                           <svg width="25" height="25" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                              <defs>
-                                 <clipPath id="clip-cart">
-                                    <rect width="96" height="96"/>
-                                 </clipPath>
-                              </defs>
-                              <g id="cart" clip-path="url(#clip-cart)">
-                                 <g id="pills" transform="translate(0 -116)">
-                                    <g id="Group_154" data-name="Group 154">
-                                    <path id="Path_188" data-name="Path 188" d="M92,132H84.619a8.361,8.361,0,0,0-7.956,5.47L63.712,174.53A8.364,8.364,0,0,1,55.755,180H21.321a8.4,8.4,0,0,1-7.773-4.994l-8.925-21C2.387,148.746,6.445,143,12.4,143H57" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
-                                    <circle id="Ellipse_335" data-name="Ellipse 335" cx="4.5" cy="4.5" r="4.5" transform="translate(20 187)" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
-                                    <circle id="Ellipse_336" data-name="Ellipse 336" cx="4.5" cy="4.5" r="4.5" transform="translate(49 187)" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
-                                    </g>
-                                 </g>
-                              </g>
-                           </svg>
-                           <span class="inline-flex items-center justify-center leading-none bg-dark rounded-full absolute z-1" id="cart-badge">3</span>
-                        </button>
-                        @include('layouts._cart')  
-                     </section>
-                     {{-- <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        class="fill-current"
-                        >
-                        <path
-                           d="M15.3437 19.156C12.7812 19.156 9.09373 17.3123 5.71873 14.0935C1.12498 9.7185 -0.843773 4.8435 1.15623 2.7185C1.24998 2.62475 1.34373 2.56225 1.46873 2.49975L4.09373 1.031C4.68748 0.718502 5.43748 0.874752 5.81248 1.406L7.71873 4.12475C7.90623 4.406 7.99998 4.74975 7.93748 5.06225C7.87498 5.406 7.68748 5.68725 7.40623 5.87475L6.24998 6.62475C6.18748 6.656 6.18748 6.68725 6.18748 6.7185C6.18748 6.74975 6.18748 6.781 6.21873 6.81225C7.06248 8.06225 9.46873 11.2498 13.2812 13.531C13.375 13.5935 13.5312 13.5623 13.5937 13.4998L14.4062 12.406C14.8125 11.8435 15.5937 11.7185 16.1875 12.0935L19.0312 13.906C19.625 14.281 19.8125 15.031 19.4375 15.6248L17.875 18.1248C17.8125 18.2498 17.7187 18.3435 17.625 18.406C17.0312 18.9373 16.25 19.156 15.3437 19.156ZM4.74998 1.93725C4.71873 1.93725 4.68748 1.93725 4.62498 1.9685L1.99998 3.43725C1.96873 3.4685 1.96873 3.4685 1.93748 3.4685C0.624977 4.87475 2.12498 9.156 6.49998 13.3123C10.875 17.4685 15.4062 18.906 16.9062 17.6248C16.9062 17.6248 16.9062 17.6248 16.9375 17.5935L18.5 15.0935C18.5312 15.031 18.5312 14.9373 18.4375 14.8748L15.5937 13.0623C15.5 12.9998 15.3437 13.031 15.2812 13.0935L14.4687 14.1873C14.0625 14.7185 13.3125 14.8748 12.7187 14.531C8.68748 12.1248 6.18748 8.781 5.31248 7.43725C5.12498 7.156 5.06248 6.8435 5.12498 6.49975C5.18748 6.18725 5.37498 5.87475 5.65623 5.7185L6.81248 4.93725C6.87498 4.906 6.87498 4.87475 6.87498 4.8435C6.87498 4.81225 6.87498 4.781 6.84373 4.7185L4.93748 1.99975C4.90623 1.9685 4.81248 1.93725 4.74998 1.93725Z"
-                           />
-                     </svg> --}}
-                  </div>
-                  <div class="ml-4 w-full whitespace-nowrap">
-                     <a
-                        href="javascript:void(0)"
-                        class="py-3 text-base font-medium bg-white rounded-md shadow-1 dark:shadow-none px-7 text-dark hover:bg-gray-2 hover:text-body-color"
-                        >
-                        Contact Us
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</header>
-<div 
+<div
     x-data="{ isMobile: window.innerWidth <= 1024 }"
     x-init="() => {
         window.addEventListener('resize', () => {
@@ -267,329 +146,291 @@
     }"
     :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
     :style="isMobile ? 'background-image: url({{ asset('/images/v2crop.png') }})' : ''">
-    
+
 </div>
 
 <section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]">
-   <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3">
-   </div>
+   <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3"></div>
    <div class="container mx-auto">
-    <div class="flex flex-wrap -mx-4">
-       <div class="w-full px-4 lg:w-7/12 xl:w-8/12 opacity-0" id="paymentInfo">
-          <div class="mb-12 lg:mb-0">
-             <h3
-                class="mb-8 text-lg font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]"
-                >
-                Payment Information
-             </h3>
-             <div
-                class="mb-10 overflow-hidden rounded-[10px] {{-- border border-stroke dark:border-dark-3 --}} bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10"
-                >
-                <h4
-                   class="mb-8 text-lg font-semibold text-dark dark:text-white"
-                   >
-                   Personal Details
-                </h4>
-                <form
-                   class="pb-4 mb-10 border-b border-stroke dark:border-dark-3"
-                   >
-                   <div class="flex flex-wrap -mx-4">
-                      <div class="w-full px-4 md:w-1/2">
-                         <div class="mb-5">
-                            <label
-                               for=""
-                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                               >
-                            Full Name<span class="text-red">*</span>
-                            </label>
-                            <input
-                               type="text"
-                               placeholder="Mark Litho"
-                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                               />
-                         </div>
-                      </div>
-                      <div class="w-full px-4 md:w-1/2">
-                         <div class="mb-5">
-                            <label
-                               for=""
-                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                               >
-                            Email1<span class="text-red">*</span>
-                            </label>
-                            <input
-                               type="text"
-                               placeholder="Email"
-                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                               />
-                         </div>
-                      </div>
-                      <div class="w-full px-4 md:w-1/2">
-                         <div class="mb-5">
-                            <label
-                               for=""
-                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                               >
-                            Email2
-                            </label>
-                            <input
-                               type="email"
-                               placeholder="Email"
-                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                               />
-                         </div>
-                      </div>
-                      <div class="w-full px-4 md:w-1/2">
-                         <div class="mb-5">
-                            <label
-                               for=""
-                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                               >
-                            Billing Address<span class="text-red">*</span>
-                            </label>
-                            <input
-                               type="text"
-                               placeholder="2707 Davis Anenue"
-                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                               />
-                         </div>
-                      </div>
-                      <div class="w-full px-4 md:w-1/3">
-                         <div class="mb-5">
-                            <label
-                               for=""
-                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                               >
-                            Country<span class="text-red">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                placeholder="Country"
-                                class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                            />
-                         </div>
-                      </div>
-                      <div class="w-full px-4 md:w-1/3">
-                        <div class="mb-5">
-                           <label
-                              for=""
-                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                              >
-                           City<span class="text-red">*</span>
-                           </label>
-                           <input
-                               type="text"
-                               placeholder="City"
-                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                           />
-                        </div>
-                     </div>
-                     <div class="w-full px-4 md:w-1/3">
-                        <div class="mb-5">
-                           <label
-                              for=""
-                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                              >
-                           Post Code<span class="text-red">*</span>
-                           </label>
-                           <input
-                               type="number"
-                               placeholder="Post Code"
-                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                           />
-                        </div>
-                     </div>
-                     
-                      <div class="w-full px-4 md:w-1/3">
-                        <div class="mb-5">
-                           <label
-                              for=""
-                              class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                              >
-                           Type of Payment<span class="text-red">*</span>
-                           </label>
-                           <div class="relative">
-                              <select
-                                 class="w-full appearance-none bg-transparent rounded-md border border-stroke dark:border-dark-3 py-3 px-5 font-medium text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+      <div class="flex flex-wrap -mx-4">
+         <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
+            <div class="mb-12 lg:mb-0">
+               <h3
+                  class="mb-8 text-lg font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]"
+                  >
+                  Payment Information
+               </h3>
+               <div
+                  class="mb-10 overflow-hidden rounded-[10px] {{-- border border-stroke dark:border-dark-3 --}} bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10"
+                  >
+                  <h4
+                     class="mb-8 text-lg font-semibold text-dark dark:text-white"
+                     >
+                     Personal Details
+                  </h4>
+                  <form x-data="{ cartNotification: false }" x-init="() => {
+                        setTimeout(() => cartNotification = false, 15000)
+                     }"  
+                     class="pb-4 mb-10 border-b border-stroke dark:border-dark-3">
+                     <div class="flex flex-wrap -mx-4">
+                        <div class="w-full px-4 md:w-1/2">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
                                  >
-                                 <option value="" class="dark:bg-dark-2">
-                                    Thru Gcash
-                                 </option>
-                                 <option value="" class="dark:bg-dark-2">
-                                    United Kingdom
-                                 </option>
-                                 <option value="" class="dark:bg-dark-2">
-                                    Canada
-                                 </option>
-                              </select>
-                              <span
-                                 class="absolute -translate-y-1/2 right-5 top-1/2 text-body-color dark:text-dark-6"
+                              Full Name<span class="text-red">*</span>
+                              </label>
+                              <input
+                                 type="text"
+                                 placeholder="Mark Litho"
+                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                 />
+                           </div>
+                        </div>
+                        <div class="w-full px-4 md:w-1/2">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
                                  >
-                                 <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="fill-current stroke-current"
+                              Email1<span class="text-red">*</span>
+                              </label>
+                              <input
+                                 type="text"
+                                 placeholder="Email"
+                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                 />
+                           </div>
+                        </div>
+                        <div class="w-full px-4 md:w-1/2">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                 >
+                              Email2
+                              </label>
+                              <input
+                                 type="email"
+                                 placeholder="Email"
+                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                 />
+                           </div>
+                        </div>
+                        <div class="w-full px-4 md:w-1/2">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                 >
+                              Billing Address<span class="text-red">*</span>
+                              </label>
+                              <input
+                                 type="text"
+                                 placeholder="2707 Davis Anenue"
+                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                 />
+                           </div>
+                        </div>
+                        <div class="w-full px-4 md:w-1/3">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                 >
+                              Country<span class="text-red">*</span>
+                              </label>
+                              <input
+                                 type="text"
+                                 placeholder="Country"
+                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                              />
+                           </div>
+                        </div>
+                        <div class="w-full px-4 md:w-1/3">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                 >
+                              City<span class="text-red">*</span>
+                              </label>
+                              <input
+                                 type="text"
+                                 placeholder="City"
+                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                              />
+                           </div>
+                        </div>
+                        <div class="w-full px-4 md:w-1/3">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                 >
+                              Post Code<span class="text-red">*</span>
+                              </label>
+                              <input
+                                 type="number"
+                                 placeholder="Post Code"
+                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                              />
+                           </div>
+                        </div>
+
+                        <div class="w-full px-4 md:w-1/3">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                 >
+                              Type of Payment<span class="text-red">*</span>
+                              </label>
+                              <div class="relative">
+                                 <select
+                                    class="w-full appearance-none bg-transparent rounded-md border border-stroke dark:border-dark-3 py-3 px-5 font-medium text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     >
-                                    <path
-                                       d="M2.4142 5.03575L2.41418 5.03577L2.417 5.03852L7.767 10.2635L8.00101 10.4921L8.23393 10.2624L13.5839 4.98741L13.5839 4.98741L13.5856 4.98575C13.6804 4.89093 13.8194 4.89093 13.9142 4.98575C14.0087 5.0803 14.009 5.2187 13.915 5.31351C13.9148 5.31379 13.9145 5.31407 13.9142 5.31435L8.16628 10.9623L8.16627 10.9623L8.1642 10.9643C8.06789 11.0607 8.02303 11.0667 7.9999 11.0667C7.94098 11.0667 7.88993 11.0523 7.82015 10.9991L2.08477 5.36351C1.99078 5.26871 1.99106 5.1303 2.0856 5.03575C2.18043 4.94093 2.31937 4.94093 2.4142 5.03575Z"
-                                       fill=""
-                                       stroke=""
-                                       stroke-width="0.666667"
-                                       />
-                                 </svg>
-                              </span>
+                                    <option value="" class="dark:bg-dark-2">
+                                       Thru Gcash
+                                    </option>
+                                    <option value="" class="dark:bg-dark-2">
+                                       United Kingdom
+                                    </option>
+                                    <option value="" class="dark:bg-dark-2">
+                                       Canada
+                                    </option>
+                                 </select>
+                                 <span
+                                    class="absolute -translate-y-1/2 right-5 top-1/2 text-body-color dark:text-dark-6"
+                                    >
+                                    <svg
+                                       width="16"
+                                       height="16"
+                                       viewBox="0 0 16 16"
+                                       fill="none"
+                                       xmlns="http://www.w3.org/2000/svg"
+                                       class="fill-current stroke-current"
+                                       >
+                                       <path
+                                          d="M2.4142 5.03575L2.41418 5.03577L2.417 5.03852L7.767 10.2635L8.00101 10.4921L8.23393 10.2624L13.5839 4.98741L13.5839 4.98741L13.5856 4.98575C13.6804 4.89093 13.8194 4.89093 13.9142 4.98575C14.0087 5.0803 14.009 5.2187 13.915 5.31351C13.9148 5.31379 13.9145 5.31407 13.9142 5.31435L8.16628 10.9623L8.16627 10.9623L8.1642 10.9643C8.06789 11.0607 8.02303 11.0667 7.9999 11.0667C7.94098 11.0667 7.88993 11.0523 7.82015 10.9991L2.08477 5.36351C1.99078 5.26871 1.99106 5.1303 2.0856 5.03575C2.18043 4.94093 2.31937 4.94093 2.4142 5.03575Z"
+                                          fill=""
+                                          stroke=""
+                                          stroke-width="0.666667"
+                                          />
+                                    </svg>
+                                 </span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="w-full px-4 md:w-1/2">
+                           <div class="mb-5">
+                              <label
+                                 for=""
+                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                 >
+                              Total Amount to be Processed<span class="text-red">*</span>
+                              </label>
+                              <input
+                                 type="number"
+                                 placeholder="Total Amount"
+                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                 />
                            </div>
                         </div>
                      </div>
-                      <div class="w-full px-4 md:w-1/2">
-                         <div class="mb-5">
-                            <label
-                               for=""
-                               class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                               >
-                            Total Amount to be Processed<span class="text-red">*</span>
-                            </label>
-                            <input
-                               type="number"
-                               placeholder="Total Amount"
-                               class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                               />
-                         </div>
-                      </div>
-                   </div>
-                   <button
-                   class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
-                   >
-                   Pay Now
-                </button>
-                </form>  
-             </div>
-          </div>
-       </div>
-       <div class="w-full px-4 lg:w-5/12 xl:w-4/12 opacity-0" id="servicesSummary">
-          <div>
-             <h3
-                class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]"
-                >
-                Services Summary
-             </h3>
-             <div
-                class="mb-10 bg-white overflow-hidden rounded-[10px] {{-- border border-stroke dark:border-dark-3 --}} bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10"
-                >
-                <?php 
-                  $summary_count = 3;
-                  $items_per_page = 3;
-                  $total_pages = ceil($summary_count / $items_per_page);
-
-                  $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                  $current_page = max(1, min($current_page, $total_pages));
-
-                  $start = ($current_page - 1) * $items_per_page;
-                  $end = min(($start + $items_per_page), $summary_count);
-                ?>
-
-                @for($i = 0; $i < $summary_count; $i++)
-                <div class="flex items-center mb-9">
-                  <div
-                     class="mr-6 h-[90px] w-full max-w-[80px] overflow-hidden rounded-lg sm:h-[110px] sm:max-w-[100px] border border-stroke dark:border-dark-3"
-                     >
-                     <img
-                        src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/checkout/checkout-04/product-01.jpg"
-                        alt="product"
-                        class="object-cover object-center w-full h-full"
-                        />
-                  </div>
-                  <div class="w-full">
-                     <p
-                        class="mb-[6px] text-base font-medium text-dark dark:text-white"
-                        >
-                        Trendy Ladies Pants
+                     <button @click="cartNotification = true" type="button"
+                        class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90">
+                        Pay Now
+                     </button>
+                     <div x-show="cartNotification"
+                        class="fixed z-[60] w-full lg:w-[30%] bottom-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
+                        <div class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green">
+                           <svg 
+                              width="24" 
+                              height="25" 
+                              viewBox="0 0 24 25" 
+                              fill="none" 
+                              xmlns="http://www.w3.org/2000/svg"
+                              >
+                              <path 
+                                 d="M12 1.17499C5.7375 1.17499 0.675003 6.23749 0.675003 12.5C0.675003 18.7625 5.7375 23.8625 12 23.8625C18.2625 23.8625 23.3625 18.7625 23.3625 12.5C23.3625 6.23749 18.2625 1.17499 12 1.17499ZM12 22.175C6.675 22.175 2.3625 17.825 2.3625 12.5C2.3625 7.17499 6.675 2.86249 12 2.86249C17.325 2.86249 21.675 7.21249 21.675 12.5375C21.675 17.825 17.325 22.175 12 22.175Z" 
+                                 fill="white"
+                                 />
+                              <path 
+                                 d="M15.225 9.01248L10.7625 13.3625L8.7375 11.375C8.4 11.0375 7.875 11.075 7.5375 11.375C7.2 11.7125 7.2375 12.2375 7.5375 12.575L9.9375 14.9C10.1625 15.125 10.4625 15.2375 10.7625 15.2375C11.0625 15.2375 11.3625 15.125 11.5875 14.9L16.425 10.25C16.7625 9.91248 16.7625 9.38748 16.425 9.04998C16.0875 8.71248 15.5625 8.71248 15.225 9.01248Z" 
+                                 fill="white"
+                                 />
+                           </svg>
+                        </div>
+                        <div class="flex w-full items-center justify-between">
+                           <div>
+                              <h6 class="text-base font-semibold text-dark dark:text-white sm:text-lg mb-0.5">
+                              Congratulations
+                              </h6>
+                              <p class="text-body-color text-sm dark:text-dark-6">
+                              your transaction was successful
+                              </p>
+                           </div>
+                           <button class="text-dark-5 dark:text-dark-6 hover:text-green" @click="cartNotification = false" type="button">
+                              <svg 
+                              width="16" 
+                              height="16" 
+                              viewBox="0 0 16 16" 
+                              fill="none" 
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="fill-current"
+                              >
+                              <g clip-path="url(#clip0_1088_26057)">
+                                 <path 
+                                       d="M8.79999 7.99999L14.9 1.89999C15.125 1.67499 15.125 1.32499 14.9 1.09999C14.675 0.874994 14.325 0.874994 14.1 1.09999L7.99999 7.19999L1.89999 1.09999C1.67499 0.874994 1.32499 0.874994 1.09999 1.09999C0.874994 1.32499 0.874994 1.67499 1.09999 1.89999L7.19999 7.99999L1.09999 14.1C0.874994 14.325 0.874994 14.675 1.09999 14.9C1.19999 15 1.34999 15.075 1.49999 15.075C1.64999 15.075 1.79999 15.025 1.89999 14.9L7.99999 8.79999L14.1 14.9C14.2 15 14.35 15.075 14.5 15.075C14.65 15.075 14.8 15.025 14.9 14.9C15.125 14.675 15.125 14.325 14.9 14.1L8.79999 7.99999Z" 
+                                       />
+                              </g>
+                              <defs>
+                                 <clipPath id="clip0_1088_26057">
+                                       <rect width="16" height="16" fill="white"/>
+                                 </clipPath>
+                              </defs>
+                              </svg>
+                           </button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
+            <div>
+               <h3 class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]">
+                  Services Summary
+               </h3>
+               <div x-data="{ checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))) }" class="mb-10 overflow-hidden rounded-[10px] bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10">
+                  <template x-for="(cart, index) in checkout" :key="index">
+                     <div class="flex items-center mb-9">
+                        <div
+                           class="mr-6 h-[90px] w-full max-w-[80px] overflow-hidden rounded-lg sm:h-[110px] sm:max-w-[100px] border border-stroke dark:border-dark-3">
+                           <img
+                              x-bind:src="'fileupload/services/'+cart.picture"
+                              alt="product"
+                              class="object-cover object-center w-full h-full"
+                              />
+                        </div>
+                        <div class="w-full">
+                           <p class="mb-[6px] text-base font-medium text-dark dark:text-white" x-text="cart.title"></p>
+                           <p class="text-sm font-medium text-body-color dark:text-dark-6" x-text="'$' + (parseFloat(cart.price).toLocaleString())"></span>
+                        </div>
+                     </div>
+                  </template>
+                  <div class="pt-5 border-t border-stroke dark:border-dark-3">
+                     <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
+                        <span x-text="'Total Amount: $'+checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"></span>
                      </p>
-                     <p
-                        class="text-sm font-medium text-body-color dark:text-dark-6"
-                        >
-                        $59.99
-                     </p>
-                    {{--  <p
-                        class="text-sm font-medium text-body-color dark:text-dark-6"
-                        >
-                        <span class="pr-0.5"> Quantity: </span> <span>1</span>
-                     </p> --}}
                   </div>
                </div>
-                @endfor
-              
-
-                {{-- <div class="text-center">
-                  <div class="mb-12 inline-flex rounded-full dark:bg-dark-2 bg-white py-2 px-3 shadow-[0px_1px_3px_0px_rgba(0,0,0,0.13)]">
-                      <ul class="-mx-[6px] flex items-center">
-                          <!-- Previous Page Link -->
-                          @if($current_page > 1)
-                              <li class="px-[6px]">
-                                  <a href="?page={{ $current_page - 1 }}" class="flex items-center justify-center text-base border rounded-full text-dark hover:border-primary hover:bg-primary h-9 w-9 border-stroke dark:text-white dark:border-dark-3 hover:text-white">
-                                    <span>
-                                       <svg
-                                          width="16"
-                                          height="7"
-                                          viewBox="0 0 16 7"
-                                          class="fill-current"
-                                          >
-                                          <path
-                                             d="M0.32819 4.51723L2.12148 6.83231C2.27742 7.02994 2.56331 7.05817 2.77122 6.88877C2.95315 6.71938 2.97914 6.40882 2.8232 6.18296L1.13387 4.00904L15.5322 4.00904C15.7921 4.00904 16 3.78318 16 3.50085C16 3.21852 15.7921 2.99266 15.5322 2.99266L1.13387 2.99266L2.8232 0.818749C2.97914 0.62112 2.95315 0.310561 2.77122 0.112932C2.69326 0.0282342 2.5893 6.95564e-07 2.48534 7.04652e-07C2.35539 7.16013e-07 2.22544 0.0564659 2.14747 0.169397L0.354179 2.48448C-0.113636 3.10559 -0.113636 3.95258 0.32819 4.51723Z"
-                                             />
-                                       </svg>
-                                    </span>
-                                  </a>
-                              </li>
-                          @endif
-              
-                          <!-- Page Number Links -->
-                          @for($page = 1; $page <= $total_pages; $page++)
-                           <li class="px-[6px]">
-                                 <a href="?page={{ $page }}"
-                                    class="flex items-center justify-center text-base border rounded-full h-9 w-9 border-stroke {{ $current_page == $page ? 'bg-primary text-white border-primary' : 'text-body-color dark:border-dark-3 hover:text-white hover:bg-primary hover:border-primary' }}">
-                                    {{ $page }}
-                                 </a>
-                           </li>
-                          @endfor
-              
-                          <!-- Next Page Link -->
-                          @if($current_page < $total_pages)
-                              <li class="px-[6px]">
-                                  <a href="?page={{ $current_page + 1 }}" class="flex items-center justify-center text-base border rounded-full text-dark hover:border-primary hover:bg-primary h-9 w-9 border-stroke dark:text-white dark:border-dark-3 hover:text-white">
-                                    <span>
-                                       <svg
-                                          width="16"
-                                          height="7"
-                                          viewBox="0 0 16 7"
-                                          class="fill-current"
-                                          >
-                                          <path
-                                             d="M15.6718 2.48277L13.8785 0.167694C13.7226 -0.0299349 13.4367 -0.0581673 13.2288 0.111229C13.0468 0.280625 13.0209 0.591184 13.1768 0.817045L14.8661 2.99096H0.467815C0.207918 2.99096 0 3.21682 0 3.49915C0 3.78148 0.207918 4.00734 0.467815 4.00734H14.8661L13.1768 6.18125C13.0209 6.37888 13.0468 6.68944 13.2288 6.88707C13.3067 6.97177 13.4107 7 13.5147 7C13.6446 7 13.7746 6.94354 13.8525 6.8306L15.6458 4.51553C16.1136 3.89441 16.1136 3.04743 15.6718 2.48277Z"
-                                             />
-                                       </svg>
-                                    </span>
-                                  </a>
-                              </li>
-                          @endif
-                      </ul>
-                  </div>
-               </div> --}}
-                <div class="pt-5 border-t border-stroke dark:border-dark-3">
-                   <p
-                      class="flex items-center justify-between mb-6 text-base text-dark dark:text-white"
-                      >
-                      <span>Total Amount: $123</span>
-                   </p>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
-  </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </section>
 
 <section
@@ -606,12 +447,12 @@
       <div class="text-center lg:pt-[20px]"
       :style="isMobile ? 'padding-top: 30px;' : ''">
 
-         <h2 class="text-3xl text-white font-semibold opacity-0" 
+         <h2 class="text-3xl text-white font-semibold opacity-0 join"
              id="join"
              :style="isMobile ? 'font-size: 22px' : ''"
             >Join Our Newsletter Now
          </h2>
-   
+
          <form action="#" method="post" class="mt-4 space-x-2 opacity-0" id="signUp">
              <input
              type="text"
@@ -633,23 +474,24 @@
             console.log(window.innerWidth);
          });
       }">
-      <img class="absolute inset-0 mx-auto my-auto" 
-         :class="{ 'mx-auto my-auto': isMobile, 'top-0 left-0': !isMobile }" 
-         src="{{ asset('/images/avalonlogo.png') }}" 
+      <img class="absolute inset-0 mx-auto my-auto"
+         :class="{ 'mx-auto my-auto': isMobile, 'top-0 left-0': !isMobile }"
+         src="{{ asset('/images/avalonlogo.png') }}"
          alt="">
 
-    <img class="absolute left-0" 
-         src="{{ asset('/images/eclipse.png') }}" 
+    <img class="absolute left-0"
+         src="{{ asset('/images/eclipse.png') }}"
          alt="">
    <img class="absolute right-12 top-12" src="{{ asset('/images/vector.png') }}" alt="">
    <img class="absolute right-0 top-0" src="{{ asset('/images/eclipse-right.png') }}" alt="">
     <div class="container mx-auto">
-       <div class="flex flex-wrap -mx-4 lg:mb-14 opacity-0" id="footerSection">
+       <div class="flex flex-wrap -mx-4 lg:mb-14">
           <div class="w-full px-4 md:w-2/3 lg:w-1/3">
              <div class="w-full mb-12">
                 <h4
-                   class="text-dark dark:text-white text-3xl mt-5 font-medium xl:text-[32px]"
+                   class="text-dark dark:text-white text-3xl mt-5 font-medium xl:text-[32px] opacity-0"
                    :class="{ 'text-center text-2xl': isMobile}"
+                   id="feelFree"
                    >
                    Please feel free to get in touch with us
                 </h4>
@@ -657,7 +499,7 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
              <div class="w-full mb-12">
-                <div class="flex">
+                <div class="flex opacity-0" id="footerLocation">
                    <div class="mr-6 h-9 w-9 text-primary">
                       <svg
                          width="35"
@@ -691,7 +533,7 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
              <div class="w-full mb-12">
-                <div class="flex">
+                <div class="flex opacity-0" id="footerHelp">
                    <div class="mr-6 h-9 w-9 text-primary">
                       <svg
                          width="35"
@@ -743,10 +585,10 @@
                   <img src="{{ asset('/images/discover.png') }}" alt="">
                 </div>
              </div>
-            
+
              <div class="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-1/3">
                 <div class="w-full py-3">
-               
+
                    <div
                       class="flex items-center justify-center -mx-3 lg:justify-end"
                       >
@@ -831,25 +673,28 @@
 <script>
    document.addEventListener("DOMContentLoaded", function() {
       var elementIds = [
-               "join", 
-               "signUp", 
-               "subscribe", 
-               "footerSection",
-               "paymentInfo",
-               "servicesSummary"
+               "join",
+               "signUp",
+               "subscribe",
+               "feelFree",
+               "footerLocation",
+               "footerHelp"
             ];
       var animationClasses = {
          join: "animate-fade-up",
          signUp: "animate-fade-up",
          subscribe: "animate-fade-up",
-         footerSection: "animate-fade-right",
-         paymentInfo: "animate-fade-right",
-         servicesSummary: "animate-fade-left",
+         feelFree: "animate-fade-right",
+         footerLocation: "animate-fade-right",
+         footerHelp: "animate-fade-right",
       };
       var animationDelays = {
          join: 100,
          signUp: 500,
          subscribe: 700,
+         feelFree: 900,
+         footerLocation: 1200,
+         footerHelp: 1500
       };
 
       var observer = new IntersectionObserver(function(entries) {

@@ -2,9 +2,9 @@
     id="checkoutmodal"
     class="opacity-0 fixed top-0 left-0 flex 
     items-center justify-center w-full h-screen py-10 overflow-y-scroll
-    bg-[#000000] bg-opacity-20 dark:bg-dark">
-    <div @click.outside="modalOpen = false" class="mx-auto rounded-[10px] bg-white
-    dark:bg-dark-2 p-8 shadow-1 dark:shadow-3 xl:mt-32 2xl:mt-0">
+    bg-[#000000] bg-opacity-20 dark:bg-dark"> 
+    <div @click.outside="modalOpen = false" id="cd-modal" class="mx-auto rounded-[10px] bg-white
+    dark:bg-dark-2 p-8 shadow-1 dark:shadow-3">
         <!-- ====== Checkout Section Start -->
         <section class=" dark:bg-dark">
             <div :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' " 
@@ -28,117 +28,53 @@
                     Shopping cart
                 </h3>
                 <div class="space-y-10">
-                    <div class="border-b border-stroke dark:border-dark-3 pb-7">
-                        <div class="flex items-center">
-                        <div
-                            class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                            >
-                            <img
-                                src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-01.jpg"
-                                alt="product"
-                                class="h-full w-full object-cover object-center"
-                                />
-                        </div>
-                        <div class="w-full">
-                            <div class="flex flex-wrap justify-between">
-                                <a
-                                    href="javascript:void(0)"
-                                    class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                                    >
-                                Modern Lounge Chair
-                                </a>
-                                <div class="text-right">
-                                    <span class="text-base font-medium text-dark dark:text-white"> $385 </span>
+                    <template x-for="(cart, index) in carts" :key="index">
+                        <div class="border-b border-stroke dark:border-dark-3 pb-7">
+                            <div class="flex items-center">
+                            <div
+                                class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
+                                >
+                                <img
+                                    x-bind:src="'fileupload/services/'+cart.picture"
+                                    alt="product"
+                                    class="h-full w-full object-cover object-center"
+                                    />
+                            </div>
+                            <div class="w-full">
+                                <div class="flex flex-wrap justify-between">
+                                    <a
+                                        href="javascript:void(0)"
+                                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
+                                        x-text="cart.title"
+                                        >
+                                    </a>
+                                    <div class="text-right">
+                                        <span class="text-base font-medium text-dark dark:text-white" x-text="'$'+(parseFloat(cart.price).toLocaleString())"></span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-[10px] mt-3">
+                                    <button
+                                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                                        >
+                                        Remove
+                                    </button>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-[10px] mt-3">
-                                <button
-                                    class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                                    >
-                                Remove
-                                </button>
                             </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="border-b border-stroke dark:border-dark-3 pb-7">
-                        <div class="flex items-center">
-                        <div
-                            class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                            >
-                            <img
-                                src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-02.jpg"
-                                alt="product"
-                                class="h-full w-full object-cover object-center"
-                                />
-                        </div>
-                        <div class="w-full">
-                            <div class="flex flex-wrap justify-between">
-                                <a
-                                    href="javascript:void(0)"
-                                    class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                                    >
-                                Mini Basic Table Lamp
-                                </a>
-                                <div class="text-right">
-                                    <span class="text-base font-medium text-dark dark:text-white"> $129 </span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-[10px] mt-3">
-                                <button
-                                    class="bg-red text-white rounded-[3px] border-[0.5px] border-red dark:border-dark-3 px-3 py-0.5 text-sm font-medium dark:text-white transition hover:border-dark hover:bg-dark"
-                                    >
-                                Remove
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="border-b border-stroke dark:border-dark-3 pb-7">
-                        <div class="flex items-center">
-                        <div
-                            class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                            >
-                            <img
-                                src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-03.jpg"
-                                alt="product"
-                                class="h-full w-full object-cover object-center"
-                                />
-                        </div>
-                        <div class="w-full">
-                            <div class="flex flex-wrap justify-between">
-                                <a
-                                    href="javascript:void(0)"
-                                    class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                                    >
-                                Wooden Side Table
-                                </a>
-                                <div class="text-right">
-                                    <span class="text-base font-medium text-dark dark:text-white"> $459 </span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-[10px] mt-3">
-                                <button
-                                    class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                                    >
-                                Remove
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                    </template>
+
                     <div class="flex items-center justify-end">
-                        <p
-                        class="mr-6 flex items-center text-base text-body-color dark:text-dark-6"
-                        >
-                        <span> Subtotal: </span>
-                        <span class="pl-2 font-medium text-dark dark:text-white">$973</span>
+                        <p class="mr-6 flex items-center text-base text-body-color dark:text-dark-6">
+                            <span> Subtotal: </span>
+                            <span class="pl-2 font-medium text-dark dark:text-white" x-text="'$'+carts.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"></span>
                         </p>
-                        <button
-                        class="inline-flex items-center justify-center rounded-md bg-dark py-[10px] px-7 text-center text-base font-semibold text-white hover:dark"
+                        <a
+                            :href="'checkout?carts='+encodeURIComponent(JSON.stringify(carts));"
+                            class="inline-flex items-center justify-center rounded-md bg-dark py-[10px] px-7 text-center text-base font-semibold text-white hover:dark"
                         >
-                        Checkout
-                        </button>
+                            Checkout
+                        </a>
                     </div>
                 </div>
             </div>

@@ -55,3 +55,6 @@ Route::get('/test1',function() {
 Route::get('/test2',function() {
     return view('test2');
 });
+
+Route::get('get/cart', [App\Http\Controllers\CartController::class, 'index'])->name('get.cart');
+Route::post('add/cart', [App\Http\Controllers\CartController::class, 'addCart'])->name('add.cart');
