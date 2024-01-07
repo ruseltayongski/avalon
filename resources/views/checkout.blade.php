@@ -275,7 +275,7 @@
    </div>
    <div class="container mx-auto">
     <div class="flex flex-wrap -mx-4">
-       <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
+       <div class="w-full px-4 lg:w-7/12 xl:w-8/12 opacity-0" id="paymentInfo">
           <div class="mb-12 lg:mb-0">
              <h3
                 class="mb-8 text-lg font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]"
@@ -469,7 +469,7 @@
              </div>
           </div>
        </div>
-       <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
+       <div class="w-full px-4 lg:w-5/12 xl:w-4/12 opacity-0" id="servicesSummary">
           <div>
              <h3
                 class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]"
@@ -606,7 +606,7 @@
       <div class="text-center lg:pt-[20px]"
       :style="isMobile ? 'padding-top: 30px;' : ''">
 
-         <h2 class="text-3xl text-white font-semibold opacity-0 join" 
+         <h2 class="text-3xl text-white font-semibold opacity-0" 
              id="join"
              :style="isMobile ? 'font-size: 22px' : ''"
             >Join Our Newsletter Now
@@ -644,13 +644,12 @@
    <img class="absolute right-12 top-12" src="{{ asset('/images/vector.png') }}" alt="">
    <img class="absolute right-0 top-0" src="{{ asset('/images/eclipse-right.png') }}" alt="">
     <div class="container mx-auto">
-       <div class="flex flex-wrap -mx-4 lg:mb-14">
+       <div class="flex flex-wrap -mx-4 lg:mb-14 opacity-0" id="footerSection">
           <div class="w-full px-4 md:w-2/3 lg:w-1/3">
              <div class="w-full mb-12">
                 <h4
-                   class="text-dark dark:text-white text-3xl mt-5 font-medium xl:text-[32px] opacity-0"
+                   class="text-dark dark:text-white text-3xl mt-5 font-medium xl:text-[32px]"
                    :class="{ 'text-center text-2xl': isMobile}"
-                   id="feelFree"
                    >
                    Please feel free to get in touch with us
                 </h4>
@@ -658,7 +657,7 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
              <div class="w-full mb-12">
-                <div class="flex opacity-0" id="footerLocation">
+                <div class="flex">
                    <div class="mr-6 h-9 w-9 text-primary">
                       <svg
                          width="35"
@@ -692,7 +691,7 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
              <div class="w-full mb-12">
-                <div class="flex opacity-0" id="footerHelp">
+                <div class="flex">
                    <div class="mr-6 h-9 w-9 text-primary">
                       <svg
                          width="35"
@@ -835,25 +834,22 @@
                "join", 
                "signUp", 
                "subscribe", 
-               "feelFree", 
-               "footerLocation",
-               "footerHelp"
+               "footerSection",
+               "paymentInfo",
+               "servicesSummary"
             ];
       var animationClasses = {
          join: "animate-fade-up",
          signUp: "animate-fade-up",
          subscribe: "animate-fade-up",
-         feelFree: "animate-fade-right",
-         footerLocation: "animate-fade-right",
-         footerHelp: "animate-fade-right",
+         footerSection: "animate-fade-right",
+         paymentInfo: "animate-fade-right",
+         servicesSummary: "animate-fade-left",
       };
       var animationDelays = {
          join: 100,
          signUp: 500,
          subscribe: 700,
-         feelFree: 900,
-         footerLocation: 1200,
-         footerHelp: 1500
       };
 
       var observer = new IntersectionObserver(function(entries) {

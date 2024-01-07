@@ -651,7 +651,7 @@
 <section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center justify-between -mx-4">
-         <div class="w-full px-4 lg:w-6/12">
+         <div class="w-full px-4 lg:w-6/12" id="whatWeDoImage">
             <div class="relative mx-auto flex h-[500px] max-w-[440px]">
                <div class="absolute left-0 z-30 mr-14 max-w-[270px] rounded-lg">
                   <img
@@ -829,7 +829,7 @@
                </div>
             </div>
          </div>
-         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12">
+         <div class="w-full px-4 lg:w-1/2 2xl:w-5/12 opacity-0" id="whatWeDoText">
             <div class="sm:mt-10 lg:mt-0">
                <span
                   class="block mb-2 text-lg font-semibold uppercase text-dark"
@@ -938,8 +938,8 @@
                            $count++;
                         ?>
                         <div class="mx-auto h-full min-w-[300px] px-4 pb-8 xs:min-w-[360px] sm:min-w-[510px] 
-                              md:min-w-[350px] lg:min-w-[465px] xl:min-w-[380px] 2xl:min-w-[440px] ">
-                           <div class="group relative rounded-xl border border-stroke dark:border-dark-3 
+                              md:min-w-[350px] lg:min-w-[465px] xl:min-w-[380px] 2xl:min-w-[440px] services-section" id="services{{ $i }}">
+                           <div class="group relative shadow-xl rounded-xl border border-stroke dark:border-dark-3 
                               bg-white dark:bg-dark-2 p-10 md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]">
                               <div class="relative z-10 mx-auto mb-10">
                                  {{-- <svg
@@ -1023,11 +1023,11 @@
 </div>
 
 <!-- ====== Services Section Start -->
-<section class="bg-gray-2 dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] xs:mb-8">
+<section class="dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] xs:mb-8">
    <div class="container mx-auto">
       <div class="-mx-4 flex flex-wrap">
          <div class="w-full px-4">
-            <div class="mx-auto mb-[60px] max-w-[700px] text-center lg:mb-[70px]">
+            <div class="mx-auto mb-[60px] max-w-[700px] text-center lg:mb-[70px] opacity-0" id="businessSolutions">
                <h2 class="text-dark dark:text-white mb-6 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]">
                   Business Solutions Reimagined
                </h2>
@@ -1042,7 +1042,7 @@
          @for($i = 0; $i < 4; $i++)
          <div class="w-full px-4 md:w-1/2 xl:w-1/4">
             <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white 
-            dark:bg-dark-2 py-6 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent">
+            dark:bg-dark-2 py-6 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent marketing-section opacity-0" id="marketing{{ $i }}">
                <div class="w-full mb-6 overflow-hidden rounded-md relative">
                   <img
                      src="https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg"
@@ -1080,7 +1080,7 @@
 
 <section class="bg-[#011523] dark:bg-dark pt-2 pb-12 media-section">
     <div class="container mx-auto">
-      <div class="mx-auto max-w-[800px] text-center mb-10 mt-6 digital-axis " id="digitalAxis">    
+      <div class="mx-auto max-w-[800px] text-center mb-10 mt-6 opacity-0" id="avalonHouse">    
          <h2
             class="mb-4 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
             style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
@@ -1095,18 +1095,19 @@
             but the majority have sufferred alteration in some form.
          </p>
       </div>
-       <div class="w-full px-4 fun-facts text-center" id="funFacts">
+       <div class="w-full px-4 fun-facts text-center">
           <h2
-            class="mt-24 mb-10 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px]"
+            class="mt-24 mb-10 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px] opacity-0"
             style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
+            id="funFacts"
             >
             Fun Facts
          </h2>
              <div class="-mx-3 flex flex-wrap md:-mx-4">
-                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4 opacity-0" id="rightBoxOne">
                      <div class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8">
                         <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
-                           56,825
+                           10,892
                            &nbsp;
                            <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
                               <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1127,12 +1128,12 @@
                         </p>
                      </div>
                 </div>
-                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4 opacity-0" id="rightBoxTwo">
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                       >
                       <h4 class="flex justify-center b-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
-                           35,574
+                           1,832
                            &nbsp;
                            <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
                               <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1151,16 +1152,45 @@
                       <p
                          class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
                          >
-                         Commits
+                         Team Members
                       </p>
                    </div>
                 </div>
-                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
+                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4 opacity-0" id="leftBoxOne">
+                   <div
+                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
+                    
+                      >
+                      <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                           5,318
+                           &nbsp;
+                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                              <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                              <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
+                              </g> </g> <g> <g> 
+                                 <path d="M256,235.227v256h102.4v-256H256z M337.92,470.747h-61.44v-215.04h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M133.12,286.427v204.8h102.4v-204.8H133.12z M215.04,470.747L215.04,470.747H153.6v-163.84h61.44V470.747z"></path> </g> </g> <g> <g> 
+                                 <path d="M0,347.867v143.36h112.64v-143.36H0z M92.16,470.747H20.48v-102.4h71.68V470.747z"></path> </g> </g> <g> <g> 
+                                 <polygon points="336.975,0.293 330.095,19.581 404.601,46.146 56.565,229.831 66.125,247.942 411.508,65.658 385.95,137.341 405.24,144.223 443.07,38.122 ">
+                                 </polygon> 
+                                 </g> 
+                                 </g> 
+                              </g>
+                           </svg>
+                      </h4>
+                      <p
+                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         >
+                         Partners
+                      </p>
+                   </div>
+                </div>
+                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4 opacity-0" id="leftBoxTwo">
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                       >
                       <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
-                           570
+                           319,892
                            &nbsp;
                            <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
                               <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1179,35 +1209,7 @@
                       <p
                          class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
                          >
-                         Team Member
-                      </p>
-                   </div>
-                </div>
-                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4">
-                   <div
-                      class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
-                      >
-                      <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
-                           505
-                           &nbsp;
-                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
-                              <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                              <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
-                              </g> </g> <g> <g> 
-                                 <path d="M256,235.227v256h102.4v-256H256z M337.92,470.747h-61.44v-215.04h61.44V470.747z"></path> </g> </g> <g> <g> 
-                                 <path d="M133.12,286.427v204.8h102.4v-204.8H133.12z M215.04,470.747L215.04,470.747H153.6v-163.84h61.44V470.747z"></path> </g> </g> <g> <g> 
-                                 <path d="M0,347.867v143.36h112.64v-143.36H0z M92.16,470.747H20.48v-102.4h71.68V470.747z"></path> </g> </g> <g> <g> 
-                                 <polygon points="336.975,0.293 330.095,19.581 404.601,46.146 56.565,229.831 66.125,247.942 411.508,65.658 385.95,137.341 405.24,144.223 443.07,38.122 ">
-                                 </polygon> 
-                                 </g> 
-                                 </g> 
-                              </g>
-                           </svg>
-                      </h4>
-                      <p
-                         class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
-                         >
-                         First Year of use
+                         Projects
                       </p>
                    </div>
                 </div>
@@ -1230,20 +1232,21 @@
       <div class="text-center lg:pt-[20px]"
       :style="isMobile ? 'padding-top: 30px;' : ''">
 
-         <h2 class="text-3xl text-white font-semibold"
+         <h2 class="text-3xl text-white font-semibold opacity-0"
+             id="join"
              :style="isMobile ? 'font-size: 22px' : ''"
             >Join Our Newsletter Now
          </h2>
    
-         <form action="#" method="post" class="mt-4 space-x-2">
+         <form action="#" method="post" class="mt-4 space-x-2" id="signUp">
              <input
              type="text"
              placeholder="Enter your Email"
              class="w-1/4 px-5 py-3 text-base bg-white border outline-none border-stroke text-body-color dark:text-white dark:border-dark-3"
              :style="isMobile ? 'width: 200px' : ''"/>
-             <button type="submit" class="bg-white text-dark px-5 py-3 font-semibold">SIGN UP</button>
+             <button type="submit" class="bg-white text-dark px-5 py-3 font-semibold" >SIGN UP</button>
          </form>
-         <p class="text-white opacity-90 pb-4 pt-6">You can unsubscribe anytime</p>
+         <p class="text-white opacity-90 pb-4 pt-6" id="subscribe">You can unsubscribe anytime</p>
      </div>
    </div>
 </section>
@@ -1267,7 +1270,7 @@
    <img class="absolute right-12 top-12" src="{{ asset('/images/vector.png') }}" alt="">
    <img class="absolute right-0 top-0" src="{{ asset('/images/eclipse-right.png') }}" alt="">
     <div class="container mx-auto">
-       <div class="flex flex-wrap -mx-4 lg:mb-14">
+       <div class="flex flex-wrap -mx-4 lg:mb-14 opacity-0" id="footerSection">
           <div class="w-full px-4 md:w-2/3 lg:w-1/3">
              <div class="w-full mb-12">
                 <h4
@@ -1476,6 +1479,84 @@
       }
    
       startCarouselInterval();
+
+      var elementIds = [
+               "whatWeDoText",
+               "whatWeDoImage",
+               "join", 
+               "signUp", 
+               "subscribe", 
+               "footerSection",
+               "businessSolutions",
+               "avalonHouse",
+               "funFacts",
+               "rightBoxOne",
+               "rightBoxTwo",
+               "leftBoxOne",
+               "leftBoxTwo"
+            ];
+      var animationClasses = {
+         join: "animate-fade-up",
+         signUp: "animate-fade-up",
+         subscribe: "animate-fade-up",
+         footerSection: "animate-fade-right",
+         whatWeDoText: "animate-fade-up",
+         whatWeDoImage: "animate-fade-right",
+         businessSolutions: "animate-fade-down",
+         avalonHouse: "animate-fade-down",
+         funFacts: "animate-fade-right",
+         rightBoxOne: "animate-fade-right",
+         rightBoxTwo: "animate-fade-right",
+         leftBoxOne: "animate-fade-left",
+         leftBoxTwo: "animate-fade-left"
+
+      };
+      var animationDelays = {
+         join: 100,
+         signUp: 500,
+         subscribe: 700,
+      };
+      
+
+      var delayIncrement = 100;
+      var elementCards = [];
+   
+
+      for (var i = 0; i < 4; i++) {
+         elementCards.push("marketing" + i); 
+      }
+
+      var marketingDelayIncrement = 101;
+      var observer = new IntersectionObserver(function(entries) {
+         entries.forEach(function(entry) {
+               if (entry.isIntersecting) {
+                  var animationClass = animationClasses[entry.target.id];
+                  var delay = animationDelays[entry.target.id];
+                  var delayClass = 'animate-delay-' + (elementCards.indexOf(entry.target.id) * delayIncrement);
+                  setTimeout(() => {
+                     entry.target.classList.add(animationClass);
+                  }, delay);
+              
+                  if(entry.target.classList.contains('marketing-section')) {
+                     setTimeout(function(){
+                           entry.target.classList.add(`animate-fade-right`);
+                     }, marketingDelayIncrement); 
+                  marketingDelayIncrement += 300;
+                  } 
+                  entry.target.classList.add(delayClass);
+                  observer.unobserve(entry.target);
+               } else {
+                  entry.target.style.opacity = 0;
+               }
+         });
+      }, { threshold: 0 });
+
+      elementIds.concat(elementCards).forEach(function(elementId) {
+         var element = document.getElementById(elementId);
+         if (element) {
+               observer.observe(element);
+         }
+      });
    });
 </script>
 @endsection
