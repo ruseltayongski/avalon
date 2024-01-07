@@ -18,7 +18,7 @@ class ServicesFactory extends Factory
      */
     public function definition(): array
     {
-        $response = Http::timeout(60)->get('https://source.unsplash.com/random/800x800/?img=1');
+        $response = Http::timeout(60)->get('https://demo.tailgrids.com/templates/business/build/src/assets/images/portfolio/portfolio-01/image-05.jpg');
         $image = $response->body();
 
         $filename = fake()->firstName().'.jpg';

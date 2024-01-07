@@ -571,7 +571,7 @@
           </div>
        </div>
     </div>
-    <div class="py-8 border-t border-stroke dark:border-dark-3 bg-[#011523]">
+    <div class="py-4 border-t border-stroke dark:border-dark-3 bg-[#011523]">
        <div class="container mx-auto">
           <div class="flex flex-wrap items-center justify-center -mx-4">
             <div class="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-1/3">
