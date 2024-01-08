@@ -182,268 +182,268 @@ x-init="() => {
                      Personal Details
                   </h4>
                   <div x-data="{ 
-                     cartNotification: false,
-                     formData: {
-                       fullName: '',
-                       email1: '',
-                       email2: '',
-                       billingAddress: '',
-                       country: '',
-                       city: '',
-                       postCode: '',
-                       typeOfPayment: '',
-                       totalAmount: ''
-                     },
-                     
-                   }">
-                  <form 
-                     class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
-                     <div class="flex flex-wrap -mx-4">
-                        <div class="w-full px-4 md:w-1/2">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              Full Name<span class="text-red">*</span>
-                              </label>
-                              <input
-                                 type="text"
-                                 placeholder="Full Name"
-                                 x-model="formData.fullName"
-                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                        cartNotification: false,
+                        formData: {
+                        fullName: '',
+                        email1: '',
+                        email2: '',
+                        billingAddress: '',
+                        country: '',
+                        city: '',
+                        postCode: '',
+                        typeOfPayment: '',
+                        totalAmount: ''
+                        },
+                        
+                     }">
+                     <form method="POST" action="{{ route('stripe.session') }}" class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
+                        @csrf
+                        <div class="flex flex-wrap -mx-4">
+                           <div class="w-full px-4 md:w-1/2">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                 Full Name<span class="text-red">*</span>
+                                 </label>
+                                 <input
+                                    type="text"
+                                    placeholder="Full Name"
+                                    x-model="formData.fullName"
+                                    class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                    />
+                              </div>
+                           </div>
+                           <div class="w-full px-4 md:w-1/2">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                 Email1<span class="text-red">*</span>
+                                 </label>
+                                 <input
+                                    type="text"
+                                    placeholder="Email"
+                                    x-model="formData.email1"
+                                    class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                    />
+                              </div>
+                           </div>
+                           <div class="w-full px-4 md:w-1/2">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                 Email2
+                                 </label>
+                                 <input
+                                    type="email"
+                                    placeholder="Email"
+                                    x-model="formData.email2"
+                                    class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                    />
+                              </div>
+                           </div>
+                           <div class="w-full px-4 md:w-1/2">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                 Billing Address<span class="text-red">*</span>
+                                 </label>
+                                 <input
+                                    type="text"
+                                    placeholder="Biiling Address"
+                                    x-model="formData.billingAddress"
+                                    class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                    />
+                              </div>
+                           </div>
+                           <div class="w-full px-4 md:w-1/3">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                 Country<span class="text-red">*</span>
+                                 </label>
+                                 <input
+                                    type="text"
+                                    placeholder="Country"
+                                    x-model="formData.country"
+                                    class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
+                              </div>
                            </div>
-                        </div>
-                        <div class="w-full px-4 md:w-1/2">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              Email1<span class="text-red">*</span>
-                              </label>
-                              <input
-                                 type="text"
-                                 placeholder="Email"
-                                 x-model="formData.email1"
-                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                           <div class="w-full px-4 md:w-1/3">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                 City<span class="text-red">*</span>
+                                 </label>
+                                 <input
+                                    type="text"
+                                    placeholder="City"
+                                    x-model="formData.city"
+                                    class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
+                              </div>
                            </div>
-                        </div>
-                        <div class="w-full px-4 md:w-1/2">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              Email2
-                              </label>
-                              <input
-                                 type="email"
-                                 placeholder="Email"
-                                 x-model="formData.email2"
-                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                           <div class="w-full px-4 md:w-1/3">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                 Post Code<span class="text-red">*</span>
+                                 </label>
+                                 <input
+                                    type="number"
+                                    placeholder="Post Code"
+                                    x-model="formData.postCode"
+                                    class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
+                              </div>
                            </div>
-                        </div>
-                        <div class="w-full px-4 md:w-1/2">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              Billing Address<span class="text-red">*</span>
-                              </label>
-                              <input
-                                 type="text"
-                                 placeholder="Biiling Address"
-                                 x-model="formData.billingAddress"
-                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                 />
-                           </div>
-                        </div>
-                        <div class="w-full px-4 md:w-1/3">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              Country<span class="text-red">*</span>
-                              </label>
-                              <input
-                                 type="text"
-                                 placeholder="Country"
-                                 x-model="formData.country"
-                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                              />
-                           </div>
-                        </div>
-                        <div class="w-full px-4 md:w-1/3">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              City<span class="text-red">*</span>
-                              </label>
-                              <input
-                                 type="text"
-                                 placeholder="City"
-                                 x-model="formData.city"
-                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                              />
-                           </div>
-                        </div>
-                        <div class="w-full px-4 md:w-1/3">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              Post Code<span class="text-red">*</span>
-                              </label>
-                              <input
-                                 type="number"
-                                 placeholder="Post Code"
-                                 x-model="formData.postCode"
-                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                              />
-                           </div>
-                        </div>
 
-                        <div class="w-full px-4 md:w-1/3">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              Type of Payment<span class="text-red">*</span>
-                              </label>
-                              <div class="relative">
-                                 <select 
-                                   x-model="formData.typeOfPayment"
-                                    class="w-full appearance-none bg-transparent rounded-md border border-stroke dark:border-dark-3 py-3 px-5 font-medium text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                           <div class="w-full px-4 md:w-1/3">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
                                     >
-                                    <option value="gcash" class="dark:bg-dark-2">
-                                       Thru Gcash
-                                    </option>
-                                    <option value="uk" class="dark:bg-dark-2">
-                                       United Kingdom
-                                    </option>
-                                    <option value="canada" class="dark:bg-dark-2">
-                                       Canada
-                                    </option>
-                                 </select>
-                                 <span
-                                    class="absolute -translate-y-1/2 right-5 top-1/2 text-body-color dark:text-dark-6"
-                                    >
-                                    <svg
-                                       width="16"
-                                       height="16"
-                                       viewBox="0 0 16 16"
-                                       fill="none"
-                                       xmlns="http://www.w3.org/2000/svg"
-                                       class="fill-current stroke-current"
+                                 Type of Payment<span class="text-red">*</span>
+                                 </label>
+                                 <div class="relative">
+                                    <select 
+                                    x-model="formData.typeOfPayment"
+                                       class="w-full appearance-none bg-transparent rounded-md border border-stroke dark:border-dark-3 py-3 px-5 font-medium text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                        >
-                                       <path
-                                          d="M2.4142 5.03575L2.41418 5.03577L2.417 5.03852L7.767 10.2635L8.00101 10.4921L8.23393 10.2624L13.5839 4.98741L13.5839 4.98741L13.5856 4.98575C13.6804 4.89093 13.8194 4.89093 13.9142 4.98575C14.0087 5.0803 14.009 5.2187 13.915 5.31351C13.9148 5.31379 13.9145 5.31407 13.9142 5.31435L8.16628 10.9623L8.16627 10.9623L8.1642 10.9643C8.06789 11.0607 8.02303 11.0667 7.9999 11.0667C7.94098 11.0667 7.88993 11.0523 7.82015 10.9991L2.08477 5.36351C1.99078 5.26871 1.99106 5.1303 2.0856 5.03575C2.18043 4.94093 2.31937 4.94093 2.4142 5.03575Z"
-                                          fill=""
-                                          stroke=""
-                                          stroke-width="0.666667"
-                                          />
-                                    </svg>
-                                 </span>
+                                       <option value="gcash" class="dark:bg-dark-2">
+                                          Thru Gcash
+                                       </option>
+                                       <option value="uk" class="dark:bg-dark-2">
+                                          United Kingdom
+                                       </option>
+                                       <option value="canada" class="dark:bg-dark-2">
+                                          Canada
+                                       </option>
+                                    </select>
+                                    <span
+                                       class="absolute -translate-y-1/2 right-5 top-1/2 text-body-color dark:text-dark-6"
+                                       >
+                                       <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          class="fill-current stroke-current"
+                                          >
+                                          <path
+                                             d="M2.4142 5.03575L2.41418 5.03577L2.417 5.03852L7.767 10.2635L8.00101 10.4921L8.23393 10.2624L13.5839 4.98741L13.5839 4.98741L13.5856 4.98575C13.6804 4.89093 13.8194 4.89093 13.9142 4.98575C14.0087 5.0803 14.009 5.2187 13.915 5.31351C13.9148 5.31379 13.9145 5.31407 13.9142 5.31435L8.16628 10.9623L8.16627 10.9623L8.1642 10.9643C8.06789 11.0607 8.02303 11.0667 7.9999 11.0667C7.94098 11.0667 7.88993 11.0523 7.82015 10.9991L2.08477 5.36351C1.99078 5.26871 1.99106 5.1303 2.0856 5.03575C2.18043 4.94093 2.31937 4.94093 2.4142 5.03575Z"
+                                             fill=""
+                                             stroke=""
+                                             stroke-width="0.666667"
+                                             />
+                                       </svg>
+                                    </span>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="w-full px-4 md:w-1/2">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                 Total Amount to be Processed<span class="text-red">*</span>
+                                 </label>
+                                 <input
+                                    type="number"
+                                    placeholder="Total Amount"
+                                    class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                    />
                               </div>
                            </div>
                         </div>
-                        <div class="w-full px-4 md:w-1/2">
-                           <div class="mb-5">
-                              <label
-                                 for=""
-                                 class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                 >
-                              Total Amount to be Processed<span class="text-red">*</span>
-                              </label>
-                              <input
-                                 type="number"
-                                 placeholder="Total Amount"
-                                 class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                 />
-                           </div>
-                        </div>
-                     </div>
-                     <button {{-- @click="cartNotification = true" --}} 
-                        class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
-                        :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
-                        x-on:click="submit"
-                        >
-                     
-                        Pay Now
-                     </button>
-                     <div x-show="cartNotification"
-                        class="fixed z-[60] w-full lg:w-[30%] bottom-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
-                        <div class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green">
-                           <svg 
-                              width="24" 
-                              height="25" 
-                              viewBox="0 0 24 25" 
-                              fill="none" 
-                              xmlns="http://www.w3.org/2000/svg"
-                              >
-                              <path 
-                                 d="M12 1.17499C5.7375 1.17499 0.675003 6.23749 0.675003 12.5C0.675003 18.7625 5.7375 23.8625 12 23.8625C18.2625 23.8625 23.3625 18.7625 23.3625 12.5C23.3625 6.23749 18.2625 1.17499 12 1.17499ZM12 22.175C6.675 22.175 2.3625 17.825 2.3625 12.5C2.3625 7.17499 6.675 2.86249 12 2.86249C17.325 2.86249 21.675 7.21249 21.675 12.5375C21.675 17.825 17.325 22.175 12 22.175Z" 
-                                 fill="white"
-                                 />
-                              <path 
-                                 d="M15.225 9.01248L10.7625 13.3625L8.7375 11.375C8.4 11.0375 7.875 11.075 7.5375 11.375C7.2 11.7125 7.2375 12.2375 7.5375 12.575L9.9375 14.9C10.1625 15.125 10.4625 15.2375 10.7625 15.2375C11.0625 15.2375 11.3625 15.125 11.5875 14.9L16.425 10.25C16.7625 9.91248 16.7625 9.38748 16.425 9.04998C16.0875 8.71248 15.5625 8.71248 15.225 9.01248Z" 
-                                 fill="white"
-                                 />
-                           </svg>
-                        </div>
-                        <div class="flex w-full items-center justify-between">
-                           <div>
-                              <h6 class="text-base font-semibold text-dark dark:text-white sm:text-lg mb-0.5">
-                              Congratulations
-                              </h6>
-                              <p class="text-body-color text-sm dark:text-dark-6">
-                              your transaction was successful
-                              </p>
-                           </div>
-                           <button class="text-dark-5 dark:text-dark-6 hover:text-green" @click="cartNotification = false" type="button">
+                        <button {{-- @click="cartNotification = true" --}} 
+                           class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
+                           :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
+                           {{-- x-on:click="submit" --}}
+                           type="submit"
+                           >
+                           Pay Now
+                        </button>
+                        <div x-show="cartNotification"
+                           class="fixed z-[60] w-full lg:w-[30%] bottom-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
+                           <div class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green">
                               <svg 
-                              width="16" 
-                              height="16" 
-                              viewBox="0 0 16 16" 
-                              fill="none" 
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="fill-current"
-                              >
-                              <g clip-path="url(#clip0_1088_26057)">
+                                 width="24" 
+                                 height="25" 
+                                 viewBox="0 0 24 25" 
+                                 fill="none" 
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 >
                                  <path 
-                                       d="M8.79999 7.99999L14.9 1.89999C15.125 1.67499 15.125 1.32499 14.9 1.09999C14.675 0.874994 14.325 0.874994 14.1 1.09999L7.99999 7.19999L1.89999 1.09999C1.67499 0.874994 1.32499 0.874994 1.09999 1.09999C0.874994 1.32499 0.874994 1.67499 1.09999 1.89999L7.19999 7.99999L1.09999 14.1C0.874994 14.325 0.874994 14.675 1.09999 14.9C1.19999 15 1.34999 15.075 1.49999 15.075C1.64999 15.075 1.79999 15.025 1.89999 14.9L7.99999 8.79999L14.1 14.9C14.2 15 14.35 15.075 14.5 15.075C14.65 15.075 14.8 15.025 14.9 14.9C15.125 14.675 15.125 14.325 14.9 14.1L8.79999 7.99999Z" 
-                                       />
-                              </g>
-                              <defs>
-                                 <clipPath id="clip0_1088_26057">
-                                       <rect width="16" height="16" fill="white"/>
-                                 </clipPath>
-                              </defs>
+                                    d="M12 1.17499C5.7375 1.17499 0.675003 6.23749 0.675003 12.5C0.675003 18.7625 5.7375 23.8625 12 23.8625C18.2625 23.8625 23.3625 18.7625 23.3625 12.5C23.3625 6.23749 18.2625 1.17499 12 1.17499ZM12 22.175C6.675 22.175 2.3625 17.825 2.3625 12.5C2.3625 7.17499 6.675 2.86249 12 2.86249C17.325 2.86249 21.675 7.21249 21.675 12.5375C21.675 17.825 17.325 22.175 12 22.175Z" 
+                                    fill="white"
+                                    />
+                                 <path 
+                                    d="M15.225 9.01248L10.7625 13.3625L8.7375 11.375C8.4 11.0375 7.875 11.075 7.5375 11.375C7.2 11.7125 7.2375 12.2375 7.5375 12.575L9.9375 14.9C10.1625 15.125 10.4625 15.2375 10.7625 15.2375C11.0625 15.2375 11.3625 15.125 11.5875 14.9L16.425 10.25C16.7625 9.91248 16.7625 9.38748 16.425 9.04998C16.0875 8.71248 15.5625 8.71248 15.225 9.01248Z" 
+                                    fill="white"
+                                    />
                               </svg>
-                           </button>
+                           </div>
+                           <div class="flex w-full items-center justify-between">
+                              <div>
+                                 <h6 class="text-base font-semibold text-dark dark:text-white sm:text-lg mb-0.5">
+                                 Congratulations
+                                 </h6>
+                                 <p class="text-body-color text-sm dark:text-dark-6">
+                                 your transaction was successful
+                                 </p>
+                              </div>
+                              <button class="text-dark-5 dark:text-dark-6 hover:text-green" @click="cartNotification = false" type="button">
+                                 <svg 
+                                 width="16" 
+                                 height="16" 
+                                 viewBox="0 0 16 16" 
+                                 fill="none" 
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 class="fill-current"
+                                 >
+                                 <g clip-path="url(#clip0_1088_26057)">
+                                    <path 
+                                          d="M8.79999 7.99999L14.9 1.89999C15.125 1.67499 15.125 1.32499 14.9 1.09999C14.675 0.874994 14.325 0.874994 14.1 1.09999L7.99999 7.19999L1.89999 1.09999C1.67499 0.874994 1.32499 0.874994 1.09999 1.09999C0.874994 1.32499 0.874994 1.67499 1.09999 1.89999L7.19999 7.99999L1.09999 14.1C0.874994 14.325 0.874994 14.675 1.09999 14.9C1.19999 15 1.34999 15.075 1.49999 15.075C1.64999 15.075 1.79999 15.025 1.89999 14.9L7.99999 8.79999L14.1 14.9C14.2 15 14.35 15.075 14.5 15.075C14.65 15.075 14.8 15.025 14.9 14.9C15.125 14.675 15.125 14.325 14.9 14.1L8.79999 7.99999Z" 
+                                          />
+                                 </g>
+                                 <defs>
+                                    <clipPath id="clip0_1088_26057">
+                                          <rect width="16" height="16" fill="white"/>
+                                    </clipPath>
+                                 </defs>
+                                 </svg>
+                              </button>
+                           </div>
                         </div>
-                     </div>
-                  </form>
+                     </form>
                   </div>
-                  <script>
+                  {{-- <script>
                      function submit() {
-                        fetch("/add/customer", {
+                        fetch("/stripe/session", {
                            method: "POST",
                            headers: {
                               "Content-Type": "application/json",
                               "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
                            },
-                           body: JSON.stringify(this.formData),
+                           //body: JSON.stringify(this.formData),
                         })
                         .then(response => response.json())
                         .then(data => {
@@ -456,7 +456,7 @@ x-init="() => {
                            // Handle the error and update your UI accordingly
                         });
                      }
-                  </script>
+                  </script> --}}
                </div>
             </div>
          </div>
