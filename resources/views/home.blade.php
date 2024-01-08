@@ -1071,7 +1071,13 @@
    </div>
 </div>
 
-<section class="bg-[#011523] dark:bg-dark pt-2 pb-12 media-section">
+<section class="bg-[#011523] dark:bg-dark pt-2 pb-12 media-section" x-data="{ isMobile: window.innerWidth <= 600 }"
+   x-init="() => {
+      window.addEventListener('resize', () => {
+         isMobile = window.innerWidth <= 600;
+         console.log(window.innerWidth);
+      });
+   }">
     <div class="container mx-auto">
       <div class="mx-auto max-w-[800px] text-center mb-10 mt-6 opacity-0" id="avalonHouse">    
          <h2
@@ -1091,18 +1097,23 @@
        <div class="w-full px-4 fun-facts text-center">
           <h2
             class="mt-24 mb-10 text-3xl font-bold text-white sm:text-4xl md:leading-[1.2] md:text-[48px] opacity-0"
+         
             style="text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2)"
             id="funFacts"
             >
             Fun Facts
          </h2>
              <div class="-mx-3 flex flex-wrap md:-mx-4">
-                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4 opacity-0" id="rightBoxOne">
+                <div class="w-full px-3 md:px-4  md:w-1/2 lg:w-1/4 opacity-0" id="rightBoxOne"
+                     :class="{ 'w-1/2': isMobile, 'w-1/4': !isMobile}"
+                     >
                      <div class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8">
-                        <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                        <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                            :class="{ 'text-1xl': isMobile, 'text-2xl': !isMobile }" 
+                           >
                            10,892
                            &nbsp;
-                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                           <svg fill="#13C296" :height="isMobile ? 17 : 20" :width="isMobile ? 17 : 20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
                               <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                               <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
                               </g> </g> <g> <g> 
@@ -1116,19 +1127,24 @@
                               </g>
                            </svg>
                         </h4>
-                        <p class="text-base text-body-color dark:text-dark-6 group-hover:text-white">
+                        <p class="text-base text-body-color dark:text-dark-6 group-hover:text-white" 
+                           :class="{ 'text-1xl': isMobile, 'text-2xl': !isMobile }">
                            Clients
                         </p>
                      </div>
                 </div>
-                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4 opacity-0" id="rightBoxTwo">
+                <div class="w-full px-3 md:px-4 md:w-1/2 lg:w-1/4 opacity-0" id="rightBoxTwo"
+                    :class="{ 'w-1/2': isMobile, 'w-1/4': !isMobile}"
+                     >
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                       >
-                      <h4 class="flex justify-center b-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                      <h4 class="flex justify-center b-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                      :class="{ 'text-1xl': isMobile, 'text-2xl': !isMobile }" 
+                        >
                            1,832
                            &nbsp;
-                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                           <svg fill="#13C296" :height="isMobile ? 17 : 20" :width="isMobile ? 17 : 20"  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
                               <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                               <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
                               </g> </g> <g> <g> 
@@ -1144,20 +1160,25 @@
                       </h4>
                       <p
                          class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         :class="{ 'text-1xl': isMobile, 'text-2xl': !isMobile }" 
                          >
                          Team Members
                       </p>
                    </div>
                 </div>
-                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4 opacity-0" id="leftBoxOne">
+                <div class="w-full px-3 md:px-4 md:w-1/2 lg:w-1/4 opacity-0" id="leftBoxOne"
+                      :class="{ 'w-1/2': isMobile, 'w-1/4': !isMobile}"
+                     >
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                     
                       >
-                      <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                      <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                          :class="{ 'text-1xl': isMobile, 'text-2xl': !isMobile }" 
+                           >
                            5,318
                            &nbsp;
-                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                           <svg fill="#13C296" :height="isMobile ? 17 : 20" :width="isMobile ? 17 : 20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
                               <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                               <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
                               </g> </g> <g> <g> 
@@ -1173,19 +1194,23 @@
                       </h4>
                       <p
                          class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         :class="{ 'text-1xl': isMobile, 'text-2xl': !isMobile }" 
                          >
                          Partners
                       </p>
                    </div>
                 </div>
-                <div class="w-full px-3 xs:w-1/2 md:px-4 lg:w-1/4 opacity-0" id="leftBoxTwo">
+                <div class="w-full px-3 md:px-4 md:w-1/2 lg:w-1/4 opacity-0" id="leftBoxTwo"
+                    :class="{ 'w-1/2': isMobile, 'w-1/4': !isMobile}"
+                     >
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
                       >
-                      <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]">
+                      <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
+                      :class="{ 'text-1xl': isMobile, 'text-2xl': !isMobile }" >
                            319,892
                            &nbsp;
-                           <svg fill="#13C296" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
+                           <svg fill="#13C296" :height="isMobile ? 17 : 20" :width="isMobile ? 17 : 20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.52 491.52" xml:space="preserve">
                               <g id="SVGRepo_bgCarrier" stroke-width="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                               <g id="SVGRepo_iconCarrier"> <g> <g> <path d="M378.88,184.026v307.2h112.64v-307.2H378.88z M471.04,470.747h-71.68v-266.24h71.68V470.747z"></path> 
                               </g> </g> <g> <g> 
@@ -1201,6 +1226,7 @@
                       </h4>
                       <p
                          class="text-base text-body-color dark:text-dark-6 group-hover:text-white"
+                         :class="{ 'text-1xl': isMobile, 'text-2xl': !isMobile }" 
                          >
                          Projects
                       </p>
@@ -1263,18 +1289,18 @@
    <img class="absolute right-12 top-12" src="{{ asset('/images/vector.png') }}" alt="">
    <img class="absolute right-0 top-0" src="{{ asset('/images/eclipse-right.png') }}" alt="">
     <div class="container mx-auto">
-       <div class="flex flex-wrap -mx-4 lg:mb-14 opacity-0" id="footerSection">
-          <div class="w-full px-4 md:w-2/3 lg:w-1/3">
+       <div class="flex flex-wrap lg:mb-14 opacity-0 justify-center items-center" id="footerSection">
+          <div class="w-full px-4 md:w-2/3 lg:w-1/4">
              <div class="w-full mb-12">
                 <h4
-                   class="text-dark dark:text-white text-3xl mt-5 font-medium xl:text-[32px]"
-                   :class="{ 'text-center text-2xl': isMobile}"
+                   class="text-dark dark:text-white text-3xl font-medium xl:text-[32px]"
+                   :class="{ 'text-center text-xl': isMobile, 'text-3xl': !isMobile}"
                    >
                    Please feel free to get in touch with us
                 </h4>
              </div>
           </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
              <div class="w-full mb-12">
                 <div class="flex">
                    <div class="mr-6 h-9 w-9 text-primary">
@@ -1308,7 +1334,7 @@
                 </div>
              </div>
           </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
              <div class="w-full mb-12">
                 <div class="flex">
                    <div class="mr-6 h-9 w-9 text-primary">
@@ -1348,7 +1374,9 @@
           <div class="flex flex-wrap items-center justify-center -mx-4">
             <div class="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-1/3">
                <div class="py-3 text-center">
-                  <p class="text-base text-white dark:text-dark-6">
+                  <p class="text-white dark:text-dark-6"
+                     :class="{'text-sm': isMobile, 'text-base': !isMobile}"
+                     >
                      &copy; 2024 Avalon House.All Rights Reserved.
                   </p>
                </div>
@@ -1369,7 +1397,10 @@
                    <div
                       class="flex items-center justify-center -mx-3 lg:justify-end"
                       >
-                      <h2 class="text-white">Follow Us: </h2>
+                      <h2 class="text-white"
+                      :class="{'text-sm': isMobile, 'text-base': !isMobile}"
+                        >Follow Us: 
+                     </h2>
                       <a
                          href="javascript:void(0)"
                          class="px-3 hover:text-primary text-dark-7 dark:text-white/40"

@@ -552,19 +552,18 @@ x-init="() => {
    <img class="absolute right-12 top-12" src="{{ asset('/images/vector.png') }}" alt="">
    <img class="absolute right-0 top-0" src="{{ asset('/images/eclipse-right.png') }}" alt="">
     <div class="container mx-auto">
-       <div class="flex flex-wrap -mx-4 lg:mb-14 opacity-0" id="footerSection">
-          <div class="w-full px-4 md:w-2/3 lg:w-1/3">
+       <div class="flex flex-wrap lg:mb-14 opacity-0 justify-center items-center" id="footerSection">
+          <div class="w-full px-4 md:w-2/3 lg:w-1/4">
              <div class="w-full mb-12">
                 <h4
-                   class="text-dark dark:text-white text-3xl mt-5 font-medium xl:text-[32px]"
-                   :class="{ 'text-center text-2xl': isMobile}"
-                   id="feelFree"
+                   class="text-dark dark:text-white text-3xl font-medium xl:text-[32px]"
+                   :class="{ 'text-center text-xl': isMobile, 'text-3xl': !isMobile}"
                    >
                    Please feel free to get in touch with us
                 </h4>
              </div>
           </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
              <div class="w-full mb-12">
                 <div class="flex">
                    <div class="mr-6 h-9 w-9 text-primary">
@@ -598,7 +597,7 @@ x-init="() => {
                 </div>
              </div>
           </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
              <div class="w-full mb-12">
                 <div class="flex">
                    <div class="mr-6 h-9 w-9 text-primary">
@@ -638,7 +637,9 @@ x-init="() => {
           <div class="flex flex-wrap items-center justify-center -mx-4">
             <div class="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-1/3">
                <div class="py-3 text-center">
-                  <p class="text-base text-white dark:text-dark-6">
+                  <p class="text-white dark:text-dark-6"
+                     :class="{'text-sm': isMobile, 'text-base': !isMobile}"
+                     >
                      &copy; 2024 Avalon House.All Rights Reserved.
                   </p>
                </div>
@@ -659,7 +660,10 @@ x-init="() => {
                    <div
                       class="flex items-center justify-center -mx-3 lg:justify-end"
                       >
-                      <h2 class="text-white">Follow Us: </h2>
+                      <h2 class="text-white"
+                      :class="{'text-sm': isMobile, 'text-base': !isMobile}"
+                        >Follow Us: 
+                     </h2>
                       <a
                          href="javascript:void(0)"
                          class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
