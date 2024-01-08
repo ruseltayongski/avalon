@@ -48,7 +48,7 @@
         <div class="absolute top-0 left-0 z-[-1] h-auto w-full bg-[#011523] dark:bg-dark-3 pt-10 pb-20">
             <div class="container mx-auto">
                 <div class="relative overflow-hidden">
-                    <div class="-mx-4 flex flex-wrap items-stretch">
+                    <div class="-mx-4 flex flex-wrap items-stretch animate-fade-up animate-duration-1000 animate-delay-500">
                         <div class="w-full px-4">
                             <div class="mx-auto max-w-[570px] text-center">
                                 <p class="text-2xl text-white pb-5 pt-3 opacity-90">Our Services</p>

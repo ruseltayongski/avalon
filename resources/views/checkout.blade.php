@@ -158,27 +158,46 @@ x-init="() => {
 }">
    <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3"></div>
    <div class="container mx-auto">
-      <div class="flex flex-wrap -mx-4">
+      <div class="flex flex-wrap {{-- -mx-4 --}}"
+          :class="{ '-mx-4': isMobile, 'mx-auto': !isMobile }"   
+      >
          <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
             <div class="mb-12 lg:mb-0">
                <h3
-                  class="mb-8 text-lg font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]"
+                  class="mb-8 text-lg font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]
+                  animate-fade-down animate-duration-1000 animate-delay-500
+                  "
                   >
                   Payment Information
                </h3>
                <div
-                  class="mb-10 overflow-hidden rounded-[10px] {{-- border border-stroke dark:border-dark-3 --}} bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10"
+                  class="mb-10 overflow-hidden rounded-[10px] {{-- border border-stroke dark:border-dark-3 --}}
+                   bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10
+                  
+                   "
                   >
                   <h4
                      class="mb-8 text-lg font-semibold text-dark dark:text-white"
                      >
                      Personal Details
                   </h4>
-                  <form x-data="{ cartNotification: false }" x-init="() => {
-                        setTimeout(() => cartNotification = false, 15000)
-                     }
-                     "  
-                     class="pb-4 mb-10 border-b border-stroke dark:border-dark-3">
+                  <div x-data="{ 
+                     cartNotification: false,
+                     formData: {
+                       fullName: '',
+                       email1: '',
+                       email2: '',
+                       billingAddress: '',
+                       country: '',
+                       city: '',
+                       postCode: '',
+                       typeOfPayment: '',
+                       totalAmount: ''
+                     },
+                     
+                   }">
+                  <form 
+                     class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
                      <div class="flex flex-wrap -mx-4">
                         <div class="w-full px-4 md:w-1/2">
                            <div class="mb-5">
@@ -190,7 +209,8 @@ x-init="() => {
                               </label>
                               <input
                                  type="text"
-                                 placeholder="Mark Litho"
+                                 placeholder="Full Name"
+                                 x-model="formData.fullName"
                                  class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
                            </div>
@@ -206,6 +226,7 @@ x-init="() => {
                               <input
                                  type="text"
                                  placeholder="Email"
+                                 x-model="formData.email1"
                                  class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
                            </div>
@@ -221,6 +242,7 @@ x-init="() => {
                               <input
                                  type="email"
                                  placeholder="Email"
+                                 x-model="formData.email2"
                                  class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
                            </div>
@@ -235,7 +257,8 @@ x-init="() => {
                               </label>
                               <input
                                  type="text"
-                                 placeholder="2707 Davis Anenue"
+                                 placeholder="Biiling Address"
+                                 x-model="formData.billingAddress"
                                  class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
                            </div>
@@ -251,6 +274,7 @@ x-init="() => {
                               <input
                                  type="text"
                                  placeholder="Country"
+                                 x-model="formData.country"
                                  class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                               />
                            </div>
@@ -266,6 +290,7 @@ x-init="() => {
                               <input
                                  type="text"
                                  placeholder="City"
+                                 x-model="formData.city"
                                  class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                               />
                            </div>
@@ -281,6 +306,7 @@ x-init="() => {
                               <input
                                  type="number"
                                  placeholder="Post Code"
+                                 x-model="formData.postCode"
                                  class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                               />
                            </div>
@@ -295,16 +321,17 @@ x-init="() => {
                               Type of Payment<span class="text-red">*</span>
                               </label>
                               <div class="relative">
-                                 <select
+                                 <select 
+                                   x-model="formData.typeOfPayment"
                                     class="w-full appearance-none bg-transparent rounded-md border border-stroke dark:border-dark-3 py-3 px-5 font-medium text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     >
-                                    <option value="" class="dark:bg-dark-2">
+                                    <option value="gcash" class="dark:bg-dark-2">
                                        Thru Gcash
                                     </option>
-                                    <option value="" class="dark:bg-dark-2">
+                                    <option value="uk" class="dark:bg-dark-2">
                                        United Kingdom
                                     </option>
-                                    <option value="" class="dark:bg-dark-2">
+                                    <option value="canada" class="dark:bg-dark-2">
                                        Canada
                                     </option>
                                  </select>
@@ -346,11 +373,12 @@ x-init="() => {
                            </div>
                         </div>
                      </div>
-                     <button @click="cartNotification = true" type="button"
+                     <button {{-- @click="cartNotification = true" --}} 
                         class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
                         :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
+                        x-on:click="submit"
                         >
-                       
+                     
                         Pay Now
                      </button>
                      <div x-show="cartNotification"
@@ -406,14 +434,40 @@ x-init="() => {
                         </div>
                      </div>
                   </form>
+                  </div>
+                  <script>
+                     function submit() {
+                        fetch("/add/customer", {
+                           method: "POST",
+                           headers: {
+                              "Content-Type": "application/json",
+                              "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+                           },
+                           body: JSON.stringify(this.formData),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                           /* this.cartNotification = true; */
+                           console.log("Form submitted successfully:", data);
+            
+                        })
+                        .catch(error => {
+                           console.error("Error submitting form:", error);
+                           // Handle the error and update your UI accordingly
+                        });
+                     }
+                  </script>
                </div>
             </div>
          </div>
          <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
             <div>
-               <h3 class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]">
+               <h3 class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]
+               animate-fade-down animate-duration-1000 animate-delay-500
+                  ">
                   Services Summary
                </h3>
+              
                <div x-data="{ checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))) }" class="mb-10 overflow-hidden rounded-[10px] bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10">
                   <template x-for="(cart, index) in checkout" :key="index">
                      <div class="flex items-center mb-9">

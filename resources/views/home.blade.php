@@ -463,10 +463,12 @@
     <div class="container mx-auto h-full lg:flex justify-center items-center xl:pb-[210px] 2xl:pb-[280px]">
         <div class="flex flex-wrap w-full justify-center ">
             {{-- <div class="w-full px-4 lg:w-1/2"> --}}
-            <div class="p-4">
+            <div class="p-4 text-center">
                 {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
-                <div class="animate-fade-up">   
-                <h1 class="mb-12 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] 2xl:text-6xl">
+                <div class="">   
+                <h1 class="mb-12 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] 2xl:text-6xl 
+              
+                ">
                     Empowering your<br>            
                     business presence.
                 </h1>
@@ -474,7 +476,8 @@
                     <li>
                         <a
                            href="javascript:void(0)"
-                           class="bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-2 px-4 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                           class="
+                           bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-2 px-4 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
                         >
                            Know More
                         </a>

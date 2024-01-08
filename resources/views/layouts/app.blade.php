@@ -26,6 +26,7 @@
             width: 100%;
             background-color: #011523;
             z-index: 1000;
+         
         }
     </style>
     

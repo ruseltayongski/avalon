@@ -58,3 +58,4 @@ Route::get('/test2',function() {
 
 Route::get('get/cart', [App\Http\Controllers\CartController::class, 'index'])->name('get.cart');
 Route::post('add/cart', [App\Http\Controllers\CartController::class, 'addCart'])->name('add.cart');
+Route::post('add/customer', [App\Http\Controllers\CustomerController::class, 'addCustomer'])->name('add.customer');
