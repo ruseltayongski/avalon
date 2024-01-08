@@ -159,7 +159,8 @@ x-init="() => {
    <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3"></div>
    <div class="container mx-auto">
       <div class="flex flex-wrap {{-- -mx-4 --}}"
-          :class="{ '-mx-4': isMobile, 'mx-auto': !isMobile }"   
+            :class="{ '-mx-4': isMobile, 'mx-auto': !isMobile }"   
+            x-data="{ checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))) }"
       >
          <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
             <div class="mb-12 lg:mb-0">
@@ -198,6 +199,7 @@ x-init="() => {
                      }">
                      <form method="POST" action="{{ route('stripe.session') }}" class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
                         @csrf
+                        <input type="hidden" name="checkout" :value="decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))">
                         <div class="flex flex-wrap -mx-4">
                            <div class="w-full px-4 md:w-1/2">
                               <div class="mb-5">
@@ -210,7 +212,7 @@ x-init="() => {
                                  <input
                                     type="text"
                                     placeholder="Full Name"
-                                    x-model="formData.fullName"
+                                    name="fullName"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     />
                               </div>
@@ -226,7 +228,7 @@ x-init="() => {
                                  <input
                                     type="text"
                                     placeholder="Email"
-                                    x-model="formData.email1"
+                                    name="email1"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     />
                               </div>
@@ -242,7 +244,7 @@ x-init="() => {
                                  <input
                                     type="email"
                                     placeholder="Email"
-                                    x-model="formData.email2"
+                                    name="email2"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     />
                               </div>
@@ -258,7 +260,7 @@ x-init="() => {
                                  <input
                                     type="text"
                                     placeholder="Biiling Address"
-                                    x-model="formData.billingAddress"
+                                    name="billingAddress"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     />
                               </div>
@@ -274,7 +276,7 @@ x-init="() => {
                                  <input
                                     type="text"
                                     placeholder="Country"
-                                    x-model="formData.country"
+                                    name="country"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
                               </div>
@@ -290,7 +292,7 @@ x-init="() => {
                                  <input
                                     type="text"
                                     placeholder="City"
-                                    x-model="formData.city"
+                                    name="city"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
                               </div>
@@ -306,7 +308,7 @@ x-init="() => {
                                  <input
                                     type="number"
                                     placeholder="Post Code"
-                                    x-model="formData.postCode"
+                                    name="postCode"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                  />
                               </div>
@@ -322,7 +324,7 @@ x-init="() => {
                                  </label>
                                  <div class="relative">
                                     <select 
-                                    x-model="formData.typeOfPayment"
+                                    name="typeOfPayment"
                                        class="w-full appearance-none bg-transparent rounded-md border border-stroke dark:border-dark-3 py-3 px-5 font-medium text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                        >
                                        <option value="gcash" class="dark:bg-dark-2">
@@ -366,9 +368,10 @@ x-init="() => {
                                  Total Amount to be Processed<span class="text-red">*</span>
                                  </label>
                                  <input
-                                    type="number"
-                                    placeholder="Total Amount"
+                                    type="text"
+                                    :value="'$'+checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                    disabled
                                     />
                               </div>
                            </div>
@@ -468,7 +471,7 @@ x-init="() => {
                   Services Summary
                </h3>
               
-               <div x-data="{ checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))) }" class="mb-10 overflow-hidden rounded-[10px] bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10">
+               <div class="mb-10 overflow-hidden rounded-[10px] bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10">
                   <template x-for="(cart, index) in checkout" :key="index">
                      <div class="flex items-center mb-9">
                         <div

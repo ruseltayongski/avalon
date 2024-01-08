@@ -62,4 +62,3 @@ Route::post('add/customer', [App\Http\Controllers\CustomerController::class, 'ad
 
 
 Route::post('/stripe/session', [App\Http\Controllers\StripeController::class, 'session'])->name('stripe.session');
-Route::get('/stripe/success', [App\Http\Controllers\StripeController::class, 'success'])->name('stripe.success');

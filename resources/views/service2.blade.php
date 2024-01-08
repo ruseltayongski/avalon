@@ -227,7 +227,7 @@
                     </div>
                 </div>
                 <div x-show="cartNotification"
-                    class="fixed z-[60] w-full lg:w-[30%] bottom-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
+                    class="fixed z-[60] w-full lg:w-[30%] 2xl:w-[25%] top-20 right-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
                     <div
                         class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green"
                         >
