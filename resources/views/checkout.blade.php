@@ -149,7 +149,13 @@
 
 </div>
 
-<section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]">
+<section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]"  x-data="{ isMobile: window.innerWidth <= 600 }"
+x-init="() => {
+   window.addEventListener('resize', () => {
+      isMobile = window.innerWidth <= 600;
+      console.log(window.innerWidth);
+   });
+}">
    <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3"></div>
    <div class="container mx-auto">
       <div class="flex flex-wrap -mx-4">
@@ -170,7 +176,8 @@
                   </h4>
                   <form x-data="{ cartNotification: false }" x-init="() => {
                         setTimeout(() => cartNotification = false, 15000)
-                     }"  
+                     }
+                     "  
                      class="pb-4 mb-10 border-b border-stroke dark:border-dark-3">
                      <div class="flex flex-wrap -mx-4">
                         <div class="w-full px-4 md:w-1/2">
@@ -340,7 +347,10 @@
                         </div>
                      </div>
                      <button @click="cartNotification = true" type="button"
-                        class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90">
+                        class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
+                        :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
+                        >
+                       
                         Pay Now
                      </button>
                      <div x-show="cartNotification"
@@ -474,22 +484,22 @@
             console.log(window.innerWidth);
          });
       }">
-      <img class="absolute inset-0 mx-auto my-auto"
-         :class="{ 'mx-auto my-auto': isMobile, 'top-0 left-0': !isMobile }"
-         src="{{ asset('/images/avalonlogo.png') }}"
+      <img class="absolute inset-0 mx-auto my-auto" 
+         :class="{ 'mx-auto my-auto': isMobile, 'top-0 left-0': !isMobile }" 
+         src="{{ asset('/images/avalonlogo.png') }}" 
          alt="">
 
-    <img class="absolute left-0"
-         src="{{ asset('/images/eclipse.png') }}"
+    <img class="absolute left-0" 
+         src="{{ asset('/images/eclipse.png') }}" 
          alt="">
    <img class="absolute right-12 top-12" src="{{ asset('/images/vector.png') }}" alt="">
    <img class="absolute right-0 top-0" src="{{ asset('/images/eclipse-right.png') }}" alt="">
     <div class="container mx-auto">
-       <div class="flex flex-wrap -mx-4 lg:mb-14">
+       <div class="flex flex-wrap -mx-4 lg:mb-14 opacity-0" id="footerSection">
           <div class="w-full px-4 md:w-2/3 lg:w-1/3">
              <div class="w-full mb-12">
                 <h4
-                   class="text-dark dark:text-white text-3xl mt-5 font-medium xl:text-[32px] opacity-0"
+                   class="text-dark dark:text-white text-3xl mt-5 font-medium xl:text-[32px]"
                    :class="{ 'text-center text-2xl': isMobile}"
                    id="feelFree"
                    >
@@ -499,7 +509,7 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
              <div class="w-full mb-12">
-                <div class="flex opacity-0" id="footerLocation">
+                <div class="flex">
                    <div class="mr-6 h-9 w-9 text-primary">
                       <svg
                          width="35"
@@ -533,7 +543,7 @@
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
              <div class="w-full mb-12">
-                <div class="flex opacity-0" id="footerHelp">
+                <div class="flex">
                    <div class="mr-6 h-9 w-9 text-primary">
                       <svg
                          width="35"
@@ -566,7 +576,7 @@
           </div>
        </div>
     </div>
-    <div class="py-4 border-t border-stroke dark:border-dark-3 bg-[#011523]">
+    <div class="py-1 border-t border-stroke dark:border-dark-3 bg-[#011523]">
        <div class="container mx-auto">
           <div class="flex flex-wrap items-center justify-center -mx-4">
             <div class="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-1/3">
@@ -585,10 +595,10 @@
                   <img src="{{ asset('/images/discover.png') }}" alt="">
                 </div>
              </div>
-
+            
              <div class="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-1/3">
                 <div class="w-full py-3">
-
+               
                    <div
                       class="flex items-center justify-center -mx-3 lg:justify-end"
                       >
@@ -676,17 +686,13 @@
                "join",
                "signUp",
                "subscribe",
-               "feelFree",
-               "footerLocation",
-               "footerHelp"
+               "footerSection"
             ];
       var animationClasses = {
          join: "animate-fade-up",
          signUp: "animate-fade-up",
          subscribe: "animate-fade-up",
-         feelFree: "animate-fade-right",
-         footerLocation: "animate-fade-right",
-         footerHelp: "animate-fade-right",
+         footerSection: "animate-fade-right",
       };
       var animationDelays = {
          join: 100,

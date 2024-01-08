@@ -275,7 +275,7 @@
       class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3"
       ></div>
    <div class="container mx-auto">
-      <div class="flex flex-wrap items-center -mx-4">
+      <div class="flex flex-wrap items-center xs:-mx-4">
          <div class="w-full px-4 lg:w-6/12 xl:w-7/12">
             <div class="mb-[60px] lg:mb-[100px] xl:mb-[150px]">
                <span
@@ -571,7 +571,7 @@
           </div>
        </div>
     </div>
-    <div class="py-4 border-t border-stroke dark:border-dark-3 bg-[#011523]">
+    <div class="py-1 border-t border-stroke dark:border-dark-3 bg-[#011523]">
        <div class="container mx-auto">
           <div class="flex flex-wrap items-center justify-center -mx-4">
             <div class="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-1/3">

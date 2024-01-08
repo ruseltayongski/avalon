@@ -54,7 +54,8 @@
                                 </div>
                                 <div class="flex items-center gap-[10px] mt-3">
                                     <button
-                                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
+                                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-red hover:bg-red hover:text-white"
+                                        x-on:click="removeItem(carts,index)"
                                         >
                                         Remove
                                     </button>
@@ -63,6 +64,11 @@
                             </div>
                         </div>
                     </template>
+                    <script>
+                        function removeItem(carts, index) {
+                           carts.splice(index, 1);            
+                        }
+                    </script>
 
                     <div class="flex items-center justify-end">
                         <p class="mr-6 flex items-center text-base text-body-color dark:text-dark-6">
@@ -82,3 +88,4 @@
         <!-- ====== Checkout Section End -->
     </div>
 </div>
+
