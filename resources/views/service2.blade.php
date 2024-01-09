@@ -67,7 +67,7 @@
         </div>
     </section>
 
-    <section x-data="{ showCards: 'all', activeClasses: 'bg-[#011523] text-white', inactiveClasses: 'text-body-color hover:bg-[#011523]/80 hover:text-white'}" 
+    <section x-data="{ showCards: new URLSearchParams(window.location.search).get('category') ? new URLSearchParams(window.location.search).get('category')  : 'all', activeClasses: 'bg-[#011523] text-white', inactiveClasses: 'text-body-color hover:bg-[#011523]/80 hover:text-white'}" 
         class="pt-[200px] pb-12 lg:pt-[140px] lg:pb-[90px]">
         <div class="container mx-auto">
             <div class="-mx-4 flex flex-wrap justify-center">
@@ -142,8 +142,8 @@
                     </div>
                 </template>
                 <div x-show="modalOpen" class="bg-[#000000] bg-opacity-20 fixed z-50 top-0 left-0 flex items-center justify-center w-full h-screen py-10 overflow-y-scroll dark:bg-dark" >
-                    <div @click.outside="modalOpen = false" class="relative xl:mt-[400px] 2xl:mt-80 mx-auto max-w-[660px] rounded-[10px] bg-white dark:bg-dark-2 p-8 shadow-1 dark:shadow-3">
-                        <button @click=" modalOpen = false" class="bg-red p-1 absolute right-5 top-5 rounded-[5px] text-white dark:text-dark-6">
+                    <div @click.outside="modalOpen = false" class="relative xs:mt-[350px] xl:mt-[400px] 2xl:mt-80 mx-auto max-w-[660px] rounded-[10px] bg-white dark:bg-dark-2 p-8 shadow-1 dark:shadow-3">
+                        <button @click="modalOpen = false" class="bg-red p-1 absolute right-5 top-5 rounded-[5px] text-white dark:text-dark-6">
                             <svg 
                                 width="20" 
                                 height="20" 
@@ -165,8 +165,7 @@
                                 style="height: 50vh;"
                                />
                         </div>
-                        <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[24px]" x-text="capitalizeFirstChar(serviceCategory)">
-                        </h3>
+                        <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[24px]" x-text="capitalizeFirstChar(serviceCategory)"></h3>
                         <p class="text-sm mb-7 dark:text-dark-6 text-body-color" >
                             This is involves the systematic recording, summarizing, and reporting of financial
                             transaction. It includes tasks like bookkeeping , preparation of financial statements

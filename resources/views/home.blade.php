@@ -224,7 +224,7 @@
       background-size: 80% 100%;
    }
 
-   @media (min-width: 390px) and (max-width: 430px) {
+   @media (min-width: 320px) and (max-width: 430px) {
       .bacground-our-services {
          background-size: cover;
       }
@@ -241,7 +241,7 @@
       animation: animateBubbles 4s linear infinite;
    }
 
-   @media (min-width: 390px) and (max-width: 430px) {
+   @media (min-width: 320px) and (max-width: 430px) {
       #bacground-our-services-wave1 {
          background-size: cover;
       }
@@ -258,7 +258,7 @@
       animation: bubbles 4s linear infinite;
    }
 
-   @media (min-width: 390px) and (max-width: 430px) {
+   @media (min-width: 320px) and (max-width: 430px) {
       #bacground-our-services-wave2 {
          background-size: cover;
       }
@@ -276,7 +276,7 @@
       animation: animateBubbles 3s linear infinite;
    }
 
-   @media (min-width: 390px) and (max-width: 430px) {
+   @media (min-width: 320px) and (max-width: 430px) {
       #bacground-our-services-wave3 {
          background-size: cover;
       }
@@ -293,7 +293,7 @@
       animation: bubbles 3s linear infinite;
    }
 
-   @media (min-width: 390px) and (max-width: 430px) {
+   @media (min-width: 320px) and (max-width: 430px) {
       #bacground-our-services-wave4 {
          background-size: cover;
       }
@@ -463,27 +463,25 @@
     <div class="container mx-auto h-full lg:flex justify-center items-center xl:pb-[210px] 2xl:pb-[280px]">
         <div class="flex flex-wrap w-full justify-center ">
             {{-- <div class="w-full px-4 lg:w-1/2"> --}}
-            <div class="p-4 text-center">
-                {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
-                <div class="">   
-                <h1 class="mb-12 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] 2xl:text-6xl 
-              
-                ">
-                    Empowering your<br>            
-                    business presence.
-                </h1>
-                <ul class="flex flex-wrap items-center justify-center lg:pr-6">
-                    <li>
-                        <a
-                           href="javascript:void(0)"
-                           class="
-                           bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-2 px-4 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
-                        >
-                           Know More
-                        </a>
-                    </li>
-                </ul>
-                </div>
+            <div class="p-4 text-center ">
+               {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
+               <div id="hero-title">   
+                  <h1 class="mb-12 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] 2xl:text-6xl">
+                     Empowering your<br>            
+                     business presence.
+                  </h1>
+                  <ul class="flex flex-wrap items-center justify-center lg:pr-6">
+                     <li>
+                           <a
+                              href="javascript:void(0)"
+                              class="
+                              bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-2 px-4 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
+                           >
+                              Know More
+                           </a>
+                     </li>
+                  </ul>
+               </div>
             </div>
         </div>
 
@@ -541,85 +539,76 @@
                                 </nav>
                             </div>
                             <div class="hidden md:block w-full mt-12 xl:px-24">
-                                <nav>
-                                {{-- <ul class="flex space-x-[25px] justify-center" :class="{ 'space-x-2': isMobile }"> --}}
-                                <ul :class="{'flex space-x-[25px] justify-center ': !isMobile, 'flex space-x-2 justify-center': isMobile}">
-                                    <?php 
-                                       $delay = 0;
-                                       $icon_images = [
-                                          [
-                                             'filepath' => 'books.png',
-                                             'filename' => 'Books'
-                                          ],
-                                          [
-                                             'filepath' => 'volume.png',
-                                             'filename' => 'Volume'
-                                          ],
-                                          [
-                                             'filepath' => 'global.png',
-                                             'filename' => 'Global'
-                                          ],
-                                          [
-                                             'filepath' => 'code.png',
-                                             'filename' => 'Code'
-                                          ],
-                                          [
-                                             'filepath' => 'megaphone.png',
-                                             'filename' => 'Megaphone'
-                                          ],
-                                          [
-                                             'filepath' => 'volume.png',
-                                             'filename' => 'Volume'
-                                          ],
-                                          [
-                                             'filepath' => 'headset.png',
-                                             'filename' => 'Headset'
-                                          ],
-                                          [
-                                             'filepath' => 'youtube.png',
-                                             'filename' => 'Youtube'
-                                          ],
-                                          [
-                                             'filepath' => 'head-idea.png',
-                                             'filename' => 'Idea'
-                                          ],
-                                          [
-                                             'filepath' => 'building.png',
-                                             'filename' => 'Building'
-                                          ],
-                                          [
-                                             'filepath' => 'video-alt.png',
-                                             'filename' => 'Video'
-                                          ],
-                                          [
-                                             'filepath' => 'video-alt-1.png',
-                                             'filename' => 'Video1'
-                                          ]
-                                          ,[
-                                             'filepath' => 'video-camera.png',
-                                             'filename' => 'Camera'
-                                          ],
-                                       ];
-                                    ?>
-                                    {{-- @for ($i=0; $i<13; $i++) --}}
-                                    @foreach($icon_images as $row)
-                                    <li class="fade-right animate-fade-right animate-delay-{{ $delay }} ">
-                                       <div class="relative ">
-                                          <a href="javascript:void(0)" class="flex justify-center items-center img-up text-base font-medium text-white dark:text-dark-6 hover:text-primary">
-                                             {{-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> </g>
-                                             </svg> --}}
-                                             <img src="{{ asset('images/page1_icon').'/'.$row['filepath'] }}" class="img-icon" alt="img-icon">
-                                             <p class="img-description">{{ $row['filename'] }}</p>
-                                          </a>
-                                       </div>
-                                    </li>
-                                    <?php $delay += 25; ?>
-                                    @endforeach
-                                </ul>
-                                </nav>
+                                 <nav>
+                                    <ul :class="{'flex space-x-[25px] justify-center ': !isMobile, 'flex space-x-2 justify-center': isMobile}">
+                                          <?php 
+                                             $icon_images = [
+                                                [
+                                                   'filepath' => 'books.png',
+                                                   'filename' => 'Books'
+                                                ],
+                                                [
+                                                   'filepath' => 'volume.png',
+                                                   'filename' => 'Volume'
+                                                ],
+                                                [
+                                                   'filepath' => 'global.png',
+                                                   'filename' => 'Global'
+                                                ],
+                                                [
+                                                   'filepath' => 'code.png',
+                                                   'filename' => 'Code'
+                                                ],
+                                                [
+                                                   'filepath' => 'megaphone.png',
+                                                   'filename' => 'Megaphone'
+                                                ],
+                                                [
+                                                   'filepath' => 'volume.png',
+                                                   'filename' => 'Volume'
+                                                ],
+                                                [
+                                                   'filepath' => 'headset.png',
+                                                   'filename' => 'Headset'
+                                                ],
+                                                [
+                                                   'filepath' => 'youtube.png',
+                                                   'filename' => 'Youtube'
+                                                ],
+                                                [
+                                                   'filepath' => 'head-idea.png',
+                                                   'filename' => 'Idea'
+                                                ],
+                                                [
+                                                   'filepath' => 'building.png',
+                                                   'filename' => 'Building'
+                                                ],
+                                                [
+                                                   'filepath' => 'video-alt.png',
+                                                   'filename' => 'Video'
+                                                ],
+                                                [
+                                                   'filepath' => 'video-alt-1.png',
+                                                   'filename' => 'Video1'
+                                                ]
+                                                ,[
+                                                   'filepath' => 'video-camera.png',
+                                                   'filename' => 'Camera'
+                                                ],
+                                             ];
+                                          ?>
+                                          @foreach($icon_images as $index => $row)
+                                             <li class="fade-right" id="hero-icon{{ $index }}">
+                                                <div class="relative ">
+                                                   <a href="javascript:void(0)" class="flex justify-center items-center img-up text-base font-medium text-white dark:text-dark-6 hover:text-primary">
+                                                      <img src="{{ asset('images/page1_icon').'/'.$row['filepath'] }}" class="img-icon" alt="img-icon">
+                                                      <p class="img-description">{{ $row['filename'] }}</p>
+                                                   </a>
+                                                </div>
+                                             </li>
+                                          @endforeach
+                                    </ul>
+                                 </nav>
                             </div>
                         </div>
                     </div>
@@ -1032,30 +1021,32 @@
          </div>
       </div>
       <div class="xl:container flex flex-wrap justify-center">
+         <?php $serviceCategory = ['branding','design','marketing','development'] ?>
          @for($i = 0; $i < 4; $i++)
-         <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-            <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white 
-            dark:bg-dark-2 py-6 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent marketing-section opacity-0" id="marketing{{ $i }}">
-               <div class="w-full mb-6 overflow-hidden rounded-md relative">
-                  <img
-                     src="https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg"
-                     alt="card image"
-                     class="object-cover object-center w-full h-full"
-                     />
-                  <div class="absolute top-2 left-2 flex h-7 w-11 z-50 max-w-[65px] items-center justify-center rounded-[5px] bg-[#5DDAB4] text-white text-[12px]">
-                     New
+            <div class="w-full px-4 md:w-1/2 xl:w-1/4">
+               <a href="{{ route('services').'?category='.$serviceCategory[$i] }}">
+                  <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-6 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent marketing-section opacity-0" id="marketing{{ $i }}">
+                     <div class="w-full mb-6 overflow-hidden rounded-md relative">
+                        <img
+                           src="https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg"
+                           alt="card image"
+                           class="object-cover object-center w-full h-full"
+                           />
+                        <div class="absolute top-2 left-2 flex h-7 w-11 z-50 max-w-[65px] items-center justify-center rounded-[5px] {{ $i == 0 || $i == 2 ? 'bg-red' : 'bg-[#5DDAB4]' }} text-white text-[12px]">
+                           {{ $i == 0 || $i == 2 ? 'Hot' : 'New' }}
+                        </div>
+                     </div>
+                     
+                     <h4 class="text-dark mb-[14px] text-lg font-semibold uppercase mt-12">
+                        {{ $serviceCategory[$i] }}
+                     </h4>
+                     <p class="text-body-color dark:text-dark-6 text-base">
+                        Lorem ipsum dolor amet adipiscing eiusmod.
+                     </p>
+                     <span class="bg-dark absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span>
                   </div>
-               </div>
-               
-               <h4 class="text-dark mb-[14px] text-lg font-semibold uppercase mt-12">
-                  RESEARCH
-               </h4>
-               <p class="text-body-color dark:text-dark-6 text-base">
-                  Lorem ipsum dolor amet adipiscing eiusmod.
-               </p>
-               <span class="bg-dark absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span>
+               </a>   
             </div>
-         </div>
          @endfor
       </div>
    </div>

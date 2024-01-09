@@ -50,6 +50,19 @@
     window.addEventListener('load', function() {
         var loadingContainer = document.getElementById('loadingContainer');
         loadingContainer.style.display = 'none';
+        var heroTitle = document.getElementById('hero-title');
+        if(heroTitle) {
+            heroTitle.classList.add("animate-fade-up");
+        }
+        var heroIconDelay = 0;
+        for(var i=0; i<=13; i++) {
+            var heroIcon = document.getElementById('hero-icon'+i);
+            if(heroIcon) {
+                heroIcon.classList.add("animate-fade-right");
+                heroIcon.classList.add("animate-delay-"+heroIconDelay);
+                heroIconDelay += 25;
+            }
+        }
     });
 </script>
 </html>
