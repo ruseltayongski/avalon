@@ -630,7 +630,7 @@
 </div>
 
 <!-- ====== About Section Start -->
-<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]" id="aboutUs">
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center justify-between -mx-4">
          <div class="w-full px-4 lg:w-6/12" id="whatWeDoImage">
@@ -1062,7 +1062,7 @@
    </div>
 </div>
 
-<section class="bg-[#011523] dark:bg-dark pt-2 pb-12 media-section" x-data="{ isMobile: window.innerWidth <= 600 }"
+<section class="bg-[#011523] dark:bg-dark pt-2 pb-8 media-section" x-data="{ isMobile: window.innerWidth <= 600 }"
    x-init="() => {
       window.addEventListener('resize', () => {
          isMobile = window.innerWidth <= 600;
@@ -1095,8 +1095,8 @@
             Fun Facts
          </h2>
              <div class="-mx-3 flex flex-wrap md:-mx-4">
-                <div class="w-full px-3 md:px-4  md:w-1/2 lg:w-1/4 opacity-0" id="rightBoxOne"
-                     :class="{ 'w-1/2': isMobile, 'w-1/4': !isMobile}"
+                <div class="px-3 md:px-4  md:w-1/2 lg:w-1/4 opacity-0" id="rightBoxOne"
+                     :class="{ 'w-1/2': isMobile, 'w-full': !isMobile}"
                      >
                      <div class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8">
                         <h4 class="flex justify-center mb-1 text-2xl leading-tight font-bold text-dark dark:text-white group-hover:text-white sm:text-[28px]"
@@ -1125,7 +1125,7 @@
                      </div>
                 </div>
                 <div class="w-full px-3 md:px-4 md:w-1/2 lg:w-1/4 opacity-0" id="rightBoxTwo"
-                    :class="{ 'w-1/2': isMobile, 'w-1/4': !isMobile}"
+                    :class="{ 'w-1/2': isMobile, 'w-full': !isMobile}"
                      >
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
@@ -1158,7 +1158,7 @@
                    </div>
                 </div>
                 <div class="w-full px-3 md:px-4 md:w-1/2 lg:w-1/4 opacity-0" id="leftBoxOne"
-                      :class="{ 'w-1/2': isMobile, 'w-1/4': !isMobile}"
+                     :class="{ 'w-1/2': isMobile, 'w-full': !isMobile}"
                      >
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"
@@ -1192,7 +1192,7 @@
                    </div>
                 </div>
                 <div class="w-full px-3 md:px-4 md:w-1/2 lg:w-1/4 opacity-0" id="leftBoxTwo"
-                    :class="{ 'w-1/2': isMobile, 'w-1/4': !isMobile}"
+                     :class="{ 'w-1/2': isMobile, 'w-full': !isMobile}"
                      >
                    <div
                       class="group mb-6 rounded-[5px] bg-white dark:bg-dark-2 py-6 px-4 text-center shadow-three hover:bg-[#1d5b80] md:mb-8"

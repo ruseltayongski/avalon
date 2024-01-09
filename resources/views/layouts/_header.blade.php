@@ -27,11 +27,18 @@
                                </a>
                            </li>
                            <li>
-                               <a href="javascript:void(0)"
-                                   class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
-                                   About Us
-                               </a>
+                            @if(request()->is('/'))
+                            <a href="#aboutUs" class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
+                                About Us
+                            </a>
+                        @else 
+                            <a href="{{ url('/#aboutUs') }}" class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
+                                About Us
+                            </a>
+                        @endif
                            </li>
+                         
+
                            <li>
                                <a href="{{ route('services') }}"
                                    class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
@@ -79,7 +86,7 @@
                            </section>
                        </div>
                        <div class="ml-4 w-full whitespace-nowrap">
-                           <a href="javascript:void(0)"
+                           <a href="{{ route('contact') }}"
                                class="py-3 text-base font-medium bg-white rounded-md shadow-1 dark:shadow-none px-7 text-dark hover:bg-gray-2 hover:text-body-color">
                                Contact Us
                            </a>

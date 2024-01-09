@@ -120,8 +120,8 @@
                     setTimeout(() => cartNotification = false, 15000)
                 }   
                 " >
-                <template x-for="service in services" :key="service.id">
-                    <div x-show="showCards === 'all' || showCards === service.category" class="w-full lg:px-4 md:w-1/2 xl:w-1/3">
+              <template x-for="service in services" :key="service.id">
+                    <div x-show="showCards === 'all' || showCards === service.category" class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
                         <div class="relative mb-12">
                             <div class="overflow-hidden rounded-lg">
                                 <img
@@ -627,7 +627,9 @@
 
 @section('js')
 <script>
+ 
    document.addEventListener("DOMContentLoaded", function() {
+      var servicesData = @json($services);
       var elementIds = [
                "join", 
                "signUp", 
@@ -640,28 +642,45 @@
          subscribe: "animate-fade-up",
          footerSection: "animate-fade-right",
       };
-      var animationDelays = {
+      var animationDelays = {   
          join: 100,
          signUp: 500,
          subscribe: 700,
       };
+
+      var servicesElement = [];
+      var delayIncrement = 100;
+      var marketingDelayIncrement = 101;
+     
+      for(var i = 0; i < servicesData; i++) {
+        servicesElement.push('services', servicesData);
+      }
 
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     var animationClass = animationClasses[entry.target.id];
                     var delay = animationDelays[entry.target.id];
-
+                    var delayClass = 'animate-delay-' + (servicesElement.indexOf(entry.target.id) * delayIncrement);
                     setTimeout(() => {
                         entry.target.classList.add(animationClass);
                     }, delay);
+
+                    if(entry.target.classList.contains('services-section')) {
+                     setTimeout(function(){
+                           entry.target.classList.add(`animate-fade-right`);
+                     }, marketingDelayIncrement); 
+                  marketingDelayIncrement += 300;
+                  } 
+                  entry.target.classList.add(delayClass);
+                  observer.unobserve(entry.target);
                 } else {
                     entry.target.style.opacity = 0;
                 }
             });
         }, { threshold: 0 });
 
-        elementIds.forEach(function(elementId) {
+        elementIds.concat(servicesElement).forEach(function(elementId) {
             var element = document.getElementById(elementId);
             if (element) {
                 observer.observe(element);
