@@ -45,7 +45,7 @@
     </div>
 
     <section class="relative z-40 py-20 lg:py-[120px] dark:bg-[#011523]">
-        <div class="absolute top-0 left-0 z-[-1] h-auto w-full bg-[#011523] dark:bg-dark-3 pt-10 pb-20">
+        <div class="absolute top-0 left-0 z-[-1] h-auto w-full bg-[#011523] {{-- dark:bg-dark-3 --}} pt-10 pb-20">
             <div class="container mx-auto">
                 <div class="relative overflow-hidden">
                     <div class="-mx-4 flex flex-wrap items-stretch animate-fade-up animate-duration-1000 animate-delay-500">
@@ -130,11 +130,14 @@
                                     class="w-full"
                                 />
                             </div>
-                            <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg">
-                                <span class="mb-2 block text-sm font-semibold text-[#011523]" x-text="capitalizeFirstChar(service.category)"></span>
-                                <h3 class="mb-4 text-xl font-bold text-dark" x-text="service.title"></h3>
+                            <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-[#011523]">
+                                <span class="mb-2 block text-sm font-semibold text-[#011523] dark:text-white" x-text="capitalizeFirstChar(service.category)"></span>
+                                <h3 class="mb-4 text-xl font-bold text-dark dark:text-white" x-text="service.title"></h3>
                                 <button type="button" @click="modalOpen = true, serviceCategory = service.category, servicePicture = service.picture, serviceId = service.id, serviceAlone = service" 
-                                    class="inline-block rounded-md border py-3 px-7 text-sm font-normal text-body-color transition hover:border-[#011523] hover:bg-[#011523] hover:text-white">
+                                    class="
+                                    inline-block rounded-md border py-3 px-7 text-sm font-normal text-body-color transition hover:border-[#011523] 
+                                    hover:bg-[#011523] hover:text-white dark:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-dark
+                                    ">
                                     View Details
                                 </button>
                             </div>
