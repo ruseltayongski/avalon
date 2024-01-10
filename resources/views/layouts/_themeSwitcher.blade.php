@@ -1,4 +1,4 @@
-<div class="dark:bg-dark-3 shadow-1 dark:shadow-box-dark fixed bottom-10 right-10 flex h-11 w-11 items-center justify-center rounded bg-white">
+<div class="dark:bg-dark-3 shadow-1 dark:shadow-box-dark fixed bottom-10 right-10 flex h-11 w-11 items-center justify-center rounded bg-white" style="z-index: 99999">
     <label for="themeSwitcher" class="inline-flex cursor-pointer items-center" aria-label="themeSwitcher" name="themeSwitcher">
       <input type="checkbox" name="themeSwitcher" id="themeSwitcher" class="sr-only">
       <span class="block text-body-color dark:hidden">
