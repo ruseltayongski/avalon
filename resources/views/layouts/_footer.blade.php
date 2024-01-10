@@ -11,7 +11,8 @@
          src="{{ asset('/images/avalonlogo.png') }}" 
          alt="">
 
-    <img class="absolute left-0" 
+    <img class="absolute  mx-auto" 
+         :class="{'top-52': isMobile, '': !isMobile}"
          src="{{ asset('/images/eclipse.png') }}" 
          alt="">
    <img class="absolute right-12 top-12" src="{{ asset('/images/vector.png') }}" alt="">

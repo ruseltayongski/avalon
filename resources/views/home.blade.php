@@ -359,7 +359,7 @@
                   <ul class="flex flex-wrap items-center justify-center lg:pr-6">
                      <li>
                            <a
-                              href="javascript:void(0)"
+                              href="#aboutUs"
                               class="
                               bg-dark dark:bg-dark-2 border-dark dark:border-dark-2 border rounded-md inline-flex items-center justify-center py-2 px-4 text-center text-base font-medium text-white hover:bg-body-color hover:border-body-color disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5"
                            >

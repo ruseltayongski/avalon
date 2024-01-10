@@ -67,8 +67,8 @@
         </div>
     </section>
 
-    <section x-data="{ showCards: new URLSearchParams(window.location.search).get('category') ? new URLSearchParams(window.location.search).get('category')  : 'all', activeClasses: 'bg-[#011523] text-white', inactiveClasses: 'text-body-color hover:bg-[#011523]/80 hover:text-white'}" 
-        class="pt-[200px] pb-12 lg:pt-[140px] lg:pb-[90px]">
+    <section x-data="{ showCards: new URLSearchParams(window.location.search).get('category') ? new URLSearchParams(window.location.search).get('category')  : 'all', activeClasses: 'bg-[#011523] text-white dark:bg-white dark:text-dark', inactiveClasses: 'text-body-color hover:bg-[#011523]/80 hover:text-white'}" 
+        class="pt-[200px] pb-12 lg:pt-[140px] lg:pb-[90px] dark:bg-[#011523]">
         <div class="container mx-auto">
             <div class="-mx-4 flex flex-wrap justify-center">
                 <div class="w-full px-4">
@@ -130,7 +130,7 @@
                                     class="w-full"
                                 />
                             </div>
-                            <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-[#011523]">
+                            <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-dark-2">
                                 <span class="mb-2 block text-sm font-semibold text-[#011523] dark:text-white" x-text="capitalizeFirstChar(service.category)"></span>
                                 <h3 class="mb-4 text-xl font-bold text-dark dark:text-white" x-text="service.title"></h3>
                                 <button type="button" @click="modalOpen = true, serviceCategory = service.category, servicePicture = service.picture, serviceId = service.id, serviceAlone = service" 

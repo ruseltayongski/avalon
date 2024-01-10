@@ -1,4 +1,13 @@
-<div x-show="modalOpen" 
+<div
+    x-data="{ isMobile: window.innerWidth <= 640 }"
+    x-init="() => {
+        console.log(window.innerWidth);
+        window.addEventListener('resize', () => {
+            isMobile = window.innerWidth <= 640;
+            console.log(window.innerWidth);
+        });
+    }"
+    x-show="modalOpen" 
     id="checkoutmodal"
     class="opacity-0 fixed top-0 left-0 flex 
     items-center justify-center w-full h-screen py-10 overflow-y-scroll
@@ -7,8 +16,10 @@
     dark:bg-dark-2 p-8 shadow-1 dark:shadow-3">
         <!-- ====== Checkout Section Start -->
         <section class=" dark:bg-dark">
-            <div :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' " 
-            class=" min-w-[500px] overflow-y-auto dark:bg-dark-2
+            <div {{-- :class=" modalOpen ? 'translate-x-0' : 'translate-x-full'" --}}
+                :class="{ 'min-w-[100px]': isMobile, 'min-w-[500px]': !isMobile, 'translate-x-0': modalOpen, 'translate-x-full': !modalOpen}"
+               
+            class="min-w-[500px] overflow-y-auto dark:bg-dark-2
             transition-all duration-200 pl-4 pr-8">
                 <button @click=" modalOpen = false " class="bg-red p-1 absolute right-0 rounded-[5px] text-white dark:text-dark-6">
                     <svg 

@@ -476,7 +476,8 @@ x-init="() => {
             <div>
                <h3 class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]
                animate-fade-down animate-duration-1000 animate-delay-500
-                  ">
+                  "
+                  :class="{ 'text-dark': isMobile, 'text-white': !isMobile}">
                   Services Summary
                </h3>
               

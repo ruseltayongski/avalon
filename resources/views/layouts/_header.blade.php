@@ -45,10 +45,23 @@
                                    Services
                                </a>
                            </li>
+                           <li class="flex" :class="!navbarOpen && 'hidden'" id="navbarCollapse">
+                                <a href="{{ route('contact') }}"
+                                class="py-3 justify-end text-base test font-medium bg-dark dark:bg-white dark:text-dark rounded-md shadow-1 dark:shadow-none px-7 text-white hover:bg-gray-2 hover:text-body-color">
+                                Contact Us
+                             </a>
+                           </li>
                        </ul>
                    </nav>
                </div>
-               <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
+               <div class="justify-end pr-16 sm:flex lg:pr-0 mx-2 mt-6" x-data="{ isMobile: window.innerWidth <= 960 }"
+                x-init="() => {
+                        console.log(window.innerWidth);
+                        window.addEventListener('resize', () => {
+                            isMobile = window.innerWidth <= 960;
+                            console.log(window.innerWidth);
+                        });
+                }">
                    <div class="flex items-center">
                        <div class="flex h-8 min-w-[50px] items-center justify-center rounded-full text-white relative">
                            <section x-data="{ modalOpen: false }">
@@ -85,7 +98,9 @@
                                @include('layouts._cart')
                            </section>
                        </div>
-                       <div class="ml-4 w-full whitespace-nowrap">
+                       <div class="ml-4 w-full whitespace-nowrap"
+                            :class="{'hidden': isMobile, '': !isMobile}"
+                        >
                            <a href="{{ route('contact') }}"
                                class="py-3 text-base font-medium bg-white rounded-md shadow-1 dark:shadow-none px-7 text-dark hover:bg-gray-2 hover:text-body-color">
                                Contact Us
