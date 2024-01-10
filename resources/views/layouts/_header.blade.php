@@ -28,14 +28,14 @@
                            </li>
                            <li>
                             @if(request()->is('/'))
-                            <a href="#aboutUs" class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
-                                About Us
-                            </a>
-                        @else 
-                            <a href="{{ url('/#aboutUs') }}" class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
-                                About Us
-                            </a>
-                        @endif
+                                <a href="#aboutUs" class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
+                                    About Us
+                                </a>
+                            @else 
+                                <a href="{{ url('/#aboutUs') }}" class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
+                                    About Us
+                                </a>
+                            @endif
                            </li>
                          
 

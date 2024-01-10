@@ -141,87 +141,90 @@
                         </div>
                     </div>
                 </template>
-                <div x-show="modalOpen" class="bg-[#000000] bg-opacity-20 fixed z-50 top-0 left-0 flex items-center justify-center w-full h-screen py-10 overflow-y-scroll dark:bg-dark" >
-                    <div @click.outside="modalOpen = false" class="relative xs:mt-[350px] xl:mt-[400px] 2xl:mt-80 mx-auto max-w-[660px] rounded-[10px] bg-white dark:bg-dark-2 p-8 shadow-1 dark:shadow-3">
-                        <button @click="modalOpen = false" class="bg-red p-1 absolute right-5 top-5 rounded-[5px] text-white dark:text-dark-6">
-                            <svg 
-                                width="20" 
-                                height="20" 
-                                viewBox="0 0 20 20" 
-                                fill="none" 
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="fill-current"
-                                >
-                                <path 
-                                d="M11 10L18.625 2.375C18.9062 2.09375 18.9062 1.65625 18.625 1.375C18.3438 1.09375 17.9063 1.09375 17.625 1.375L10 9L2.375 1.375C2.09375 1.09375 1.65625 1.09375 1.375 1.375C1.09375 1.65625 1.09375 2.09375 1.375 2.375L9 10L1.375 17.625C1.09375 17.9063 1.09375 18.3438 1.375 18.625C1.5 18.75 1.6875 18.8438 1.875 18.8438C2.0625 18.8438 2.25 18.7812 2.375 18.625L10 11L17.625 18.625C17.75 18.75 17.9375 18.8438 18.125 18.8438C18.3125 18.8438 18.5 18.7812 18.625 18.625C18.9062 18.3438 18.9062 17.9063 18.625 17.625L11 10Z" 
-                                />
-                            </svg>
-                        </button>
-                        <div class="w-full mb-6 overflow-hidden rounded-md">
-                            <img
-                                x-bind:src="servicePicture ? 'fileupload/services/'+servicePicture : ''"
-                                alt="card image"
-                                class="object-cover object-center w-full"
-                                style="height: 50vh;"
-                               />
-                        </div>
-                        <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[24px]" x-text="capitalizeFirstChar(serviceCategory)"></h3>
-                        <p class="text-sm mb-7 dark:text-dark-6 text-body-color" >
-                            This is involves the systematic recording, summarizing, and reporting of financial
-                            transaction. It includes tasks like bookkeeping , preparation of financial statements
-                            (balance sheets, income statements), and ensuring compliance with financial regulations.
-                        </p>
-                        <p class="text-sm mb-7 dark:text-dark-6 text-body-color" >
-                            Financial Accounting is a critical aspect of any business, providing the necessary
-                            information to stakeholders about the company's financial health and performance. In
-                            addition to the systematic recording, summarizing, and reporting of financial transaction/
-                        </p>
-                        <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[18px]">
-                            Service Features
-                        </h3>
-                        <p class="text-sm mb-7 dark:text-dark-6 text-body-color leading-8">
-                            Book Keeping<br>
-                            Preparation of Financial Statement<br>
-                            Ensuring Compliance with Financial Regulations<br>
-                            Accounts Receivable and Payable Management<br>
-                            Financial Analysis and Interpretation<br>
-                            Budgeting and Forecasting<br>
-                            Inventory Management
-                        </p>
-                        <input x-model="serviceId" type="hidden" placeholder="Enter task">
-                        <div class="flex items-center justify-start space-x-1">
-                            <button
-                                @click="modalOpen = false, cartNotification = true"
-                                class="px-5 py-2 text-sm font-medium text-white rounded-md bg-[#090E34] hover:bg-opacity-90"
-                                x-on:click="addCart"
-                                >
-                                Add to Cart
+                <div x-show="modalOpen" class="bg-[#000000] bg-opacity-20 fixed z-50 top-0 left-0 flex items-center justify-center w-full dark:bg-dark h-screen overflow-y-scroll">
+                    <div @click.outside="modalOpen = false" class="relative mx-auto max-w-[660px]
+                    bg-white dark:bg-dark-2 shadow-1 dark:shadow-3 h-[95vh]">
+                        <div class="p-8 bg-white rounded-[10px] ">
+                            <button @click="modalOpen = false" class="bg-red p-1 absolute right-5 top-5 rounded-[5px] text-white dark:text-dark-6">
+                                <svg 
+                                    width="20" 
+                                    height="20" 
+                                    viewBox="0 0 20 20" 
+                                    fill="none" 
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="fill-current"
+                                    >
+                                    <path 
+                                    d="M11 10L18.625 2.375C18.9062 2.09375 18.9062 1.65625 18.625 1.375C18.3438 1.09375 17.9063 1.09375 17.625 1.375L10 9L2.375 1.375C2.09375 1.09375 1.65625 1.09375 1.375 1.375C1.09375 1.65625 1.09375 2.09375 1.375 2.375L9 10L1.375 17.625C1.09375 17.9063 1.09375 18.3438 1.375 18.625C1.5 18.75 1.6875 18.8438 1.875 18.8438C2.0625 18.8438 2.25 18.7812 2.375 18.625L10 11L17.625 18.625C17.75 18.75 17.9375 18.8438 18.125 18.8438C18.3125 18.8438 18.5 18.7812 18.625 18.625C18.9062 18.3438 18.9062 17.9063 18.625 17.625L11 10Z" 
+                                    />
+                                </svg>
                             </button>
-                            <a
-                                :href="'checkout?carts='+encodeURIComponent(JSON.stringify([serviceAlone]));"
-                                class="px-5 py-2 text-sm font-medium bg-white rounded-md text-dark shadow-1 dark:shadow-3 hover:text-white hover:bg-red-dark dark:text-white dark:bg-white/5"
-                                >
-                                Get it Now
-                            </a>
-                            <script>
-                                function addCart() {
-                                    fetch("/add/cart", {
-                                        method: "POST",
-                                        headers: {
-                                            "Content-Type": "application/json",
-                                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
-                                        },
-                                        body: JSON.stringify({ 
-                                            serviceId: this.serviceId
-                                        }),
-                                    })
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        console.log(data)
-                                        this.carts.push(data)
-                                    });
-                                }
-                            </script>
+                            <div class="w-full mb-6 overflow-hidden rounded-md bg-white">
+                                <img
+                                    x-bind:src="servicePicture ? 'fileupload/services/'+servicePicture : ''"
+                                    alt="card image"
+                                    class="object-cover object-center w-full"
+                                    style="height: 50vh;"
+                                   />
+                            </div>
+                            <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[24px]" x-text="capitalizeFirstChar(serviceCategory)"></h3>
+                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color" >
+                                This is involves the systematic recording, summarizing, and reporting of financial
+                                transaction. It includes tasks like bookkeeping , preparation of financial statements
+                                (balance sheets, income statements), and ensuring compliance with financial regulations.
+                            </p>
+                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color" >
+                                Financial Accounting is a critical aspect of any business, providing the necessary
+                                information to stakeholders about the company's financial health and performance. In
+                                addition to the systematic recording, summarizing, and reporting of financial transaction/
+                            </p>
+                            <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[18px]">
+                                Service Features
+                            </h3>
+                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color leading-8">
+                                Book Keeping<br>
+                                Preparation of Financial Statement<br>
+                                Ensuring Compliance with Financial Regulations<br>
+                                Accounts Receivable and Payable Management<br>
+                                Financial Analysis and Interpretation<br>
+                                Budgeting and Forecasting<br>
+                                Inventory Management
+                            </p>
+                            <input x-model="serviceId" type="hidden" placeholder="Enter task">
+                            <div class="flex items-center justify-start space-x-1">
+                                <button
+                                    @click="modalOpen = false, cartNotification = true"
+                                    class="px-5 py-2 text-sm font-medium text-white rounded-md bg-[#090E34] hover:bg-opacity-90"
+                                    x-on:click="addCart"
+                                    >
+                                    Add to Cart
+                                </button>
+                                <a
+                                    :href="'checkout?carts='+encodeURIComponent(JSON.stringify([serviceAlone]));"
+                                    class="px-5 py-2 text-sm font-medium bg-white rounded-md text-dark shadow-1 dark:shadow-3 hover:text-white hover:bg-red-dark dark:text-white dark:bg-white/5"
+                                    >
+                                    Get it Now
+                                </a>
+                                <script>
+                                    function addCart() {
+                                        fetch("/add/cart", {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+                                            },
+                                            body: JSON.stringify({ 
+                                                serviceId: this.serviceId
+                                            }),
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            console.log(data)
+                                            this.carts.push(data)
+                                        });
+                                    }
+                                </script>
+                            </div>
                         </div>
                     </div>
                 </div>

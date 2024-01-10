@@ -751,27 +751,24 @@
 </section>
 <!-- ====== About Section End -->
 
-
-<div class="flex justify-center items-center  py-20 overflow-hidden" x-data="{ isMobile: window.innerWidth <= 600 }"  x-init="() => {
-   window.addEventListener('resize', () => {
-      isMobile = window.innerWidth <= 600;
-      console.log(window.innerWidth);
-   });
-}">
+<div class="dark:bg-dark flex justify-center items-center py-20 overflow-hidden" x-data="{ isMobile: window.innerWidth <= 600 }"  x-init="() => {
+      window.addEventListener('resize', () => {
+         isMobile = window.innerWidth <= 600;
+         console.log(window.innerWidth);
+      });
+   }">
    <!-- ====== Services Section Start -->
    <section class="relative pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] dark:bg-dark bacground-our-services w-full z-40">
-      <span class="absolute -z-10 h-full w-full" id="bacground-our-services-wave1"></span>
-      <span class="absolute -z-10 h-full w-full" id="bacground-our-services-wave2"></span>
-      <span class="absolute -z-10 h-full w-full" id="bacground-our-services-wave3"></span>
-      <span class="absolute -z-10 h-full w-full" id="bacground-our-services-wave4"></span>
+      <span class="absolute -z-10 h-full w-full dark:invert" id="bacground-our-services-wave1"></span>
+      <span class="absolute -z-10 h-full w-full dark:invert" id="bacground-our-services-wave2"></span>
+      <span class="absolute -z-10 h-full w-full dark:invert" id="bacground-our-services-wave3"></span>
+      <span class="absolute -z-10 h-full w-full dark:invert" id="bacground-our-services-wave4"></span>
       <div class="container mx-auto">
          <div class="flex flex-wrap -mx-4">
             <div class="w-full px-4">
                <div class="mx-auto mb-[60px] max-w-[510px] text-center">
                   {{-- <span class="block mb-2 text-lg font-semibold text-primary">What we Serve</span> --}}
-                  <h2
-                     class="text-white dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]"
-                     >
+                  <h2 class="text-white dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]">
                      Our Services
                   </h2>
                   <a
@@ -958,7 +955,7 @@
                      <p class="text-body-color dark:text-dark-6 text-base">
                         Lorem ipsum dolor amet adipiscing eiusmod.
                      </p>
-                     <span class="bg-dark absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span>
+                     <span class="bg-dark dark:bg-white absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span>
                   </div>
                </a>   
             </div>
@@ -970,10 +967,10 @@
 
 <div class="wave-container-footer xs:-mb-1">
    <div class="waves">
-      <div class="wave-footer" id="wave1"></div>
-      <div class="wave-footer" id="wave2"></div>
-      <div class="wave-footer" id="wave3"></div>
-      <div class="wave-footer" id="wave4"></div>
+      <div class="wave-footer dark:invert" id="wave1"></div>
+      <div class="wave-footer dark:invert" id="wave2"></div>
+      <div class="wave-footer dark:invert" id="wave3"></div>
+      <div class="wave-footer dark:invert" id="wave4"></div>
    </div>
 </div>
 
