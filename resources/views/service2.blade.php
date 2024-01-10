@@ -114,7 +114,7 @@
             <div class="lg:px-12 flex flex-wrap " 
                 x-data='{ modalShow: false, services: @json($services), capitalizeFirstChar: function(str) { return str.charAt(0).toUpperCase() + str.slice(1); },
                     modalOpen: false, serviceId: 0, serviceCategory: "", servicePicture: "", serviceAlone: {},
-                    cartNotification: true,
+                    cartNotification: false,
                 }'
                 x-init="() => {
                     setTimeout(() => cartNotification = false, 15000)
