@@ -114,7 +114,7 @@
             <div class="lg:px-12 flex flex-wrap " 
                 x-data='{ modalShow: false, services: @json($services), capitalizeFirstChar: function(str) { return str.charAt(0).toUpperCase() + str.slice(1); },
                     modalOpen: false, serviceId: 0, serviceCategory: "", servicePicture: "", serviceAlone: {},
-                    cartNotification: false,
+                    cartNotification: true,
                 }'
                 x-init="() => {
                     setTimeout(() => cartNotification = false, 15000)
@@ -232,7 +232,7 @@
                     </div>
                 </div>
                 <div x-show="cartNotification"
-                    class="fixed z-[60] w-full lg:w-[30%] 2xl:w-[25%] top-20 right-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
+                    class="fixed z-[60] w-full lg:w-[30%] 2xl:w-[25%] top-5 left-0 right-0 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
                     <div
                         class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green"
                         >
