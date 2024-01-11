@@ -1,0 +1,17 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-4179504e.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-204da0d6.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/theme-switcher.js": {
+    "file": "assets/theme-switcher-94cb9ccb.js",
+    "isEntry": true,
+    "src": "resources/js/theme-switcher.js"
+  }
+}
