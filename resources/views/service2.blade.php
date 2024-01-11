@@ -81,21 +81,21 @@
                             <button @click="showCards = 'all' "
                                 :class="showCards == 'all' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
-                                All Projects
+                                All Services
                             </button>
                         </li>
                         <li>
                             <button @click="showCards = 'branding' "
                                 :class="showCards == 'branding' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
-                                Branding
+                                Business Affairs
                             </button>
                         </li>
                         <li>
                             <button @click="showCards = 'design' "
                                 :class="showCards == 'design' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
-                                Design
+                                Acctg & Admin
                             </button>
                         </li>
                         <li>
@@ -109,7 +109,7 @@
                             <button @click="showCards = 'development' "
                                 :class="showCards == 'development' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
-                                Development
+                                Back-to-film/tv
                             </button>
                         </li>
                     </ul>
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </template>
-                <div x-show="modalOpen" class="bg-[#000000] dark:bg-dark bg-opacity-20 fixed z-50 top-0 left-0 flex items-center 
+                <div x-show="modalOpen" class="bg-[#000000] dark:bg-[#00000] dark:bg-opacity-40 bg-opacity-20 fixed z-50 top-0 left-0 flex items-center 
                     justify-center w-full h-screen overflow-y-scroll">
                     <div @click.outside="modalOpen = false" class="relative mx-auto max-w-[660px]
                     bg-white dark:bg-dark-2 shadow-1 dark:shadow-3 h-[95vh]">

@@ -410,6 +410,7 @@
                                 :class="navbarOpen ? 'visible opacity-100 top-full' : 'invisible opacity-0 top-[120%]'"
                                 class="absolute left-0 mt-2 w-[250px] rounded bg-[#1d5b80] shadow-card-2 duration-200"
                                 >
+                              
                                 <ul class="space-y-5 py-6 px-5">
                                     @for ($i=0; $i<12; $i++)
                                     <li>
@@ -438,6 +439,10 @@
                                                 'filename' => 'Volume'
                                              ],
                                              [
+                                                'filepath' => 'newspaper.png',
+                                                'filename' => 'Newspaper'
+                                             ],
+                                             [
                                                 'filepath' => 'global.png',
                                                 'filename' => 'Global'
                                              ],
@@ -448,10 +453,6 @@
                                              [
                                                 'filepath' => 'megaphone.png',
                                                 'filename' => 'Megaphone'
-                                             ],
-                                             [
-                                                'filepath' => 'volume.png',
-                                                'filename' => 'Volume'
                                              ],
                                              [
                                                 'filepath' => 'headset.png',
