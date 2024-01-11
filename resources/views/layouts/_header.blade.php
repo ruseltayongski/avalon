@@ -1,6 +1,6 @@
 <header x-data="{
    navbarOpen: false
-   }" class="absolute top-0 left-0 z-50 w-full">
+   }" class="absolute top-0 left-0 z-50 w-full ">
    <div class="container mx-auto lg:px-24">
        <div class="relative flex items-center justify-between -mx-4 ">
            <div class="max-w-full px-4 w-60">

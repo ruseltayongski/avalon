@@ -373,8 +373,8 @@
 
         <!-- ====== Horizontal Menu Section Start -->
         {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
-        <header x-data="{navbarOpen: false}" :class="{ 'icon-bottom-padding lg:absolute' : window.innerWidth !== 1024,'icon-bottom lg:absolute': window.innerWidth === 1024 }">
-            <div class="mx-auto" :class="{ 'mt-12': isMobile }">
+        <header x-data="{navbarOpen: false}" class="bottom-0 absolute" :class="{ 'icon-bottom-padding lg:absolute' : window.innerWidth !== 1024,'icon-bottom lg:absolute': window.innerWidth === 1024 }">
+            <div class="mx-auto " :class="{ 'mt-12': isMobile }">
                 <div class="flex items-center justify-center ">
                     <div class="flex w-full ">
                         <div class="flex w-full ">
@@ -424,75 +424,75 @@
                                 </ul>
                                 </nav>
                             </div>
-                            <div class="hidden md:block w-full mt-12 xl:px-24">
+                            <div class="hidden md:block w-full mt-12 b-0 xl:px-24 ">
                                  <nav>
                                     <ul :class="{'flex space-x-[25px] justify-center ': !isMobile, 'flex space-x-2 justify-center': isMobile}">
-                                          <?php 
-                                             $icon_images = [
-                                                [
-                                                   'filepath' => 'books.png',
-                                                   'filename' => 'Books'
-                                                ],
-                                                [
-                                                   'filepath' => 'volume.png',
-                                                   'filename' => 'Volume'
-                                                ],
-                                                [
-                                                   'filepath' => 'global.png',
-                                                   'filename' => 'Global'
-                                                ],
-                                                [
-                                                   'filepath' => 'code.png',
-                                                   'filename' => 'Code'
-                                                ],
-                                                [
-                                                   'filepath' => 'megaphone.png',
-                                                   'filename' => 'Megaphone'
-                                                ],
-                                                [
-                                                   'filepath' => 'volume.png',
-                                                   'filename' => 'Volume'
-                                                ],
-                                                [
-                                                   'filepath' => 'headset.png',
-                                                   'filename' => 'Headset'
-                                                ],
-                                                [
-                                                   'filepath' => 'youtube.png',
-                                                   'filename' => 'Youtube'
-                                                ],
-                                                [
-                                                   'filepath' => 'head-idea.png',
-                                                   'filename' => 'Idea'
-                                                ],
-                                                [
-                                                   'filepath' => 'building.png',
-                                                   'filename' => 'Building'
-                                                ],
-                                                [
-                                                   'filepath' => 'video-alt.png',
-                                                   'filename' => 'Video'
-                                                ],
-                                                [
-                                                   'filepath' => 'video-alt-1.png',
-                                                   'filename' => 'Video1'
-                                                ]
-                                                ,[
-                                                   'filepath' => 'video-camera.png',
-                                                   'filename' => 'Camera'
-                                                ],
-                                             ];
-                                          ?>
-                                          @foreach($icon_images as $index => $row)
-                                             <li class="fade-right" id="hero-icon{{ $index }}">
-                                                <div class="relative ">
-                                                   <a href="javascript:void(0)" class="flex justify-center items-center img-up text-base font-medium text-white dark:text-dark-6 hover:text-primary">
-                                                      <img src="{{ asset('images/page1_icon').'/'.$row['filepath'] }}" class="img-icon" alt="img-icon">
-                                                      <p class="img-description">{{ $row['filename'] }}</p>
-                                                   </a>
-                                                </div>
-                                             </li>
-                                          @endforeach
+                                       <?php 
+                                          $icon_images = [
+                                             [
+                                                'filepath' => 'books.png',
+                                                'filename' => 'Books'
+                                             ],
+                                             [
+                                                'filepath' => 'volume.png',
+                                                'filename' => 'Volume'
+                                             ],
+                                             [
+                                                'filepath' => 'global.png',
+                                                'filename' => 'Global'
+                                             ],
+                                             [
+                                                'filepath' => 'code.png',
+                                                'filename' => 'Code'
+                                             ],
+                                             [
+                                                'filepath' => 'megaphone.png',
+                                                'filename' => 'Megaphone'
+                                             ],
+                                             [
+                                                'filepath' => 'volume.png',
+                                                'filename' => 'Volume'
+                                             ],
+                                             [
+                                                'filepath' => 'headset.png',
+                                                'filename' => 'Headset'
+                                             ],
+                                             [
+                                                'filepath' => 'youtube.png',
+                                                'filename' => 'Youtube'
+                                             ],
+                                             [
+                                                'filepath' => 'head-idea.png',
+                                                'filename' => 'Idea'
+                                             ],
+                                             [
+                                                'filepath' => 'building.png',
+                                                'filename' => 'Building'
+                                             ],
+                                             [
+                                                'filepath' => 'video-alt.png',
+                                                'filename' => 'Video'
+                                             ],
+                                             [
+                                                'filepath' => 'video-alt-1.png',
+                                                'filename' => 'Video1'
+                                             ]
+                                             ,[
+                                                'filepath' => 'video-camera.png',
+                                                'filename' => 'Camera'
+                                             ],
+                                          ];
+                                       ?>
+                                       @foreach($icon_images as $index => $row)
+                                          <li class="fade-right" id="hero-icon{{ $index }}">
+                                             <div class="relative ">
+                                                <a href="javascript:void(0)" class="flex justify-center items-center img-up text-base font-medium text-white dark:text-dark-6 hover:text-primary">
+                                                   <img src="{{ asset('images/page1_icon').'/'.$row['filepath'] }}" class="img-icon" alt="img-icon">
+                                                   <p class="img-description">{{ $row['filename'] }}</p>
+                                                </a>
+                                             </div>
+                                          </li>
+                                       @endforeach
                                     </ul>
                                  </nav>
                             </div>
