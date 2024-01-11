@@ -9,7 +9,7 @@ class ServicesController extends Controller
 {
     public function index(Request $request) {
         $page = $request->page ?? 1; 
-        $perPage = 4; 
+        $perPage = 9; 
     
         $offset = ($page - 1) * $perPage;
     
