@@ -489,13 +489,16 @@
                                              <div class="relative ">
                                                 <a href="<?php
                                                       if (in_array($index, [0, 1, 2, 5, 6])) {
-                                                         echo route('services') . '?category=branding';
+                                                         echo route('services') . '?category=Marketing';
                                                       } 
-                                                      else if(in_array($index, [3, 4, 2, 8, 9])) {
-                                                         echo route('services') . '?category=design';
+                                                    /*   else if(in_array($index, [3, 4, 2, 8, 9])) {
+                                                         echo route('services') . '?category=accounting';
+                                                      } */
+                                                      else if(in_array($index, [3, 4, 8, 9])) {
+                                                         echo route('services') . '?category=Business Affairs';
                                                       }
                                                       else if(in_array($index, [7, 10, 11, 12])) {
-                                                         echo route('services') . '?category=development';
+                                                         echo route('services') . '?category=Book';
                                                       }
                                                    ?>" class="flex justify-center items-center img-up text-base font-medium text-white dark:text-dark-6 hover:text-primary">
                                                    <img src="{{ asset('images/page1_icon').'/'.$row['filepath'] }}" class="img-icon" alt="img-icon">

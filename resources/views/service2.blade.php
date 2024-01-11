@@ -85,31 +85,31 @@
                             </button>
                         </li>
                         <li>
-                            <button @click="showCards = 'branding' "
-                                :class="showCards == 'branding' ? activeClasses : inactiveClasses"
+                            <button @click="showCards = 'Business Affairs' "
+                                :class="showCards == 'Business Affairs' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
                                 Business Affairs
                             </button>
                         </li>
                         <li>
-                            <button @click="showCards = 'design' "
-                                :class="showCards == 'design' ? activeClasses : inactiveClasses"
+                            <button @click="showCards = 'Accounting' "
+                                :class="showCards == 'Accounting' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
                                 Acctg & Admin
                             </button>
                         </li>
                         <li>
-                            <button @click="showCards = 'marketing' "
-                                :class="showCards == 'marketing' ? activeClasses : inactiveClasses"
+                            <button @click="showCards = 'Marketing' "
+                                :class="showCards == 'Marketing' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
                                 Marketing
                             </button>
                         </li>
                         <li>
-                            <button @click="showCards = 'development' "
-                                :class="showCards == 'development' ? activeClasses : inactiveClasses"
+                            <button @click="showCards = 'Book' "
+                                :class="showCards == 'Book' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
-                                Back-to-film/tv
+                                Book-to-film/tv
                             </button>
                         </li>
                     </ul>
@@ -310,7 +310,7 @@
                 </div>
             </div>
 
-            <div class=" overflow-x-auto" x-data='{ totalPages: {{ $totalPages }}, currentPage: {{ $page }} }'>
+            <div class=" overflow-x-auto flex justify-center" x-data='{ totalPages: {{ $totalPages }}, currentPage: {{ $page }} }'>
                 <div class="inline-flex p-3 mb-6 bg-white rounded dark:bg-dark-2 shadow-1 dark:shadow-3">
                     <ul class="-mx-[6px] flex items-center">
                         <li class="px-[6px]">

@@ -11,7 +11,7 @@
     id="checkoutmodal"
     class="opacity-0 fixed top-0 left-0 flex 
     items-center justify-center w-full h-screen overflow-y-scroll
-    bg-[#000000] bg-opacity-20 dark:bg-dark"> 
+    bg-[#000000] dark:bg-[#000000] dark:bg-opacity-20 bg-opacity-20 "> 
     <div @click.outside="modalOpen = false" id="cd-modal" class=" mx-auto rounded-[10px] 
     dark:bg-dark-2  dark:shadow-3 h-[95vh]">
         <!-- ====== Checkout Section Start -->
@@ -21,7 +21,7 @@
                 class="overflow-y-auto dark:bg-dark-2
                 transition-all duration-200 pl-4 pr-8 bg-white rounded-[10px]">
                 <div class="p-8 ">
-                    <button @click="modalOpen = false " class="bg-red p-1 absolute right-4 rounded-[5px] text-white dark:text-dark-6">
+                    <button @click="modalOpen = false " class="bg-red p-1 absolute right-4 rounded-[5px] text-white dark:text-white">
                         <svg 
                             width="20" 
                             height="20" 

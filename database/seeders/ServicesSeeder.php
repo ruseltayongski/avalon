@@ -17,9 +17,9 @@ class ServicesSeeder extends Seeder
         $this->clearPictures();
         
         Services::factory()
-        ->count(2)
+        ->count(4)
         ->state([
-            'category' => 'branding',
+            'category' => 'Book',
         ])
         ->create()
         ->each(function ($services) {
@@ -32,7 +32,7 @@ class ServicesSeeder extends Seeder
         Services::factory()
         ->count(1)
         ->state([
-            'category' => 'design',
+            'category' => 'Business Affairs',
         ])
         ->create()
         ->each(function ($services) {
@@ -43,9 +43,9 @@ class ServicesSeeder extends Seeder
         });
 
         Services::factory()
-        ->count(2)
+        ->count(5)
         ->state([
-            'category' => 'marketing',
+            'category' => 'Marketing',
         ])
         ->create()
         ->each(function ($services) {
@@ -56,9 +56,9 @@ class ServicesSeeder extends Seeder
         });
 
         Services::factory()
-        ->count(30)
+        ->count(5)
         ->state([
-            'category' => 'development',
+            'category' => 'Accounting',
         ])
         ->create()
         ->each(function ($services) {
