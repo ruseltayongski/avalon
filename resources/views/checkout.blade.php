@@ -228,7 +228,7 @@ x-init="() => {
                                  Email1<span class="text-red">*</span>
                                  </label>
                                  <input
-                                    type="text"
+                                    type="email"
                                     placeholder="Email"
                                     name="email1"
                                     required
