@@ -71,6 +71,7 @@
         new URLSearchParams(window.location.search).get('category')  : 'all', 
         activeClasses: 'bg-[#011523] text-white dark:bg-white dark:text-dark', 
         inactiveClasses: 'text-body-color hover:bg-[#011523]/80 hover:text-white',
+        isMobile: window.innerWidth <= 600
         }" 
         class="pt-[200px] pb-12 lg:pt-[140px] lg:pb-[90px] dark:bg-[#011523]">
         <div class="container mx-auto" x-data='{ services: @json($services) }'>
@@ -118,7 +119,7 @@
             <div class="lg:px-12 flex flex-wrap " 
                 x-data='{  modalShow: false, capitalizeFirstChar: function(str) { return str.charAt(0).toUpperCase() + str.slice(1); },
                     modalOpen: false, serviceId: 0, serviceCategory: "", servicePicture: "", serviceAlone: {},
-                    cartNotification: false
+                    cartNotification: true
                 }'
                 x-init="() => {
                     setTimeout(() => cartNotification = false, 15000)
@@ -238,7 +239,19 @@
                         </div>
                     </div>
                 </div>
-                <div x-show="cartNotification" class="fixed z-[60] w-full lg:w-[30%] 2xl:w-[25%] top-5 left-0 right-0 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
+                <div  
+                x-init="() => {
+                    window.addEventListener('resize', () => {
+                        isMobile = window.innerWidth <= 600;
+                        console.log(window.innerWidth);
+                    });
+                }"
+                    x-show="cartNotification" 
+                    class="fixed z-[60] w-1/2 lg:w-[30%] 2xl:w-[25%] top-5 right-0 flex items-center rounded-lg border
+                     border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5"
+                     :class="{ 'w-full': isMobile, '': !isMobile}"
+                     >
+                
                     <div
                         class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green"
                         >
