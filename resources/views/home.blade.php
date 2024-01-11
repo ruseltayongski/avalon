@@ -378,7 +378,7 @@
                 <div class="flex items-center justify-center ">
                     <div class="flex w-full ">
                         <div class="flex w-full ">
-                            <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
+                           {{--  <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
                                 <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
                                 <svg 
                                     width="21" 
@@ -424,7 +424,7 @@
                                     @endfor
                                 </ul>
                                 </nav>
-                            </div>
+                            </div> --}}
                             <div class="hidden md:block w-full mt-12 b-0 xl:px-24 ">
                                  <nav>
                                     <ul :class="{'flex space-x-[25px] justify-center ': !isMobile, 'flex space-x-2 justify-center': isMobile}">
