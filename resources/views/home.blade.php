@@ -378,53 +378,53 @@
                 <div class="flex items-center justify-center ">
                     <div class="flex w-full ">
                         <div class="flex w-full ">
-                           {{--  <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
-                                <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
-                                <svg 
-                                    width="21" 
-                                    height="20" 
-                                    viewBox="0 0 21 20" 
-                                    fill="none" 
-                                    xmlns="http://www.w3.org/2000/svg" 
-                                    class="fill-current"
+                           {{-- <div @click.outside="navbarOpen = false" class="group relative md:hidden sm:block">
+                                 <button @click="navbarOpen = !navbarOpen" class="flex h-9 w-9 items-center justify-center rounded bg-white/[0.08] text-white ">
+                                 <svg 
+                                       width="21" 
+                                       height="20" 
+                                       viewBox="0 0 21 20" 
+                                       fill="none" 
+                                       xmlns="http://www.w3.org/2000/svg" 
+                                       class="fill-current"
+                                       >
+                                       <g clip-path="url(#clip0_1052_7440)">
+                                          <path 
+                                             d="M19.3854 9.3125H1.88538C1.51038 9.3125 1.16663 9.625 1.16663 10.0312C1.16663 10.4062 1.47913 10.75 1.88538 10.75H19.3854C19.7604 10.75 20.1041 10.4375 20.1041 10.0312C20.1041 9.625 19.7604 9.3125 19.3854 9.3125Z" 
+                                             />
+                                          <path 
+                                             d="M19.3854 14.625H1.88538C1.51038 14.625 1.16663 14.9375 1.16663 15.3437C1.16663 15.75 1.47913 16.0625 1.88538 16.0625H19.3854C19.7604 16.0625 20.1041 15.75 20.1041 15.3437C20.1041 14.9375 19.7604 14.625 19.3854 14.625Z" 
+                                             />
+                                          <path 
+                                             d="M1.88538 5.375H19.3854C19.7604 5.375 20.1041 5.0625 20.1041 4.65625C20.1041 4.25 19.7916 3.9375 19.3854 3.9375H1.88538C1.51038 3.9375 1.16663 4.25 1.16663 4.65625C1.16663 5.0625 1.51038 5.375 1.88538 5.375Z" 
+                                             />
+                                       </g>
+                                       <defs>
+                                          <clipPath id="clip0_1052_7440">
+                                             <rect width="20" height="20" fill="white" transform="translate(0.635376)"/>
+                                          </clipPath>
+                                       </defs>
+                                 </svg>
+                                 </button>
+                                 <nav
+                                    :class="navbarOpen ? 'visible opacity-100 top-full' : 'invisible opacity-0 top-[120%]'"
+                                    class="absolute left-0 mt-2 w-[250px] rounded bg-[#1d5b80] shadow-card-2 duration-200"
                                     >
-                                    <g clip-path="url(#clip0_1052_7440)">
-                                        <path 
-                                            d="M19.3854 9.3125H1.88538C1.51038 9.3125 1.16663 9.625 1.16663 10.0312C1.16663 10.4062 1.47913 10.75 1.88538 10.75H19.3854C19.7604 10.75 20.1041 10.4375 20.1041 10.0312C20.1041 9.625 19.7604 9.3125 19.3854 9.3125Z" 
-                                            />
-                                        <path 
-                                            d="M19.3854 14.625H1.88538C1.51038 14.625 1.16663 14.9375 1.16663 15.3437C1.16663 15.75 1.47913 16.0625 1.88538 16.0625H19.3854C19.7604 16.0625 20.1041 15.75 20.1041 15.3437C20.1041 14.9375 19.7604 14.625 19.3854 14.625Z" 
-                                            />
-                                        <path 
-                                            d="M1.88538 5.375H19.3854C19.7604 5.375 20.1041 5.0625 20.1041 4.65625C20.1041 4.25 19.7916 3.9375 19.3854 3.9375H1.88538C1.51038 3.9375 1.16663 4.25 1.16663 4.65625C1.16663 5.0625 1.51038 5.375 1.88538 5.375Z" 
-                                            />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1052_7440">
-                                            <rect width="20" height="20" fill="white" transform="translate(0.635376)"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                </button>
-                                <nav
-                                :class="navbarOpen ? 'visible opacity-100 top-full' : 'invisible opacity-0 top-[120%]'"
-                                class="absolute left-0 mt-2 w-[250px] rounded bg-[#1d5b80] shadow-card-2 duration-200"
-                                >
-                              
-                                <ul class="space-y-5 py-6 px-5">
-                                    @for ($i=0; $i<12; $i++)
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="relative block text-sm font-medium text-white opacity-70 duration-200 hover:opacity-100"
-                                            >
-                                            iconmobile{{ $i }}
-                                        </a>
-                                    </li>
-                                    @endfor
-                                </ul>
-                                </nav>
-                            </div> --}}
+                                    
+                                    <ul class="space-y-5 py-6 px-5">
+                                          @for ($i=0; $i<12; $i++)
+                                          <li>
+                                             <a
+                                                href="javascript:void(0)"
+                                                class="relative block text-sm font-medium text-white opacity-70 duration-200 hover:opacity-100"
+                                                >
+                                                iconmobile{{ $i }}
+                                             </a>
+                                          </li>
+                                          @endfor
+                                    </ul>
+                                 </nav>
+                               </div> --}}
                             <div class="hidden md:block w-full mt-12 b-0 xl:px-24 ">
                                  <nav>
                                     <ul :class="{'flex space-x-[25px] justify-center ': !isMobile, 'flex space-x-2 justify-center': isMobile}">
@@ -530,7 +530,14 @@
 </div>
 
 <!-- ====== About Section Start -->
-<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]" id="aboutUs">
+<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]" id="aboutUs"
+ x-data="{ tablet: window.innerWidth = 1024 }"  x-init="() => {
+   window.addEventListener('resize', () => {
+      tablet = window.innerWidth = 1024;
+      console.log(window.innerWidth);
+   });
+}"
+>
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center justify-between -mx-4">
          <div class="w-full px-4 lg:w-6/12" id="whatWeDoImage">
@@ -712,7 +719,7 @@
                      </svg>
                   </span>
                   <span class="absolute -left-36 -bottom-20 z-[-1] -sm:left-72">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="757" height="450" viewBox="0 0 757 450" fill="none">
+                     <svg xmlns="http://www.w3.org/2000/svg" :width="tablet ? '700' : '757'" height="450" viewBox="0 0 757 450" fill="none">
                         <g filter="url(#filter0_d)">
                         <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" class="dark:stroke-white" stroke="#090E34" stroke-width="10" stroke-linecap="round"/>
                         </g>
