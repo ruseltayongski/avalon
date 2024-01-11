@@ -714,7 +714,7 @@
                      </svg>
                   </span>
                   <span class="absolute -left-36 -bottom-20 z-[-1] -sm:left-72">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="757" height="450" viewBox="0 0 757 450" fill="none">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="700" height="450" viewBox="0 0 757 450" fill="none">
                         <g filter="url(#filter0_d)">
                         <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" class="dark:stroke-white" stroke="#090E34" stroke-width="10" stroke-linecap="round"/>
                         </g>
