@@ -531,12 +531,7 @@
 
 <!-- ====== About Section Start -->
 <section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]" id="aboutUs"
- x-data="{ tablet: window.innerWidth = 1024 }"  x-init="() => {
-   window.addEventListener('resize', () => {
-      tablet = window.innerWidth = 1024;
-      console.log(window.innerWidth);
-   });
-}"
+
 >
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center justify-between -mx-4">
@@ -719,7 +714,7 @@
                      </svg>
                   </span>
                   <span class="absolute -left-36 -bottom-20 z-[-1] -sm:left-72">
-                     <svg xmlns="http://www.w3.org/2000/svg" :width="tablet ? '700' : '757'" height="450" viewBox="0 0 757 450" fill="none">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="757" height="450" viewBox="0 0 757 450" fill="none">
                         <g filter="url(#filter0_d)">
                         <path d="M 15 419 C 280 458 277 379 314 345 C 361 254 331 252 401 144 C 492 33 606.689 7 740 7" class="dark:stroke-white" stroke="#090E34" stroke-width="10" stroke-linecap="round"/>
                         </g>
@@ -954,7 +949,7 @@
          </div>
       </div>
       <div class="xl:container flex flex-wrap justify-center">
-         <?php $serviceCategory = ['branding','design','marketing','development'] ?>
+         <?php $serviceCategory = ['Book','Business Affairs','Marketing','Accounting'] ?>
          @for($i = 0; $i < 4; $i++)
             <div class="w-full px-4 md:w-1/2 xl:w-1/4">
                <a href="{{ route('services').'?category='.$serviceCategory[$i] }}">
