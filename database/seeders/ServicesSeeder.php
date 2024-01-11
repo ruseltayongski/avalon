@@ -56,7 +56,7 @@ class ServicesSeeder extends Seeder
         });
 
         Services::factory()
-        ->count(1)
+        ->count(30)
         ->state([
             'category' => 'development',
         ])

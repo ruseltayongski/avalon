@@ -768,7 +768,7 @@
             <div class="w-full px-4">
                <div class="mx-auto mb-[60px] max-w-[510px] text-center">
                   {{-- <span class="block mb-2 text-lg font-semibold text-primary">What we Serve</span> --}}
-                  <h2 class="text-white dark:text-white mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]">
+                  <h2 class="text-white dark:text-dark mb-3 text-3xl leading-[1.2] font-bold sm:text-4xl md:text-[40px]">
                      Our Services
                   </h2>
                   <a

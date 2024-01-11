@@ -67,9 +67,13 @@
         </div>
     </section>
 
-    <section x-data="{ showCards: new URLSearchParams(window.location.search).get('category') ? new URLSearchParams(window.location.search).get('category')  : 'all', activeClasses: 'bg-[#011523] text-white dark:bg-white dark:text-dark', inactiveClasses: 'text-body-color hover:bg-[#011523]/80 hover:text-white'}" 
+    <section x-data="{ showCards: new URLSearchParams(window.location.search).get('category') ? 
+        new URLSearchParams(window.location.search).get('category')  : 'all', 
+        activeClasses: 'bg-[#011523] text-white dark:bg-white dark:text-dark', 
+        inactiveClasses: 'text-body-color hover:bg-[#011523]/80 hover:text-white',
+        }" 
         class="pt-[200px] pb-12 lg:pt-[140px] lg:pb-[90px] dark:bg-[#011523]">
-        <div class="container mx-auto">
+        <div class="container mx-auto" x-data='{ services: @json($services) }'>
             <div class="-mx-4 flex flex-wrap justify-center">
                 <div class="w-full px-4">
                     <ul class="mb-12 flex flex-wrap justify-center space-y-1 space-x-1 lg:space-x-3">
@@ -112,15 +116,15 @@
                 </div>
             </div>
             <div class="lg:px-12 flex flex-wrap " 
-                x-data='{ modalShow: false, services: @json($services), capitalizeFirstChar: function(str) { return str.charAt(0).toUpperCase() + str.slice(1); },
+                x-data='{  modalShow: false, capitalizeFirstChar: function(str) { return str.charAt(0).toUpperCase() + str.slice(1); },
                     modalOpen: false, serviceId: 0, serviceCategory: "", servicePicture: "", serviceAlone: {},
-                    cartNotification: false,
+                    cartNotification: false
                 }'
                 x-init="() => {
                     setTimeout(() => cartNotification = false, 15000)
                 }   
                 " >
-              <template x-for="service in services" :key="service.id">
+                <template x-for="service in services" :key="service.id">
                     <div x-show="showCards === 'all' || showCards === service.category" class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
                         <div class="relative mb-12">
                             <div class="overflow-hidden rounded-lg">
@@ -144,10 +148,11 @@
                         </div>
                     </div>
                 </template>
-                <div x-show="modalOpen" class="bg-[#000000] bg-opacity-20 fixed z-50 top-0 left-0 flex items-center justify-center w-full dark:bg-dark h-screen overflow-y-scroll">
+                <div x-show="modalOpen" class="bg-[#000000] dark:bg-dark-2 bg-opacity-20 fixed z-50 top-0 left-0 flex items-center 
+                    justify-center w-full h-screen overflow-y-scroll">
                     <div @click.outside="modalOpen = false" class="relative mx-auto max-w-[660px]
-                    bg-white dark:bg-dark-2 shadow-1 dark:shadow-3 h-[95vh]">
-                        <div class="p-8 bg-white rounded-[10px] ">
+                     shadow-1 dark:shadow-3 h-[95vh]">
+                        <div class="p-8 bg-white dark:bg-dark rounded-[10px] ">
                             <button @click="modalOpen = false" class="bg-red p-1 absolute right-5 top-5 rounded-[5px] text-white dark:text-dark-6">
                                 <svg 
                                     width="20" 
@@ -231,8 +236,7 @@
                         </div>
                     </div>
                 </div>
-                <div x-show="cartNotification"
-                    class="fixed z-[60] w-full lg:w-[30%] 2xl:w-[25%] top-5 left-0 right-0 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
+                <div x-show="cartNotification" class="fixed z-[60] w-full lg:w-[30%] 2xl:w-[25%] top-5 left-0 right-0 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
                     <div
                         class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green"
                         >
@@ -305,93 +309,265 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center">
-               <div
-                  class="inline-flex p-3 mb-12 bg-white rounded dark:bg-dark-2 shadow-1 dark:shadow-3"
-                  >
-                  <ul class="-mx-[6px] flex items-center">
-                     <li class="px-[6px]">
-                        <a
-                           href="javascript:void(0)"
-                           class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]"
-                           >
-                           <span class="mr-1">
-                              <svg
-                                 width="12"
-                                 height="13"
-                                 viewBox="0 0 12 13"
-                                 fill="none"
-                                 xmlns="http://www.w3.org/2000/svg"
-                                 >
-                                 <path
-                                    d="M10.5 6.0875H2.49375L5.68125 2.84375C5.85 2.675 5.85 2.4125 5.68125 2.24375C5.5125 2.075 5.25 2.075 5.08125 2.24375L1.2 6.18125C1.03125 6.35 1.03125 6.6125 1.2 6.78125L5.08125 10.7188C5.15625 10.7937 5.26875 10.85 5.38125 10.85C5.49375 10.85 5.5875 10.8125 5.68125 10.7375C5.85 10.5687 5.85 10.3063 5.68125 10.1375L2.5125 6.93125H10.5C10.725 6.93125 10.9125 6.74375 10.9125 6.51875C10.9125 6.275 10.725 6.0875 10.5 6.0875Z"
-                                    fill="currentColor"
-                                    />
-                              </svg>
-                           </span>
-                           Previous
-                        </a>
-                     </li>
-                     <li class="px-[6px]">
-                        <a
-                           href="javascript:void(0)"
-                           class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
-                           >
-                        1
-                        </a>
-                     </li>
-                     <li class="px-[6px]">
-                        <a
-                           href="javascript:void(0)"
-                           class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
-                           >
-                        2
-                        </a>
-                     </li>
-                     <li class="px-[6px]">
-                        <a
-                           href="javascript:void(0)"
-                           class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
-                           >
-                        3
-                        </a>
-                     </li>
-                     <li class="px-[6px]">
-                        <a
-                           href="javascript:void(0)"
-                           class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
-                           >
-                        4
-                        </a>
-                     </li>
-                     <li class="px-[6px]">
-                        <a
-                           href="javascript:void(0)"
-                           class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]"
-                           >
-                           Next
-                           <span class="ml-1">
-                              <svg
-                                 width="12"
-                                 height="13"
-                                 viewBox="0 0 12 13"
-                                 fill="none"
-                                 xmlns="http://www.w3.org/2000/svg"
-                                 >
-                                 <path
-                                    d="M10.8 6.2L6.91875 2.2625C6.75 2.09375 6.4875 2.09375 6.31875 2.2625C6.15 2.43125 6.15 2.69375 6.31875 2.8625L9.46875 6.06875H1.5C1.275 6.06875 1.0875 6.25625 1.0875 6.48125C1.0875 6.70625 1.275 6.9125 1.5 6.9125H9.50625L6.31875 10.1563C6.15 10.325 6.15 10.5875 6.31875 10.7563C6.39375 10.8313 6.50625 10.8688 6.61875 10.8688C6.73125 10.8688 6.84375 10.8313 6.91875 10.7375L10.8 6.8C10.9688 6.63125 10.9688 6.36875 10.8 6.2Z"
-                                    fill="currentColor"
-                                    />
-                              </svg>
-                           </span>
-                        </a>
-                     </li>
-                  </ul>
-               </div>
+
+            <div class=" overflow-x-auto" x-data='{ totalPages: {{ $totalPages }}, currentPage: {{ $page }} }'>
+                <div class="inline-flex p-3 mb-6 bg-white rounded dark:bg-dark-2 shadow-1 dark:shadow-3">
+                    <ul class="-mx-[6px] flex items-center">
+                        <li class="px-[6px]">
+                            <a href="javascript:void(0)"
+                                x-bind:href="currentPage > 1 ? `{{ route('services', ['page' => '']) }}${currentPage - 1}` : 'javascript:void(0)'"
+                               class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
+                                <span class="mr-1">
+                                    <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.5 6.0875H2.49375L5.68125 2.84375C5.85 2.675 5.85 2.4125 5.68125 2.24375C5.5125 2.075 5.25 2.075 5.08125 2.24375L1.2 6.18125C1.03125 6.35 1.03125 6.6125 1.2 6.78125L5.08125 10.7188C5.15625 10.7937 5.26875 10.85 5.38125 10.85C5.49375 10.85 5.5875 10.8125 5.68125 10.7375C5.85 10.5687 5.85 10.3063 5.68125 10.1375L2.5125 6.93125H10.5C10.725 6.93125 10.9125 6.74375 10.9125 6.51875C10.9125 6.275 10.725 6.0875 10.5 6.0875Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                Previous
+                            </a>
+                        </li>
+            
+                        <!-- Display page numbers with ellipses -->
+                        <template x-for="pageNumber in Array.from({ length: totalPages }, (_, i) => i + 1)">
+                            <template x-if="pageNumber === 1 || pageNumber === totalPages || (pageNumber >= currentPage - 2 && pageNumber <= currentPage + 2)">
+                                <li class="px-[6px]">
+                                    <a href="javascript:void(0)"
+                                       x-bind:href="currentPage !== pageNumber ? `{{ route('services', ['page' => '']) }}${pageNumber}` : 'javascript:void(0)'"
+                                       x-bind:class="{ 'bg-[#EDEFF1] dark:text-white': currentPage === pageNumber }"
+                                       class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white">
+                                        <span x-text="pageNumber"></span>
+                                    </a>
+                                </li>
+                            </template>
+                        </template>
+            
+                        <li class="px-[6px]">
+                            <a href="javascript:void(0)"
+                                x-bind:href="currentPage < totalPages ? `{{ route('services', ['page' => '']) }}${currentPage + 1}` : 'javascript:void(0)'"
+                                class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
+                                Next
+                                <span class="ml-1">
+                                    <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.8 6.2L6.91875 2.2625C6.75 2.09375 6.4875 2.09375 6.31875 2.2625C6.15 2.43125 6.15 2.69375 6.31875 2.8625L9.46875 6.06875H1.5C1.275 6.06875 1.0875 6.25625 1.0875 6.48125C1.0875 6.70625 1.275 6.9125 1.5 6.9125H9.50625L6.31875 10.1563C6.15 10.325 6.15 10.5875 6.31875 10.7563C6.39375 10.8313 6.50625 10.8688 6.61875 10.8688C6.73125 10.8688 6.84375 10.8313 6.91875 10.7375L10.8 6.8C10.9688 6.63125 10.9688 6.36875 10.8 6.2Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            
+            {{-- <div class="text-center" x-data='{ totalPages: {{ $totalPages }}, currentPage: {{ $page }} }'>
+                <div class="inline-flex p-3 mb-12 bg-white rounded dark:bg-dark-2 shadow-1 dark:shadow-3">
+                    <ul class="-mx-[6px] flex items-center">
+                        <li class="px-[6px]">
+                            <a href="javascript:void(0)"
+                               class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
+                                <span class="mr-1">
+                                    <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.5 6.0875H2.49375L5.68125 2.84375C5.85 2.675 5.85 2.4125 5.68125 2.24375C5.5125 2.075 5.25 2.075 5.08125 2.24375L1.2 6.18125C1.03125 6.35 1.03125 6.6125 1.2 6.78125L5.08125 10.7188C5.15625 10.7937 5.26875 10.85 5.38125 10.85C5.49375 10.85 5.5875 10.8125 5.68125 10.7375C5.85 10.5687 5.85 10.3063 5.68125 10.1375L2.5125 6.93125H10.5C10.725 6.93125 10.9125 6.74375 10.9125 6.51875C10.9125 6.275 10.725 6.0875 10.5 6.0875Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                Previous
+                            </a>
+                        </li>
+            
+                        <!-- Display page numbers in a range -->
+                        <template x-if="totalPages <= 10">
+                            <template x-for="pageNumber in Array.from({ length: totalPages }, (_, i) => i + 1)">
+                                <li class="px-[6px]">
+                                    <a href="javascript:void(0)"
+                                        x-bind:href="currentPage !== pageNumber ? `{{ route('services', ['page' => '']) }}${pageNumber}` : 'javascript:void(0)'"
+                                        x-bind:class="{ 'bg-[#EDEFF1] dark:text-white': currentPage === pageNumber }"
+                                        class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white">
+                                        <span x-text="pageNumber"></span>
+                                    </a>
+                                </li>
+                            </template>
+                        </template>
+            
+                        <!-- Display a range and ellipsis for more than 10 pages -->
+                        <template x-if="totalPages > 10">
+                            <template x-for="pageNumber in Array.from({ length: 10 }, (_, i) => i + 1)">
+                                <li class="px-[6px]">
+                                    <a href="javascript:void(0)"
+                                        x-bind:href="currentPage !== pageNumber ? `{{ route('services', ['page' => '']) }}${pageNumber}` : 'javascript:void(0)'"
+                                        x-bind:class="{ 'bg-[#EDEFF1] dark:text-white': currentPage === pageNumber }"
+                                        class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white">
+                                        <span x-text="pageNumber"></span>
+                                    </a>
+                                </li>
+                            </template>
+                            <li class="px-[6px]">...</li>
+                            <li class="px-[6px]">
+                                <a href="javascript:void(0)"
+                                   x-bind:href="{{ route('services', ['page' => '']) }}<span v-text=' totalPages '>"
+                                   x-bind:class="{ 'bg-[#EDEFF1] dark:text-white': currentPage === totalPages }"
+                                   class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white">
+                                    <span x-text="totalPages"></span>
+                                </a>
+                            </li>
+                        </template>
+            
+                        <li class="px-[6px]">
+                            <a href="javascript:void(0)"
+                               class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
+                                Next
+                                <span class="ml-1">
+                                    <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.8 6.2L6.91875 2.2625C6.75 2.09375 6.4875 2.09375 6.31875 2.2625C6.15 2.43125 6.15 2.69375 6.31875 2.8625L9.46875 6.06875H1.5C1.275 6.06875 1.0875 6.25625 1.0875 6.48125C1.0875 6.70625 1.275 6.9125 1.5 6.9125H9.50625L6.31875 10.1563C6.15 10.325 6.15 10.5875 6.31875 10.7563C6.39375 10.8313 6.50625 10.8688 6.61875 10.8688C6.73125 10.8688 6.84375 10.8313 6.91875 10.7375L10.8 6.8C10.9688 6.63125 10.9688 6.36875 10.8 6.2Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div> --}}
+              
+            {{-- <div class="text-center" x-data='{ totalPages: {{ $totalPages }}, currentPage: {{ $page }} }'>
+                <div class="inline-flex p-3 mb-12 bg-white rounded dark:bg-dark-2 shadow-1 dark:shadow-3">
+                    <ul class="-mx-[6px] flex items-center">
+                        <li class="px-[6px]">
+                            <a
+                            href="javascript:void(0)"
+                            class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]"
+                            >
+                            <span class="mr-1">
+                                <svg
+                                    width="12"
+                                    height="13"
+                                    viewBox="0 0 12 13"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                    <path
+                                        d="M10.5 6.0875H2.49375L5.68125 2.84375C5.85 2.675 5.85 2.4125 5.68125 2.24375C5.5125 2.075 5.25 2.075 5.08125 2.24375L1.2 6.18125C1.03125 6.35 1.03125 6.6125 1.2 6.78125L5.08125 10.7188C5.15625 10.7937 5.26875 10.85 5.38125 10.85C5.49375 10.85 5.5875 10.8125 5.68125 10.7375C5.85 10.5687 5.85 10.3063 5.68125 10.1375L2.5125 6.93125H10.5C10.725 6.93125 10.9125 6.74375 10.9125 6.51875C10.9125 6.275 10.725 6.0875 10.5 6.0875Z"
+                                        fill="currentColor"
+                                        />
+                                </svg>
+                            </span>
+                            Previous
+                            </a>
+                        </li>
+                        <template x-for="pageNumber in Array.from({ length: totalPages }, (_, i) => i + 1)">
+                            <li class="px-[6px]">
+                                <a href="javascript:void(0)"
+                                    x-bind:href="currentPage !== pageNumber ? `{{ route('services', ['page' => '']) }}${pageNumber}` : 'javascript:void(0)'"
+                                    x-bind:class="{ 'bg-[#EDEFF1] dark:text-white': currentPage === pageNumber }"
+                                    class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
+                                >
+                                    <span x-text="pageNumber"></span>
+                                </a>
+                            </li>
+                        </template>
+                        <li class="px-[6px]">
+                            <a
+                            href="javascript:void(0)"
+                            class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]"
+                            >
+                            Next
+                            <span class="ml-1">
+                                <svg
+                                    width="12"
+                                    height="13"
+                                    viewBox="0 0 12 13"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                    <path
+                                        d="M10.8 6.2L6.91875 2.2625C6.75 2.09375 6.4875 2.09375 6.31875 2.2625C6.15 2.43125 6.15 2.69375 6.31875 2.8625L9.46875 6.06875H1.5C1.275 6.06875 1.0875 6.25625 1.0875 6.48125C1.0875 6.70625 1.275 6.9125 1.5 6.9125H9.50625L6.31875 10.1563C6.15 10.325 6.15 10.5875 6.31875 10.7563C6.39375 10.8313 6.50625 10.8688 6.61875 10.8688C6.73125 10.8688 6.84375 10.8313 6.91875 10.7375L10.8 6.8C10.9688 6.63125 10.9688 6.36875 10.8 6.2Z"
+                                        fill="currentColor"
+                                        />
+                                </svg>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>    --}}
+            {{-- <div class="text-center">
+                <div class="inline-flex p-3 mb-12 bg-white rounded dark:bg-dark-2 shadow-1 dark:shadow-3">
+                    <ul class="-mx-[6px] flex items-center">
+                        <li class="px-[6px]">
+                            <a
+                            href="javascript:void(0)"
+                            class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]"
+                            >
+                            <span class="mr-1">
+                                <svg
+                                    width="12"
+                                    height="13"
+                                    viewBox="0 0 12 13"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                    <path
+                                        d="M10.5 6.0875H2.49375L5.68125 2.84375C5.85 2.675 5.85 2.4125 5.68125 2.24375C5.5125 2.075 5.25 2.075 5.08125 2.24375L1.2 6.18125C1.03125 6.35 1.03125 6.6125 1.2 6.78125L5.08125 10.7188C5.15625 10.7937 5.26875 10.85 5.38125 10.85C5.49375 10.85 5.5875 10.8125 5.68125 10.7375C5.85 10.5687 5.85 10.3063 5.68125 10.1375L2.5125 6.93125H10.5C10.725 6.93125 10.9125 6.74375 10.9125 6.51875C10.9125 6.275 10.725 6.0875 10.5 6.0875Z"
+                                        fill="currentColor"
+                                        />
+                                </svg>
+                            </span>
+                            Previous
+                            </a>
+                        </li>
+                        <li class="px-[6px]">
+                            <a
+                            href="javascript:void(0)"
+                            class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
+                            >
+                            1
+                            </a>
+                        </li>
+                        <li class="px-[6px]">
+                            <a
+                            href="javascript:void(0)"
+                            class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
+                            >
+                            2
+                            </a>
+                        </li>
+                        <li class="px-[6px]">
+                            <a
+                            href="javascript:void(0)"
+                            class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
+                            >
+                            3
+                            </a>
+                        </li>
+                        <li class="px-[6px]">
+                            <a
+                            href="javascript:void(0)"
+                            class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white"
+                            >
+                            4
+                            </a>
+                        </li>
+                        <li class="px-[6px]">
+                            <a
+                            href="javascript:void(0)"
+                            class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]"
+                            >
+                            Next
+                            <span class="ml-1">
+                                <svg
+                                    width="12"
+                                    height="13"
+                                    viewBox="0 0 12 13"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                    <path
+                                        d="M10.8 6.2L6.91875 2.2625C6.75 2.09375 6.4875 2.09375 6.31875 2.2625C6.15 2.43125 6.15 2.69375 6.31875 2.8625L9.46875 6.06875H1.5C1.275 6.06875 1.0875 6.25625 1.0875 6.48125C1.0875 6.70625 1.275 6.9125 1.5 6.9125H9.50625L6.31875 10.1563C6.15 10.325 6.15 10.5875 6.31875 10.7563C6.39375 10.8313 6.50625 10.8688 6.61875 10.8688C6.73125 10.8688 6.84375 10.8313 6.91875 10.7375L10.8 6.8C10.9688 6.63125 10.9688 6.36875 10.8 6.2Z"
+                                        fill="currentColor"
+                                        />
+                                </svg>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div> --}}
         </div>
-    </div>
-</section>
+    </section>
 
 <section
     class="relative z-10 newsletter-bg"

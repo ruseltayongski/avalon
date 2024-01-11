@@ -33,8 +33,12 @@
     @yield('css')
 </head>
 <body>
+    <?php
+        use App\Models\Carts;
+        $carts = Carts::leftJoin("services","services.id","cart.service_id")->limit(5)->get();
+    ?>
     @include('layouts._loading-container')
-    <div id="app" x-data='{ carts: [] }'>
+    <div id="app" x-data='{ carts: @json($carts) }'>
         @include('layouts._header')
         @yield('content')
         @include('layouts._footer')
