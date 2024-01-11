@@ -337,13 +337,10 @@ x-init="() => {
                                        >
                                        <option value="" disabled selected hidden> Select Payment Type
                                        <option value="gcash" class="dark:bg-dark-2">
-                                          Thru Gcash
+                                          Full
                                        </option>
                                        <option value="uk" class="dark:bg-dark-2">
-                                          United Kingdom
-                                       </option>
-                                       <option value="canada" class="dark:bg-dark-2">
-                                          Canada
+                                          Plan
                                        </option>
                                     </select>
                                     <span
