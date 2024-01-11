@@ -9,19 +9,15 @@
     }"
     x-show="modalOpen" 
     id="checkoutmodal"
-    class="opacity-0 fixed top-0 left-0 flex 
-    items-center justify-center w-full h-screen overflow-y-scroll
-    bg-[#000000] dark:bg-[#000000] dark:bg-opacity-20 bg-opacity-20 "> 
-    <div @click.outside="modalOpen = false" id="cd-modal" class=" mx-auto rounded-[10px] 
-    dark:bg-dark-2  dark:shadow-3 h-[95vh]">
+    class="opacity-0 fixed top-0 left-0 w-full h-screen overflow-y-scroll bg-[#000000] bg-opacity-20"> 
+    <div @click.outside="modalOpen = false" class="mx-auto rounded-[10px] shadow-1 dark:shadow-3 h-[55vh] min-w-[500px] flex items-center justify-center">
         <!-- ====== Checkout Section Start -->
-        <section class=" dark:bg-dark">
+        <section >
             <div {{-- :class=" modalOpen ? 'translate-x-0' : 'translate-x-full'" --}}
                 :class="{ 'min-w-[100px]': isMobile, 'min-w-[500px]': !isMobile, 'translate-x-0': modalOpen, 'translate-x-full': !modalOpen}"
-                class="overflow-y-auto dark:bg-dark-2
-                transition-all duration-200 pl-4 pr-8 bg-white rounded-[10px]">
+                class=" dark:bg-dark-2 transition-all duration-200 pl-4 pr-8 bg-white rounded-[10px]">
                 <div class="p-8 ">
-                    <button @click="modalOpen = false " class="bg-red p-1 absolute right-4 rounded-[5px] text-white dark:text-white">
+                    <button @click="modalOpen = false " class="bg-red p-1 absolute right-4 rounded-[5px] text-white dark:text-dark-6">
                         <svg 
                             width="20" 
                             height="20" 
@@ -100,4 +96,3 @@
         <!-- ====== Checkout Section End -->
     </div>
 </div>
-
