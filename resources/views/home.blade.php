@@ -373,8 +373,8 @@
 
         <!-- ====== Horizontal Menu Section Start -->
         {{-- <header x-data="{navbarOpen: false}" class="icon-margin-top -mb-10 "> --}}
-        <header x-data="{navbarOpen: false}" :class="{ 'icon-bottom-padding lg:absolute' : window.innerWidth !== 1024,'icon-bottom lg:absolute': window.innerWidth === 1024 }">
-            <div class="mx-auto" :class="{ 'mt-12': isMobile }">
+        <header x-data="{navbarOpen: false}" class="bottom-0 absolute" :class="{ 'icon-bottom-padding lg:absolute' : window.innerWidth !== 1024,'icon-bottom lg:absolute': window.innerWidth === 1024 }">
+            <div class="mx-auto " :class="{ 'mt-12': isMobile }">
                 <div class="flex items-center justify-center ">
                     <div class="flex w-full ">
                         <div class="flex w-full ">
@@ -425,7 +425,7 @@
                                 </ul>
                                 </nav>
                             </div>
-                            <div class="hidden md:block w-full mt-12 xl:px-24">
+                            <div class="hidden md:block w-full mt-12 b-0 xl:px-24 ">
                                  <nav>
                                     <ul :class="{'flex space-x-[25px] justify-center ': !isMobile, 'flex space-x-2 justify-center': isMobile}">
                                           <?php 
