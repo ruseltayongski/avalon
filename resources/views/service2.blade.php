@@ -189,6 +189,7 @@
                             <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[18px]">
                                 Service Features
                             </h3>
+                            {{-- @foreach(range(0,5) as $index) --}}
                             <p class="text-sm mb-7 dark:text-dark-6 text-body-color leading-8">
                                 Book Keeping<br>
                                 Preparation of Financial Statement<br>
@@ -198,6 +199,7 @@
                                 Budgeting and Forecasting<br>
                                 Inventory Management
                             </p>
+                            {{-- @endforeach --}}
                             <input x-model="serviceId" type="hidden" placeholder="Enter task">
                             <div class="flex items-center justify-start space-x-1">
                                 <button

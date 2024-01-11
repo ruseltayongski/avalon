@@ -66,7 +66,7 @@
                        <div class="flex h-8 min-w-[50px] items-center justify-center rounded-full text-white relative">
                            <section x-data="{ modalOpen: false }">
                                <span class="inline-flex items-center justify-center leading-none bg-dark rounded-full absolute z-1" id="cart-badge" x-text="carts.length"></span>
-                               <button type="button" @click="modalOpen = true, document.getElementById('cd-modal').classList.add('xl:mt-['+carts.length*50+'px]'), document.getElementById('cd-modal').classList.add('2xl:mt-['+carts.length*90+'px]')" onclick="triggerModal()">
+                               <button type="button" @click="modalOpen = true" onclick="triggerModal()">
                                    <?xml version="1.0" encoding="utf-8"?>
                                    <svg width="25" height="25" viewBox="0 0 96 96"
                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
