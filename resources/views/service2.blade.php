@@ -332,7 +332,7 @@
                                 <li class="px-[6px]">
                                     <a href="javascript:void(0)"
                                        x-bind:href="currentPage !== pageNumber ? `{{ route('services', ['page' => '']) }}${pageNumber}` : 'javascript:void(0)'"
-                                       x-bind:class="{ 'bg-[#EDEFF1] dark:text-white': currentPage === pageNumber }"
+                                       x-bind:class="{ 'bg-[#EDEFF1] dark:text-dark': currentPage === pageNumber }"
                                        class="min-w-[24px] flex h-6 px-1 items-center justify-center rounded text-base text-body-color dark:hover:bg-white/5 hover:bg-[#EDEFF1] dark:hover:text-white">
                                         <span x-text="pageNumber"></span>
                                     </a>
