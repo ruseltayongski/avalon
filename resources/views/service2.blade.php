@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </template>
-                <div x-show="modalOpen" class="bg-[#000000] dark:bg-dark-2 bg-opacity-20 fixed z-50 top-0 left-0 flex items-center 
+                <div x-show="modalOpen" class="bg-[#000000] dark:bg-dark bg-opacity-20 fixed z-50 top-0 left-0 flex items-center 
                     justify-center w-full h-screen overflow-y-scroll">
                     <div @click.outside="modalOpen = false" class="relative mx-auto max-w-[660px]
                     bg-white dark:bg-dark-2 shadow-1 dark:shadow-3 h-[95vh]">

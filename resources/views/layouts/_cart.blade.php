@@ -12,8 +12,8 @@
     class="opacity-0 fixed top-0 left-0 flex 
     items-center justify-center w-full h-screen overflow-y-scroll
     bg-[#000000] bg-opacity-20 dark:bg-dark"> 
-    <div @click.outside="modalOpen = false" id="cd-modal" class="mx-auto rounded-[10px] 
-    dark:bg-dark-2 shadow-1 dark:shadow-3 h-[95vh]">
+    <div @click.outside="modalOpen = false" id="cd-modal" class=" mx-auto rounded-[10px] 
+    dark:bg-dark-2  dark:shadow-3 h-[95vh]">
         <!-- ====== Checkout Section Start -->
         <section class=" dark:bg-dark">
             <div {{-- :class=" modalOpen ? 'translate-x-0' : 'translate-x-full'" --}}
