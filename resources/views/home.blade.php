@@ -410,6 +410,7 @@
                                 :class="navbarOpen ? 'visible opacity-100 top-full' : 'invisible opacity-0 top-[120%]'"
                                 class="absolute left-0 mt-2 w-[250px] rounded bg-[#1d5b80] shadow-card-2 duration-200"
                                 >
+                              
                                 <ul class="space-y-5 py-6 px-5">
                                     @for ($i=0; $i<12; $i++)
                                     <li>
@@ -438,6 +439,10 @@
                                                    'filename' => 'Volume'
                                                 ],
                                                 [
+                                                   'filepath' => 'newspaper.png',
+                                                   'filename' => 'Newspaper'
+                                                ],
+                                                [
                                                    'filepath' => 'global.png',
                                                    'filename' => 'Global'
                                                 ],
@@ -448,10 +453,6 @@
                                                 [
                                                    'filepath' => 'megaphone.png',
                                                    'filename' => 'Megaphone'
-                                                ],
-                                                [
-                                                   'filepath' => 'volume.png',
-                                                   'filename' => 'Volume'
                                                 ],
                                                 [
                                                    'filepath' => 'headset.png',
@@ -483,10 +484,11 @@
                                                 ],
                                              ];
                                           ?>
+                                          <?php $serviceCategory = ['branding','design','marketing','development'] ?>
                                           @foreach($icon_images as $index => $row)
                                              <li class="fade-right" id="hero-icon{{ $index }}">
                                                 <div class="relative ">
-                                                   <a href="javascript:void(0)" class="flex justify-center items-center img-up text-base font-medium text-white dark:text-dark-6 hover:text-primary">
+                                                   <a href="{{ route('services') }}" class="flex justify-center items-center img-up text-base font-medium text-white dark:text-dark-6 hover:text-primary">
                                                       <img src="{{ asset('images/page1_icon').'/'.$row['filepath'] }}" class="img-icon" alt="img-icon">
                                                       <p class="img-description">{{ $row['filename'] }}</p>
                                                    </a>
