@@ -9,10 +9,10 @@
     }"
     x-show="modalOpen" 
     id="checkoutmodal"
-    class="fixed top-0 left-0 flex items-center justify-center w-full h-screen overflow-y-scroll bg-[#000000] bg-opacity-30"> 
-    <div @click.outside="modalOpen = false" class="rounded-[10px] dark:shadow-3 h-[95vh]">
+    class="fixed top-0 left-0 flex justify-center items-center w-full h-screen overflow-y-scroll bg-[#000000] bg-opacity-30"> 
+    <div @click.outside="modalOpen = false" class="rounded-[10px] dark:shadow-3 flex flex-wrap items-center justify-center h-[95vh] w-full">
         <!-- ====== Checkout Section Start -->
-        <div class="relative w-full bg-white dark:bg-dark-2 pr-8 rounded-[10px] lg:min-w-[450px]">
+        <div class="relative bg-white dark:bg-dark-2 pr-8 rounded-[10px] lg:min-w-[450px]">
             <div class="p-8 ">
                 <button @click="modalOpen = false " class="bg-red p-1 absolute right-4 rounded-[5px] text-white dark:text-dark-6">
                     <svg 

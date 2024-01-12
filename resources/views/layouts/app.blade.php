@@ -35,7 +35,7 @@
 <body>
     <?php
         use App\Models\Carts;
-        $carts = Carts::leftJoin("services","services.id","cart.service_id")->limit(0)->get();
+        $carts = Carts::leftJoin("services","services.id","cart.service_id")->limit(9)->get();
     ?>
     @include('layouts._loading-container')
     <div id="app" x-data='{ carts: @json($carts) }'>
