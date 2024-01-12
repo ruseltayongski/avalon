@@ -517,6 +517,60 @@
         </header>
         <!-- ====== Horizontal Menu Section End -->
     </div>
+    
+    <div x-show="false" class="fixed z-[60] w-1/2 lg:w-[30%] 2xl:w-[25%] top-20 right-0 flex items-center rounded-lg border
+      border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5"
+      :class="{ 'w-full': isMobile, '': !isMobile}">
+      <div class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green">
+         <svg 
+            width="24" 
+            height="25" 
+            viewBox="0 0 24 25"
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <path 
+               d="M12 1.17499C5.7375 1.17499 0.675003 6.23749 0.675003 12.5C0.675003 18.7625 5.7375 23.8625 12 23.8625C18.2625 23.8625 23.3625 18.7625 23.3625 12.5C23.3625 6.23749 18.2625 1.17499 12 1.17499ZM12 22.175C6.675 22.175 2.3625 17.825 2.3625 12.5C2.3625 7.17499 6.675 2.86249 12 2.86249C17.325 2.86249 21.675 7.21249 21.675 12.5375C21.675 17.825 17.325 22.175 12 22.175Z" 
+               fill="white"
+               />
+            <path 
+               d="M15.225 9.01248L10.7625 13.3625L8.7375 11.375C8.4 11.0375 7.875 11.075 7.5375 11.375C7.2 11.7125 7.2375 12.2375 7.5375 12.575L9.9375 14.9C10.1625 15.125 10.4625 15.2375 10.7625 15.2375C11.0625 15.2375 11.3625 15.125 11.5875 14.9L16.425 10.25C16.7625 9.91248 16.7625 9.38748 16.425 9.04998C16.0875 8.71248 15.5625 8.71248 15.225 9.01248Z" 
+               fill="white"
+               />
+         </svg>
+      </div>
+      <div class="flex w-full items-center justify-between">
+         <div>
+            <h6 class="text-base font-semibold text-dark dark:text-white sm:text-lg mb-0.5">
+            Congratulations
+            </h6>
+            <p class="text-body-color text-sm dark:text-dark-6">
+            your transaction was successful
+            </p>
+         </div>
+         <button class="text-dark-5 dark:text-dark-6 hover:text-green" @click="cartNotification = false">
+               <svg 
+               width="16" 
+               height="16" 
+               viewBox="0 0 16 16" 
+               fill="none" 
+               xmlns="http://www.w3.org/2000/svg"
+               class="fill-current"
+               >
+               <g clip-path="url(#clip0_1088_26057)">
+                  <path 
+                     d="M8.79999 7.99999L14.9 1.89999C15.125 1.67499 15.125 1.32499 14.9 1.09999C14.675 0.874994 14.325 0.874994 14.1 1.09999L7.99999 7.19999L1.89999 1.09999C1.67499 0.874994 1.32499 0.874994 1.09999 1.09999C0.874994 1.32499 0.874994 1.67499 1.09999 1.89999L7.19999 7.99999L1.09999 14.1C0.874994 14.325 0.874994 14.675 1.09999 14.9C1.19999 15 1.34999 15.075 1.49999 15.075C1.64999 15.075 1.79999 15.025 1.89999 14.9L7.99999 8.79999L14.1 14.9C14.2 15 14.35 15.075 14.5 15.075C14.65 15.075 14.8 15.025 14.9 14.9C15.125 14.675 15.125 14.325 14.9 14.1L8.79999 7.99999Z" 
+                     />
+               </g>
+               <defs>
+                  <clipPath id="clip0_1088_26057">
+                     <rect width="16" height="16" fill="white"/>
+                  </clipPath>
+               </defs>
+               </svg>
+         </button>
+      </div>
+   </div>
 </div>
 <!-- ====== Hero Section End -->
 
@@ -530,9 +584,7 @@
 </div>
 
 <!-- ====== About Section Start -->
-<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]" id="aboutUs"
-
->
+<section class="overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]" id="aboutUs">
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center justify-between -mx-4">
          <div class="w-full px-4 lg:w-6/12" id="whatWeDoImage">

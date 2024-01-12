@@ -47,28 +47,13 @@ class StripeController extends Controller
 
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
-        // $session = \Stripe\Checkout\Session::create([
-        //     'line_items'  => $line_items,
-        //     'mode'        => 'payment',
-        //     'success_url' => route('home'),
-        //     'cancel_url'  => route('checkout'),
-        // ]);
+        $session = \Stripe\Checkout\Session::create([
+            'line_items'  => $line_items,
+            'mode'        => 'payment',
+            'success_url' => route('home'),
+            'cancel_url'  => route('checkout'),
+        ]);
 
-        // return redirect()->away($session->url);
-
-
-        try {
-            $session = \Stripe\Checkout\Session::create([
-                'line_items'  => $line_items,
-                'mode'        => 'payment',
-                'success_url' => route('home'),
-                'cancel_url'  => route('checkout'),
-            ]);
-        
-            return redirect()->away($session->url)->with('contract_save', true);
-        } catch (\Stripe\Exception\ApiErrorException $e) {
-            // Handle Stripe API errors here
-            return redirect()->route('checkout')->withErrors(['stripe_error' => $e->getMessage()]);
-        }
+        return redirect()->away($session->url)->with('stripe_save', true);;
     }
 }

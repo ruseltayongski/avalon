@@ -92,7 +92,7 @@
         >
             <div class="-mx-4 flex flex-wrap justify-center">
                 <div class="w-full px-4">
-                    <ul class="mb-12 flex flex-wrap justify-center space-y-1 space-x-1 lg:space-x-3">
+                    <ul class="mb-12 flex flex-wrap justify-center space-x-1 lg:space-x-3 ">
                         <li>
                             <button @click="showCards = 'all', servicesFetch(1, showCards)"
                                 :class="showCards == 'all' ? activeClasses : inactiveClasses"
@@ -100,7 +100,7 @@
                                 All Services
                             </button>
                         </li>
-                        <li>
+                        <li >
                             <button @click="showCards = 'Business Affairs', servicesFetch(1, showCards) "
                                 :class="showCards == 'Business Affairs' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
@@ -141,16 +141,17 @@
                 }   
                 " >
                 <template x-for="service in services" :key="service.id">
-                    <div x-show="showCards === 'all' || showCards === service.category" class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
+                    <div x-show="(showCards === 'all' || showCards === service.category)" class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
                         <div class="relative mb-12">
                             <div class="overflow-hidden rounded-lg">
                                 <img
-                                    x-bind:src="'fileupload/services/'+service.picture"
+                                    x-bind:src="`fileupload/services/${service.picture}?${showCards}${service.id}`"
                                     alt="portfolio"
                                     class="w-full"
+                                    @load="service.imageLoaded = true"
                                 />
                             </div>
-                            <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-dark-2">
+                            <div x-show="service.imageLoaded" class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-dark-2">
                                 <span class="mb-2 block text-sm font-semibold text-[#011523] dark:text-white" x-text="capitalizeFirstChar(service.category)"></span>
                                 <h3 class="mb-4 text-xl font-bold text-dark dark:text-white" x-text="service.title"></h3>
                                 <button type="button" @click="modalOpen = true, serviceCategory = service.category, servicePicture = service.picture, serviceId = service.id, serviceAlone = service" 
@@ -254,18 +255,17 @@
                     </div>
                 </div>
                 <div  
-                x-init="() => {
-                    window.addEventListener('resize', () => {
-                        isMobile = window.innerWidth <= 600;
-                        console.log(window.innerWidth);
-                    });
-                }"
+                    x-init="() => {
+                        window.addEventListener('resize', () => {
+                            isMobile = window.innerWidth <= 600;
+                            console.log(window.innerWidth);
+                        });
+                    }"
                     x-show="cartNotification" 
                     class="fixed z-[60] w-1/2 lg:w-[30%] 2xl:w-[25%] top-5 right-0 flex items-center rounded-lg border
                      border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5"
                      :class="{ 'w-full': isMobile, '': !isMobile}"
                      >
-                
                     <div
                         class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green"
                         >
