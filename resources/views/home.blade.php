@@ -326,10 +326,10 @@
       }
    }
 
-  /*  .avalon-logo {
+   .avalon-logo {
       width: 40%;
       height: 40%;
-   } */
+   }
 </style>
 @endsection
 @extends('layouts.app')
