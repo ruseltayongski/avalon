@@ -79,7 +79,7 @@
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
-      background-size: 100% 100%;;
+      background-size: 100% 100%;
       height: 20vh;
    }
 
@@ -127,10 +127,10 @@
       right:0;
    }
 
-   .avalon-logo {
+   /* .avalon-logo {
       width: 50%;
       height: 50%;
-   }
+   } */
 </style>
 
 @extends('layouts.app')
