@@ -127,10 +127,10 @@
       right:0;
    }
 
-   .avalon-logo {
+ /*   .avalon-logo {
       width: 50%;
       height: 50%;
-   }
+   } */
 </style>
 
 @extends('layouts.app')
