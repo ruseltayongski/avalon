@@ -325,6 +325,11 @@
          opacity: 0;
       }
    }
+
+   .avalon-logo {
+      width: 40%;
+      height: 40%;
+   }
 </style>
 @endsection
 @extends('layouts.app')

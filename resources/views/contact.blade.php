@@ -126,10 +126,10 @@
       right:0;
    }
 
-/*    .avalon-logo {
-      width: 50%;
-      height: 50%;
-   } */
+   .avalon-logo {
+      width: 40%;
+      height: 40%;
+   }
 
 </style>
 
