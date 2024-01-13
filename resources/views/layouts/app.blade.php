@@ -46,7 +46,7 @@
     ?>
     @include('layouts._loading-container')
     <div id="app" x-data='{ carts: @json($carts) }'>
-     {{--    @include('layouts._header') --}}
+        @include('layouts._header')
         @yield('content')
         @include('layouts._footer')
     </div>
