@@ -33,6 +33,11 @@
             z-index: 1000;
          
         }
+
+        .avalon-logo {
+            width: 40%;
+            height: 40%;
+        }
     </style>
     
     @yield('css')

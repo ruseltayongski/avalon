@@ -14,10 +14,7 @@
       height: 70%;
    }
 
-   .avalon-logo {
-      width: 40%;
-      height: 40%;
-   }
+   
 
    #cart-badge {
       font-size:5pt;
