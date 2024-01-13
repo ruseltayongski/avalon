@@ -4,9 +4,10 @@
    <div class="container mx-auto lg:px-24">
        <div class="relative flex items-center justify-between -mx-4 ">
            <div class="max-w-full px-4 w-60">
-               <a href="javascript:void(0)" class="block w-full">
-                   <img src="{{ asset('images/avalon-logo.png') }}" alt="logo" class="avalon-logo mt-6 lg:ml-8" />
-               </a>
+            <a href="javascript:void(0)" class="block w-full">
+                <img src="{{ asset('images/avalon-logo.png') }}" alt="logo" class="avalon-logo mt-6 lg:ml-8" />
+            </a>
+              
            </div>
            <div class=" flex items-center justify-between w-full -mt-4">
                <div>
