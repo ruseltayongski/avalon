@@ -82,11 +82,21 @@
                         services = data.services
                         totalPages = data.totalPages
                         console.log(services)
-                        console.log(serviceCategory)
+                        console.log(currentPage)
                     })
                     .catch(error => console.error('Error fetching data:', error));
                 }
+                function generateRandomCode(length) {
+                    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                    let result = '';
+                    for (let i = 0; i < length; i++) {
+                        const randomIndex = Math.floor(Math.random() * charset.length);
+                        result += charset.charAt(randomIndex);
+                    }
+                    return result;
+                }
                 window.servicesFetch = servicesFetch;
+                window.generateRandomCode = generateRandomCode;
             }"
         >
             <div class="-mx-4 flex flex-wrap justify-center">
@@ -140,17 +150,17 @@
                 }   
                 " >
                 <template x-for="service in services" :key="service.id">
-                    <div x-show="(showCards === 'all' || showCards === service.category)" class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
+                    <div x-show="(showCards === 'all' || showCards === service.category) && service.imageLoaded" class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
                         <div class="relative mb-12">
                             <div class="overflow-hidden rounded-lg">
                                 <img
-                                    x-bind:src="`fileupload/services/${service.picture}?${showCards}${service.id}`"
+                                    x-bind:src="`fileupload/services/${service.picture}?img=${generateRandomCode(5)}`"
                                     alt="portfolio"
                                     class="w-full"
                                     @load="service.imageLoaded = true"
                                 />
                             </div>
-                            <div x-show="service.imageLoaded" class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-dark-2">
+                            <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-dark-2">
                                 <span class="mb-2 block text-sm font-semibold text-[#011523] dark:text-white" x-text="capitalizeFirstChar(service.category)"></span>
                                 <h3 class="mb-4 text-xl font-bold text-dark dark:text-white" x-text="service.title"></h3>
                                 <button type="button" @click="modalOpen = true, serviceCategory = service.category, servicePicture = service.picture, serviceId = service.id, serviceAlone = service" 
@@ -343,7 +353,7 @@
                     <ul class="-mx-[6px] flex items-center">
                         <li class="px-[6px]">
                             <a href="javascript:void(0)"
-                                x-on:click.prevent="currentPage = currentPage - 1, servicesFetch(currentPage, showCards) "
+                                x-on:click.prevent="currentPage > 1 ? currentPage = currentPage - 1 : '', currentPage >= 1 ? servicesFetch(currentPage, showCards) : ''"
                                 class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
                                 <span class="mr-1">
                                     <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
