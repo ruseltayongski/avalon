@@ -151,7 +151,7 @@
                 }   
                 " >
                 <template x-for="service in services" :key="service.id">
-                    <div x-show="(showCards === 'all' || showCards === service.category) && service.imageLoaded" class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
+                    <div x-show="service.imageLoaded" x-transition class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
                         <div class="relative mb-12">
                             <div class="overflow-hidden rounded-lg">
                                 <img
@@ -391,7 +391,7 @@
                                 </span>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
