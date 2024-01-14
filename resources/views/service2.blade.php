@@ -75,14 +75,15 @@
         class="pt-[200px] pb-12 lg:pt-[140px] lg:pb-[90px] dark:bg-[#011523]">
         <div class="container mx-auto" x-data='{ services: @json($services), totalPages: {{ $totalPages }}, currentPage: {{ $page }} }'
             x-init="() => {
-                function servicesFetch(currentPage, serviceCategory) { 
+                function servicesFetch(currentPage, serviceCategory, monitor='') { 
+                    console.log(currentPage);
+
                     fetch(`{{ route('services') }}?page=${currentPage}&category=${serviceCategory}`)
                     .then(response => response.json())
                     .then(data => {
                         services = data.services
                         totalPages = data.totalPages
                         console.log(services)
-                        console.log(currentPage)
                     })
                     .catch(error => console.error('Error fetching data:', error));
                 }
@@ -353,7 +354,7 @@
                     <ul class="-mx-[6px] flex items-center">
                         <li class="px-[6px]">
                             <a href="javascript:void(0)"
-                                x-on:click.prevent="currentPage > 1 ? currentPage = currentPage - 1 : '', currentPage >= 1 ? servicesFetch(currentPage, showCards) : ''"
+                                x-on:click.prevent="currentPage > 1 ? currentPage = currentPage - 1 : '', servicesFetch(currentPage, showCards)"
                                 class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
                                 <span class="mr-1">
                                     <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -380,7 +381,7 @@
             
                         <li class="px-[6px]">
                             <a href="javascript:void(0)"
-                                x-on:click.prevent="currentPage = currentPage + 1, servicesFetch(currentPage, showCards) "
+                                x-on:click.prevent="currentPage < totalPages ? currentPage = currentPage + 1 : '', servicesFetch(currentPage, showCards) "
                                 class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
                                 Next
                                 <span class="ml-1">
