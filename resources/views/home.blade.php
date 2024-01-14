@@ -880,8 +880,46 @@
                </div>
             </div>
          </div>
-         <?php $slides = [1,2,3,4,5,6,7,8,9,10]; ?>
-         <div x-data="{ slides: {{ '['.implode(', ', $slides).']' }} }">  
+         <?php
+            $slidesData = [
+               [
+                  'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
+                           <rect width="100%" height="100%" fill="none"/>
+                           <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAfCAYAAACcai8CAAAAAXNSR0IArs4c6QAAAohJREFUWEfVmDFv00AUx9+/Qa2Eiu1KlVqoBM3GRvkGYURCQh0YmICJjYaVhWSBCbUwZiDZkGCpBIKx4gNUyYwQhKXJgrBjOhRV99C72OC4SYl8ZyucZMln+/3vd3fv7p0fKFXY8zw6Pt4gYF1fRJf0J8N7KV50xZbpeloyWe+mXv6tM8t9QEQ+MXdIqS4ODztpMcQPNKhSWwRUU0CnAeT9rktK1RGGrbghDaxhmfeIaCNvgkz6zA8xGOzoidbAjrMdjWwmvUKMgKvw/c4Q2HW5kEZNGmF+jsGgCl5crFCpJO4w66WLICiDHadKwPas00Y71ZIA7xCw9V8AHx3pEd4l4KYJ8K/V8zTf75lITGer1CbYdcV/K9NZjP/qy6MagZnWmo18wZW6J8Bt0/1XgL9fv6F7s/ayQReaDZP+T7aV/ZhdV0LiMPxmLElgkVjoHWjo5Q/vMipOMGOuC/AP01CcBo6bE/DLD+7bc5MI2DhoTAKOwZffv7Xj3xI8bES5fwELeOlnSKuvX5n5N3OrMOAY+uKLZ9l9u0jglTfD0T0ThtkXYhHA59r7VH5ao4WehcASLTrr25oM4Xz/gMpP6uS097OPaNoyD2BZXDL9EkCslwjYWqSz4qen9TIKzcZnif6t23T28ye70z8OXB9+HKdFwB3r05eHIHBNgGsEPM5D37omsAT2vLvE3LQubl/QRxBo4HVi/mpf37riRwRBJf5rNl541vHSgrJDhGErTqRUokRK7u1mbED/MYttMlU1q77cIWATvq/zcH+ApaL9WSn57ZeU1RXTg33G0RSzbzohyLybzKudAB7XgO7EaMZyNFupVJzVnIbPp7k5P/Gh3I9c8P3k+xOavwHw4CVK2+Ee+wAAAABJRU5ErkJggg==" x="0" y="0" width="44" height="31"/>
+                        </svg>',
+                  'title' => 'Refreshing Design1',
+                  'content' => 'Lorem Ipsum is simply dummy text of the printing and industry.1'
+               ],
+               [
+                  'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
+                           <rect width="100%" height="100%" fill="none"/>
+                           <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAsCAYAAAD8WEF4AAAAAXNSR0IArs4c6QAAA5JJREFUWEftmD1P1WAUx8+pRhforYkLMOBNlBnCCuEykmjCookuwCcAPgGXhUkj6AQDl4nBiQQTR/ETSEwYHIw4gQkJba8hIcEec/qWvtLn1N5QEzu253meX/89r0UAADIMAxxnERDnAeAB3+vxdQiOs4Hd7o7kHHRhG43PADAqWViJLVEbbXtVdS8kXV8BxLbqgsrtEJtomscq+yI1Gt+DT3828xjOJ1vwu69fZW0pm1u/ujD85hXcOT3x1hOtom3HxHLd8upqFDRtDhANQFzmF2JYCk492t6Fi0cjpSAkiwa3t2CosxXA7qBtL7jcfX0t0LRZQJwDACOypwmIYzHYL+/24XJgQHJuKdsYLMAeEB0WBjd/gaiyNwSb+8Lsjuw2obvUDZYBfz59DmczT2Cwswn3P7yvFywDBsHdHRsPlW6utesFa4+Ow7e1l3DVn85AtYT9+nYz02//w0rzVzR1XTwcgaPO7r+hLFOyv5oTLTfIah1gSUkvBwbBnJiC02cvYGi7hqkrz41Y8dvdehUFLrUbQMS99FSu/9ek3H5Cy2q5jYxhcOM/D0TcyESHgLCR4V5ymI25PTyfzH85adTn2XPHdfckbBE30LaXkrZkGC1wnFn3vqatey2irrcBcaUqEPE+ouabG12ijzcy1iCuomkqTyneDMbAAEsZviIR6ofA+JhHKTTNA8EacGGlV3QUCtcSLaNtr0v3ktiLYckwOFo7GYdwxPLwZ0oAJLZy2MiACQCHMV/PGP4kMEW2ItjU2I7YBMdZAsRF/yAvHyqO1kVwyefKsG7CJuKfId7USeTmRzc4iXicD+6H06oUpsheHVbXd/wRmffkaJ4OFEzlau+ZKNKLQPm5EqyvKqvnXY6zEP1P5avLqgcl8gAta1oFQGKjBttocNFw6zeripbVTB6SyhI9ULcQNgWRUDUKTQovJVFSHGCJAhB2SFmHus2HV7q9q+JUdq2ypOucll6Hhys0HQl1Ky0UubB+ULFKXtAQKaWkVDBWqG4+bDxViZJ9RipT/gd7nU9nwqbUEbZyqUIBUEkqy4ZNFICsVFUU1b0oFClYSaoqBI43PX+tbho2fkBmASiCDDNXMpVdk6NV9ozB9qIKJQuF35WV6nlD2LKpqkiRKgtFFDY+ASgUgCLQ0B0SaRAt657q2qhdNqzfq5bZMKcMR3ve0nGQ9lnHMXox+Llu5jjzoGl7aJo8DomvP6u/VA3sq/WXAAAAAElFTkSuQmCC" x="0" y="0" width="43" height="44"/>
+                        </svg>',
+                  'title' => 'Refreshing Design2',
+                  'content' => 'Lorem Ipsum is simply dummy text of the printing and industry.2'
+               ],
+               [
+                  'svg' => '<svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" width="44" height="31">
+                           <rect width="100%" height="100%" fill="none"/>
+                           <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAArCAYAAAD7YZFOAAAAAXNSR0IArs4c6QAABC9JREFUWEfFWb1uG0cQ/mbXBIL8IDICuI0IhLJTmOQVpuyksNWkjfwElp7AUR/AMvIAtts00RuYegJJQACBbI6UAgQiDZBpgwS+InYAk7uT7P1Ix/vj3cXHXEnNzn47O9/M7CcCANu2196Jjx8T8Q5A6+a3Ep8DcFcp9fSe9eW0xPrYEjLAZuKjIxC134dDAM5M8dbX1sYg8Hdq/7ouINosxDppPdXQgzwHoN75+Akx9t8TMNcNM08J+hAkWwDModei/pmxv9lqPM3al/rD0QTkXSWDuoL4RXSB1rxDRI/8nQckaC9qozTagvCsyCHnSu19Zd16nraG+mdjDv5IClt3rMZx1Lg3vNgnEk98cCed1saDJIe94cWUSHyevBk5gP4NEJ8CHOS102k2rv9P4OgA0CdK1Y7vWXWXJKf2ZF3K+SQANFNshfMzDLTSyGlWe3db8WtbjDDvdpobB0nRqxTcv2XpoNP8YjchTbpE4lsvTdSLTuvWd6sHRxh0bjeszBxOsTFrKo4cEhO+Z7/aJskvfdCppFgAp5XaY/Bl8QxOLKV8BNBOGbYmJbwpylJeW0qKBXC5ahRzwVKSnPD9s1evAfaLc7JNcXCEgZrPY0XYHEzK2surDf2jpiR8b3ixlBQL4JhNkYx/RNIUzlgLyhXplITvD0fPQfTY93HcaTa2ov6KEyIXogWj0qQoDO7N7C3ezP5OhHjjw88Sf89DCqXm9eikUhjcL3+M8P3Pyb36x29+QDLAcqRYDbgUUvTPx0dgeENEgk114BgDkDvLASVJURk4BroEbGd1gf7ZyDwLfkqzqQycmUgEycvhMynho50ialMZOIB3mdkMqf7wWZwUVYPbXjYaZZGiUnBgtJd1gaxOUSk4VsJZNhplkaJScEqp4/BoVJQUhcEZ2v/+9s8c7csjQJ7RKGzD0A83mze75Sbh3I3fB7ekCxh3aaQoFbl8+HxwOUajMCk068O7rZtu8S4DziHCwySArPHssmUhuNbsLuBGLqVTFH9DgKed5kY9CdzC9fjglnUBF5w9akOSHfgMiFN8TC8IzovM8vdCEilWA244ti+vO218CtkESkGJN0Sxa3UjV5IUJQhRAtyS0ShOCm+P1YBLSfgwqaKkqKm/rq8EnG1P1mZy/voKTHx8itqYTrEScF7eZZPC1ablJ5PgfRwDF+5r4ZAvKJtZpSQk4ZphM6y79Yajg0C6NZrxXM/cQl6Tog02Yrm4HxbNlbpWp3DhdIVmEjHZFazNXBao7Q6zjunGROI+4L+kTOuJSLin5+MHknGUr/V5uh4VW5TPNUMfbja9/rh4A1fRS/fEJzVV27asukPGqDcc7xPBE6T/88dGA94JNOA4QLOXUeY90drTZ8SAwFMS1L1z+0owd8GZzwjJQrwr/R8cApyo86xzmv0+ABwToTS7fwBYiFECwk3OlAAAAABJRU5ErkJggg==" x="0" y="0" width="39" height="43"/>
+                        </svg>',
+                  'title' => 'Refreshing Design3',
+                  'content' => 'Lorem Ipsum is simply dummy text of the printing and industry.3'
+               ],
+               [
+                  'svg' => '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
+                           <rect width="100%" height="100%" fill="none"/>
+                           <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAfCAYAAACcai8CAAAAAXNSR0IArs4c6QAAAohJREFUWEfVmDFv00AUx9+/Qa2Eiu1KlVqoBM3GRvkGYURCQh0YmICJjYaVhWSBCbUwZiDZkGCpBIKx4gNUyYwQhKXJgrBjOhRV99C72OC4SYl8ZyucZMln+/3vd3fv7p0fKFXY8zw6Pt4gYF1fRJf0J8N7KV50xZbpeloyWe+mXv6tM8t9QEQ+MXdIqS4ODztpMcQPNKhSWwRUU0CnAeT9rktK1RGGrbghDaxhmfeIaCNvgkz6zA8xGOzoidbAjrMdjWwmvUKMgKvw/c4Q2HW5kEZNGmF+jsGgCl5crFCpJO4w66WLICiDHadKwPas00Y71ZIA7xCw9V8AHx3pEd4l4KYJ8K/V8zTf75lITGer1CbYdcV/K9NZjP/qy6MagZnWmo18wZW6J8Bt0/1XgL9fv6F7s/ayQReaDZP+T7aV/ZhdV0LiMPxmLElgkVjoHWjo5Q/vMipOMGOuC/AP01CcBo6bE/DLD+7bc5MI2DhoTAKOwZffv7Xj3xI8bES5fwELeOlnSKuvX5n5N3OrMOAY+uKLZ9l9u0jglTfD0T0ThtkXYhHA59r7VH5ao4WehcASLTrr25oM4Xz/gMpP6uS097OPaNoyD2BZXDL9EkCslwjYWqSz4qen9TIKzcZnif6t23T28ye70z8OXB9+HKdFwB3r05eHIHBNgGsEPM5D37omsAT2vLvE3LQubl/QRxBo4HVi/mpf37riRwRBJf5rNl541vHSgrJDhGErTqRUokRK7u1mbED/MYttMlU1q77cIWATvq/zcH+ApaL9WSn57ZeU1RXTg33G0RSzbzohyLybzKudAB7XgO7EaMZyNFupVJzVnIbPp7k5P/Gh3I9c8P3k+xOavwHw4CVK2+Ee+wAAAABJRU5ErkJggg==" x="0" y="0" width="44" height="31"/>
+                        </svg>',
+                  'title' => 'Refreshing Design4',
+                  'content' => 'Lorem Ipsum is simply dummy text of the printing and industry.4'
+               ],
+            ];
+            $slides = array_map(function($index, $value) {
+               return $index + 1;
+            }, array_keys($slidesData), $slidesData);
+         ?>
+         <div x-data="{ slides: @json($slides) }">  
             <div class="relative flex justify-center ">
                <div class="relative w-full ">
                   <div
@@ -890,60 +928,26 @@
                      x-ref="carousel"
                      id="carousel_control">
                      <!-- Carousel Items -->
-                     <?php $count = 0; ?>
-                     @for($i = 1; $i <= count($slides); $i++)
-                        <?php
-                           if($count == 3){
-                              $count = 0;
-                           }
-                           $count++;
-                        ?>
+                     @foreach($slidesData as $i => $row)
                         <div class="mx-auto h-full min-w-[300px] px-4 pb-8 xs:min-w-[360px] sm:min-w-[510px] 
                               md:min-w-[350px] lg:min-w-[465px] xl:min-w-[380px] 2xl:min-w-[440px] services-section" id="services{{ $i }}">
                            <div class="group relative shadow-xl rounded-xl border border-stroke dark:border-dark-3 
                               bg-white dark:bg-dark-2 p-10 md:px-8 lg:py-9 lg:px-6 xl:py-[45px] xl:px-[43px]">
                               <div class="relative z-10 mx-auto mb-10">
-                                 {{-- <svg
-                                    width="51"
-                                    height="50"
-                                    viewBox="0 0 51 50"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                    <path
-                                       d="M48.2129 27.75H46.3848C45.7676 27.75 45.2441 27.0312 45.2441 26.1875V14.375C45.2441 13.5078 45.8066 12.75 46.4473 12.75H48.2129C48.6273 12.75 49.0247 12.5853 49.3177 12.2923C49.6108 11.9993 49.7754 11.6019 49.7754 11.1875C49.7754 10.7731 49.6108 10.3756 49.3177 10.0826C49.0247 9.78958 48.6273 9.62496 48.2129 9.62496H46.4473C45.6834 9.63491 44.9363 9.85058 44.2846 10.2493C43.6329 10.648 43.1008 11.215 42.7441 11.8906H32.5176L31.0254 10.5859C29.6979 9.3961 28.1019 8.54574 26.3739 8.10763C24.6459 7.66951 22.8375 7.65669 21.1035 8.07027C16.7285 9.17964 13.8379 12.7031 12.8301 14.1562H11.2676C11.2851 12.9959 10.8506 11.8743 10.056 11.0287C9.26132 10.183 8.1689 9.6796 7.00977 9.62496H2.90039C2.48599 9.62496 2.08856 9.78958 1.79554 10.0826C1.50251 10.3756 1.33789 10.7731 1.33789 11.1875C1.33789 11.6019 1.50251 11.9993 1.79554 12.2923C2.08856 12.5853 2.48599 12.75 2.90039 12.75H6.99414C7.61133 12.75 8.13477 13.4609 8.13477 14.3125V26.1171C8.13477 26.9843 7.57227 27.75 6.93164 27.75H2.90039C2.48599 27.75 2.08856 27.9146 1.79554 28.2076C1.50251 28.5006 1.33789 28.8981 1.33789 29.3125C1.33789 29.7269 1.50251 30.1243 1.79554 30.4173C2.08856 30.7103 2.48599 30.875 2.90039 30.875H6.93164C7.69117 30.8592 8.4327 30.6409 9.07961 30.2426C9.72651 29.8443 10.2553 29.2804 10.6113 28.6093H11.1582C11.7521 28.6105 12.3357 28.7638 12.8535 29.0546C12.8139 29.2662 12.8185 29.4837 12.8669 29.6934C12.9153 29.9031 13.0065 30.1006 13.1348 30.2734L14.9395 32.6875C15.1519 32.9635 15.4479 33.1635 15.7832 33.2578L18.1738 33.8984L19.2441 36.1796C19.3399 36.3842 19.4789 36.5656 19.6516 36.7112C19.8242 36.8569 20.0264 36.9634 20.2441 37.0234L22.7598 37.7109L24.3926 40.3046C24.5986 40.6321 24.9187 40.8715 25.291 40.9765L29.6426 42.1875C29.7797 42.2275 29.9216 42.2485 30.0645 42.25C30.3204 42.2503 30.5725 42.1879 30.7986 42.068C31.0248 41.9481 31.218 41.7745 31.3613 41.5625L39.5254 29.4375C39.5971 29.3314 39.6937 29.2446 39.8067 29.1847C39.9198 29.1248 40.0459 29.0935 40.1738 29.0937H43.041C43.4169 29.6348 43.9162 30.0786 44.4977 30.3883C45.0791 30.6981 45.726 30.8649 46.3848 30.875H48.2129C48.6273 30.875 49.0247 30.7103 49.3177 30.4173C49.6108 30.1243 49.7754 29.7269 49.7754 29.3125C49.7754 28.8981 49.6108 28.5006 49.3177 28.2076C49.0247 27.9146 48.6273 27.75 48.2129 27.75ZM15.3535 15.9687C16.1895 14.789 18.4785 11.9531 21.8691 11.0937C23.1138 10.8063 24.4095 10.8238 25.646 11.1448C26.8824 11.4659 28.023 12.0808 28.9707 12.9375L32.166 15.7187C32.5549 16.0161 32.8127 16.4532 32.8848 16.9375C32.8908 17.0594 32.8718 17.1812 32.8288 17.2955C32.7857 17.4097 32.7197 17.5139 32.6348 17.6015L31.3066 19.0234C30.9691 19.3887 30.5075 19.615 30.0121 19.6584C29.5166 19.7017 29.0228 19.5589 28.627 19.2578L28.3145 19.0234C27.3474 18.2923 26.1483 17.9361 24.939 18.0209C23.7297 18.1056 22.5919 18.6255 21.7363 19.4843L14.8379 26.6171C13.7811 25.8988 12.5374 25.5051 11.2598 25.4843V17.2812H12.8223C13.318 17.2789 13.8062 17.1587 14.2463 16.9305C14.6864 16.7023 15.066 16.3726 15.3535 15.9687ZM36.9395 27.6875L29.4004 38.875L26.7129 38.0937L25.0801 35.5C24.8722 35.171 24.549 34.9314 24.1738 34.8281L21.7676 34.1718L20.6895 31.8828C20.5937 31.6782 20.4547 31.4968 20.282 31.3512C20.1094 31.2055 19.9072 31.099 19.6895 31.039L17.1191 30.3515L16.4316 29.4375L23.9473 21.625C24.2729 21.3043 24.703 21.1114 25.159 21.0813C25.615 21.0512 26.0666 21.1859 26.4316 21.4609L26.7441 21.6953C27.7581 22.4607 29.02 22.8229 30.2856 22.7118C31.5512 22.6007 32.7306 22.0241 33.5957 21.0937L34.9316 19.7343C35.3031 19.3396 35.5908 18.8738 35.7775 18.3649C35.9641 17.8561 36.0458 17.3147 36.0176 16.7734C35.9849 16.1594 35.8197 15.5597 35.5332 15.0156H42.1191V25.9531H40.1738C39.5339 25.9551 38.9042 26.1144 38.3403 26.4168C37.7763 26.7192 37.2953 27.1555 36.9395 27.6875Z"
-                                       fill="#3758F9"
-                                       />
-                                 </svg> --}}
                                  <div class="bg-dark p-2 w-[60px] rounded-lg">
-                                    @if($count == 1)
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
-                                       <rect width="100%" height="100%" fill="none"/>
-                                       <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAfCAYAAACcai8CAAAAAXNSR0IArs4c6QAAAohJREFUWEfVmDFv00AUx9+/Qa2Eiu1KlVqoBM3GRvkGYURCQh0YmICJjYaVhWSBCbUwZiDZkGCpBIKx4gNUyYwQhKXJgrBjOhRV99C72OC4SYl8ZyucZMln+/3vd3fv7p0fKFXY8zw6Pt4gYF1fRJf0J8N7KV50xZbpeloyWe+mXv6tM8t9QEQ+MXdIqS4ODztpMcQPNKhSWwRUU0CnAeT9rktK1RGGrbghDaxhmfeIaCNvgkz6zA8xGOzoidbAjrMdjWwmvUKMgKvw/c4Q2HW5kEZNGmF+jsGgCl5crFCpJO4w66WLICiDHadKwPas00Y71ZIA7xCw9V8AHx3pEd4l4KYJ8K/V8zTf75lITGer1CbYdcV/K9NZjP/qy6MagZnWmo18wZW6J8Bt0/1XgL9fv6F7s/ayQReaDZP+T7aV/ZhdV0LiMPxmLElgkVjoHWjo5Q/vMipOMGOuC/AP01CcBo6bE/DLD+7bc5MI2DhoTAKOwZffv7Xj3xI8bES5fwELeOlnSKuvX5n5N3OrMOAY+uKLZ9l9u0jglTfD0T0ThtkXYhHA59r7VH5ao4WehcASLTrr25oM4Xz/gMpP6uS097OPaNoyD2BZXDL9EkCslwjYWqSz4qen9TIKzcZnif6t23T28ye70z8OXB9+HKdFwB3r05eHIHBNgGsEPM5D37omsAT2vLvE3LQubl/QRxBo4HVi/mpf37riRwRBJf5rNl541vHSgrJDhGErTqRUokRK7u1mbED/MYttMlU1q77cIWATvq/zcH+ApaL9WSn57ZeU1RXTg33G0RSzbzohyLybzKudAB7XgO7EaMZyNFupVJzVnIbPp7k5P/Gh3I9c8P3k+xOavwHw4CVK2+Ee+wAAAABJRU5ErkJggg==" x="0" y="0" width="44" height="31"/>
-                                    </svg>
-                                    @elseif($count == 2)
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="31">
-                                       <rect width="100%" height="100%" fill="none"/>
-                                       <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAsCAYAAAD8WEF4AAAAAXNSR0IArs4c6QAAA5JJREFUWEftmD1P1WAUx8+pRhforYkLMOBNlBnCCuEykmjCookuwCcAPgGXhUkj6AQDl4nBiQQTR/ETSEwYHIw4gQkJba8hIcEec/qWvtLn1N5QEzu253meX/89r0UAADIMAxxnERDnAeAB3+vxdQiOs4Hd7o7kHHRhG43PADAqWViJLVEbbXtVdS8kXV8BxLbqgsrtEJtomscq+yI1Gt+DT3828xjOJ1vwu69fZW0pm1u/ujD85hXcOT3x1hOtom3HxHLd8upqFDRtDhANQFzmF2JYCk492t6Fi0cjpSAkiwa3t2CosxXA7qBtL7jcfX0t0LRZQJwDACOypwmIYzHYL+/24XJgQHJuKdsYLMAeEB0WBjd/gaiyNwSb+8Lsjuw2obvUDZYBfz59DmczT2Cwswn3P7yvFywDBsHdHRsPlW6utesFa4+Ow7e1l3DVn85AtYT9+nYz02//w0rzVzR1XTwcgaPO7r+hLFOyv5oTLTfIah1gSUkvBwbBnJiC02cvYGi7hqkrz41Y8dvdehUFLrUbQMS99FSu/9ek3H5Cy2q5jYxhcOM/D0TcyESHgLCR4V5ymI25PTyfzH85adTn2XPHdfckbBE30LaXkrZkGC1wnFn3vqatey2irrcBcaUqEPE+ouabG12ijzcy1iCuomkqTyneDMbAAEsZviIR6ofA+JhHKTTNA8EacGGlV3QUCtcSLaNtr0v3ktiLYckwOFo7GYdwxPLwZ0oAJLZy2MiACQCHMV/PGP4kMEW2ItjU2I7YBMdZAsRF/yAvHyqO1kVwyefKsG7CJuKfId7USeTmRzc4iXicD+6H06oUpsheHVbXd/wRmffkaJ4OFEzlau+ZKNKLQPm5EqyvKqvnXY6zEP1P5avLqgcl8gAta1oFQGKjBttocNFw6zeripbVTB6SyhI9ULcQNgWRUDUKTQovJVFSHGCJAhB2SFmHus2HV7q9q+JUdq2ypOucll6Hhys0HQl1Ky0UubB+ULFKXtAQKaWkVDBWqG4+bDxViZJ9RipT/gd7nU9nwqbUEbZyqUIBUEkqy4ZNFICsVFUU1b0oFClYSaoqBI43PX+tbho2fkBmASiCDDNXMpVdk6NV9ozB9qIKJQuF35WV6nlD2LKpqkiRKgtFFDY+ASgUgCLQ0B0SaRAt657q2qhdNqzfq5bZMKcMR3ve0nGQ9lnHMXox+Llu5jjzoGl7aJo8DomvP6u/VA3sq/WXAAAAAElFTkSuQmCC" x="0" y="0" width="43" height="44"/>
-                                    </svg>
-                                    @elseif($count == 3) 
-                                    <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" width="44" height="31">
-                                       <rect width="100%" height="100%" fill="none"/>
-                                       <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAArCAYAAAD7YZFOAAAAAXNSR0IArs4c6QAABC9JREFUWEfFWb1uG0cQ/mbXBIL8IDICuI0IhLJTmOQVpuyksNWkjfwElp7AUR/AMvIAtts00RuYegJJQACBbI6UAgQiDZBpgwS+InYAk7uT7P1Ix/vj3cXHXEnNzn47O9/M7CcCANu2196Jjx8T8Q5A6+a3Ep8DcFcp9fSe9eW0xPrYEjLAZuKjIxC134dDAM5M8dbX1sYg8Hdq/7ouINosxDppPdXQgzwHoN75+Akx9t8TMNcNM08J+hAkWwDModei/pmxv9lqPM3al/rD0QTkXSWDuoL4RXSB1rxDRI/8nQckaC9qozTagvCsyCHnSu19Zd16nraG+mdjDv5IClt3rMZx1Lg3vNgnEk98cCed1saDJIe94cWUSHyevBk5gP4NEJ8CHOS102k2rv9P4OgA0CdK1Y7vWXWXJKf2ZF3K+SQANFNshfMzDLTSyGlWe3db8WtbjDDvdpobB0nRqxTcv2XpoNP8YjchTbpE4lsvTdSLTuvWd6sHRxh0bjeszBxOsTFrKo4cEhO+Z7/aJskvfdCppFgAp5XaY/Bl8QxOLKV8BNBOGbYmJbwpylJeW0qKBXC5ahRzwVKSnPD9s1evAfaLc7JNcXCEgZrPY0XYHEzK2surDf2jpiR8b3ixlBQL4JhNkYx/RNIUzlgLyhXplITvD0fPQfTY93HcaTa2ov6KEyIXogWj0qQoDO7N7C3ezP5OhHjjw88Sf89DCqXm9eikUhjcL3+M8P3Pyb36x29+QDLAcqRYDbgUUvTPx0dgeENEgk114BgDkDvLASVJURk4BroEbGd1gf7ZyDwLfkqzqQycmUgEycvhMynho50ialMZOIB3mdkMqf7wWZwUVYPbXjYaZZGiUnBgtJd1gaxOUSk4VsJZNhplkaJScEqp4/BoVJQUhcEZ2v/+9s8c7csjQJ7RKGzD0A83mze75Sbh3I3fB7ekCxh3aaQoFbl8+HxwOUajMCk068O7rZtu8S4DziHCwySArPHssmUhuNbsLuBGLqVTFH9DgKed5kY9CdzC9fjglnUBF5w9akOSHfgMiFN8TC8IzovM8vdCEilWA244ti+vO218CtkESkGJN0Sxa3UjV5IUJQhRAtyS0ShOCm+P1YBLSfgwqaKkqKm/rq8EnG1P1mZy/voKTHx8itqYTrEScF7eZZPC1ablJ5PgfRwDF+5r4ZAvKJtZpSQk4ZphM6y79Yajg0C6NZrxXM/cQl6Tog02Yrm4HxbNlbpWp3DhdIVmEjHZFazNXBao7Q6zjunGROI+4L+kTOuJSLin5+MHknGUr/V5uh4VW5TPNUMfbja9/rh4A1fRS/fEJzVV27asukPGqDcc7xPBE6T/88dGA94JNOA4QLOXUeY90drTZ8SAwFMS1L1z+0owd8GZzwjJQrwr/R8cApyo86xzmv0+ABwToTS7fwBYiFECwk3OlAAAAABJRU5ErkJggg==" x="0" y="0" width="39" height="43"/>
-                                    </svg>
-                                    @endif
+                                    {!! $row['svg'] !!}
                                  </div>
                               </div>
                               <h4 class="text-dark dark:text-white mb-[14px] text-2xl font-bold">
-                                 Refreshing Design
+                                 {{ $row['title'] }}
                               </h4>
                               <p class="text-body-color dark:text-dark-6">
-                                 Lorem Ipsum is simply dummy text of the printing and industry.
+                                 {{ $row['content'] }}
                               </p>
                               <span class="bg-dark absolute -bottom-2 left-0 right-0 z-[-1] mx-auto h-12 w-3/4 opacity-0 blur-[12px] transition group-hover:opacity-[14%]"></span>
                            </div>
                         </div>
-                     @endfor
+                     @endforeach
                   </div>
 
                   <div class="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center">
@@ -1005,9 +1009,33 @@
       </div>
       <div class="xl:container flex flex-wrap justify-center">
          <?php $serviceCategory = ['Book','Business Affairs','Marketing','Accounting'] ?>
-         @for($i = 0; $i < 4; $i++)
+         <?php
+            $serviceCategoryData = [
+               [
+                  "tags" => "Hot",
+                  "title" => "Book",
+                  "content" => "Lorem ipsum dolor amet adipiscing eiusmod.1"
+               ],
+               [
+                  "tags" => "New",
+                  "title" => "Busuness Affairs",
+                  "content" => "Lorem ipsum dolor amet adipiscing eiusmod.2"
+               ],
+               [
+                  "tags" => "Hot",
+                  "title" => "Marketing",
+                  "content" => "Lorem ipsum dolor amet adipiscing eiusmod.3"
+               ],
+               [
+                  "tags" => "New",
+                  "title" => "Accounting",
+                  "content" => "Lorem ipsum dolor amet adipiscing eiusmod.4"
+               ]
+            ];
+         ?> 
+         @foreach($serviceCategoryData as $i => $row)
             <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-               <a href="{{ route('services').'?category='.$serviceCategory[$i] }}">
+               <a href="{{ route('services').'?category='.$row['title'] }}">
                   <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-6 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent marketing-section opacity-0" id="marketing{{ $i }}">
                      <div class="w-full mb-6 overflow-hidden rounded-md relative">
                         <img
@@ -1015,22 +1043,22 @@
                            alt="card image"
                            class="object-cover object-center w-full h-full"
                            />
-                        <div class="absolute top-2 left-2 flex h-7 w-11 z-50 max-w-[65px] items-center justify-center rounded-[5px] {{ $i == 0 || $i == 2 ? 'bg-red' : 'bg-[#5DDAB4]' }} text-white text-[12px]">
-                           {{ $i == 0 || $i == 2 ? 'Hot' : 'New' }}
+                        <div class="absolute top-2 left-2 flex h-7 w-11 z-50 max-w-[65px] items-center justify-center rounded-[5px] {{ $row['tags'] == 'Hot' ? 'bg-red' : 'bg-[#5DDAB4]' }} text-white text-[12px]">
+                           {{ $row['tags'] }}
                         </div>
                      </div>
                      
                      <h4 class="text-dark mb-[14px] text-lg font-semibold uppercase mt-12 dark:text-white">
-                        {{ $serviceCategory[$i] }}
+                        {{ $row['title'] }}
                      </h4>
                      <p class="text-body-color dark:text-dark-6 text-base">
-                        Lorem ipsum dolor amet adipiscing eiusmod.
+                        {{ $row['content'] }}
                      </p>
                      <span class="bg-dark dark:bg-white absolute bottom-0 left-0 block h-2 w-0 duration-200 group-hover:w-full"></span>
                   </div>
                </a>   
             </div>
-         @endfor
+         @endforeach
       </div>
    </div>
 </section>
@@ -1243,214 +1271,6 @@
      </div>
    </div>
 </section>
-
-{{-- <footer class="relative z-10 bg-white dark:bg-dark lg:pt-[120px]"
-      x-data="{ isMobile: window.innerWidth <= 600 }"
-      x-init="() => {
-         window.addEventListener('resize', () => {
-            isMobile = window.innerWidth <= 600;
-            console.log(window.innerWidth);
-         });
-      }">
-      <img class="absolute inset-0 mx-auto my-auto" 
-         :class="{ 'mx-auto my-auto': isMobile, 'top-0 left-0': !isMobile }" 
-         src="{{ asset('/images/avalonlogo.png') }}" 
-         alt="">
-
-    <img class="absolute left-0" 
-         src="{{ asset('/images/eclipse.png') }}" 
-         alt="">
-   <img class="absolute right-12 top-12" src="{{ asset('/images/vector.png') }}" alt="">
-   <img class="absolute right-0 top-0" src="{{ asset('/images/eclipse-right.png') }}" alt="">
-    <div class="container mx-auto">
-       <div class="flex flex-wrap lg:mb-14 opacity-0 justify-center items-center" id="footerSection">
-          <div class="w-full px-4 md:w-2/3 lg:w-1/4">
-             <div class="w-full mb-12">
-                <h4
-                   class="text-dark dark:text-white text-3xl font-medium xl:text-[32px]"
-                   :class="{ 'text-center text-xl mt-5': isMobile, 'text-3xl': !isMobile}"
-                   >
-                   Please feel free to get in touch with us
-                </h4>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-             <div class="w-full mb-12">
-                <div class="flex">
-                   <div class="mr-6 h-9 w-9 text-primary">
-                      <svg
-                         width="35"
-                         height="35"
-                         viewBox="0 0 35 35"
-                         fill="none"
-                         xmlns="http://www.w3.org/2000/svg"
-                         >
-                         <path
-                           class="dark:fill-white"
-                            d="M17.5 0.984375C9.95312 0.984375 3.82812 6.89063 3.82812 14.1641C3.82812 19.6875 11.1562 28.4375 15.4766 33.1406C16.0234 33.7422 16.7344 34.0156 17.5 34.0156C18.2656 34.0156 18.9766 33.6875 19.5234 33.1406C23.8438 28.4375 31.1719 19.6875 31.1719 14.1641C31.1719 6.89063 25.0469 0.984375 17.5 0.984375ZM17.7188 31.5C17.6094 31.6094 17.4453 31.6094 17.2812 31.5C11.9766 25.7031 6.28906 18.1563 6.28906 14.1641C6.28906 8.25781 11.3203 3.44531 17.5 3.44531C23.6797 3.44531 28.7109 8.25781 28.7109 14.1641C28.7109 18.1563 23.0234 25.7031 17.7188 31.5Z"
-                            fill="#011523"
-                            />
-                         <path
-                            class="dark:fill-white"
-                            d="M17.5 8.58594C14.2187 8.58594 11.5391 11.2656 11.5391 14.5469C11.5391 17.8281 14.2187 20.5625 17.5 20.5625C20.7812 20.5625 23.4609 17.8828 23.4609 14.6016C23.4609 11.3203 20.7812 8.58594 17.5 8.58594ZM17.5 18.1016C15.5312 18.1016 14 16.5156 14 14.6016C14 12.6875 15.5859 11.1016 17.5 11.1016C19.4141 11.1016 21 12.6875 21 14.6016C21 16.5156 19.4687 18.1016 17.5 18.1016Z"
-                            fill="#011523"
-                            />
-                      </svg>
-                   </div>
-                   <div>
-                      <h5
-                         class="mb-4 text-lg font-semibold text-dark dark:text-white"
-                         >
-                         Our Location
-                      </h5>
-                      <p class="text-base text-body-color dark:text-dark-6 mobile-view">
-                         401 Broadway, 24th Floor, Orchard Cloud View, London
-                      </p>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-             <div class="w-full mb-12">
-                <div class="flex">
-                   <div class="mr-6 h-9 w-9 text-primary">
-                      <svg
-                         width="35"
-                         height="35"
-                         viewBox="0 0 35 35"
-                         fill="none"
-                         xmlns="http://www.w3.org/2000/svg"
-                         >
-                         <path
-                           class="dark:fill-white"
-                            d="M30.625 5.25H4.375C2.51562 5.25 0.929688 6.78125 0.929688 8.69531V26.4141C0.929688 28.2734 2.46094 29.8594 4.375 29.8594H30.625C32.4844 29.8594 34.0703 28.3281 34.0703 26.4141V8.64062C34.0703 6.78125 32.4844 5.25 30.625 5.25ZM30.625 7.71094C30.6797 7.71094 30.7344 7.71094 30.7891 7.71094L17.5 16.2422L4.21094 7.71094C4.26562 7.71094 4.32031 7.71094 4.375 7.71094H30.625ZM30.625 27.2891H4.375C3.82812 27.2891 3.39062 26.8516 3.39062 26.3047V10.1172L16.1875 18.3203C16.5703 18.5938 17.0078 18.7031 17.4453 18.7031C17.8828 18.7031 18.3203 18.5938 18.7031 18.3203L31.5 10.1172V26.3594C31.6094 26.9062 31.1719 27.2891 30.625 27.2891Z"
-                            fill="#011523"
-                            />
-                      </svg>
-                   </div>
-                   <div>
-                      <h5
-                         class="mb-4 text-lg font-semibold text-dark dark:text-white"
-                         >
-                         How Can We Help?
-                      </h5>
-                      <p class="mb-2 text-base text-body-color dark:text-dark-6">
-                         info@yourdomain.com
-                      </p>
-                      <p class="text-base text-body-color dark:text-dark-6">
-                         contact@yourdomain.com
-                      </p>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
-    <div class="py-1 border-t border-stroke dark:border-dark-3 bg-[#011523]">
-       <div class="container mx-auto">
-          <div class="flex flex-wrap items-center justify-center -mx-4">
-            <div class="w-full px-4 md:w-1/2 lg:w-5/12 xl:w-1/3">
-               <div class="py-3 text-center">
-                  <p class="text-white dark:text-dark-6"
-                     :class="{'text-sm': isMobile, 'text-base': !isMobile}"
-                     >
-                     &copy; 2024 Avalon House.All Rights Reserved.
-                  </p>
-               </div>
-            </div>
-             <div class="w-full px-4 lg:w-3/12 xl:w-1/3">
-                <div class="w-full py-3 text-center justify-center flex space-x-3">
-                  <img src="{{ asset('/images/paypal.png') }}" alt="">
-                  <img src="{{ asset('/images/visa.png') }}" alt="">
-                  <img src="{{ asset('/images/mastercard.png') }}" alt="">
-                  <img src="{{ asset('/images/american.png') }}" alt="">
-                  <img src="{{ asset('/images/discover.png') }}" alt="">
-                </div>
-             </div>
-            
-             <div class="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-1/3">
-                <div class="w-full py-3">
-               
-                   <div
-                      class="flex items-center justify-center -mx-3 lg:justify-end"
-                      >
-                      <h2 class="text-white"
-                      :class="{'text-sm': isMobile, 'text-base': !isMobile}"
-                        >Follow Us: 
-                     </h2>
-                      <a
-                         href="javascript:void(0)"
-                         class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
-                         >
-                         <svg
-                            width="10"
-                            height="18"
-                            viewBox="0 0 10 18"
-                            class="fill-current"
-                            >
-                            <path
-                               d="M9.00007 6.82105H7.50006H6.96434V6.27097V4.56571V4.01562H7.50006H8.62507C8.91971 4.01562 9.16078 3.79559 9.16078 3.46554V0.550085C9.16078 0.247538 8.9465 0 8.62507 0H6.66969C4.55361 0 3.08038 1.54024 3.08038 3.82309V6.21596V6.76605H2.54466H0.72322C0.348217 6.76605 0 7.06859 0 7.50866V9.48897C0 9.87402 0.294645 10.2316 0.72322 10.2316H2.49109H3.02681V10.7817V16.31C3.02681 16.6951 3.32145 17.0526 3.75003 17.0526H6.26791C6.42862 17.0526 6.56255 16.9701 6.66969 16.8601C6.77684 16.7501 6.8572 16.5576 6.8572 16.3925V10.8092V10.2591H7.4197H8.62507C8.97328 10.2591 9.24114 10.0391 9.29471 9.709V9.6815V9.65399L9.66972 7.7562C9.6965 7.56367 9.66972 7.34363 9.509 7.1236C9.45543 6.98608 9.21436 6.84856 9.00007 6.82105Z"
-                               />
-                         </svg>
-                      </a>
-                      <a
-                         href="javascript:void(0)"
-                         class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
-                         >
-                         <svg
-                            width="19"
-                            height="15"
-                            viewBox="0 0 19 15"
-                            class="fill-current"
-                            >
-                            <path
-                               d="M16.2622 3.17878L17.33 1.93293C17.6391 1.59551 17.7234 1.33595 17.7515 1.20618C16.9085 1.67337 16.1217 1.82911 15.6159 1.82911H15.4192L15.3068 1.72528C14.6324 1.18022 13.7894 0.894714 12.8902 0.894714C10.9233 0.894714 9.37779 2.40012 9.37779 4.13913C9.37779 4.24295 9.37779 4.39868 9.40589 4.5025L9.49019 5.02161L8.90009 4.99565C5.30334 4.89183 2.35288 2.03675 1.87518 1.5436C1.08839 2.84136 1.53799 4.08722 2.01568 4.86587L2.97107 6.31937L1.45369 5.54071C1.48179 6.63084 1.93138 7.48736 2.80247 8.11029L3.56116 8.62939L2.80247 8.9149C3.28017 10.2386 4.34795 10.7837 5.13474 10.9913L6.17443 11.2509L5.19094 11.8738C3.61736 12.912 1.65039 12.8342 0.779297 12.7563C2.54957 13.8983 4.65705 14.1579 6.11823 14.1579C7.21412 14.1579 8.02901 14.0541 8.2257 13.9762C16.0936 12.2631 16.4589 5.77431 16.4589 4.47655V4.29486L16.6275 4.19104C17.5829 3.36047 17.9763 2.91923 18.2011 2.65967C18.1168 2.68563 18.0044 2.73754 17.892 2.7635L16.2622 3.17878Z"
-                               />
-                         </svg>
-                      </a>
-                      <a
-                         href="javascript:void(0)"
-                         class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
-                         >
-                         <svg
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            class="fill-current"
-                            >
-                            <path
-                               d="M8.91688 12.4995C10.6918 12.4995 12.1306 11.0911 12.1306 9.35385C12.1306 7.61655 10.6918 6.20819 8.91688 6.20819C7.14197 6.20819 5.70312 7.61655 5.70312 9.35385C5.70312 11.0911 7.14197 12.4995 8.91688 12.4995Z"
-                               />
-                            <path
-                               d="M12.4078 0.947388H5.37075C2.57257 0.947388 0.300781 3.17104 0.300781 5.90993V12.7436C0.300781 15.5367 2.57257 17.7604 5.37075 17.7604H12.3524C15.2059 17.7604 17.4777 15.5367 17.4777 12.7978V5.90993C17.4777 3.17104 15.2059 0.947388 12.4078 0.947388ZM8.91696 13.4758C6.56206 13.4758 4.70584 11.6047 4.70584 9.35389C4.70584 7.10312 6.58976 5.23199 8.91696 5.23199C11.2165 5.23199 13.1004 7.10312 13.1004 9.35389C13.1004 11.6047 11.2442 13.4758 8.91696 13.4758ZM14.735 5.61164C14.4579 5.90993 14.0423 6.07264 13.5714 6.07264C13.1558 6.07264 12.7402 5.90993 12.4078 5.61164C12.103 5.31334 11.9368 4.9337 11.9368 4.47269C11.9368 4.01169 12.103 3.65916 12.4078 3.33375C12.7125 3.00834 13.1004 2.84563 13.5714 2.84563C13.9869 2.84563 14.4302 3.00834 14.735 3.30663C15.012 3.65916 15.2059 4.06593 15.2059 4.49981C15.1782 4.9337 15.012 5.31334 14.735 5.61164Z"
-                               />
-                            <path
-                               d="M13.5985 3.82184C13.2383 3.82184 12.9336 4.12013 12.9336 4.47266C12.9336 4.82519 13.2383 5.12349 13.5985 5.12349C13.9587 5.12349 14.2634 4.82519 14.2634 4.47266C14.2634 4.12013 13.9864 3.82184 13.5985 3.82184Z"
-                               />
-                         </svg>
-                      </a>
-                      <a
-                         href="javascript:void(0)"
-                         class="px-3 hover:text-primary text-dark-7 dark:text-white/40"
-                         >
-                         <svg
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            class="fill-current"
-                            >
-                            <path
-                               d="M16.7821 0.947388H1.84847C1.14272 0.947388 0.578125 1.49747 0.578125 2.18508V16.7623C0.578125 17.4224 1.14272 18 1.84847 18H16.7257C17.4314 18 17.996 17.4499 17.996 16.7623V2.15757C18.0525 1.49747 17.4879 0.947388 16.7821 0.947388ZM5.7442 15.4421H3.17528V7.32837H5.7442V15.4421ZM4.44563 6.2007C3.59873 6.2007 2.94944 5.5406 2.94944 4.74297C2.94944 3.94535 3.62696 3.28525 4.44563 3.28525C5.26429 3.28525 5.94181 3.94535 5.94181 4.74297C5.94181 5.5406 5.32075 6.2007 4.44563 6.2007ZM15.4835 15.4421H12.9146V11.509C12.9146 10.5739 12.8864 9.33618 11.5596 9.33618C10.2045 9.33618 10.0069 10.3813 10.0069 11.4265V15.4421H7.438V7.32837H9.95046V8.45605H9.9787C10.3457 7.79594 11.1644 7.13584 12.4347 7.13584C15.0601 7.13584 15.54 8.7861 15.54 11.0414V15.4421H15.4835Z"
-                               />
-                         </svg>
-                      </a>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
-</footer> --}}
 
 @endsection
 
