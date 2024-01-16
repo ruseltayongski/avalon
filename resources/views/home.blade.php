@@ -1012,21 +1012,25 @@
          <?php
             $serviceCategoryData = [
                [
+                  "image" => "https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg",
                   "tags" => "Hot",
                   "title" => "Book",
                   "content" => "Lorem ipsum dolor amet adipiscing eiusmod.1"
                ],
                [
+                  "image" => "https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg",
                   "tags" => "New",
                   "title" => "Busuness Affairs",
                   "content" => "Lorem ipsum dolor amet adipiscing eiusmod.2"
-               ],
+               ],       
                [
+                  "image" => "https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg",
                   "tags" => "Hot",
                   "title" => "Marketing",
                   "content" => "Lorem ipsum dolor amet adipiscing eiusmod.3"
                ],
                [
+                  "image" => "https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg",
                   "tags" => "New",
                   "title" => "Accounting",
                   "content" => "Lorem ipsum dolor amet adipiscing eiusmod.4"
@@ -1039,7 +1043,7 @@
                   <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-6 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent marketing-section opacity-0" id="marketing{{ $i }}">
                      <div class="w-full mb-6 overflow-hidden rounded-md relative">
                         <img
-                           src="https://cdn.tailgrids.com/2.0/image/application/images/cards/card-10/image-01.jpg"
+                           src="{{ $row['image'] }}"
                            alt="card image"
                            class="object-cover object-center w-full h-full"
                            />
