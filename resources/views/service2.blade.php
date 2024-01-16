@@ -6,7 +6,6 @@
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: 100% 100%;
-            ;
             height: 20vh;
         }
 
@@ -22,10 +21,10 @@
             right: 0;
         }
 
-        .avalon-logo {
-            width: 50%;
-            height: 50%;
-        }
+        /* .avalon-logo {
+            width: 40%;
+            height: 40%;
+        } */
     </style>
 @endsection
 
@@ -76,23 +75,34 @@
         class="pt-[200px] pb-12 lg:pt-[140px] lg:pb-[90px] dark:bg-[#011523]">
         <div class="container mx-auto" x-data='{ services: @json($services), totalPages: {{ $totalPages }}, currentPage: {{ $page }} }'
             x-init="() => {
-                function servicesFetch(currentPage, serviceCategory) { 
+                function servicesFetch(currentPage, serviceCategory, monitor='') { 
+                    console.log(currentPage);
+
                     fetch(`{{ route('services') }}?page=${currentPage}&category=${serviceCategory}`)
                     .then(response => response.json())
                     .then(data => {
                         services = data.services
                         totalPages = data.totalPages
                         console.log(services)
-                        console.log(serviceCategory)
                     })
                     .catch(error => console.error('Error fetching data:', error));
                 }
+                function generateRandomCode(length) {
+                    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                    let result = '';
+                    for (let i = 0; i < length; i++) {
+                        const randomIndex = Math.floor(Math.random() * charset.length);
+                        result += charset.charAt(randomIndex);
+                    }
+                    return result;
+                }
                 window.servicesFetch = servicesFetch;
+                window.generateRandomCode = generateRandomCode;
             }"
         >
             <div class="-mx-4 flex flex-wrap justify-center">
                 <div class="w-full px-4">
-                    <ul class="mb-12 flex flex-wrap justify-center space-y-1 space-x-1 lg:space-x-3">
+                    <ul class="mb-12 flex flex-wrap justify-center space-x-1 lg:space-x-3 ">
                         <li>
                             <button @click="showCards = 'all', servicesFetch(1, showCards)"
                                 :class="showCards == 'all' ? activeClasses : inactiveClasses"
@@ -100,7 +110,7 @@
                                 All Services
                             </button>
                         </li>
-                        <li>
+                        <li >
                             <button @click="showCards = 'Business Affairs', servicesFetch(1, showCards) "
                                 :class="showCards == 'Business Affairs' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
@@ -148,13 +158,14 @@
                 }   
                 " >
                 <template x-for="service in services" :key="service.id">
-                    <div x-show="showCards === 'all' || showCards === service.category" class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
+                    <div x-show="service.imageLoaded" x-transition class="w-full lg:px-4 md:w-1/2 xl:w-1/3 services-section" id="services{{ $services }}">
                         <div class="relative mb-12">
                             <div class="overflow-hidden rounded-lg">
                                 <img
-                                    x-bind:src="'fileupload/services/'+service.picture"
+                                    x-bind:src="`fileupload/services/${service.picture}?img=${generateRandomCode(5)}`"
                                     alt="portfolio"
                                     class="w-full"
+                                    @load="service.imageLoaded = true"
                                 />
                             </div>
                             <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-dark-2">
@@ -261,18 +272,17 @@
                     </div>
                 </div>
                 <div  
-                x-init="() => {
-                    window.addEventListener('resize', () => {
-                        isMobile = window.innerWidth <= 600;
-                        console.log(window.innerWidth);
-                    });
-                }"
+                    x-init="() => {
+                        window.addEventListener('resize', () => {
+                            isMobile = window.innerWidth <= 600;
+                            console.log(window.innerWidth);
+                        });
+                    }"
                     x-show="cartNotification" 
                     class="fixed z-[60] w-1/2 lg:w-[30%] 2xl:w-[25%] top-5 right-0 flex items-center rounded-lg border
                      border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5"
                      :class="{ 'w-full': isMobile, '': !isMobile}"
                      >
-                
                     <div
                         class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green"
                         >
@@ -351,8 +361,8 @@
                     <ul class="-mx-[6px] flex items-center">
                         <li class="px-[6px]">
                             <a href="javascript:void(0)"
-                                x-bind:href="currentPage > 1 ? `{{ route('services', ['page' => '']) }}${currentPage - 1}` : 'javascript:void(0)'"
-                               class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
+                                x-on:click.prevent="currentPage > 1 ? currentPage = currentPage - 1 : '', servicesFetch(currentPage, showCards)"
+                                class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
                                 <span class="mr-1">
                                     <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M10.5 6.0875H2.49375L5.68125 2.84375C5.85 2.675 5.85 2.4125 5.68125 2.24375C5.5125 2.075 5.25 2.075 5.08125 2.24375L1.2 6.18125C1.03125 6.35 1.03125 6.6125 1.2 6.78125L5.08125 10.7188C5.15625 10.7937 5.26875 10.85 5.38125 10.85C5.49375 10.85 5.5875 10.8125 5.68125 10.7375C5.85 10.5687 5.85 10.3063 5.68125 10.1375L2.5125 6.93125H10.5C10.725 6.93125 10.9125 6.74375 10.9125 6.51875C10.9125 6.275 10.725 6.0875 10.5 6.0875Z" fill="currentColor" />
@@ -362,7 +372,6 @@
                             </a>
                         </li>
             
-                        <!-- Display page numbers with ellipses -->
                         <template x-for="pageNumber in Array.from({ length: totalPages }, (_, i) => i + 1)">
                             <template x-if="pageNumber === 1 || pageNumber === totalPages || (pageNumber >= currentPage - 2 && pageNumber <= currentPage + 2)">
                                 <li class="px-[6px]">
@@ -379,7 +388,7 @@
             
                         <li class="px-[6px]">
                             <a href="javascript:void(0)"
-                                x-bind:href="currentPage < totalPages ? `{{ route('services', ['page' => '']) }}${currentPage + 1}` : 'javascript:void(0)'"
+                                x-on:click.prevent="currentPage < totalPages ? currentPage = currentPage + 1 : '', servicesFetch(currentPage, showCards) "
                                 class="text-dark dark:text-white dark:hover:bg-white/5 flex h-6 items-center justify-center rounded px-3 text-xs hover:bg-[#EDEFF1]">
                                 Next
                                 <span class="ml-1">
@@ -389,6 +398,7 @@
                                 </span>
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>

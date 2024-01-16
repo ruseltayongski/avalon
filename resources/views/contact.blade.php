@@ -79,7 +79,7 @@
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
-      background-size: 100% 100%;;
+      background-size: 100% 100%;
       height: 20vh;
    }
 
@@ -126,10 +126,10 @@
       right:0;
    }
 
-   .avalon-logo {
-      width: 50%;
-      height: 50%;
-   }
+   /* .avalon-logo {
+      width: 40%;
+      height: 40%;
+   } */
 
 </style>
 

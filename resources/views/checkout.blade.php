@@ -79,7 +79,7 @@
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
-      background-size: 100% 100%;;
+      background-size: 100% 100%;
       height: 20vh;
    }
 
@@ -127,15 +127,16 @@
       right:0;
    }
 
-   .avalon-logo {
-      width: 50%;
-      height: 50%;
-   }
+   /* .avalon-logo {
+      width: 40%;
+      height: 40%;
+   } */
 </style>
 
 @extends('layouts.app')
 
 @section('content')
+
 <div
     x-data="{ isMobile: window.innerWidth <= 1024 }"
     x-init="() => {
@@ -375,9 +376,9 @@ x-init="() => {
                                  </label>
                                  <input
                                     type="text"
-                                    :value="'$'+checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"
+                                    :value="checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                    
+                                    name="totalAmount"
                                     />
                               </div>
                            </div>
@@ -479,27 +480,32 @@ x-init="() => {
                </h3>
               
                <div class="mb-10 overflow-hidden rounded-[10px] bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10">
-                  <template x-for="(cart, index) in checkout" :key="index">
-                     <div class="flex items-center mb-9">
-                        <div
-                           class="mr-6 h-[90px] w-full max-w-[80px] overflow-hidden rounded-lg sm:h-[110px] sm:max-w-[100px] border border-stroke dark:border-dark-3">
-                           <img
-                              x-bind:src="'fileupload/services/'+cart.picture"
-                              alt="product"
-                              class="object-cover object-center w-full h-full"
-                              />
+                  <template x-if="checkout && checkout.length > 0">
+                     <template x-for="(cart, index) in checkout" :key="index">
+                        <div class="flex items-center mb-9">
+                           <div class="mr-6 h-[90px] w-full max-w-[80px] overflow-hidden rounded-lg sm:h-[110px] sm:max-w-[100px] border border-stroke dark:border-dark-3">
+                              <img x-bind:src="'fileupload/services/'+cart.picture" alt="product" class="object-cover object-center w-full h-full" />
+                           </div>
+                           <div class="w-full">
+                              <p class="mb-[6px] text-base font-medium text-dark dark:text-white" x-text="cart.title"></p>
+                              <p class="text-sm font-medium text-body-color dark:text-dark-6" x-text="'$' + (parseFloat(cart.price).toLocaleString())"></p>
+                           </div>
                         </div>
-                        <div class="w-full">
-                           <p class="mb-[6px] text-base font-medium text-dark dark:text-white" x-text="cart.title"></p>
-                           <p class="text-sm font-medium text-body-color dark:text-dark-6" x-text="'$' + (parseFloat(cart.price).toLocaleString())"></span>
-                        </div>
-                     </div>
+                        
+                     </template>
+                    
                   </template>
                   <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
-                        <span x-text="'Total Amount: $'+checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"></span>
+                        <span 
+                          x-text="!checkout || checkout.length === 0 ? '' : 'Total Amount: $' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
+                        </span>
                      </p>
                   </div>
+                  <template x-if="!checkout || checkout.length === 0">
+                     <p class="text-dark">No items have been added to the cart.</p>
+                  </template>
+                  
                </div>
             </div>
          </div>

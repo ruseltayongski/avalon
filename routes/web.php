@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::get('/', function () {
     return view('home');
-})->name('home');
+})->name('homes');
 
 Route::get('/welcome', function () {
     return view('welcome');

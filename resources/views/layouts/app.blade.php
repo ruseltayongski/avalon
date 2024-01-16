@@ -3,11 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"> --}}
+    
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Avalon') }}</title>
+    <link rel="shortcut icon" type="x-icon" href="{{ asset('/images/avalon-logo.png') }}">
+
+
+    <title>{{ config('app.name', 'Avalon House') }}</title>
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -28,6 +33,12 @@
             z-index: 1000;
          
         }
+
+        .avalon-logo {
+            width: 40%;
+        }
+
+       
     </style>
     
     @yield('css')
@@ -35,7 +46,7 @@
 <body>
     <?php
         use App\Models\Carts;
-        $carts = Carts::leftJoin("services","services.id","cart.service_id")->limit(9)->get();
+        $carts = Carts::leftJoin("services","services.id","cart.service_id")->limit(0)->get();
     ?>
     @include('layouts._loading-container')
     <div id="app" x-data='{ carts: @json($carts) }'>
