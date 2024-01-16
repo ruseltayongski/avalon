@@ -521,8 +521,8 @@
         <!-- ====== Horizontal Menu Section End -->
     </div>
     
-    <div x-show="false" class="fixed z-[60] w-1/2 lg:w-[30%] 2xl:w-[25%] top-20 right-0 flex items-center rounded-lg border
-      border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5"
+    <div x-data="{ stripeNotification: '{{ session('stripe_save') }}' }" x-show="stripeNotification" class="fixed z-[60] w-1/2 lg:w-[30%] 2xl:w-[25%] top-20 right-0 flex 
+      items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5"
       :class="{ 'w-full': isMobile, '': !isMobile}">
       <div class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green">
          <svg 
@@ -551,7 +551,7 @@
             your transaction was successful
             </p>
          </div>
-         <button class="text-dark-5 dark:text-dark-6 hover:text-green" @click="cartNotification = false">
+         <button class="text-dark-5 dark:text-dark-6 hover:text-green" @click="stripeNotification = false">
                <svg 
                width="16" 
                height="16" 
