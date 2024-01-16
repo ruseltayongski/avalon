@@ -56,8 +56,8 @@
                                     <span class="block text-3xl md:text-[38px] pb-3">What We Offer</span>
                                 </h2>
                                 <p class="mx-auto mb-6 max-w-[515px] text-base leading-[1.5] text-white opacity-90">
-                                    There are many variations of passages of Lorem Ipsum but the majority have suffered in
-                                    some form.
+                                    From cutting-edge tech and digital marketing to strategic business consulting and creative book-to-screen 
+                                    adaptations, we offer a comprehensive suite of services to elevate your venture.
                                 </p>
                             </div>
                         </div>
@@ -108,24 +108,31 @@
                             </button>
                         </li>
                         <li>
-                            <button @click="showCards = 'Accounting', servicesFetch(1, showCards) "
-                                :class="showCards == 'Accounting' ? activeClasses : inactiveClasses"
+                            <button @click="showCards = 'Tech and Dev', servicesFetch(1, showCards) "
+                                :class="showCards == 'Tech and Dev' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
-                                Acctg & Admin
+                                Tech & Dev
                             </button>
                         </li>
                         <li>
-                            <button @click="showCards = 'Marketing', servicesFetch(1, showCards) "
-                                :class="showCards == 'Marketing' ? activeClasses : inactiveClasses"
+                            <button @click="showCards = 'Digital Media and Marketing', servicesFetch(1, showCards) "
+                                :class="showCards == 'Digital Media and Marketing' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
-                                Marketing
+                                Digital Media & Marketing
                             </button>
                         </li>
                         <li>
-                            <button @click="showCards = 'Book', servicesFetch(1, showCards) "
-                                :class="showCards == 'Book' ? activeClasses : inactiveClasses"
+                            <button @click="showCards = 'Book-to-film/TV', servicesFetch(1, showCards) "
+                                :class="showCards == 'Book-to-film/TV' ? activeClasses : inactiveClasses"
                                 class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
-                                Book-to-film/tv
+                                Book-to-film/TV
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="showCards = 'Book Creation', servicesFetch(1, showCards) "
+                                :class="showCards == 'Book Creation' ? activeClasses : inactiveClasses"
+                                class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8">
+                                Book Creation
                             </button>
                         </li>
                     </ul>

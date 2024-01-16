@@ -59,7 +59,7 @@
                          Our Location
                       </h5>
                       <p class="text-base text-body-color dark:text-dark-6 mobile-view">
-                         401 Broadway, 24th Floor, Orchard Cloud View, London
+                      501 South Rancho Dr. Suite D20, Las Vegas, NV 89106, United States
                       </p>
                    </div>
                 </div>
@@ -90,10 +90,10 @@
                          How Can We Help?
                       </h5>
                       <p class="mb-2 text-base text-body-color dark:text-dark-6">
-                         info@yourdomain.com
+                         info@avalonhouse.us
                       </p>
                       <p class="text-base text-body-color dark:text-dark-6">
-                         contact@yourdomain.com
+                         -
                       </p>
                    </div>
                 </div>
@@ -115,7 +115,7 @@
             </div>
              <div class="w-full px-4 lg:w-3/12 xl:w-1/3">
                 <div class="w-full py-3 text-center justify-center flex space-x-3">
-                  <img src="{{ asset('/images/paypal.png') }}" alt="">
+                  <img src="{{ asset('/images/stripe.png') }}" alt="">
                   <img src="{{ asset('/images/visa.png') }}" alt="">
                   <img src="{{ asset('/images/mastercard.png') }}" alt="">
                   <img src="{{ asset('/images/american.png') }}" alt="">

@@ -17,9 +17,9 @@ class ServicesSeeder extends Seeder
         $this->clearPictures();
         
         Services::factory()
-        ->count(4)
+        ->count(5)
         ->state([
-            'category' => 'Book',
+            'category' => 'Book-to-film/TV',
         ])
         ->create()
         ->each(function ($services) {
@@ -30,7 +30,7 @@ class ServicesSeeder extends Seeder
         });
 
         Services::factory()
-        ->count(1)
+        ->count(3)
         ->state([
             'category' => 'Business Affairs',
         ])
@@ -45,7 +45,7 @@ class ServicesSeeder extends Seeder
         Services::factory()
         ->count(5)
         ->state([
-            'category' => 'Marketing',
+            'category' => 'Digital Media and Marketing',
         ])
         ->create()
         ->each(function ($services) {
@@ -58,7 +58,20 @@ class ServicesSeeder extends Seeder
         Services::factory()
         ->count(5)
         ->state([
-            'category' => 'Accounting',
+            'category' => 'Tech and Dev',
+        ])
+        ->create()
+        ->each(function ($services) {
+            $user = User::inRandomOrder()->first();
+            $services->update([
+                'created_by' => $user->id
+            ]);
+        });
+
+        Services::factory()
+        ->count(3)
+        ->state([
+            'category' => 'Book Creation',
         ])
         ->create()
         ->each(function ($services) {

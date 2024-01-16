@@ -209,7 +209,7 @@
                            <p class="text-base text-body-color dark:text-dark-6"
                            
                            :style="isMobile ? 'color: white;' : ''">
-                           401 Broadway, 24th Floor, Orchard Cloud View, London
+                           501 South Rancho Dr. Suite D20, Las Vegas, NV 89106, United States
                           </p>
                         </div>
                      </div>
@@ -241,10 +241,10 @@
                            <p
                               class="mb-2 text-base text-body-color dark:text-dark-6"
                               :style="isMobile ? 'color: white;' : ''">
-                              info@yourdomain.com
+                              info@avalonhouse.us
                            </p>
                            <p class="text-base text-body-color dark:text-dark-6" :style="isMobile ? 'color: white;' : ''">
-                              contact@yourdomain.com
+                              -
                            </p>
                         </div>
                      </div>
