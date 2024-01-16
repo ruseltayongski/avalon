@@ -498,7 +498,7 @@ x-init="() => {
                   <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
                         <span 
-                          x-text="!checkout || checkout.length === 0 ? '' : 'Total Amount: $' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
+                        x-text="!checkout || checkout.length === 0 ? '' : 'Total Amount: $' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
                         </span>
                      </p>
                   </div>

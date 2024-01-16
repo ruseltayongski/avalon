@@ -1124,25 +1124,25 @@
          <?php
             $serviceCategoryData = [
                [
-                  "image" => asset('images/business12.jpg'),
+                  "image" => asset('images/business12.JPG'),
                   "tags" => "Hot",
                   "title" => "Book-To-Film/TV",
                   "content" => "Transform written literature into visual narratives."
                ],
                [
-                  "image" => asset('images/business13.jpg'),
+                  "image" => asset('images/business13.JPG'),
                   "tags" => "New",
                   "title" => "Business Affairs",
                   "content" => "Expertise in legal, financial, and administrative support"
                ],       
                [
-                  "image" => asset('images/business14.webp'),
+                  "image" => asset('images/business14.WEBP'),
                   "tags" => "Hot",
                   "title" => "Digital Media & Mktg",
                   "content" => "Tech to promote brands and drive business growth."
                ],
                [
-                  "image" => asset('images/business15.webp'),
+                  "image" => asset('images/business15.WEBP'),
                   "tags" => "New",
                   "title" => "Tech &  Dev",
                   "content" => "Pioneering digital and technological solutions"
