@@ -18,20 +18,20 @@ class ServicesFactory extends Factory
      */
     public function definition(): array
     {
-        $response = Http::timeout(60)->get('https://demo.tailgrids.com/templates/business/build/src/assets/images/portfolio/portfolio-01/image-05.jpg');
+/*         $response = Http::timeout(60)->get('https://demo.tailgrids.com/templates/business/build/src/assets/images/portfolio/portfolio-01/image-05.jpg');
         $image = $response->body();
 
         $filename = fake()->firstName().'.png';
         $services_picture_path = '/fileupload/services/'.$filename;
-        file_put_contents(base_path().'/public'.$services_picture_path, $image);
+        file_put_contents(base_path().'/public'.$services_picture_path, $image); */
 
         return [
             //'category' => $category,
-            'title' => fake()->company(),
-            'description' => fake()->catchPhrase(),
-            'picture' => $filename,
+         /*    'title' => fake()->company(), */
+            /* 'description' => fake()->catchPhrase(), */
+            /* 'picture' => $filename, */
             //'price' => fake()->randomNumber(2),
-            'price' => 1,
+      /*       'price' => 1, */
             'remember_token' => Str::random(10),
         ];
     }
