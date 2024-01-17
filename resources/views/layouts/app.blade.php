@@ -35,7 +35,7 @@
         }
 
         .avalon-logo {
-            width: 40%;
+            width: 63%;
         }
 
        

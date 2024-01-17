@@ -327,8 +327,8 @@
    }
 
    /* .avalon-logo {
-      width: 40%;
-      height: 40%;
+      width: 63%;
+      height: 63%;
    } */
 </style>
 @endsection
