@@ -150,7 +150,7 @@
             </div>
             <div class="lg:px-12 flex flex-wrap " 
                 x-data='{  modalShow: false, capitalizeFirstChar: function(str) { return str.charAt(0).toUpperCase() + str.slice(1); },
-                    modalOpen: false, serviceId: 0, serviceCategory: "", servicePicture: "", serviceAlone: {},
+                    modalOpen: false, serviceId: 0, serviceCategory: "", servicePicture: "",  title: "", description: "", service_feature: "", serviceAlone: {}, 
                     cartNotification: false
                 }'
                 x-init="() => {
@@ -171,7 +171,7 @@
                             <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-dark-2">
                                 <span class="mb-2 block text-sm font-semibold text-[#011523] dark:text-white" x-text="capitalizeFirstChar(service.category)"></span>
                                 <h3 class="mb-4 text-xl font-bold text-dark dark:text-white" x-text="service.title"></h3>
-                                <button type="button" @click="modalOpen = true, serviceCategory = service.category, servicePicture = service.picture, serviceId = service.id, serviceAlone = service" 
+                                <button type="button" @click="modalOpen = true, service_feature = service.service_feature, description = service.description, title = service.title, servicePicture = service.picture, serviceId = service.id, serviceAlone = service" 
                                     class="
                                     inline-block rounded-md border py-3 px-7 text-sm font-normal text-body-color transition hover:border-[#011523] 
                                     hover:bg-[#011523] hover:text-white dark:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-dark
@@ -209,29 +209,21 @@
                                     style="height: 50vh;"
                                    />
                             </div>
-                            <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[24px]" x-text="capitalizeFirstChar(serviceCategory)"></h3>
-                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color" >
-                                This is involves the systematic recording, summarizing, and reporting of financial
-                                transaction. It includes tasks like bookkeeping , preparation of financial statements
-                                (balance sheets, income statements), and ensuring compliance with financial regulations.
+                            <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[24px]" x-text="capitalizeFirstChar(title)"></h3>
+                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color" x-text="description">
+                               {{--  This is involves the systematic recording, summarizing, and reporting of financial
+                                transaction. It includes tasks like bookkeeping , preparation of financial statements   
+                                (balance sheets, income statements), and ensuring compliance with financial regulations. --}}
                             </p>
-                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color" >
-                                Financial Accounting is a critical aspect of any business, providing the necessary
+                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color">
+                              {{--   Financial Accounting is a critical aspect of any business, providing the necessary
                                 information to stakeholders about the company's financial health and performance. In
-                                addition to the systematic recording, summarizing, and reporting of financial transaction/
+                                addition to the systematic recording, summarizing, and reporting of financial transaction/ --}}
                             </p>
                             <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[18px]">
                                 Service Features
                             </h3>
-                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color leading-8">
-                                Book Keeping<br>
-                                Preparation of Financial Statement<br>
-                                Ensuring Compliance with Financial Regulations<br>
-                                Accounts Receivable and Payable Management<br>
-                                Financial Analysis and Interpretation<br>
-                                Budgeting and Forecasting<br>
-                                Inventory Management
-                            </p>
+                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color leading-8" x-html="service_feature"></p>
                             <input x-model="serviceId" type="hidden" placeholder="Enter task">
                             <div class="flex items-center justify-start space-x-1">
                                 <button

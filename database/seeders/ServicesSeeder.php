@@ -14,12 +14,25 @@ class ServicesSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->clearPictures();
+        //$this->clearPictures();
         
         Services::factory()
-        ->count(5)
+        ->count(1)
         ->state([
             'category' => 'Book-to-film/TV',
+            'title' => 'Test',
+            'description' => 'This is involves the systematic recording, summarizing, and reporting of financial
+            transaction. It includes tasks like bookkeeping , preparation of financial statements
+            (balance sheets, income statements), and ensuring compliance with financial regulations',
+            'service_feature' => 'Book Keeping<br>
+                                  Preparation of Financial Statement<br>
+                                  Ensuring Compliance with Financial Regulations<br>
+                                  Accounts Receivable and Payable Management<br>
+                                  Financial Analysis and Interpretation<br>
+                                  Budgeting and Forecasting<br>
+                                  Inventory Management',
+            'price' => 1,
+            'picture' => 'service1.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -27,59 +40,8 @@ class ServicesSeeder extends Seeder
             $services->update([
                 'created_by' => $user->id
             ]);
-        });
+        }); 
 
-        Services::factory()
-        ->count(3)
-        ->state([
-            'category' => 'Business Affairs',
-        ])
-        ->create()
-        ->each(function ($services) {
-            $user = User::inRandomOrder()->first();
-            $services->update([
-                'created_by' => $user->id
-            ]);
-        });
-
-        Services::factory()
-        ->count(5)
-        ->state([
-            'category' => 'Digital Media and Marketing',
-        ])
-        ->create()
-        ->each(function ($services) {
-            $user = User::inRandomOrder()->first();
-            $services->update([
-                'created_by' => $user->id
-            ]);
-        });
-
-        Services::factory()
-        ->count(5)
-        ->state([
-            'category' => 'Tech and Dev',
-        ])
-        ->create()
-        ->each(function ($services) {
-            $user = User::inRandomOrder()->first();
-            $services->update([
-                'created_by' => $user->id
-            ]);
-        });
-
-        Services::factory()
-        ->count(3)
-        ->state([
-            'category' => 'Book Creation',
-        ])
-        ->create()
-        ->each(function ($services) {
-            $user = User::inRandomOrder()->first();
-            $services->update([
-                'created_by' => $user->id
-            ]);
-        });
     }
 
     public function clearPictures() {

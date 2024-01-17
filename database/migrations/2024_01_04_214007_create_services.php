@@ -16,9 +16,10 @@ return new class extends Migration
             $table->bigInteger('created_by')->nullable();
             $table->string('category')->nullable();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->text('picture')->nullable();
             $table->decimal('price', 8, 2)->nullable();
+            $table->longText('service_feature')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
