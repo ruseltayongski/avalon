@@ -100,7 +100,8 @@
                 window.generateRandomCode = generateRandomCode;
             }"
         >
-            <div class="-mx-4 my-8 flex flex-wrap justify-center">
+            <div class="-mx-4 flex flex-wrap justify-center"
+                  :class="{ 'my-8': isMobile, '': !isMobile}">
                 <div class="w-full px-4">
                     <ul class="mb-12 flex flex-wrap justify-center space-x-1 lg:space-x-3 ">
                         <li>
