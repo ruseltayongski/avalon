@@ -244,7 +244,7 @@
                               info@avalonhouse.us
                            </p>
                            <p class="text-base text-body-color dark:text-dark-6" :style="isMobile ? 'color: white;' : ''">
-                              -
+                              +1(888) 909-5679
                            </p>
                         </div>
                      </div>
