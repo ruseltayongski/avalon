@@ -17,26 +17,26 @@
                    <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive'"
                        id="navbarToggler"
                        class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden">
-                       <span class="relative my-[6px] block h-[2px] w-[30px] bg-white"></span>
-                       <span class="relative my-[6px] block h-[2px] w-[30px] bg-white"></span>
-                       <span class="relative my-[6px] block h-[2px] w-[30px] bg-white"></span>
+                       <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark"></span>
+                       <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark"></span>
+                       <span class="relative my-[6px] block h-[2px] w-[30px] bg-dark"></span>
                    </button>
                    <nav :class="!navbarOpen && 'hidden'" id="navbarCollapse"
-                       class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11">
+                       class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-dark dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:dark:bg-transparent lg:shadow-none xl:ml-11">
                        <ul class="block lg:flex ">
                            <li>
                                <a href="{{ asset('/') }}"
-                                   class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
+                                   class="flex py-2 text-base font-medium text-white dark:text-dark hover:text-white lg:ml-10 lg:inline-flex lg:text-dark">
                                    Home
                                </a>
                            </li>
                            <li>
                             @if(request()->is('/'))
-                                <a href="#aboutUs" class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
+                                <a href="#aboutUs" class="flex py-2 text-base font-medium text-white dark:text-dark hover:text-white lg:ml-10 lg:inline-flex lg:text-dark">
                                     About Us
                                 </a>
                             @else 
-                                <a href="{{ url('/#aboutUs') }}" class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
+                                <a href="{{ url('/#aboutUs') }}" class="flex py-2 text-base font-medium text-white dark:text-dark hover:text-white lg:ml-10 lg:inline-flex lg:text-dark">
                                     About Us
                                 </a>
                             @endif
@@ -45,13 +45,13 @@
 
                            <li>
                                <a href="{{ route('services') }}"
-                                   class="flex py-2 text-base font-medium text-dark dark:text-white hover:text-dark lg:ml-10 lg:inline-flex lg:text-white">
+                                   class="flex py-2 text-base font-medium text-white dark:text-dark hover:text-white lg:ml-10 lg:inline-flex lg:text-dark">
                                    Services
                                </a>
                            </li>
                            <li class="flex" :class="!navbarOpen && 'hidden'" id="navbarCollapse">
                                 <a href="{{ route('contact') }}"
-                                class="py-3 justify-end text-base test font-medium bg-dark dark:bg-white dark:text-dark rounded-md shadow-1 dark:shadow-none px-7 text-white hover:bg-gray-2 hover:text-body-color">
+                                class="py-3 justify-end text-base test font-medium bg-white dark:bg-dark dark:text-white rounded-md shadow-1 dark:shadow-none px-7 text-dark hover:bg-gray-2 hover:text-body-color">
                                 Contact Us
                              </a>
                            </li>

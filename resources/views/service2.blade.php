@@ -210,7 +210,7 @@
                                    />
                             </div>
                             <h3 class="flex mb-5 text-lg font-semibold text-dark dark:text-white sm:text-xl xl:text-[24px]" x-text="capitalizeFirstChar(title)"></h3>
-                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color" x-text="description">
+                            <p class="text-sm mb-7 dark:text-dark-6 text-body-color" x-html="description">
                                {{--  This is involves the systematic recording, summarizing, and reporting of financial
                                 transaction. It includes tasks like bookkeeping , preparation of financial statements   
                                 (balance sheets, income statements), and ensuring compliance with financial regulations. --}}

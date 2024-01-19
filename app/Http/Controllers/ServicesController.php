@@ -20,7 +20,7 @@ class ServicesController extends Controller
         }
 
         $services = $services->get();
-    
+
         // Calculate total pages
         $totalPages = new Services();
         if($request->category && $request->category != 'all') {

@@ -1,7 +1,7 @@
 @section('css')
 <style>
    .bacground-image-hero { 
-      background: url("{{ asset('/images/v2.png') }}") no-repeat center center fixed; 
+      background: url("{{ asset('/images/banner.png') }}") no-repeat center center fixed; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -355,7 +355,7 @@
             <div class="p-4 text-center ">
                {{-- <div class="mb-16 max-w-[500px] lg:mb-0"> --}}
                <div id="hero-title">   
-                  <h1 class="mb-12 text-3xl font-bold !leading-[1.208] text-white sm:text-4xl lg:text-[42px] 2xl:text-6xl">
+                  <h1 class="mb-12 text-3xl font-bold !leading-[1.208] text-dark sm:text-4xl lg:text-[42px] 2xl:text-6xl">
                      Empowering your<br>            
                      business presence.
                   </h1>

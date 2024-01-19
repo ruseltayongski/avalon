@@ -59,7 +59,7 @@
                          Our Location
                       </h5>
                       <p class="text-base text-body-color dark:text-dark-6 mobile-view">
-                      501 South Rancho Dr. Suite D20, Las Vegas, NV 89106, United States
+                      1050 E Flamingo Road s107 1501 Las Vegas, NV 89119 United States
                       </p>
                    </div>
                 </div>
