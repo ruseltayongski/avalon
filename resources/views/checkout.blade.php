@@ -169,7 +169,8 @@ x-init="() => {
             <div class="mb-12 lg:mb-0">
                <h3
                   class="mb-8 text-lg font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]
-                  animate-fade-down animate-duration-1000 animate-delay-500
+                  {{-- animate-fade-down animate-duration-1000 animate-delay-500 --}}
+                  animate-trigger-checkout
                   "
                   >
                   Payment Information
@@ -177,7 +178,7 @@ x-init="() => {
                <div
                   class="mb-10 overflow-hidden rounded-[10px] {{-- border border-stroke dark:border-dark-3 --}}
                    bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10
-                  
+                    animate-trigger-checkout
                    "
                   >
                   <h4
@@ -475,13 +476,13 @@ x-init="() => {
          <div class="w-full px-4 lg:w-5/12 xl:w-4/12">
             <div>
                <h3 class="mb-8 text-xl font-semibold text-white dark:text-white sm:leading-[40px] sm:text-[28px]
-               animate-fade-down animate-duration-1000 animate-delay-500
+              {{--  animate-fade-down animate-duration-1000 animate-delay-500 --}} animate-trigger-checkout 
                   "
                   :class="{ 'text-dark': isMobile, 'text-white': !isMobile}">
                   Services Summary
                </h3>
               
-               <div class="mb-10 overflow-hidden rounded-[10px] bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10">
+               <div class="mb-10 overflow-hidden rounded-[10px] bg-white dark:bg-dark-2 shadow-testimonial-6 dark:shadow-box-dark py-10 px-6 sm:px-10 animate-trigger-checkout">
                   <template x-if="checkout && checkout.length > 0">
                      <template x-for="(cart, index) in checkout" :key="index">
                         <div class="flex items-center mb-9">
