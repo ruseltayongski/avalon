@@ -104,8 +104,6 @@
             if(index === 1 || index === 3) {
                 element.classList.add('animate-fade-down');
             }
-           
-
         });
       }, 3000);
     });
