@@ -156,16 +156,16 @@
       ></div>
    <div class="container mx-auto">
       <div class="flex flex-wrap items-center xs:-mx-4">
-         <div class="w-full px-4 lg:w-6/12 xl:w-7/12">
+         <div class="w-full px-4 lg:w-6/12 xl:w-7/12 animate-trigger-contact">
             <div class="mb-[60px] lg:mb-[100px] xl:mb-[150px]">
                <span
-                  class="block mb-6 text-base font-medium text-white dark:text-white animate-fade-right animate-duration-1000 animate-delay-300"
+                  class="block mb-6 text-base font-medium text-white dark:text-white {{-- animate-fade-right animate-duration-1000 animate-delay-300 --}}"
                   >
                CONTACT US
                </span>
                <h2 
            
-                  class="text-[35px] font-semibold leading-tight text-white dark:text-white animate-fade-up animate-duration-1000 animate-delay-500"
+                  class="text-[35px] font-semibold leading-tight text-white dark:text-white {{-- animate-fade-up animate-duration-1000 animate-delay-500 --}}"
                   >
                   Let’s talk about <br />
                   your plans.
@@ -254,7 +254,7 @@
          </div>
          <div class="w-full px-4 lg:w-6/12 xl:w-5/12 opacity-0" id="sendUsMessage">
             <div
-               class="xl:p-[60px] rounded-lg bg-white py-12 px-8 shadow-3 dark:bg-dark-2 sm:p-[60px] lg:px-12 animate-fade-up animate-duration-1000 animate-delay-500"
+               class="xl:p-[60px] rounded-lg bg-white py-12 px-8 shadow-3 dark:bg-dark-2 sm:p-[60px] lg:px-12 {{-- animate-fade-up animate-duration-1000 animate-delay-500 --}} animate-trigger"
                >
                <h3
                   class="mb-8 text-2xl font-semibold text-dark dark:text-white sm:text-[28px]"

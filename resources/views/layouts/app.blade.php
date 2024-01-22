@@ -64,20 +64,50 @@
     }
     window.addEventListener('load', function() {
         var loadingContainer = document.getElementById('loadingContainer');
+        setTimeout(() => {
         loadingContainer.style.display = 'none';
+
         var heroTitle = document.getElementById('hero-title');
-        if(heroTitle) {
+        if (heroTitle) {
             heroTitle.classList.add("animate-fade-up");
         }
+
         var heroIconDelay = 0;
-        for(var i=0; i<=13; i++) {
-            var heroIcon = document.getElementById('hero-icon'+i);
-            if(heroIcon) {
+        for (var i = 0; i <= 13; i++) {
+            var heroIcon = document.getElementById('hero-icon' + i);
+            if (heroIcon) {
                 heroIcon.classList.add("animate-fade-right");
-                heroIcon.classList.add("animate-delay-"+heroIconDelay);
+                heroIcon.classList.add("animate-delay-" + heroIconDelay);
                 heroIconDelay += 25;
             }
         }
+
+        var animateContact = document.querySelector('.animate-trigger-contact');
+        var animateServices = document.querySelector('.animate-trigger');
+        var animateCheckout = document.querySelectorAll('.animate-trigger-checkout');
+        if(animateServices) {
+            animateServices.classList.add('animate-fade-up');
+        }
+        if(animateContact) {
+            animateContact.classList.add('animate-fade-right');
+        }
+        
+        animateCheckout.forEach(function(element, index) {
+            if (index === 0) {
+                element.classList.add('animate-fade-right');
+            }
+
+            if (index === 2) {
+                element.classList.add('animate-fade-left');
+            }
+
+            if(index === 1 || index === 3) {
+                element.classList.add('animate-fade-down');
+            }
+           
+
+        });
+      }, 2000);
     });
 </script>
 </html>
