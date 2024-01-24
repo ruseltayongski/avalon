@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ServicesSeeder::class,
             FinanceServicesSeeder::class,
+            PromoCodeSeeder::class,
         ]);
     }
 }
