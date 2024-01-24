@@ -16,7 +16,7 @@ class StripeController extends Controller
     {
         if(!Customer::where("email_one",$request->email1)->exists()) {
             $customer = new Customer();
-            $customer->created_by = 1;
+            $customer->processed_by = 1;
             $customer->fullname = $request->fullName;
             $customer->email_one = $request->email1;
             $customer->email_two = $request->email2;
@@ -31,51 +31,53 @@ class StripeController extends Controller
         }
 
 
-        \Stripe\Stripe::setApiKey(config('stripe.sk'));
-
-        $session = \Stripe\Checkout\Session::create([
-            'line_items'  => [
-                [
-                    'price_data' => [
-                        'currency'     => 'USD',
-                        'product_data' => [
-                            'name' => 'Total Amount',
-                        ],
-                        'unit_amount'  => $request->totalAmount * 100,
-                    ],
-                    'quantity'   => 1,
-                ],
-            ],
-            'mode'        => 'payment',
-            'success_url' => route('homes'),
-            'cancel_url'  => route('checkout'),
-        ]);
-        
-
-        // $line_items = [];
-        // foreach(json_decode($request->checkout, true) as $row) {
-        //     $line_items[] = [
-        //         'price_data' => [
-        //             'currency'     => 'USD',
-        //             'product_data' => [
-        //                 'name' => ucfirst($row['category']),
-        //             ],
-        //             // 'unit_amount'  => $row['price'] * 100,
-        //             'unit_amount'  => $request->totalAmount,
-        //         ],
-        //         'quantity'   => 1,
-        //     ];
-        // }
-
         // \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
         // $session = \Stripe\Checkout\Session::create([
-        //     'line_items'  => $line_items,
+        //     'line_items'  => [
+        //         [
+        //             'price_data' => [
+        //                 'currency'     => 'USD',
+        //                 'product_data' => [
+        //                     'name' => 'Total Amount',
+        //                 ],
+        //                 'unit_amount'  => str_replace(',', '', strval($request->totalAmount)) * 100,
+        //             ],
+        //             'quantity'   => 1,
+        //         ],
+        //     ],
         //     'mode'        => 'payment',
         //     'success_url' => route('homes'),
         //     'cancel_url'  => route('checkout'),
         // ]);
+        
 
-        return redirect()->away($session->url)->with('stripe_save', true);;
+        $line_items = [];
+        foreach(json_decode($request->checkout, true) as $row) {
+            $line_items[] = [
+                'price_data' => [
+                    'currency'     => 'USD',
+                    'product_data' => [
+                        'name' => ucfirst($row['title']),
+                    ],
+                    'unit_amount'  => (float)str_replace(',', '', strval($row['price'])) * 100,
+                ],
+                'quantity'   => 1,
+            ];
+        }
+
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+
+
+        $session = \Stripe\Checkout\Session::create(    
+            [
+                'line_items'  => $line_items,
+                'mode'        => 'payment',
+                'success_url' => route('homes'),
+                'cancel_url'  => route('checkout'),
+            ]
+        );
+
+        return redirect()->away($session->url)->with('stripe_save', true);
     }
 }

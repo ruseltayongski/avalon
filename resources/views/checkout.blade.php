@@ -158,6 +158,14 @@ x-init="() => {
       isMobile = window.innerWidth <= 600;
       console.log(window.innerWidth);
    });
+
+   function updateValue(input) {
+      let sanitizedValue = input.value.replace(/[^0-9.,]/g, '');
+      sanitizedValue = sanitizedValue.replace(/([.,])+/g, '$1');
+      input.value = sanitizedValue;
+   }
+
+   window.updateValue = updateValue;
 }">
    <div class="absolute top-0 left-0 z-[-1] h-1/2 w-full bg-[#011523] dark:bg-dark-3"></div>
    <div class="container mx-auto">
@@ -379,7 +387,9 @@ x-init="() => {
                                  </label>
                                  <input
                                     type="text"
+                                    oninput="updateValue(this)"
                                     :value="checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"
+                                    pattern="[0-9,]*"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     name="totalAmount"
                                     />
