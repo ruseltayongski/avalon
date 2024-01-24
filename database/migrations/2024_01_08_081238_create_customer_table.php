@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('customer', function (Blueprint $table) {
             $table->id();
             $table->string('fullname')->nullable();
-            $table->string('email_one')->nullable()->unique();
-            $table->string('email_two')->nullable()->unique();
+            $table->string('email_one')->nullable();
+            $table->string('email_two')->nullable();
             $table->string('billing_address')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->bigInteger('processed_by')->nullable();
             $table->bigInteger('service_id')->nullable();
             $table->string('status')->nullable();
-            $table->string('platform')->nullable();
+            $table->decimal('subtotal', 20, 2)->nullable();
             $table->decimal('total_amount', 20, 2)->nullable();
             $table->timestamps();
         });
