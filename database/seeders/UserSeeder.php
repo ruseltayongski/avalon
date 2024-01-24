@@ -15,6 +15,33 @@ class UserSeeder extends Seeder
     {
         User::factory()
          ->count(1)
+         ->state([
+            'email' => 'admin1@gmail.com'
+         ])
+        ->create();
+        User::factory()
+         ->count(1)
+         ->state([
+            'email' => 'admin2@gmail.com'
+         ])
+        ->create();
+        User::factory()
+         ->count(1)
+         ->state([
+            'email' => 'admin3@gmail.com'
+         ])
+        ->create();
+        User::factory()
+         ->count(1)
+         ->state([
+            'email' => 'admin4@gmail.com'
+         ])
+        ->create();
+        User::factory()
+         ->count(1)
+         ->state([
+            'email' => 'admin5@gmail.com'
+         ])
         ->create();
     }
 }
