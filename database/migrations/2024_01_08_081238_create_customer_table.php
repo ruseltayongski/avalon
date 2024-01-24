@@ -21,9 +21,11 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('post_code')->nullable();
             $table->string('payment_type')->nullable();
-            $table->bigInteger('created_by')->nullable();
+            $table->bigInteger('processed_by')->nullable();
             $table->bigInteger('service_id')->nullable();
             $table->string('status')->nullable();
+            $table->string('platform')->nullable();
+            $table->decimal('total_amount', 20, 2)->nullable();
             $table->timestamps();
         });
     }
