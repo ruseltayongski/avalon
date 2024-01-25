@@ -14,51 +14,58 @@ class StripeController extends Controller
 
     public function session(Request $request)
     {
-        \Stripe\Stripe::setApiKey(config('stripe.sk'));
-        return \Stripe\Coupon::all();
-        if(!Customer::where("email_one",$request->email1)->exists()) {
-            $customer = new Customer();
-            $customer->processed_by = 1;
-            $customer->fullname = $request->fullName;
-            $customer->email_one = $request->email1;
-            $customer->email_two = $request->email2;
-            $customer->billing_address = $request->billingAddress;
-            $customer->country = $request->country;
-            $customer->city = $request->city;
-            $customer->post_code = $request->postCode;
-            $customer->payment_type = $request->typeOfPayment;
-            $customer->service_id = $request->serviceId;
-            $customer->status = "pending";
-            $customer->save();
-        }
+         \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        // $coupon = \Stripe\Coupon::create([
+        //     'amount_off' => 500 * 100,
+        //     'currency' => 'usd',
+        //     'duration' => 'once',
+        // ]);
+        //return \Stripe\Coupon::retrieve("FKtjYFyZ");
+        //return \Stripe\Coupon::all();
 
-        $line_items = [];
-        foreach(json_decode($request->checkout, true) as $row) {
-            $line_items[] = [
-                'price_data' => [
-                    'currency'     => 'USD',
-                    'product_data' => [
-                        'name' => ucfirst($row['title']),
-                    ],
-                    'unit_amount'  => (float)str_replace(',', '', strval($row['price'])) * 100,
-                ],
-                'quantity'   => 1,
-            ];
-        }
+        // if(!Customer::where("email_one",$request->email1)->exists()) {
+        //     $customer = new Customer();
+        //     $customer->processed_by = 1;
+        //     $customer->fullname = $request->fullName;
+        //     $customer->email_one = $request->email1;
+        //     $customer->email_two = $request->email2;
+        //     $customer->billing_address = $request->billingAddress;
+        //     $customer->country = $request->country;
+        //     $customer->city = $request->city;
+        //     $customer->post_code = $request->postCode;
+        //     $customer->payment_type = $request->typeOfPayment;
+        //     $customer->service_id = $request->serviceId;
+        //     $customer->status = "pending";
+        //     $customer->save();
+        // }
 
-        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        // $line_items = [];
+        // foreach(json_decode($request->checkout, true) as $row) {
+        //     $line_items[] = [
+        //         'price_data' => [
+        //             'currency'     => 'USD',
+        //             'product_data' => [
+        //                 'name' => ucfirst($row['title']),
+        //             ],
+        //             'unit_amount'  => (float)str_replace(',', '', strval($row['price'])) * 100,
+        //         ],
+        //         'quantity'   => 1,
+        //     ];
+        // }
+
+        // \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
 
-        $session = \Stripe\Checkout\Session::create(    
-            [
-                'line_items'  => $line_items,
-                'mode'        => 'payment',
-                'success_url' => route('homes'),
-                'cancel_url'  => route('checkout'),
-            ]
-        );
+        // $session = \Stripe\Checkout\Session::create(    
+        //     [
+        //         'line_items'  => $line_items,
+        //         'mode'        => 'payment',
+        //         'success_url' => route('homes'),
+        //         'cancel_url'  => route('checkout'),
+        //     ]
+        // );
 
-        return redirect()->away($session->url)->with('stripe_save', true);
+        // return redirect()->away($session->url)->with('stripe_save', true);
 
 
         //for total amount only
@@ -118,32 +125,41 @@ class StripeController extends Controller
         // return redirect()->away($session->url)->with('stripe_save', true);
 
 
-        //for discout
-        // $line_items = [];
-        // foreach (json_decode($request->checkout, true) as $row) {
-        //     $price = (float)str_replace(',', '', strval($row['price'])) * 100; // Convert to cents
-        //     $line_items[] = [
-        //         'price_data' => [
-        //             'currency' => 'USD',
-        //             'product_data' => [
-        //                 'name' => ucfirst($row['title']),
-        //             ],
-        //             'unit_amount' => $price,
-        //         ],
-        //         'quantity' => 1,
-        //     ];
-        // }
+        //for discount
+        $line_items = [];
+        foreach (json_decode($request->checkout, true) as $row) {
+            $price = (float)str_replace(',', '', strval($row['price'])) * 100; // Convert to cents
+            $line_items[] = [
+                'price_data' => [
+                    'currency' => 'USD',
+                    'product_data' => [
+                        'name' => ucfirst($row['title']),
+                    ],
+                    'unit_amount' => $price,
+                ],
+                'quantity' => 1,
+            ];
+        }
 
-        // \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
-        // $session = \Stripe\Checkout\Session::create([
-        //     'line_items' => $line_items,
-        //     'mode' => 'payment',
-        //     'success_url' => route('homes'),
-        //     'cancel_url' => route('checkout'),
-        //     'discounts' => [['coupon' => 'ECAWMBfp']], // Apply the coupon
-        // ]);
+        $coupon = \Stripe\Coupon::create([
+            'amount_off' => (5000 + 2000) * 100,
+            'currency' => 'usd',
+            'duration' => 'once',
+        ]);
 
-        // return redirect()->away($session->url)->with('stripe_save', true);
+        $session = \Stripe\Checkout\Session::create([
+            'line_items' => $line_items,
+            'mode' => 'payment',
+            'success_url' => route('homes'),
+            'cancel_url' => route('checkout'),
+            'discounts' => [['coupon' => $coupon->id]]
+        ]);
+
+        return redirect()->away($session->url)->with('stripe_save', true);
+
     }
+    
+
 }
