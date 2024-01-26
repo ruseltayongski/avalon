@@ -14,10 +14,10 @@
 
     <title>{{ config('app.name', 'Avalon House') }}</title>
 
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css','resources/js/theme-switcher.js'])
+    @vite(['resources/css/app.css','resources/js/theme-switcher.js', 'resources/js/alpine.js'])
 
     <style>
         .loading-container {
@@ -37,8 +37,6 @@
         .avalon-logo {
             width: 63%;
         }
-
-       
     </style>
     
     @yield('css')
