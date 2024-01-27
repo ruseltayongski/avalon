@@ -4,6 +4,11 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/js/alpine.js": {
+    "file": "assets/alpine-507196b0.js",
+    "isEntry": true,
+    "src": "resources/js/alpine.js"
+  },
   "resources/js/app.js": {
     "file": "assets/app-204da0d6.js",
     "isEntry": true,
