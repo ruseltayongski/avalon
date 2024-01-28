@@ -152,8 +152,8 @@
 
 </div>
 
-<section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]"  x-data="{ isMobile: window.innerWidth <= 600 }"
-x-init="() => {
+<section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]"  x-data="{ isMobile: window.innerWidth <= 600, notFoundPromoCode: true }"
+   x-init="() => {
    window.addEventListener('resize', () => {
       isMobile = window.innerWidth <= 600;
       console.log(window.innerWidth);
@@ -333,7 +333,7 @@ x-init="() => {
                               </div>
                            </div>
 
-                           <div class="w-full px-4 md:w-1/3">
+                           <div class="w-full px-4">
                               <div class="mb-5">
                                  <label
                                     for=""
@@ -377,7 +377,7 @@ x-init="() => {
                                  </div>
                               </div>
                            </div>
-                           <div class="w-full px-4 md:w-1/2">
+                           {{-- <div class="w-full px-4 md:w-1/2">
                               <div class="mb-5">
                                  <label
                                     for=""
@@ -393,6 +393,30 @@ x-init="() => {
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     name="totalAmount"
                                     />
+                              </div>
+                           </div> --}}
+                           <div class="w-full px-4">
+                              <div class="mb-5">
+                                 <label
+                                    for=""
+                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
+                                    >
+                                    Promo Code
+                                 </label>
+                                 <div class="flex items-center">
+                                    <input
+                                       type="text"
+                                       class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                       :class="{ 'border-red text-red focus:border-red active:border-red' : notFoundPromoCode }"
+                                       name="discount"
+                                    />
+                                    <button
+                                       type="submit"
+                                       class="ml-2 px-4 py-2 bg-[#011523] text-white rounded-md hover:bg-[#02405F] focus:outline-none focus:shadow-outline-blue active:bg-[#011523]"
+                                    >
+                                       check
+                                    </button>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -506,13 +530,17 @@ x-init="() => {
                         </div>
                         
                      </template>
-                    
                   </template>
                   <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
-                        <span 
-                        x-text="!checkout || checkout.length === 0 ? '' : 'Total Amount: $' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
+                        Sub Total:
+                        <span x-text="!checkout || checkout.length === 0 ? '' : '$' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
                         </span>
+                     </p>
+                  </div>
+                  <div class="pt-5 border-t border-stroke dark:border-dark-3">
+                     <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
+                        Total Amount:<span>$15,500</span>
                      </p>
                   </div>
                   <template x-if="!checkout || checkout.length === 0">
