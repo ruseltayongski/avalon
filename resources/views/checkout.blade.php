@@ -196,18 +196,15 @@
                   </h4>
                   <div x-data="{ 
                         cartNotification: false,
-                        formData: {
-                        fullName: '',
-                        email1: '',
-                        email2: '',
-                        billingAddress: '',
-                        country: '',
-                        city: '',
-                        postCode: '',
-                        typeOfPayment: '',
-                        totalAmount: ''
-                        },
-                        
+                        totalAmount: '',
+                        promoCodes: ['', ''], 
+                        addPromoCode() { this.promoCodes.push(''); },
+                        clearIfDuplicate(index) {
+                           const value = this.promoCodes[index];
+                           if (this.promoCodes.filter(code => code === value).length > 1) {
+                              this.promoCodes[index] = '';
+                           }
+                        }
                      }">
                      <form method="POST" action="{{ route('stripe.session') }}" class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
                         @csrf
@@ -397,37 +394,42 @@
                            </div> --}}
                            <div class="w-full px-4">
                               <div class="mb-5">
-                                 <label
-                                    for=""
-                                    class="mb-2.5 block text-base font-medium text-dark dark:text-white"
-                                    >
-                                    Promo Code
+                                 <label for="" class="mb-2.5 block text-base font-medium text-dark dark:text-white">
+                                 Promo Code
                                  </label>
-                                 <div class="flex items-center">
+                              </div>
+                           </div>
+                           <template x-for="(promoCode, index) in promoCodes" :key="index">
+                              <div class="w-full px-4 md:w-1/2">
+                                 <div class="mb-5">
                                     <input
                                        type="text"
                                        class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                       :class="{ 'border-red text-red focus:border-red active:border-red' : notFoundPromoCode }"
-                                       name="discount"
-                                    />
-                                    <button
-                                       type="submit"
-                                       class="ml-2 px-4 py-2 bg-[#011523] text-white rounded-md hover:bg-[#02405F] focus:outline-none focus:shadow-outline-blue active:bg-[#011523]"
-                                    >
-                                       check
-                                    </button>
+                                       x-model="promoCodes[index]"
+                                       name="promoCode[]"
+                                       @input="clearIfDuplicate(index)"
+                                       />
                                  </div>
                               </div>
-                           </div>
+                           </template>
                         </div>
-                        <button {{-- @click="cartNotification = true" --}} 
-                           class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
-                           :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
-                           {{-- x-on:click="submit" --}}
-                           type="submit"
-                           >
-                           Pay Now
-                        </button>
+                        <div class="flex items-center justify-center">
+                           <button
+                              class="flex items-center justify-center w-1/2 mx-16 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
+                              :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
+                              type="submit"
+                              >
+                              Pay Now
+                           </button>
+                           <button
+                              class="flex items-center justify-center w-1/2 mx-16 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
+                              :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
+                              type="button"
+                              @click="addPromoCode"
+                              >
+                              Add Promo Code
+                           </button>
+                        </div>
                         <div x-show="cartNotification"
                            class="fixed z-[60] w-full lg:w-[30%] bottom-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
                            <div class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green">
@@ -533,16 +535,16 @@
                   </template>
                   <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
-                        Sub Total:
+                        Total Amount:
                         <span x-text="!checkout || checkout.length === 0 ? '' : '$' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
                         </span>
                      </p>
                   </div>
-                  <div class="pt-5 border-t border-stroke dark:border-dark-3">
+                  {{-- <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
                         Total Amount:<span>$15,500</span>
                      </p>
-                  </div>
+                  </div> --}}
                   <template x-if="!checkout || checkout.length === 0">
                      <p class="text-dark">No items have been added to the cart.</p>
                   </template>

@@ -31,11 +31,7 @@ Route::get('/contact', function () {
 //     return view('service2');
 // })->name('service2');
 
-Route::get('/checkout', function () {
-    return view('checkout');
-})->name('checkout');
-
-
+Route::get('checkout', [App\Http\Controllers\StripeController::class, 'checkout'])->name('checkout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index'])->name('services');
