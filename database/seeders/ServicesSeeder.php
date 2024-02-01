@@ -2896,6 +2896,92 @@ class ServicesSeeder extends Seeder
          ->count(1)
          ->state([
              'category' => 'Digital Media and Marketing',
+             'title' => 'Book Display L.A. Festival of Books',
+             'description' => 'An exhibition of a wide range of books from various genres available for the public to view.
+             ',
+             'service_feature' => 'Diverse genres, 
+             <br>new releases 
+             <br>bestsellers
+             <br>
+                                   ',
+             'price' => 699,
+             'picture' => 'service.png'
+         ])
+         ->create()
+         ->each(function ($services) {
+             $user = User::inRandomOrder()->first();
+             $services->update([
+                 'created_by' => $user->id
+             ]);
+         });
+         Services::factory()
+         ->count(1)
+         ->state([
+             'category' => 'Digital Media and Marketing',
+             'title' => 'Book Signing L.A. Festival of Books',
+             'description' => 'An opportunity for readers to meet authors, get books signed, and engage in discussions.
+             ',
+             'service_feature' => 'Meet authors
+             <br>signed copies
+             <br>Q&A sessions
+             <br>
+                                   ',
+             'price' => 3899,
+             'picture' => 'service.png'
+         ])
+         ->create()
+         ->each(function ($services) {
+             $user = User::inRandomOrder()->first();
+             $services->update([
+                 'created_by' => $user->id
+             ]);
+         });
+         Services::factory()
+         ->count(1)
+         ->state([
+             'category' => 'Digital Media and Marketing',
+             'title' => 'Book Display Frankfurt Book Fair',
+             'description' => 'A showcase of books from international publishers, highlighting global literary trends.
+             ',
+             'service_feature' => 'International publishers
+             <br>multilingual books
+             <br>
+                                   ',
+             'price' => 1799,
+             'picture' => 'service.png'
+         ])
+         ->create()
+         ->each(function ($services) {
+             $user = User::inRandomOrder()->first();
+             $services->update([
+                 'created_by' => $user->id
+             ]);
+         });
+         Services::factory()
+         ->count(1)
+         ->state([
+             'category' => 'Digital Media and Marketing',
+             'title' => 'Book Signing Frankfurt Book Fair',
+             'description' => 'A chance for attendees to have their books signed by authors from around the world.
+             ',
+             'service_feature' => 'International authors
+             <br>autographed editions
+             <br>
+                                   ',
+             'price' => 3499,
+             'picture' => 'service.png'
+         ])
+         ->create()
+         ->each(function ($services) {
+             $user = User::inRandomOrder()->first();
+             $services->update([
+                 'created_by' => $user->id
+             ]);
+         });
+         Services::factory()
+         ->count(1)
+         ->state([
+             'category' => 'Digital Media and Marketing',
              'title' => 'Avalon House Sneak Peek',
              'description' => 'Exclusive early access to Avalon Houses upcoming publications and content.',
              'service_feature' => 'Early access to select publications  Behind-the-scenes content Invitations to pre-release events Interaction with authors and creators<br>
