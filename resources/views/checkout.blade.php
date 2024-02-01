@@ -127,10 +127,18 @@
       right:0;
    }
 
-   /* .avalon-logo {
-      width: 40%;
-      height: 40%;
-   } */
+   .error-promo {
+      border-color:#e7a49b;
+      color:red;
+   }
+
+   .error-promo:active {
+      border-color: red;
+   }
+
+   .error-promo:focus {
+      border-color: red;
+   }
 </style>
 
 @endsection
@@ -144,7 +152,6 @@
     x-init="() => {
         window.addEventListener('resize', () => {
             isMobile = window.innerWidth <= 1024;
-            console.log(window.innerWidth);
         });
     }"
     :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
@@ -152,11 +159,10 @@
 
 </div>
 
-<section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]"  x-data="{ isMobile: window.innerWidth <= 600, notFoundPromoCode: true }"
+<section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]"  x-data="{ isMobile: window.innerWidth <= 600 }"
    x-init="() => {
    window.addEventListener('resize', () => {
       isMobile = window.innerWidth <= 600;
-      console.log(window.innerWidth);
    });
 
    function updateValue(input) {
@@ -199,11 +205,34 @@
                         totalAmount: '',
                         promoCodes: ['', ''], 
                         addPromoCode() { this.promoCodes.push(''); },
-                        clearIfDuplicate(index) {
-                           const value = this.promoCodes[index];
-                           if (this.promoCodes.filter(code => code === value).length > 1) {
-                              this.promoCodes[index] = '';
+                        checkPromoCodeExist: [],
+                        async checkPromo(apiUrl) {
+                           try {
+                              const response = await fetch(apiUrl);
+                              return response.json();
+                           } catch (error) { 
+                              console.log(error);
                            }
+                        },
+                        keyupTimeout: 0,
+                        async clearIfDuplicatePromo(index) {
+                           clearTimeout(this.keyupTimeout);
+                           this.keyupTimeout = setTimeout(async () => {
+                              const value = this.promoCodes[index];
+                              if(value) {
+                                 console.log(value);
+                                 const checkPromo = await this.checkPromo('/check/promo/'+value);
+                                 if (this.promoCodes.filter(code => code === value).length > 1) {
+                                    this.promoCodes[index] = '';
+                                 }
+                                 else if(checkPromo.result) {
+                                    this.checkPromoCodeExist[index] = true;
+                                 }
+                                 else {
+                                    this.checkPromoCodeExist[index] = false;
+                                 }
+                              }
+                           }, 1000);
                         }
                      }">
                      <form method="POST" action="{{ route('stripe.session') }}" class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
@@ -223,6 +252,7 @@
                                     placeholder="Full Name"
                                     name="fullName"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                    :class="{'border-red text-red focus:border-red active:border-red' : true}"
                                     required
                                     />
                                     
@@ -404,10 +434,15 @@
                                  <div class="mb-5">
                                     <input
                                        type="text"
-                                       class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                       class="border w-full rounded-md bg-transparent py-3 px-5 dark:text-dark-5 placeholder:text-dark-5 outline-none transition disabled:cursor-default "
+                                       :class="{ 
+                                          'error-promo': !checkPromoCodeExist[index] && promoCodes[index], 
+                                          'focus:border-[#011523] active:border-[#011523]': checkPromoCodeExist[index] 
+                                       }"
                                        x-model="promoCodes[index]"
+                                       :id="'promoInput-' + index"
                                        name="promoCode[]"
-                                       @input="clearIfDuplicate(index)"
+                                       @input="clearIfDuplicatePromo(index)"
                                        />
                                  </div>
                               </div>
@@ -562,7 +597,6 @@
    x-init="() => {
        window.addEventListener('resize', () => {
            isMobile = window.innerWidth <= 600;
-           console.log(window.innerWidth);
        });
    }"
    >

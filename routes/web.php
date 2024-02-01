@@ -58,3 +58,4 @@ Route::post('add/customer', [App\Http\Controllers\CustomerController::class, 'ad
 
 
 Route::post('/stripe/session', [App\Http\Controllers\StripeController::class, 'session'])->name('stripe.session');
+Route::get('/check/promo/{promoId}', [App\Http\Controllers\StripeController::class, 'checkPromo'])->name('check.promo');

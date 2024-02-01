@@ -3,7 +3,6 @@
       x-init="() => {
          window.addEventListener('resize', () => {
             isMobile = window.innerWidth <= 600;
-            console.log(window.innerWidth);
          });
       }">
       <img class="absolute inset-0 mx-auto my-auto" 
@@ -108,7 +107,6 @@
 x-init="() => {
    window.addEventListener('resize', () => {
       isMobile = window.innerWidth <= 600;
-      console.log(window.innerWidth);
    });
 }">
    <div class="container mx-auto">

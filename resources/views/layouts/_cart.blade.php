@@ -1,10 +1,8 @@
 <div
     x-data="{ isMobile: window.innerWidth <= 640 }"
     x-init="() => {
-        console.log(window.innerWidth);
         window.addEventListener('resize', () => {
             isMobile = window.innerWidth <= 640;
-            console.log(window.innerWidth);
         });
     }"
     x-show="modalOpen" 

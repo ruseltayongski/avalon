@@ -60,10 +60,8 @@
                </div>
                <div class="justify-end pr-16 sm:flex lg:pr-0 mx-2 mt-6" x-data="{ isMobile: window.innerWidth <= 960 }"
                 x-init="() => {
-                        console.log(window.innerWidth);
                         window.addEventListener('resize', () => {
                             isMobile = window.innerWidth <= 960;
-                            console.log(window.innerWidth);
                         });
                 }">
                    <div class="flex items-center">

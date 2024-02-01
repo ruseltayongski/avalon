@@ -83,6 +83,16 @@ class StripeController extends Controller
 
         return redirect()->away($session->url)->with('stripe_save', true);
     }
+
+    public function checkPromo($promoId) {
+        try {
+            \Stripe\Stripe::setApiKey(config('stripe.sk'));
+            $coupon = \Stripe\Coupon::retrieve($promoId);
+            return ["result"=>true];
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+            return ["result"=>false];
+        }
+    }
     
 
 }
