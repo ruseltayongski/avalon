@@ -252,7 +252,7 @@
                                     placeholder="Full Name"
                                     name="fullName"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                    :class="{'border-red text-red focus:border-red active:border-red' : true}"
+                                   {{--  :class="{'border-red text-red focus:border-red active:border-red' : true}" --}}
                                     required
                                     />
                                     
