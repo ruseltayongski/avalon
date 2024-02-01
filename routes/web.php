@@ -31,11 +31,7 @@ Route::get('/contact', function () {
 //     return view('service2');
 // })->name('service2');
 
-Route::get('/checkout', function () {
-    return view('checkout');
-})->name('checkout');
-
-
+Route::get('checkout', [App\Http\Controllers\StripeController::class, 'checkout'])->name('checkout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'index'])->name('services');
@@ -62,3 +58,4 @@ Route::post('add/customer', [App\Http\Controllers\CustomerController::class, 'ad
 
 
 Route::post('/stripe/session', [App\Http\Controllers\StripeController::class, 'session'])->name('stripe.session');
+Route::get('/check/promo/{input}', [App\Http\Controllers\StripeController::class, 'checkPromo'])->name('check.promo');

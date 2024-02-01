@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('processed_by')->nullable();
             $table->bigInteger('service_id')->nullable();
             $table->string('status')->nullable();
+            $table->decimal('discount', 20, 2)->nullable();
             $table->decimal('subtotal', 20, 2)->nullable();
             $table->decimal('total_amount', 20, 2)->nullable();
             $table->timestamps();

@@ -4,127 +4,41 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
 
 class StripeController extends Controller
 {
     public function checkout()
     {
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        $allCoupons = \Stripe\Coupon::all(['limit' => 99999999])->data;
+        foreach ($allCoupons as $coupon) {
+            if ($coupon->duration === 'once') {
+                $coupon->delete();
+            }
+        }
         return view('checkout');
     }
 
     public function session(Request $request)
     {
-         \Stripe\Stripe::setApiKey(config('stripe.sk'));
-        // $coupon = \Stripe\Coupon::create([
-        //     'amount_off' => 500 * 100,
-        //     'currency' => 'usd',
-        //     'duration' => 'once',
-        // ]);
-        //return \Stripe\Coupon::retrieve("FKtjYFyZ");
-        //return \Stripe\Coupon::all();
-
-        // if(!Customer::where("email_one",$request->email1)->exists()) {
-        //     $customer = new Customer();
-        //     $customer->processed_by = 1;
-        //     $customer->fullname = $request->fullName;
-        //     $customer->email_one = $request->email1;
-        //     $customer->email_two = $request->email2;
-        //     $customer->billing_address = $request->billingAddress;
-        //     $customer->country = $request->country;
-        //     $customer->city = $request->city;
-        //     $customer->post_code = $request->postCode;
-        //     $customer->payment_type = $request->typeOfPayment;
-        //     $customer->service_id = $request->serviceId;
-        //     $customer->status = "pending";
-        //     $customer->save();
-        // }
-
-        // $line_items = [];
-        // foreach(json_decode($request->checkout, true) as $row) {
-        //     $line_items[] = [
-        //         'price_data' => [
-        //             'currency'     => 'USD',
-        //             'product_data' => [
-        //                 'name' => ucfirst($row['title']),
-        //             ],
-        //             'unit_amount'  => (float)str_replace(',', '', strval($row['price'])) * 100,
-        //         ],
-        //         'quantity'   => 1,
-        //     ];
-        // }
-
-        // \Stripe\Stripe::setApiKey(config('stripe.sk'));
-
-
-        // $session = \Stripe\Checkout\Session::create(    
-        //     [
-        //         'line_items'  => $line_items,
-        //         'mode'        => 'payment',
-        //         'success_url' => route('homes'),
-        //         'cancel_url'  => route('checkout'),
-        //     ]
-        // );
-
-        // return redirect()->away($session->url)->with('stripe_save', true);
-
-
-        //for total amount only
-        // \Stripe\Stripe::setApiKey(config('stripe.sk'));
-
-        // $session = \Stripe\Checkout\Session::create([
-        //     'line_items'  => [
-        //         [
-        //             'price_data' => [
-        //                 'currency'     => 'USD',
-        //                 'product_data' => [
-        //                     'name' => 'Total Amount',
-        //                 ],
-        //                 'unit_amount'  => str_replace(',', '', strval($request->totalAmount)) * 100,
-        //             ],
-        //             'quantity'   => 1,
-        //         ],
-        //     ],
-        //     'mode'        => 'payment',
-        //     'success_url' => route('homes'),
-        //     'cancel_url'  => route('checkout'),
-        // ]);
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        $discount = 0;
+        if($request->has('promoCode')) {
+            foreach($request->promoCode as $row) {
+                // try {
+                //     $discount += (float)\Stripe\Coupon::retrieve(str_replace(" ", "", $row))->amount_off;
+                // } catch (\Stripe\Exception\ApiErrorException $e) {}
+                $allCoupons = \Stripe\Coupon::all(['limit' => 999999]);
+                foreach ($allCoupons->data as $coupon) {
+                    if ($coupon->name == $row) {
+                        $discount += (float)$coupon->amount_off;
+                        break;
+                    }
+                }
+            }
+        }
         
-
-        //for discount every services
-        // $line_items = [];
-        // $discount_percent = 10; // 10% discount
-
-        // foreach (json_decode($request->checkout, true) as $row) {
-        //     $originalPrice = (float)str_replace(',', '', strval($row['price']));
-        //     $discountAmount = $originalPrice * $discount_percent / 100;
-        //     $discountedPrice = $originalPrice - $discountAmount;
-
-        //     $discountInfo = $discount_percent . '% off - was $' . number_format($originalPrice, 2);
-
-        //     $line_items[] = [
-        //         'price_data' => [
-        //             'currency' => 'USD',
-        //             'product_data' => [
-        //                 'name' => ucfirst($row['title']) . " ({$discountInfo})",
-        //             ],
-        //             'unit_amount' => $discountedPrice * 100, // Convert to cents
-        //         ],
-        //         'quantity' => 1,
-        //     ];
-        // }
-
-        // \Stripe\Stripe::setApiKey(config('stripe.sk'));
-
-        // $session = \Stripe\Checkout\Session::create([
-        //     'line_items' => $line_items,
-        //     'mode' => 'payment',
-        //     'success_url' => route('homes'),
-        //     'cancel_url' => route('checkout'),
-        // ]);
-
-        // return redirect()->away($session->url)->with('stripe_save', true);
-
-
         //for discount
         $line_items = [];
         foreach (json_decode($request->checkout, true) as $row) {
@@ -141,24 +55,64 @@ class StripeController extends Controller
             ];
         }
 
-        \Stripe\Stripe::setApiKey(config('stripe.sk'));
-
-        $coupon = \Stripe\Coupon::create([
-            'amount_off' => (5000 + 2000) * 100,
-            'currency' => 'usd',
-            'duration' => 'once',
-        ]);
-
-        $session = \Stripe\Checkout\Session::create([
+        $session = [
             'line_items' => $line_items,
             'mode' => 'payment',
             'success_url' => route('homes'),
-            'cancel_url' => route('checkout'),
-            'discounts' => [['coupon' => $coupon->id]]
-        ]);
+            'cancel_url' => route('checkout')
+        ];
+
+        $customer = new Customer();
+        if($discount > 0) {
+            $coupon = \Stripe\Coupon::create([
+                'amount_off' => $discount,
+                'currency' => 'usd',
+                'duration' => 'once',
+            ]);
+
+            $session['discounts'] = [['coupon' => $coupon->id]];
+            $customer->discount = $discount;
+        }
+      
+        $customer->processed_by = 1;
+        $customer->fullname = $request->fullName;
+        $customer->email_one = $request->email1;
+        $customer->email_two = $request->email2;
+        $customer->billing_address = $request->billingAddress;
+        $customer->country = $request->country;
+        $customer->city = $request->city;
+        $customer->post_code = $request->postCode;
+        $customer->payment_type = $request->typeOfPayment;
+        $customer->service_id = $request->serviceId;
+        $customer->save();
+
+        $session = \Stripe\Checkout\Session::create($session);
 
         return redirect()->away($session->url)->with('stripe_save', true);
+    }
 
+    public function checkPromo($input) {
+        // try {
+        //     \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        //     $coupon = \Stripe\Coupon::retrieve($input);
+        //     return ["result"=>true];
+        // } catch (\Stripe\Exception\ApiErrorException $e) {
+        //     return ["result"=>false];
+        // }
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        $allCoupons = \Stripe\Coupon::all(['limit' => 999999]);
+        foreach ($allCoupons->data as $coupon) {
+            if ($coupon->name == $input) {
+                return [
+                    "result"=>true,
+                    "discount" => $coupon->amount_off
+                ];
+            }
+        }
+        return [
+            "result"=>false,
+            "discount" => 0
+        ];
     }
     
 

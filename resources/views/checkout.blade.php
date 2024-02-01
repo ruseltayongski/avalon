@@ -127,10 +127,31 @@
       right:0;
    }
 
-   /* .avalon-logo {
-      width: 40%;
-      height: 40%;
-   } */
+   .error-promo {
+      border-color:#e7a49b;
+      color:red;
+   }
+
+   .error-promo:active {
+      border-color: red;
+   }
+
+   .error-promo:focus {
+      border-color: red;
+   }
+
+   .success-promo {
+      border-color:rgb(43, 187, 43);
+      color:green;
+   }
+
+   .success-promo:active {
+      border-color: green;
+   }
+
+   .success-promo:focus {
+      border-color: green;
+   }
 </style>
 
 @endsection
@@ -144,7 +165,6 @@
     x-init="() => {
         window.addEventListener('resize', () => {
             isMobile = window.innerWidth <= 1024;
-            console.log(window.innerWidth);
         });
     }"
     :class="{ 'relative z-10 bg-cover bg-center bg-no-repeat pt-[120px] pb-20 md:pt-[150px]': isMobile, 'z-10 relative bacground-image-hero': !isMobile }"
@@ -153,10 +173,9 @@
 </div>
 
 <section class="relative z-40 py-10 lg:py-[40px] dark:bg-[#011523]"  x-data="{ isMobile: window.innerWidth <= 600 }"
-x-init="() => {
+   x-init="() => {
    window.addEventListener('resize', () => {
       isMobile = window.innerWidth <= 600;
-      console.log(window.innerWidth);
    });
 
    function updateValue(input) {
@@ -171,7 +190,10 @@ x-init="() => {
    <div class="container mx-auto">
       <div class="flex flex-wrap {{-- -mx-4 --}}"
             :class="{ '-mx-4': isMobile, 'mx-auto': !isMobile }"   
-            x-data="{ checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))) }"
+            x-data="{ 
+               checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))),
+               promoCodesHolder: []
+            }"
       >
          <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
             <div class="mb-12 lg:mb-0">
@@ -196,18 +218,40 @@ x-init="() => {
                   </h4>
                   <div x-data="{ 
                         cartNotification: false,
-                        formData: {
-                        fullName: '',
-                        email1: '',
-                        email2: '',
-                        billingAddress: '',
-                        country: '',
-                        city: '',
-                        postCode: '',
-                        typeOfPayment: '',
-                        totalAmount: ''
+                        totalAmount: '',
+                        addPromoCode() { this.promoCodes.push(''); },
+                        promoCodes: ['', ''],
+                        checkPromoCodeExist: [],
+                        async checkPromo(apiUrl) {
+                           try {
+                              const response = await fetch(apiUrl);
+                              return response.json()
+                           } catch (error) { 
+                              console.log(error)
+                           }
                         },
-                        
+                        keyupTimeout: 0,
+                        async clearIfDuplicatePromo(index) {
+                           clearTimeout(this.keyupTimeout);
+                           this.keyupTimeout = setTimeout(async () => {
+                              const value = this.promoCodes[index];
+                              if(value) {
+                                 const checkPromo = await this.checkPromo('/check/promo/'+value);
+                                 if (this.promoCodes.filter(code => code === value).length > 1) {
+                                    this.promoCodes[index] = '';
+                                 }
+                                 else if(checkPromo.result) {
+                                    this.checkPromoCodeExist[index] = true;
+                                 }
+                                 else {
+                                    this.checkPromoCodeExist[index] = false;
+                                 }
+                              }
+                              else {
+                                 this.checkPromoCodeExist[index] = false;
+                              }
+                           }, 500);
+                        }
                      }">
                      <form method="POST" action="{{ route('stripe.session') }}" class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
                         @csrf
@@ -226,6 +270,7 @@ x-init="() => {
                                     placeholder="Full Name"
                                     name="fullName"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                   {{--  :class="{'border-red text-red focus:border-red active:border-red' : true}" --}}
                                     required
                                     />
                                     
@@ -333,7 +378,7 @@ x-init="() => {
                               </div>
                            </div>
 
-                           <div class="w-full px-4 md:w-1/3">
+                           <div class="w-full px-4">
                               <div class="mb-5">
                                  <label
                                     for=""
@@ -377,7 +422,7 @@ x-init="() => {
                                  </div>
                               </div>
                            </div>
-                           <div class="w-full px-4 md:w-1/2">
+                           {{-- <div class="w-full px-4 md:w-1/2">
                               <div class="mb-5">
                                  <label
                                     for=""
@@ -394,16 +439,51 @@ x-init="() => {
                                     name="totalAmount"
                                     />
                               </div>
+                           </div> --}}
+                           <div class="w-full px-4">
+                              <div class="mb-5">
+                                 <label for="" class="mb-2.5 block text-base font-medium text-dark dark:text-white">
+                                 Promo Code
+                                 </label>
+                              </div>
                            </div>
+                           <template x-for="(promoCode, index) in promoCodes" :key="index">
+                              <div class="w-full px-4 md:w-1/2">
+                                 <div class="mb-5">
+                                    <input
+                                       type="text"
+                                       class="border w-full rounded-md bg-transparent py-3 px-5 dark:text-dark-5 placeholder:text-dark-5 outline-none transition disabled:cursor-default "
+                                       :class="{ 
+                                          'focus:border-[#011523] active:border-[#011523]': !promoCodes[index],
+                                          'error-promo': !checkPromoCodeExist[index] && promoCodes[index], 
+                                          'success-promo': checkPromoCodeExist[index] 
+                                       }"
+                                       x-model="promoCodes[index]"
+                                       :id="'promoInput-' + index"
+                                       name="promoCode[]"
+                                       @input="clearIfDuplicatePromo(index)"
+                                       />
+                                 </div>
+                              </div>
+                           </template>
                         </div>
-                        <button {{-- @click="cartNotification = true" --}} 
-                           class="flex items-center justify-center w-1/3 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
-                           :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
-                           {{-- x-on:click="submit" --}}
-                           type="submit"
-                           >
-                           Pay Now
-                        </button>
+                        <div class="flex items-center justify-center">
+                           <button
+                              class="flex items-center justify-center w-1/2 mx-16 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
+                              :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
+                              type="submit"
+                              >
+                              Pay Now
+                           </button>
+                           <button
+                              class="flex items-center justify-center w-1/2 mx-16 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
+                              :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
+                              type="button"
+                              @click="addPromoCode"
+                              >
+                              Add Promo Code
+                           </button>
+                        </div>
                         <div x-show="cartNotification"
                            class="fixed z-[60] w-full lg:w-[30%] bottom-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
                            <div class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green">
@@ -506,12 +586,28 @@ x-init="() => {
                         </div>
                         
                      </template>
-                    
                   </template>
                   <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
-                        <span 
-                        x-text="!checkout || checkout.length === 0 ? '' : 'Total Amount: $' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
+                        Sub Total:
+                        <span x-text="!checkout || checkout.length === 0 ? '' : '$' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
+                        </span>
+                     </p>
+                  </div>
+                  <div class="pt-5 border-t border-stroke dark:border-dark-3">
+                     <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
+                        Discount:
+                        <span x-text="promoCodesHolder
+                        .filter(item => item.result === true)
+                        .reduce((accumulator, currentValue) => {
+                          return accumulator + currentValue.discount;
+                        }, 0)"></span>
+                     </p>
+                  </div>
+                  <div class="pt-5 border-t border-stroke dark:border-dark-3">
+                     <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
+                        Total Amount:
+                        <span x-text="!checkout || checkout.length === 0 ? '' : '$' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
                         </span>
                      </p>
                   </div>
@@ -532,7 +628,6 @@ x-init="() => {
    x-init="() => {
        window.addEventListener('resize', () => {
            isMobile = window.innerWidth <= 600;
-           console.log(window.innerWidth);
        });
    }"
    >

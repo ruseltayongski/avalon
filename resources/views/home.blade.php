@@ -1379,31 +1379,35 @@
                   "image" => asset('images/business12.JPG'),
                   "tags" => "Hot",
                   "title" => "Book-To-Film/TV",
+                  "services_reference" => "Book-To-Film/TV",
                   "content" => "Transform written literature into visual narratives."
                ],
                [
                   "image" => asset('images/business13.JPG'),
                   "tags" => "New",
                   "title" => "Business Affairs",
+                  "services_reference" => "Business Affairs",
                   "content" => "Expertise in legal, financial, and administrative support"
                ],       
                [
                   "image" => asset('images/business14.WEBP'),
                   "tags" => "Hot",
                   "title" => "Digital Media & Mktg",
+                  "services_reference" => "Digital Media and Marketing",
                   "content" => "Tech to promote brands and drive business growth."
                ],
                [
                   "image" => asset('images/business15.WEBP'),
                   "tags" => "New",
                   "title" => "Tech &  Dev",
+                  "services_reference" => "Tech and Dev",
                   "content" => "Pioneering digital and technological solutions"
                ]
             ];
          ?> 
          @foreach($serviceCategoryData as $i => $row)
             <div class="w-full px-4 md:w-1/2 xl:w-1/4">
-               <a href="{{ route('services').'?category='.$row['title'] }}">
+               <a href="{{ route('services').'?category='.$row['services_reference'] }}">
                   <div class="group relative mb-10 overflow-hidden rounded-[10px] border border-stroke dark:border-dark-3 bg-white dark:bg-dark-2 py-6 px-6 text-center duration-200 hover:-translate-y-2 hover:shadow-feature hover:border-transparent marketing-section opacity-0" id="marketing{{ $i }}">
                      <div class="w-full mb-6 overflow-hidden rounded-md relative">
                         <img

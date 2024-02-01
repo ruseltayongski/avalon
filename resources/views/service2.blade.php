@@ -149,7 +149,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="lg:px-12 flex flex-wrap " 
+            <div class="lg:px-12 flex flex-wrap" 
                 x-data='{  modalShow: false, capitalizeFirstChar: function(str) { return str.charAt(0).toUpperCase() + str.slice(1); },
                     modalOpen: false, serviceId: 0, serviceCategory: "", servicePicture: "",  title: "", description: "", service_feature: "", serviceAlone: {}, 
                     cartNotification: false
@@ -171,7 +171,11 @@
                             </div>
                             <div class="relative mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg dark:bg-dark-2">
                                 <span class="mb-2 block text-sm font-semibold text-[#011523] dark:text-white" x-text="capitalizeFirstChar(service.category)"></span>
-                                <h3 class="mb-4 text-xl font-bold text-dark dark:text-white" x-text="service.title"></h3>
+                                <h3 
+                                    class="mb-4 text-xl font-bold text-dark dark:text-white"  
+                                    style="text-overflow: ellipsis; white-space: nowrap; overflow:hidden" 
+                                    x-text="service.title">
+                                </h3>
                                 <button type="button" @click="modalOpen = true, service_feature = service.service_feature, description = service.description, title = service.title, servicePicture = service.picture, serviceId = service.id, serviceAlone = service" 
                                     class="
                                     inline-block rounded-md border py-3 px-7 text-sm font-normal text-body-color transition hover:border-[#011523] 
