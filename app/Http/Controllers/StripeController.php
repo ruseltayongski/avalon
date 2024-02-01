@@ -26,9 +26,16 @@ class StripeController extends Controller
         $discount = 0;
         if($request->has('promoCode')) {
             foreach($request->promoCode as $row) {
-                try {
-                    $discount += (float)\Stripe\Coupon::retrieve(str_replace(" ", "", $row))->amount_off;
-                } catch (\Stripe\Exception\ApiErrorException $e) {}
+                // try {
+                //     $discount += (float)\Stripe\Coupon::retrieve(str_replace(" ", "", $row))->amount_off;
+                // } catch (\Stripe\Exception\ApiErrorException $e) {}
+                $allCoupons = \Stripe\Coupon::all(['limit' => 999999]);
+                foreach ($allCoupons->data as $coupon) {
+                    if ($coupon->name == $row) {
+                        $discount += (float)$coupon->amount_off;
+                        break;
+                    }
+                }
             }
         }
         
@@ -84,14 +91,28 @@ class StripeController extends Controller
         return redirect()->away($session->url)->with('stripe_save', true);
     }
 
-    public function checkPromo($promoId) {
-        try {
-            \Stripe\Stripe::setApiKey(config('stripe.sk'));
-            $coupon = \Stripe\Coupon::retrieve($promoId);
-            return ["result"=>true];
-        } catch (\Stripe\Exception\ApiErrorException $e) {
-            return ["result"=>false];
+    public function checkPromo($input) {
+        // try {
+        //     \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        //     $coupon = \Stripe\Coupon::retrieve($input);
+        //     return ["result"=>true];
+        // } catch (\Stripe\Exception\ApiErrorException $e) {
+        //     return ["result"=>false];
+        // }
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        $allCoupons = \Stripe\Coupon::all(['limit' => 999999]);
+        foreach ($allCoupons->data as $coupon) {
+            if ($coupon->name == $input) {
+                return [
+                    "result"=>true,
+                    "discount" => $coupon->amount_off
+                ];
+            }
         }
+        return [
+            "result"=>false,
+            "discount" => 0
+        ];
     }
     
 

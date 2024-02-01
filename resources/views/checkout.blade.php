@@ -139,6 +139,19 @@
    .error-promo:focus {
       border-color: red;
    }
+
+   .success-promo {
+      border-color:rgb(43, 187, 43);
+      color:green;
+   }
+
+   .success-promo:active {
+      border-color: green;
+   }
+
+   .success-promo:focus {
+      border-color: green;
+   }
 </style>
 
 @endsection
@@ -177,7 +190,10 @@
    <div class="container mx-auto">
       <div class="flex flex-wrap {{-- -mx-4 --}}"
             :class="{ '-mx-4': isMobile, 'mx-auto': !isMobile }"   
-            x-data="{ checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))) }"
+            x-data="{ 
+               checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))),
+               promoCodesHolder: []
+            }"
       >
          <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
             <div class="mb-12 lg:mb-0">
@@ -203,15 +219,15 @@
                   <div x-data="{ 
                         cartNotification: false,
                         totalAmount: '',
-                        promoCodes: ['', ''], 
                         addPromoCode() { this.promoCodes.push(''); },
+                        promoCodes: ['', ''],
                         checkPromoCodeExist: [],
                         async checkPromo(apiUrl) {
                            try {
                               const response = await fetch(apiUrl);
-                              return response.json();
+                              return response.json()
                            } catch (error) { 
-                              console.log(error);
+                              console.log(error)
                            }
                         },
                         keyupTimeout: 0,
@@ -220,7 +236,6 @@
                            this.keyupTimeout = setTimeout(async () => {
                               const value = this.promoCodes[index];
                               if(value) {
-                                 console.log(value);
                                  const checkPromo = await this.checkPromo('/check/promo/'+value);
                                  if (this.promoCodes.filter(code => code === value).length > 1) {
                                     this.promoCodes[index] = '';
@@ -232,7 +247,10 @@
                                     this.checkPromoCodeExist[index] = false;
                                  }
                               }
-                           }, 1000);
+                              else {
+                                 this.checkPromoCodeExist[index] = false;
+                              }
+                           }, 500);
                         }
                      }">
                      <form method="POST" action="{{ route('stripe.session') }}" class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
@@ -436,8 +454,9 @@
                                        type="text"
                                        class="border w-full rounded-md bg-transparent py-3 px-5 dark:text-dark-5 placeholder:text-dark-5 outline-none transition disabled:cursor-default "
                                        :class="{ 
+                                          'focus:border-[#011523] active:border-[#011523]': !promoCodes[index],
                                           'error-promo': !checkPromoCodeExist[index] && promoCodes[index], 
-                                          'focus:border-[#011523] active:border-[#011523]': checkPromoCodeExist[index] 
+                                          'success-promo': checkPromoCodeExist[index] 
                                        }"
                                        x-model="promoCodes[index]"
                                        :id="'promoInput-' + index"
@@ -570,16 +589,28 @@
                   </template>
                   <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
+                        Sub Total:
+                        <span x-text="!checkout || checkout.length === 0 ? '' : '$' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
+                        </span>
+                     </p>
+                  </div>
+                  <div class="pt-5 border-t border-stroke dark:border-dark-3">
+                     <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
+                        Discount:
+                        <span x-text="promoCodesHolder
+                        .filter(item => item.result === true)
+                        .reduce((accumulator, currentValue) => {
+                          return accumulator + currentValue.discount;
+                        }, 0)"></span>
+                     </p>
+                  </div>
+                  <div class="pt-5 border-t border-stroke dark:border-dark-3">
+                     <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
                         Total Amount:
                         <span x-text="!checkout || checkout.length === 0 ? '' : '$' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
                         </span>
                      </p>
                   </div>
-                  {{-- <div class="pt-5 border-t border-stroke dark:border-dark-3">
-                     <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
-                        Total Amount:<span>$15,500</span>
-                     </p>
-                  </div> --}}
                   <template x-if="!checkout || checkout.length === 0">
                      <p class="text-dark">No items have been added to the cart.</p>
                   </template>
