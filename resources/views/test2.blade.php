@@ -1,391 +1,73 @@
-@section('css')
-    
-@endsection
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Instructions</title>
+    <style>
+      body {
+         font-family: Arial, sans-serif;
+         background-color: #f0f0f0;
+         color: #333;
+      }
 
-@extends('layouts.app')
+      .container {
+         width: 80%;
+         margin: 20px auto;
+         padding: 20px;
+         background-color: #fff;
+         box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
 
-@section('content')
+      pre {
+         background-color: #eaeaea;
+         padding: 15px;
+         overflow: auto;
+      }
 
-<!-- ====== Shopping Cart Section Start -->
-<section
-   x-data="
-   {
-   modalOpen: true
-   }
-   "
-   class="overflow-x-hidden"
-   >
-   <div class="container mx-auto py-14 text-center">
-      <button
-         @click=" modalOpen = true "
-         class="rounded-md bg-primary py-3 px-7 text-base font-medium text-white hover:bg-blue-dark"
-         >
-      Open Modal
-      </button>
-   </div>
-   <div
-      :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' "
-      class="fixed top-0 right-0 h-full w-full bg-body-color dark:bg-dark transition-all duration-100"
-      ></div>
-   <div
-      :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' "
-      class="fixed top-0 right-0 h-screen w-full max-w-[500px] overflow-y-auto bg-white dark:bg-dark-2 py-10 px-5 transition-all duration-200 sm:px-8 md:p-[50px]"
-      >
-      <button @click=" modalOpen = false " class="absolute top-9 right-9 text-body-color dark:text-dark-6">
-         <svg 
-            width="20" 
-            height="20" 
-            viewBox="0 0 20 20" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-            class="fill-current"
-            >
-            <path 
-               d="M11 10L18.625 2.375C18.9062 2.09375 18.9062 1.65625 18.625 1.375C18.3438 1.09375 17.9063 1.09375 17.625 1.375L10 9L2.375 1.375C2.09375 1.09375 1.65625 1.09375 1.375 1.375C1.09375 1.65625 1.09375 2.09375 1.375 2.375L9 10L1.375 17.625C1.09375 17.9063 1.09375 18.3438 1.375 18.625C1.5 18.75 1.6875 18.8438 1.875 18.8438C2.0625 18.8438 2.25 18.7812 2.375 18.625L10 11L17.625 18.625C17.75 18.75 17.9375 18.8438 18.125 18.8438C18.3125 18.8438 18.5 18.7812 18.625 18.625C18.9062 18.3438 18.9062 17.9063 18.625 17.625L11 10Z" 
-               />
-         </svg>
-      </button>
-      <h3 class="mb-11 text-2xl font-semibold text-dark dark:text-white md:leading-[40px] md:text-[28px]">
-         Shopping cart
-      </h3>
-      <div class="space-y-10">
-         <div class="border-b border-stroke dark:border-dark-3 pb-7">
-            <div class="flex items-center">
-               <div
-                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                  >
-                  <img
-                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-01.jpg"
-                     alt="product"
-                     class="h-full w-full object-cover object-center"
-                     />
-               </div>
-               <div class="w-full">
-                  <div class="flex flex-wrap justify-between">
-                     <a
-                        href="javascript:void(0)"
-                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                        >
-                     Modern Lounge Chair
-                     </a>
-                     <div class="text-right">
-                        <span class="text-base font-medium text-dark dark:text-white"> $385 </span>
-                     </div>
-                  </div>
-                  <p
-                     class="mb-3 text-sm text-body-color dark:text-dark-6"
-                     >
-                     Quantity: 1
-                  </p>
-                  <div class="flex items-center gap-[10px]">
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Edit
-                     </button>
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Remove
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="border-b border-stroke dark:border-dark-3 pb-7">
-            <div class="flex items-center">
-               <div
-                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                  >
-                  <img
-                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-02.jpg"
-                     alt="product"
-                     class="h-full w-full object-cover object-center"
-                     />
-               </div>
-               <div class="w-full">
-                  <div class="flex flex-wrap justify-between">
-                     <a
-                        href="javascript:void(0)"
-                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                        >
-                     Mini Basic Table Lamp
-                     </a>
-                     <div class="text-right">
-                        <span class="text-base font-medium text-dark dark:text-white"> $129 </span>
-                     </div>
-                  </div>
-                  <p
-                     class="mb-3 text-sm text-body-color dark:text-dark-6"
-                     >
-                     Quantity: 2
-                  </p>
-                  <div class="flex items-center gap-[10px]">
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Edit
-                     </button>
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Remove
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="border-b border-stroke dark:border-dark-3 pb-7">
-            <div class="flex items-center">
-               <div
-                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                  >
-                  <img
-                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-03.jpg"
-                     alt="product"
-                     class="h-full w-full object-cover object-center"
-                     />
-               </div>
-               <div class="w-full">
-                  <div class="flex flex-wrap justify-between">
-                     <a
-                        href="javascript:void(0)"
-                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                        >
-                     Wooden Side Table
-                     </a>
-                     <div class="text-right">
-                        <span class="text-base font-medium text-dark dark:text-white"> $459 </span>
-                     </div>
-                  </div>
-                  <p
-                     class="mb-3 text-sm text-body-color dark:text-dark-6"
-                     >
-                     Quantity: 1
-                  </p>
-                  <div class="flex items-center gap-[10px]">
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Edit
-                     </button>
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Remove
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="flex items-center justify-end">
-            <p
-               class="mr-6 flex items-center text-base text-body-color dark:text-dark-6"
-               >
-               <span> Subtotal: </span>
-               <span class="pl-2 font-medium text-dark dark:text-white">$973</span>
-            </p>
-            <button
-               class="inline-flex items-center justify-center rounded-md bg-primary py-[10px] px-7 text-center text-base font-semibold text-white hover:bg-blue-dark"
-               >
-            Checkout
-            </button>
-         </div>
-      </div>
-   </div>
-</section>
-<!-- ====== Shopping Cart Section End --><!-- ====== Shopping Cart Section Start -->
-<section
-   x-data="
-   {
-   modalOpen: true
-   }
-   "
-   class="overflow-x-hidden"
-   >
-   <div class="container mx-auto py-14 text-center">
-      <button
-         @click=" modalOpen = true "
-         class="rounded-md bg-primary py-3 px-7 text-base font-medium text-white hover:bg-blue-dark"
-         >
-      Open Modal
-      </button>
-   </div>
-   <div
-      :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' "
-      class="fixed top-0 right-0 h-full w-full bg-body-color dark:bg-dark transition-all duration-100"
-      ></div>
-   <div
-      :class=" modalOpen ? 'translate-x-0' : 'translate-x-full' "
-      class="fixed top-0 right-0 h-screen w-full max-w-[500px] overflow-y-auto bg-white dark:bg-dark-2 py-10 px-5 transition-all duration-200 sm:px-8 md:p-[50px]"
-      >
-      <button @click=" modalOpen = false " class="absolute top-9 right-9 text-body-color dark:text-dark-6">
-         <svg 
-            width="20" 
-            height="20" 
-            viewBox="0 0 20 20" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-            class="fill-current"
-            >
-            <path 
-               d="M11 10L18.625 2.375C18.9062 2.09375 18.9062 1.65625 18.625 1.375C18.3438 1.09375 17.9063 1.09375 17.625 1.375L10 9L2.375 1.375C2.09375 1.09375 1.65625 1.09375 1.375 1.375C1.09375 1.65625 1.09375 2.09375 1.375 2.375L9 10L1.375 17.625C1.09375 17.9063 1.09375 18.3438 1.375 18.625C1.5 18.75 1.6875 18.8438 1.875 18.8438C2.0625 18.8438 2.25 18.7812 2.375 18.625L10 11L17.625 18.625C17.75 18.75 17.9375 18.8438 18.125 18.8438C18.3125 18.8438 18.5 18.7812 18.625 18.625C18.9062 18.3438 18.9062 17.9063 18.625 17.625L11 10Z" 
-               />
-         </svg>
-      </button>
-      <h3 class="mb-11 text-2xl font-semibold text-dark dark:text-white md:leading-[40px] md:text-[28px]">
-         Shopping cart
-      </h3>
-      <div class="space-y-10">
-         <div class="border-b border-stroke dark:border-dark-3 pb-7">
-            <div class="flex items-center">
-               <div
-                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                  >
-                  <img
-                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-01.jpg"
-                     alt="product"
-                     class="h-full w-full object-cover object-center"
-                     />
-               </div>
-               <div class="w-full">
-                  <div class="flex flex-wrap justify-between">
-                     <a
-                        href="javascript:void(0)"
-                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                        >
-                     Modern Lounge Chair
-                     </a>
-                     <div class="text-right">
-                        <span class="text-base font-medium text-dark dark:text-white"> $385 </span>
-                     </div>
-                  </div>
-                  <p
-                     class="mb-3 text-sm text-body-color dark:text-dark-6"
-                     >
-                     Quantity: 1
-                  </p>
-                  <div class="flex items-center gap-[10px]">
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Edit
-                     </button>
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Remove
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="border-b border-stroke dark:border-dark-3 pb-7">
-            <div class="flex items-center">
-               <div
-                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                  >
-                  <img
-                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-02.jpg"
-                     alt="product"
-                     class="h-full w-full object-cover object-center"
-                     />
-               </div>
-               <div class="w-full">
-                  <div class="flex flex-wrap justify-between">
-                     <a
-                        href="javascript:void(0)"
-                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                        >
-                     Mini Basic Table Lamp
-                     </a>
-                     <div class="text-right">
-                        <span class="text-base font-medium text-dark dark:text-white"> $129 </span>
-                     </div>
-                  </div>
-                  <p
-                     class="mb-3 text-sm text-body-color dark:text-dark-6"
-                     >
-                     Quantity: 2
-                  </p>
-                  <div class="flex items-center gap-[10px]">
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Edit
-                     </button>
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Remove
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="border-b border-stroke dark:border-dark-3 pb-7">
-            <div class="flex items-center">
-               <div
-                  class="mr-[22px] h-[90px] w-full max-w-[80px] overflow-hidden rounded-[5px] xs:h-[100px] xs:max-w-[100px]"
-                  >
-                  <img
-                     src="https://cdn.tailgrids.com/1.0/assets/images/ecommerce/shopping-carts/shopping-cart-01/image-03.jpg"
-                     alt="product"
-                     class="h-full w-full object-cover object-center"
-                     />
-               </div>
-               <div class="w-full">
-                  <div class="flex flex-wrap justify-between">
-                     <a
-                        href="javascript:void(0)"
-                        class="block text-base font-medium text-dark dark:text-white hover:text-primary mb-0.5"
-                        >
-                     Wooden Side Table
-                     </a>
-                     <div class="text-right">
-                        <span class="text-base font-medium text-dark dark:text-white"> $459 </span>
-                     </div>
-                  </div>
-                  <p
-                     class="mb-3 text-sm text-body-color dark:text-dark-6"
-                     >
-                     Quantity: 1
-                  </p>
-                  <div class="flex items-center gap-[10px]">
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Edit
-                     </button>
-                     <button
-                        class="rounded-[3px] border-[0.5px] border-dark-7 dark:border-dark-3 px-3 py-0.5 text-sm font-medium text-dark dark:text-white transition hover:border-dark hover:bg-dark"
-                        >
-                     Remove
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="flex items-center justify-end">
-            <p
-               class="mr-6 flex items-center text-base text-body-color dark:text-dark-6"
-               >
-               <span> Subtotal: </span>
-               <span class="pl-2 font-medium text-dark dark:text-white">$973</span>
-            </p>
-            <button
-               class="inline-flex items-center justify-center rounded-md bg-primary py-[10px] px-7 text-center text-base font-semibold text-white hover:bg-blue-dark"
-               >
-            Checkout
-            </button>
-         </div>
-      </div>
-   </div>
-</section>
-<!-- ====== Shopping Cart Section End -->
+      code {
+         font-family: 'Courier New', Courier, monospace;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Open a Local Folder with PHP</h1>
+        <p>This demo shows how to create a PHP script to attempt to open a local folder.</p>
+        <h2>Code Snippet:</h2>
+        <pre><code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Open Folder&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;?php
+            $folderPath = 'C:\Users\jonndoe\OneDrive\Desktop\demo';
+            ?&gt;
 
-@endsection
+            &lt;p&gt;Click the button to open the folder directory:&lt;/p&gt;
+            &lt;a href="&lt;?php echo $folderPath; ?&gt;" target="_blank"&gt;&lt;button&gt;Open Folder&lt;/button&gt;&lt;/a&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+        </code></pre>
 
-@section('js')
+        <h1>Accessing Local Directories with Chrome Extension</h1>
+        <ol>
+            <li style="word-wrap: break-word;">
+               Visit the Chrome Web Store and search for the "<b>Enable local file links</b>" extension or just click this link <a href="https://chromewebstore.google.com/detail/nikfmfgobenbhmocjaaboihbeocackld" target="_blank">https://chromewebstore.google.com/detail/nikfmfgobenbhmocjaaboihbeocackld</a>
+            </li>
+            <li>Click on "Add to Chrome" to install the extension.</li>
+            <li>Once successfully installed, click the button Open Folder</li>
+        </ol>
 
-@endsection
+        <h1>Enabling the feature</h1>
+        <ol>
+            <li style="word-wrap: break-word;">Open <a href="chrome://extensions/?id=nikfmfgobenbhmocjaaboihbeocackld" target="_blank">chrome://extensions/?id=nikfmfgobenbhmocjaaboihbeocackld</a></li>
+            <li>Enable "Allow access to file URLs"</li>
+        </ol>
+    </div>
+</body>
+</html>

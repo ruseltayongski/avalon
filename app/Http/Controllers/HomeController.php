@@ -3,26 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Customer;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
+        if(session('customer_id')) {
+            $customer = Customer::find(session('customer_id'));
+            $newCustomerData = $customer->replicate();
+            $newCustomerData->status = 'paid';
+            $newCustomerData->save();
+            session(['customer_id' => false]);
+        }
         return view('home');
     }
 }

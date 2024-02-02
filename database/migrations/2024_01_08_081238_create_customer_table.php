@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('payment_type')->nullable();
             $table->bigInteger('processed_by')->nullable();
             $table->bigInteger('service_id')->nullable();
-            $table->string('status')->nullable();
             $table->decimal('discount', 20, 2)->nullable();
             $table->decimal('subtotal', 20, 2)->nullable();
             $table->decimal('total_amount', 20, 2)->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
