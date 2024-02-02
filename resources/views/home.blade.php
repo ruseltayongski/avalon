@@ -1390,7 +1390,7 @@
                   "content" => "Business Affairs: Expertise in legal, financial, and administrative support"
                ],       
                [
-                  "image" => asset('images/business14.PNG'),
+                  "image" => asset('images/business14.png'),
                   "tags" => "Hot",
                   "title" => "L.A. Times & Frankfurt Book Festival",
                   "services_reference" => "Digital Media and Marketing",
