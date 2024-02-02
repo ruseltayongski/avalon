@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    $folderPath = 'C:\Users\rusel\OneDrive\Desktop\demo';
+    $folderPath = 'D:\olrs-archive';
     ?>
 
     <p>Click the button to open the folder directory:</p>
