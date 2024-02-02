@@ -192,7 +192,7 @@
             :class="{ '-mx-4': isMobile, 'mx-auto': !isMobile }"   
             x-data="{ 
                checkout: JSON.parse(decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))),
-               promoCodesHolder: []
+               checkPromoCodeExist: []
             }"
       >
          <div class="w-full px-4 lg:w-7/12 xl:w-8/12">
@@ -221,7 +221,6 @@
                         totalAmount: '',
                         addPromoCode() { this.promoCodes.push(''); },
                         promoCodes: ['', ''],
-                        checkPromoCodeExist: [],
                         async checkPromo(apiUrl) {
                            try {
                               const response = await fetch(apiUrl);
@@ -241,21 +240,40 @@
                                     this.promoCodes[index] = '';
                                  }
                                  else if(checkPromo.result) {
-                                    this.checkPromoCodeExist[index] = true;
+                                    this.checkPromoCodeExist[index] = checkPromo.discount / 100;
                                  }
                                  else {
-                                    this.checkPromoCodeExist[index] = false;
+                                    this.checkPromoCodeExist[index] = 0;
                                  }
                               }
                               else {
-                                 this.checkPromoCodeExist[index] = false;
+                                 this.checkPromoCodeExist[index] = 0;
                               }
+                              console.log(this.checkPromoCodeExist)
                            }, 500);
                         }
                      }">
                      <form method="POST" action="{{ route('stripe.session') }}" class="pb-4 mb-10 border-b border-stroke dark:border-dark-3 animate-fade-right animate-duration-1000 animate-delay-500">
                         @csrf
                         <input type="hidden" name="checkout" :value="decodeURIComponent(new URL(window.location.href).searchParams.get('carts'))">
+                        <input
+                           type="hidden"
+                           x-model="checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0)"
+                           class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                           name="subtotal"
+                        />
+                        <input
+                           type="hidden"
+                           x-model="checkPromoCodeExist.reduce((accumulator, currentValue) => { return accumulator + currentValue; }, 0)"
+                           class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                           name="discount"
+                        />
+                        <input
+                           type="hidden"
+                           x-model="(() => checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0) - checkPromoCodeExist.reduce((accumulator, currentValue) => { return accumulator + currentValue; }, 0))()"
+                           class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
+                           name="total_amount"
+                        />
                         <div class="flex flex-wrap -mx-4">
                            <div class="w-full px-4 md:w-1/2">
                               <div class="mb-5">
@@ -270,10 +288,8 @@
                                     placeholder="Full Name"
                                     name="fullName"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                   {{--  :class="{'border-red text-red focus:border-red active:border-red' : true}" --}}
                                     required
                                     />
-                                    
                               </div>
                            </div>
                            <div class="w-full px-4 md:w-1/2">
@@ -433,7 +449,7 @@
                                  <input
                                     type="text"
                                     oninput="updateValue(this)"
-                                    :value="checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"
+                                    x-model="checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()"
                                     pattern="[0-9,]*"
                                     class="w-full rounded-md bg-transparent border border-stroke dark:border-dark-3 py-3 px-5 text-body-color dark:text-dark-5 placeholder:text-dark-5 outline-none transition focus:border-[#011523] active:border-[#011523] disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     name="totalAmount"
@@ -450,40 +466,76 @@
                            <template x-for="(promoCode, index) in promoCodes" :key="index">
                               <div class="w-full px-4 md:w-1/2">
                                  <div class="mb-5">
-                                    <input
-                                       type="text"
-                                       class="border w-full rounded-md bg-transparent py-3 px-5 dark:text-dark-5 placeholder:text-dark-5 outline-none transition disabled:cursor-default "
-                                       :class="{ 
-                                          'focus:border-[#011523] active:border-[#011523]': !promoCodes[index],
-                                          'error-promo': !checkPromoCodeExist[index] && promoCodes[index], 
-                                          'success-promo': checkPromoCodeExist[index] 
-                                       }"
-                                       x-model="promoCodes[index]"
-                                       :id="'promoInput-' + index"
-                                       name="promoCode[]"
-                                       @input="clearIfDuplicatePromo(index)"
+                                    <div class="relative flex items-center"> <!-- Relative container -->
+                                       <input
+                                           type="text"
+                                           class="border w-full rounded-md bg-transparent py-3 pl-5 pr-8 dark:text-dark-5 placeholder:text-dark-5 outline-none transition disabled:cursor-default" 
+                                           :class="{ 
+                                               'focus:border-[#011523] active:border-[#011523]': !promoCodes[index],
+                                               'error-promo': !checkPromoCodeExist[index] && promoCodes[index], 
+                                               'success-promo': checkPromoCodeExist[index] 
+                                           }"
+                                           {{-- x-model="(() => promoCodes.length - 1 + '-' + index)()" --}}
+                                           x-model="promoCodes[index]"
+                                           :id="'promoInput-' + index"
+                                           name="promoCode[]"
+                                           @input="clearIfDuplicatePromo(index)"
                                        />
+                                       <svg 
+                                          width="30"
+                                          height="30"
+                                          viewBox="0 0 30 20"
+                                          version="1.1" 
+                                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"
+                                          class="absolute right-0 cursor-pointer"
+                                          @click="addPromoCode"
+                                          x-show="promoCodes.length - 1 === index"
+                                          >
+                                          <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>plus_circle [#1427]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-179.000000, -600.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M137.7,450 C137.7,450.552 137.2296,451 136.65,451 L134.55,451 L134.55,453 C134.55,453.552 134.0796,454 133.5,454 C132.9204,454 132.45,453.552 132.45,453 L132.45,451 L130.35,451 C129.7704,451 129.3,450.552 129.3,450 C129.3,449.448 129.7704,449 130.35,449 L132.45,449 L132.45,447 C132.45,446.448 132.9204,446 133.5,446 C134.0796,446 134.55,446.448 134.55,447 L134.55,449 L136.65,449 C137.2296,449 137.7,449.448 137.7,450 M133.5,458 C128.86845,458 125.1,454.411 125.1,450 C125.1,445.589 128.86845,442 133.5,442 C138.13155,442 141.9,445.589 141.9,450 C141.9,454.411 138.13155,458 133.5,458 M133.5,440 C127.70085,440 123,444.477 123,450 C123,455.523 127.70085,460 133.5,460 C139.29915,460 144,455.523 144,450 C144,444.477 139.29915,440 133.5,440" id="plus_circle-[#1427]"> 
+                                          </path> </g> </g> </g> </g>
+                                       </svg>
                                  </div>
+                                 <small class="text-red" x-show="!checkPromoCodeExist[index] && promoCodes[index]">Promo code does not exist</small>   
                               </div>
                            </template>
+                           {{-- <div class="relative mr-9 hidden w-full max-w-[250px] lg:block">
+                              <input
+                                 type="text"
+                                 placeholder="Search..."
+                                 class="w-full rounded-full border border-stroke dark:border-dark-3 bg-gray-2 dark:bg-dark py-[6px] pl-[18px] pr-8 text-sm text-body-color dark:text-dark-6 outline-none focus:border-primary"
+                                 />
+                              <button
+                                 class="absolute -translate-y-1/2 right-3 top-1/2 text-body-color dark:text-dark-6"
+                                 >
+                                 <svg
+                                    width="14"
+                                    height="14"
+                                    viewBox="0 0 14 14"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="fill-current"
+                                    >
+                                    <g clip-path="url(#clip0_1050_7313)">
+                                       <path
+                                          d="M13.4313 12.1844L9.82188 9.25311C11.3094 7.21874 11.1563 4.30936 9.29688 2.47186C8.31251 1.48749 7.00001 0.940613 5.60001 0.940613C4.20001 0.940613 2.88751 1.48749 1.90313 2.47186C-0.131244 4.50624 -0.131244 7.83124 1.90313 9.86561C2.88751 10.85 4.20001 11.3969 5.60001 11.3969C6.93438 11.3969 8.18126 10.8937 9.16563 9.99686L12.8188 12.95C12.9063 13.0156 13.0156 13.0594 13.125 13.0594C13.2781 13.0594 13.4094 12.9937 13.4969 12.8844C13.6719 12.6656 13.65 12.3594 13.4313 12.1844ZM5.60001 10.4125C4.46251 10.4125 3.41251 9.97499 2.60313 9.16561C0.940631 7.50311 0.940631 4.81249 2.60313 3.17186C3.41251 2.36249 4.46251 1.92499 5.60001 1.92499C6.73751 1.92499 7.78751 2.36249 8.59688 3.17186C10.2594 4.83436 10.2594 7.52499 8.59688 9.16561C7.80938 9.97499 6.73751 10.4125 5.60001 10.4125Z"
+                                          />
+                                    </g>
+                                    <defs>
+                                       <clipPath id="clip0_1050_7313">
+                                          <rect width="14" height="14" fill="white" />
+                                       </clipPath>
+                                    </defs>
+                                 </svg>
+                              </button>
+                           </div> --}}
                         </div>
-                        <div class="flex items-center justify-center">
-                           <button
-                              class="flex items-center justify-center w-1/2 mx-16 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
-                              :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
-                              type="submit"
-                              >
-                              Pay Now
-                           </button>
-                           <button
-                              class="flex items-center justify-center w-1/2 mx-16 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
-                              :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
-                              type="button"
-                              @click="addPromoCode"
-                              >
-                              Add Promo Code
-                           </button>
-                        </div>
+                        <button
+                           class="flex items-center justify-center w-1/2 px-10 py-3 text-base font-medium text-center text-white rounded-md bg-[#011523] hover:bg-[#011523]/90"
+                           :class="{ 'w-full': isMobile, 'w-1/3': !isMobile }"   
+                           type="submit"
+                           >
+                           Pay Now
+                        </button>
                         <div x-show="cartNotification"
                            class="fixed z-[60] w-full lg:w-[30%] bottom-20 flex items-center rounded-lg border border-green-light-4 dark:border-green bg-white dark:bg-dark-2 p-5">
                            <div class="mr-5 flex h-[60px] w-full max-w-[60px] items-center justify-center rounded-[5px] bg-green">
@@ -591,30 +643,25 @@
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
                         Sub Total:
                         <span x-text="!checkout || checkout.length === 0 ? '' : '$' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
-                        </span>
+                        </span> 
                      </p>
                   </div>
                   <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
                         Discount:
-                        <span x-text="promoCodesHolder
-                        .filter(item => item.result === true)
-                        .reduce((accumulator, currentValue) => {
-                          return accumulator + currentValue.discount;
-                        }, 0)"></span>
+                        <span x-text="'$'+checkPromoCodeExist.reduce((accumulator, currentValue) => { return accumulator + currentValue; }, 0).toLocaleString()"></span>
                      </p>
                   </div>
                   <div class="pt-5 border-t border-stroke dark:border-dark-3">
                      <p class="flex items-center justify-between mb-6 text-base text-dark dark:text-white">
                         Total Amount:
-                        <span x-text="!checkout || checkout.length === 0 ? '' : '$' + checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0).toLocaleString()">
+                        <span x-text="!checkout || checkout.length === 0 ? '' : '$'+(checkout.reduce((acc, cart) => parseFloat(acc) + parseFloat(cart.price), 0) - checkPromoCodeExist.reduce((accumulator, currentValue) => { return accumulator + currentValue; }, 0)).toLocaleString()">
                         </span>
                      </p>
                   </div>
                   <template x-if="!checkout || checkout.length === 0">
                      <p class="text-dark">No items have been added to the cart.</p>
                   </template>
-                  
                </div>
             </div>
          </div>

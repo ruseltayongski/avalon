@@ -84,7 +84,13 @@ class StripeController extends Controller
         $customer->post_code = $request->postCode;
         $customer->payment_type = $request->typeOfPayment;
         $customer->service_id = $request->serviceId;
+        $customer->discount = $request->discount;
+        $customer->subtotal = $request->subtotal;
+        $customer->total_amount = $request->total_amount;
+        $customer->status = 'checkout';
         $customer->save();
+
+        session(['customer_id' => $customer->id]);
 
         $session = \Stripe\Checkout\Session::create($session);
 
