@@ -1378,30 +1378,30 @@
                [
                   "image" => asset('images/business12.JPG'),
                   "tags" => "Hot",
-                  "title" => "Book-To-Film/TV",
+                  "title" => "Book-To-Film/TV: Screenplay",
                   "services_reference" => "Book-To-Film/TV",
-                  "content" => "Transform written literature into visual narratives."
+                  "content" => "Book-To-Film/TV: Transform written literature into visual narratives."
                ],
                [
                   "image" => asset('images/business13.JPG'),
                   "tags" => "New",
-                  "title" => "Business Affairs",
+                  "title" => "Business Affairs: Consulting Services",
                   "services_reference" => "Business Affairs",
-                  "content" => "Expertise in legal, financial, and administrative support"
+                  "content" => "Business Affairs: Expertise in legal, financial, and administrative support"
                ],       
                [
-                  "image" => asset('images/business14.WEBP'),
+                  "image" => asset('images/business14.PNG'),
                   "tags" => "Hot",
-                  "title" => "Digital Media & Mktg",
+                  "title" => "L.A. Times & Frankfurt Book Festival",
                   "services_reference" => "Digital Media and Marketing",
-                  "content" => "Tech to promote brands and drive business growth."
+                  "content" => "Digital Media & Marketing: Promote brands and drive business growth."
                ],
                [
                   "image" => asset('images/business15.WEBP'),
                   "tags" => "New",
-                  "title" => "Tech &  Dev",
+                  "title" => "Strategic Landing Page Business",
                   "services_reference" => "Tech and Dev",
-                  "content" => "Pioneering digital and technological solutions"
+                  "content" => "Tech &  Dev: Pioneering digital and technological solutions"
                ]
             ];
          ?> 

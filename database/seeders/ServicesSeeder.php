@@ -1612,7 +1612,7 @@ class ServicesSeeder extends Seeder
         ->count(1)
         ->state([
             'category' => 'Tech and Dev',
-            'title' => 'Start Plan: Data Flow',
+            'title' => 'Strat Plan: Data Flow',
             'description' => 'Design and implementation of data flow systems.
             Ongoing support for data flow systems.
             <br><br>Monthly Renewal $105.00',
@@ -1637,7 +1637,7 @@ class ServicesSeeder extends Seeder
         ->count(1)
         ->state([
             'category' => 'Tech and Dev',
-            'title' => 'Start Plan: System Flow',
+            'title' => 'Strat Plan: System Flow',
             'description' => 'Structuring and managing system flow processes.
             Continuous maintenance of system flow structures.
             <br><br>Monthly Renewal $120.00',
@@ -1662,7 +1662,7 @@ class ServicesSeeder extends Seeder
         ->count(1)
         ->state([
             'category' => 'Tech and Dev',
-            'title' => 'Start Plan: Web Stories',
+            'title' => 'Strat Plan: Web Stories',
             'description' => 'Creation and management of interactive web stories.
             Regular updates and support for web stories.
             <br><br>Monthly Renewal $120.00',
@@ -1687,7 +1687,7 @@ class ServicesSeeder extends Seeder
         ->count(1)
         ->state([
             'category' => 'Tech and Dev',
-            'title' => 'Start Plan: Project Plan',
+            'title' => 'Strat Plan: Project Plan',
             'description' => 'Development of comprehensive project plans.
             Ongoing support for project planning.
             <br><br>Monthly Renewal $165.00',
@@ -1712,7 +1712,7 @@ class ServicesSeeder extends Seeder
         ->count(1)
         ->state([
             'category' => 'Tech and Dev',
-            'title' => 'Start Plan: Documentation',
+            'title' => 'Strat Plan: Documentation',
             'description' => 'Creation and management of project documentation.
             Continuous updates and management of project documentation.
             <br><br>Monthly Renewal $165.00',
@@ -2899,9 +2899,9 @@ class ServicesSeeder extends Seeder
              'title' => 'Book Display L.A. Festival of Books',
              'description' => 'An exhibition of a wide range of books from various genres available for the public to view.
              ',
-             'service_feature' => 'Diverse genres, 
-             <br>new releases 
-             <br>bestsellers
+             'service_feature' => 'Diverse genres 
+             <br>New releases 
+             <br>Bestsellers
              <br>
                                    ',
              'price' => 699,
@@ -2922,7 +2922,7 @@ class ServicesSeeder extends Seeder
              'description' => 'An opportunity for readers to meet authors, get books signed, and engage in discussions.
              ',
              'service_feature' => 'Meet authors
-             <br>signed copies
+             <br>Signed copies
              <br>Q&A sessions
              <br>
                                    ',
