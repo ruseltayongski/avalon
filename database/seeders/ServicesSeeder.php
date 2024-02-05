@@ -2904,7 +2904,7 @@ class ServicesSeeder extends Seeder
              <br>Bestsellers
              <br>
                                    ',
-             'price' => 699,
+             'price' => 799,
              'picture' => 'service.png'
          ])
          ->create()
