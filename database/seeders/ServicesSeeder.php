@@ -37,7 +37,7 @@ class ServicesSeeder extends Seeder
                                   Clarity and Coherence<br>
                                   ',
             'price' => 2000,
-            'picture' => 'service.png'
+            'picture' => 'service1.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -63,7 +63,7 @@ class ServicesSeeder extends Seeder
                                   Engaging and Enticing No Spoilers<br>
                                   ',
             'price' => 10000,
-            'picture' => 'service.png'
+            'picture' => 'service2.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -91,7 +91,7 @@ class ServicesSeeder extends Seeder
                                   Flexibility for Changes<br>
                                   ',
             'price' => 6500,
-            'picture' => 'service.png'
+            'picture' => 'service3.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -119,7 +119,7 @@ class ServicesSeeder extends Seeder
                                   Internal Conflicts<br>
                                   ',
             'price' => 1500,
-            'picture' => 'service.png'
+            'picture' => 'service4.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -142,7 +142,7 @@ class ServicesSeeder extends Seeder
                                   Tone and Style Purpose<br>
                                   ',
             'price' => 15000,
-            'picture' => 'service.png'
+            'picture' => 'service5.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -168,7 +168,7 @@ class ServicesSeeder extends Seeder
                                   Audience and Market<br>
                                   ',
             'price' => 10000,
-            'picture' => 'service.png'
+            'picture' => 'service6.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -195,7 +195,7 @@ class ServicesSeeder extends Seeder
                                   Impact on Content<br>
                                   ',
             'price' => 800,
-            'picture' => 'service.png'
+            'picture' => 'service7.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -220,7 +220,7 @@ class ServicesSeeder extends Seeder
                                   Visual Storytelling<br>
                                   ',
             'price' => 20000,
-            'picture' => 'service.png'
+            'picture' => 'service8.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -248,7 +248,7 @@ class ServicesSeeder extends Seeder
                                   Regulatory Compliance<br>
                                   ',
             'price' => 2500,
-            'picture' => 'service.png'
+            'picture' => 'service9.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -269,7 +269,7 @@ class ServicesSeeder extends Seeder
                                   Potential casting ideas<br>
                                   ',
             'price' => 11993.33,
-            'picture' => 'service.png'
+            'picture' => 'service10.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -291,7 +291,7 @@ class ServicesSeeder extends Seeder
                                   Visual concept outlines<br>
                                   ',
             'price' => 17693.33,
-            'picture' => 'service.png'
+            'picture' => 'service10.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -312,7 +312,7 @@ class ServicesSeeder extends Seeder
                                   Network building<br>
                                   ',
             'price' => 3360,
-            'picture' => 'service.png'
+            'picture' => 'service10.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -333,7 +333,7 @@ class ServicesSeeder extends Seeder
                                   Engaging storytelling<br>
                                   ',
             'price' => 1026.68,
-            'picture' => 'service.png'
+            'picture' => 'service11.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -354,7 +354,7 @@ class ServicesSeeder extends Seeder
                                   Tailored branding<br>
                                   ',
             'price' => 1360,
-            'picture' => 'service.png'
+            'picture' => 'service11.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -375,7 +375,7 @@ class ServicesSeeder extends Seeder
                                   Impactful messaging<br>
                                   ',
             'price' => 169.33,
-            'picture' => 'service.png'
+            'picture' => 'service11.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -396,7 +396,7 @@ class ServicesSeeder extends Seeder
                                    Straightforward storytelling<br>
                                   ',
             'price' => 460,
-            'picture' => 'service.png'
+            'picture' => 'service12.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -416,7 +416,7 @@ class ServicesSeeder extends Seeder
                                   Basic animation elements<br>
                                   ',
             'price' => 793.33,
-            'picture' => 'service.png'
+            'picture' => 'service12.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -436,7 +436,7 @@ class ServicesSeeder extends Seeder
                                   Clear engaging narration<br>
                                   ',
             'price' => 1026.68,
-            'picture' => 'service.png'
+            'picture' => 'service12.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -457,7 +457,7 @@ class ServicesSeeder extends Seeder
                                   Dynamic editing<br>
                                   ',
             'price' => 1693.33,
-            'picture' => 'service.png'
+            'picture' => 'service13.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -478,7 +478,7 @@ class ServicesSeeder extends Seeder
                                   Engaging scriptwriting<br>
                                   ',
             'price' => 1260,
-            'picture' => 'service.png'
+            'picture' => 'service13.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -499,7 +499,7 @@ class ServicesSeeder extends Seeder
                                   Follow-up communications<br>
                                   ',
             'price' => 2826.68,
-            'picture' => 'service.png'
+            'picture' => 'service14.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -520,7 +520,7 @@ class ServicesSeeder extends Seeder
                                   Studio pitches<br>
                                   ',
             'price' => 3360,
-            'picture' => 'service.png'
+            'picture' => 'service14.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -541,7 +541,7 @@ class ServicesSeeder extends Seeder
                                   Follow-up coordination<br>
                                   ',
             'price' => 3360,
-            'picture' => 'service.png'
+            'picture' => 'service14.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -562,7 +562,7 @@ class ServicesSeeder extends Seeder
                                   Sound design tailored to the books theme<br>
                                   ',
             'price' => 4493.33,
-            'picture' => 'service.png'
+            'picture' => 'service15.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -583,7 +583,7 @@ class ServicesSeeder extends Seeder
                                   Immersive soundtracks<br>
                                   ',
             'price' => 7426.68,
-            'picture' => 'service.png'
+            'picture' => 'service15.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -613,7 +613,7 @@ class ServicesSeeder extends Seeder
                                 Cross-Promotional Opportunities: Live-action book trailers can also be used for cross-promotion, featuring endorsements from celebrities or tie-ins with other media like movies or TV shows if applicable<br>
                                   ',
             'price' => 12668.68,
-            'picture' => 'service.png'
+            'picture' => 'service16.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -640,7 +640,7 @@ class ServicesSeeder extends Seeder
                                   Budgeting: Planning future spending and managing resources efficiently.<br>
                                   ',
             'price' => 2000,
-            'picture' => 'service.png'
+            'picture' => 'service17.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -664,7 +664,7 @@ class ServicesSeeder extends Seeder
                                   Dispute Resolution: Handling legal disputes through negotiation, mediation, or litigation.<br>
                                   ',
             'price' => 7000,
-            'picture' => 'service.png'
+            'picture' => 'service18.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -688,7 +688,7 @@ class ServicesSeeder extends Seeder
                                                    Public Relations: Building and maintaining a positive public image.<br>
                                   ',
             'price' => 1500,
-            'picture' => 'service.png'
+            'picture' => 'service19.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -712,7 +712,7 @@ class ServicesSeeder extends Seeder
                                   Performance Management: Evaluating and improving employee performance.<br>
                                   ',
             'price' => 3000,
-            'picture' => 'service.png'
+            'picture' => 'service20.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -736,7 +736,7 @@ class ServicesSeeder extends Seeder
                                   Tech Support: Providing technical assistance to users.<br>
                                   ',
             'price' => 3500,
-            'picture' => 'service.png'
+            'picture' => 'service21.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -760,7 +760,7 @@ class ServicesSeeder extends Seeder
                                   IT Consulting: Guiding technology strategy and implementation.<br>
                                   ',
             'price' => 2500,
-            'picture' => 'service.png'
+            'picture' => 'service22.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -783,7 +783,7 @@ class ServicesSeeder extends Seeder
                                   Distribution: Delivering products to consumers or retailers.<br>
                                   ',
             'price' => 4500,
-            'picture' => 'service.png'
+            'picture' => 'service23.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -805,7 +805,7 @@ class ServicesSeeder extends Seeder
                                   Feedback Management: Collecting and responding to customer feedback.<br>
                                   ',
             'price' => 5500,
-            'picture' => 'service.png'
+            'picture' => 'service24.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -828,7 +828,7 @@ class ServicesSeeder extends Seeder
                                   Implementation: Bringing new products or services to market.<br>
                                   ',
             'price' => 3800,
-            'picture' => 'service.png'
+            'picture' => 'service25.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -851,7 +851,7 @@ class ServicesSeeder extends Seeder
                                   Real Estate Investment Consulting: Advising on property investments.<br>
                                   ',
             'price' => 4800,
-            'picture' => 'service.png'
+            'picture' => 'service26.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -878,7 +878,7 @@ class ServicesSeeder extends Seeder
                                   Social media integration<br>
                                   ',
             'price' => 3526.68,
-            'picture' => 'service.png'
+            'picture' => 'service27.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -900,7 +900,7 @@ class ServicesSeeder extends Seeder
                                   Mobile responsive design<br>
                                   ',
             'price' => 593.33,
-            'picture' => 'service.png'
+            'picture' => 'service28.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -923,7 +923,7 @@ class ServicesSeeder extends Seeder
                                   Performance optimization<br>
                                   ',
             'price' => 1060,
-            'picture' => 'service.png'
+            'picture' => 'service29.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -946,7 +946,7 @@ class ServicesSeeder extends Seeder
                                   Integration into the websites blog section<br>
                                   ',
             'price' => 593.33,
-            'picture' => 'service.png'
+            'picture' => 'service30.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -967,7 +967,7 @@ class ServicesSeeder extends Seeder
                                   Seamless integration with the original article<br>
                                   ',
             'price' => 1.27,
-            'picture' => 'service.png'
+            'picture' => 'service30.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -989,7 +989,7 @@ class ServicesSeeder extends Seeder
                                 Pages 1<br>
                                   ',
             'price' => 900,
-            'picture' => 'service.png'
+            'picture' => 'service31.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1013,7 +1013,7 @@ class ServicesSeeder extends Seeder
                                   SEO minimal<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service31.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1038,7 +1038,7 @@ class ServicesSeeder extends Seeder
                                   SEO minimal<br>
                                   ',
             'price' => 1080,
-            'picture' => 'service.png'
+            'picture' => 'service31.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1060,7 +1060,7 @@ class ServicesSeeder extends Seeder
                                   Pages 5<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service32.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1085,7 +1085,7 @@ class ServicesSeeder extends Seeder
                                   SEO Full<br>
                                   ',
             'price' => 6000,
-            'picture' => 'service.png'
+            'picture' => 'service32.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1110,7 +1110,7 @@ class ServicesSeeder extends Seeder
                                   SEO Minimal<br>
                                   ',
             'price' => 2160,
-            'picture' => 'service.png'
+            'picture' => 'service32.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1133,7 +1133,7 @@ class ServicesSeeder extends Seeder
                                 Pages 12<br>
                                   ',
             'price' => 3000,
-            'picture' => 'service.png'
+            'picture' => 'service33.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1159,7 +1159,7 @@ class ServicesSeeder extends Seeder
                                 Upgradable to Automation<br>
                                   ',
             'price' => 8000,
-            'picture' => 'service.png'
+            'picture' => 'service33.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1185,7 +1185,7 @@ class ServicesSeeder extends Seeder
                                 Upgradable to Automation<br>
                                   ',
             'price' => 5000,
-            'picture' => 'service.png'
+            'picture' => 'service33.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1211,7 +1211,7 @@ class ServicesSeeder extends Seeder
                                 Ensuring continuous encryption<br>
                                   ',
             'price' => 50,
-            'picture' => 'service.png'
+            'picture' => 'service34.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1237,7 +1237,7 @@ class ServicesSeeder extends Seeder
                                 Uptime monitoring<br>
                                   ',
             'price' => 80,
-            'picture' => 'service.png'
+            'picture' => 'service34.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1262,7 +1262,7 @@ class ServicesSeeder extends Seeder
                                 Performance tracking<br>
                                   ',
             'price' => 120,
-            'picture' => 'service.png'
+            'picture' => 'service34.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1288,7 +1288,7 @@ class ServicesSeeder extends Seeder
                                 Comprehensive performance reviews<br>
                                   ',
             'price' => 280,
-            'picture' => 'service.png'
+            'picture' => 'service34.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1315,7 +1315,7 @@ class ServicesSeeder extends Seeder
                             SEO enhancement<br>
                                   ',
             'price' => 120,
-            'picture' => 'service.png'
+            'picture' => 'service34.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1342,7 +1342,7 @@ class ServicesSeeder extends Seeder
                                 User experience improvements<br>
                                   ',
             'price' => 280,
-            'picture' => 'service.png'
+            'picture' => 'service34.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1370,7 +1370,7 @@ class ServicesSeeder extends Seeder
                                 Design and policy<br>
                                   ',
             'price' => 150,
-            'picture' => 'service.png'
+            'picture' => 'service34.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1395,7 +1395,7 @@ class ServicesSeeder extends Seeder
                                 Visual enhancements<br>
                                   ',
             'price' => 200,
-            'picture' => 'service.png'
+            'picture' => 'service35.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1421,7 +1421,7 @@ class ServicesSeeder extends Seeder
                             Visual enhancements<br>
                                   ',
             'price' => 300,
-            'picture' => 'service.png'
+            'picture' => 'service35.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1447,7 +1447,7 @@ class ServicesSeeder extends Seeder
                                 Visual enhancements<br>
                                   ',
             'price' => 525,
-            'picture' => 'service.png'
+            'picture' => 'service35.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1472,7 +1472,7 @@ class ServicesSeeder extends Seeder
                                 Performance optimization<br>
                                   ',
             'price' => 300,
-            'picture' => 'service.png'
+            'picture' => 'service35.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1499,7 +1499,7 @@ class ServicesSeeder extends Seeder
                                 Reflecting database changes<br>
                                   ',
             'price' => 300,
-            'picture' => 'service.png'
+            'picture' => 'service35.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1524,7 +1524,7 @@ class ServicesSeeder extends Seeder
                                 Basic troubleshooting<br>
                                   ',
             'price' => 1000,
-            'picture' => 'service.png'
+            'picture' => 'service36.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1549,7 +1549,7 @@ class ServicesSeeder extends Seeder
                                 Dedicated support<br>
                                   ',
             'price' => 2000,
-            'picture' => 'service.png'
+            'picture' => 'service36.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1574,7 +1574,7 @@ class ServicesSeeder extends Seeder
                                 and system optimization<br>
                                   ',
             'price' => 3000,
-            'picture' => 'service.png'
+            'picture' => 'service36.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1599,7 +1599,7 @@ class ServicesSeeder extends Seeder
                                 Compatibility maintenance<br>
                                   ',
             'price' => 8000,
-            'picture' => 'service.png'
+            'picture' => 'service36.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1624,7 +1624,7 @@ class ServicesSeeder extends Seeder
                                 Security checks<br>
                                   ',
             'price' => 525,
-            'picture' => 'service.png'
+            'picture' => 'service37.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1649,7 +1649,7 @@ class ServicesSeeder extends Seeder
                                 Updates for enhanced efficiency<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service37.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1674,7 +1674,7 @@ class ServicesSeeder extends Seeder
                                 Performance analytics<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service37.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1699,7 +1699,7 @@ class ServicesSeeder extends Seeder
                                 Timeline reviews<br>
                                   ',
             'price' => 825,
-            'picture' => 'service.png'
+            'picture' => 'service37.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1724,7 +1724,7 @@ class ServicesSeeder extends Seeder
                                 Access control<br>
                                   ',
             'price' => 825,
-            'picture' => 'service.png'
+            'picture' => 'service37.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1745,7 +1745,7 @@ class ServicesSeeder extends Seeder
                                 Compatibility with multiple payment options<br>
                                   ',
             'price' => 300,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1766,7 +1766,7 @@ class ServicesSeeder extends Seeder
             Regular security updates, addition of new payment methods, performance optimization, compliance with financial regulations<br>
                                   ',
             'price' => 450,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1787,7 +1787,7 @@ class ServicesSeeder extends Seeder
             Updating category lists, enhancing search algorithms, improving user interface, ensuring mobile responsiveness<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1808,7 +1808,7 @@ class ServicesSeeder extends Seeder
             Updating and adding new categories, optimizing category layout, enhancing user experience, performance monitoring.<br>
                                   ',
             'price' => 120,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1829,7 +1829,7 @@ class ServicesSeeder extends Seeder
             Regular feature updates, performance improvements, user experience enhancements, maintaining compatibility with new products/services<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1850,7 +1850,7 @@ class ServicesSeeder extends Seeder
             Software updates, security patches, performance monitoring, backup and recovery systems<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1871,7 +1871,7 @@ class ServicesSeeder extends Seeder
             Database maintenance, server uptime management, regular feature updates, user experience improvements<br>
                                   ',
             'price' => 750,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1892,7 +1892,7 @@ class ServicesSeeder extends Seeder
             Compliance updates, security enhancements, feature upgrades, user interface improvements.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1913,7 +1913,7 @@ class ServicesSeeder extends Seeder
             Data accuracy checks, system optimization, introduction of new analytics features, security updates<br>
                                   ',
             'price' =>900,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1934,7 +1934,7 @@ class ServicesSeeder extends Seeder
             System upgrades for better usability, feature enhancements, performance optimization.<br>
                                   ',
             'price' => 120,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1955,7 +1955,7 @@ class ServicesSeeder extends Seeder
             System upgrades, integration with new suppliers, performance enhancements, user interface improvements<br>
                                   ',
             'price' => 450,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1976,7 +1976,7 @@ class ServicesSeeder extends Seeder
             New communication features, system reliability improvements, user interface enhancements.<br>
                                   ',
             'price' => 150,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -1997,7 +1997,7 @@ class ServicesSeeder extends Seeder
             System updates for new promotional capabilities, performance improvements, security enhancements.<br>
                                   ',
             'price' => 375,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2018,7 +2018,7 @@ class ServicesSeeder extends Seeder
             Feature updates, performance optimization, integration of new communication channels.<br>
                                   ',
             'price' => 1350,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2039,7 +2039,7 @@ class ServicesSeeder extends Seeder
             System upgrades, new notification features, performance checks, user experience improvements.<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2060,7 +2060,7 @@ class ServicesSeeder extends Seeder
             Regular updates, system optimizations, introduction of new features, user interface improvements.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service38.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2081,7 +2081,7 @@ class ServicesSeeder extends Seeder
             Regular updates for improved accuracy, technical support, compatibility checks with other CRM features.<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service39.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2102,7 +2102,7 @@ class ServicesSeeder extends Seeder
             Regular updates for API compatibility, technical support, and feature enhancements for smoother operation.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service39.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2123,7 +2123,7 @@ class ServicesSeeder extends Seeder
             Updating scraping algorithms, compliance with data protection laws, performance optimization.<br>
                                   ',
             'price' => 360,
-            'picture' => 'service.png'
+            'picture' => 'service39.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2144,7 +2144,7 @@ class ServicesSeeder extends Seeder
             Regular feature updates, integration of new assessment techniques, system optimization.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service39.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2165,7 +2165,7 @@ class ServicesSeeder extends Seeder
             Updating reporting algorithms, data accuracy checks, system enhancements.<br>
                                   ',
             'price' => 840,
-            'picture' => 'service.png'
+            'picture' => 'service39.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2186,7 +2186,7 @@ class ServicesSeeder extends Seeder
             System upgrades, compliance with labor laws, integration of new features, user experience enhancements.<br>
                                   ',
             'price' => 1800,
-            'picture' => 'service.png'
+            'picture' => 'service40.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2207,7 +2207,7 @@ class ServicesSeeder extends Seeder
             Tax rate updates, incorporation of new compensation models, system optimization.<br>
                                   ',
             'price' => 360,
-            'picture' => 'service.png'
+            'picture' => 'service40.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2228,7 +2228,7 @@ class ServicesSeeder extends Seeder
             Regular updates for legal compliance, system enhancements, format customization options.<br>
                                   ',
             'price' => 240,
-            'picture' => 'service.png'
+            'picture' => 'service40.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2249,7 +2249,7 @@ class ServicesSeeder extends Seeder
             Compliance updates, performance optimization, integration of new payment methods, security enhancements.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service40.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2270,7 +2270,7 @@ class ServicesSeeder extends Seeder
             Feature upgrades, user interface improvements, integration of new recruitment channels, system performance monitoring.<br>
                                   ',
             'price' => 2400,
-            'picture' => 'service.png'
+            'picture' => 'service40.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2291,7 +2291,7 @@ class ServicesSeeder extends Seeder
             Security upgrades, system enhancements, compliance with data protection laws, user experience improvements.<br>
                                   ',
             'price' => 2400,
-            'picture' => 'service.png'
+            'picture' => 'service40.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2312,7 +2312,7 @@ class ServicesSeeder extends Seeder
             System upgrades, policy compliance updates, user interface enhancements, performance improvements.<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service40.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2333,7 +2333,7 @@ class ServicesSeeder extends Seeder
             Updating tax tables, incorporating new payment regulations, system security enhancements, processing efficiency improvements.<br>
                                   ',
             'price' => 960,
-            'picture' => 'service.png'
+            'picture' => 'service41.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2354,7 +2354,7 @@ class ServicesSeeder extends Seeder
             Implementing new financial regulations, system optimization, feature enhancements, security updates.<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service41.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2375,7 +2375,7 @@ class ServicesSeeder extends Seeder
             System upgrades for new equipment types, performance optimization, integration with other supply chain systems.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service42.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2396,7 +2396,7 @@ class ServicesSeeder extends Seeder
             Adding new suppliers, updating performance metrics, system enhancements, user interface improvements.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service42.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2417,7 +2417,7 @@ class ServicesSeeder extends Seeder
             System updates, performance optimization, integration with other supply chain components, user experience enhancements.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service42.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2438,7 +2438,7 @@ class ServicesSeeder extends Seeder
             Updating evaluation criteria, system enhancements, integration with HRIS, user experience improvements.<br>
                                   ',
             'price' => 360,
-            'picture' => 'service.png'
+            'picture' => 'service43.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2459,7 +2459,7 @@ class ServicesSeeder extends Seeder
             Regular updates, technical support, system optimization.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service43.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2480,7 +2480,7 @@ class ServicesSeeder extends Seeder
             Regular content updates, system maintenance, user support.<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service43.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2501,7 +2501,7 @@ class ServicesSeeder extends Seeder
             Regular updates, compliance checks, support services.<br>
                                   ',
             'price' => 360,
-            'picture' => 'service.png'
+            'picture' => 'service43.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2522,7 +2522,7 @@ class ServicesSeeder extends Seeder
             Regular accuracy improvements, additional language support, technical support.<br>
                                   ',
             'price' => 960,
-            'picture' => 'service.png'
+            'picture' => 'service44.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2543,7 +2543,7 @@ class ServicesSeeder extends Seeder
             Regular updates, AI training with new data, support for additional platforms.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service44.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2564,7 +2564,7 @@ class ServicesSeeder extends Seeder
             Regular updates, optimization for speed and accuracy, technical support.<br>
                                   ',
             'price' => 960,
-            'picture' => 'service.png'
+            'picture' => 'service44.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2585,7 +2585,7 @@ class ServicesSeeder extends Seeder
             Regular updates, compliance with social media platform changes, support services.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service44.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2606,7 +2606,7 @@ class ServicesSeeder extends Seeder
             Regular algorithm updates, new feature additions, technical support.<br>
                                   ',
             'price' => 960,
-            'picture' => 'service.png'
+            'picture' => 'service44.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2627,7 +2627,7 @@ class ServicesSeeder extends Seeder
             Regular feature updates, compliance with email standards, technical support.<br>
                                   ',
             'price' => 240,
-            'picture' => 'service.png'
+            'picture' => 'service44.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2648,7 +2648,7 @@ class ServicesSeeder extends Seeder
             Regular updates, scalability improvements, technical support.<br>
                                   ',
             'price' => 600,
-            'picture' => 'service.png'
+            'picture' => 'service44.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2669,7 +2669,7 @@ class ServicesSeeder extends Seeder
             Regular AI model improvements, new feature integrations, technical support.<br>
                                   ',
             'price' => 240,
-            'picture' => 'service.png'
+            'picture' => 'service44.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2690,7 +2690,7 @@ class ServicesSeeder extends Seeder
             Regular updates, new payment method integrations, technical support.<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2711,7 +2711,7 @@ class ServicesSeeder extends Seeder
             Regular feature enhancements, inventory optimization tools, technical support.<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2732,7 +2732,7 @@ class ServicesSeeder extends Seeder
             Regular updates for analytics features, data accuracy improvements, technical support. |<br>
                                   ',
             'price' => 1200,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2753,7 +2753,7 @@ class ServicesSeeder extends Seeder
             Regular updates, feature enhancements, customer support for CRM functionalities.<br>
                                   ',
             'price' => 1800,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2774,7 +2774,7 @@ class ServicesSeeder extends Seeder
             Regular updates, new management features, technical support.<br>
                                   ',
             'price' => 2500,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2795,7 +2795,7 @@ class ServicesSeeder extends Seeder
             Regular updates, new integration capabilities, technical support.<br>
                                   ',
             'price' => 1800,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2816,7 +2816,7 @@ class ServicesSeeder extends Seeder
             Regular user experience enhancements, customization updates, technical support.<br>
                                   ',
             'price' => 960,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2837,7 +2837,7 @@ class ServicesSeeder extends Seeder
             Regular scalability enhancements, support for growing businesses, technical assistance.<br>
                                   ',
             'price' => 240,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2858,7 +2858,7 @@ class ServicesSeeder extends Seeder
             Regular security updates, vulnerability assessments, technical support.<br>
                                   ',
             'price' => 240,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2879,7 +2879,7 @@ class ServicesSeeder extends Seeder
             Regular system checks, updates to ensure compatibility and efficiency, access to technical support, and troubleshooting.<br>
                                   ',
             'price' => 360,
-            'picture' => 'service.png'
+            'picture' => 'service45.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -2905,7 +2905,7 @@ class ServicesSeeder extends Seeder
              <br>
                                    ',
              'price' => 799,
-             'picture' => 'service.png'
+             'picture' => 'service46.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -2927,7 +2927,7 @@ class ServicesSeeder extends Seeder
              <br>
                                    ',
              'price' => 3899,
-             'picture' => 'service.png'
+             'picture' => 'service46.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -2948,7 +2948,7 @@ class ServicesSeeder extends Seeder
              <br>
                                    ',
              'price' => 1799,
-             'picture' => 'service.png'
+             'picture' => 'service47.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -2969,7 +2969,7 @@ class ServicesSeeder extends Seeder
              <br>
                                    ',
              'price' => 3499,
-             'picture' => 'service.png'
+             'picture' => 'service47.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -2987,7 +2987,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Early access to select publications  Behind-the-scenes content Invitations to pre-release events Interaction with authors and creators<br>
                                    ',
              'price' => 260,
-             'picture' => 'service.png'
+             'picture' => 'service48.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3005,7 +3005,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Durability Variety in Design Writable Surface Non-Slip Texture Color-Coded System Eco-Friendly Slim Profile Portable Storage Case Portable Storage Case<br>
                                  ',
              'price' => 726.68,
-             'picture' => 'service.png'
+             'picture' => 'service49.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3023,7 +3023,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'High-Quality Material Customizable Design Advanced Printing Techniques Double-Sided Printing  Eco-Friendly Options Protective Coating Standard and Custom Sizes Quick and Efficient Delivery <br>
                                  ',
              'price' => 526.68,
-             'picture' => 'service.png'
+             'picture' => 'service50.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3041,7 +3041,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'High-Quality Paper Stock Customizable Designs Full-Color Printing Double-Sided Use  Standard and Custom Sizes Versatile Use Bulk Packaging <br>
                                  ',
              'price' => 893.33,
-             'picture' => 'service.png'
+             'picture' => 'service51.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3059,7 +3059,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Premium Paper Quality Customizable Designs High-Resolution Printing Various Sizes Vibrant Color Options Bulk Quantity Quick Turnaround and Shipping <br>
                                  ',
              'price' => 1393.33,
-             'picture' => 'service.png'
+             'picture' => 'service52.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3077,7 +3077,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Compact and Portable High-Quality Material Customizable Design Clear and Concise Layout Double-Sided Printing Versatile Use Bulk Quantity Attractive Packaging <br>
                                  ',
              'price' => 526.68,
-             'picture' => 'service.png'
+             'picture' => 'service53.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3095,7 +3095,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Diverse Range of Agents Personalized Matching Professional Profiles Query Letter Assistance Direct Communication Channels Educational Resources Feedback and Review Services Networking Opportunities Flexible Membership Options Privacy and Security <br>
                                  ',
              'price' => 1126.68,
-             'picture' => 'service.png'
+             'picture' => 'service54.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3113,7 +3113,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Extensive Network of Agents Advanced Matching Algorithm In-Depth Agent Profiles Personalized Dashboard Manuscript Showcase Opportunities Educational Resources and Workshops Professional Query and Synopsis Review Networking Events  Confidential and Secure Platform Flexible Membership Tiers<br>
                                  ',
              'price' => 2260,
-             'picture' => 'service.png'
+             'picture' => 'service54.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3131,7 +3131,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Access to a database of 2000+ agents. Filters for genre, market, and agent experience. Direct messaging and query letter submission tools.<br>
                                  ',
              'price' => 4493.33,
-             'picture' => 'service.png'
+             'picture' => 'service54.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3149,7 +3149,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Inventory management techniques for small collections. Basic marketing strategies. Customer service best practices.<br>
                                  ',
              'price' => 1126.68,
-             'picture' => 'service.png'
+             'picture' => 'service55.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3167,7 +3167,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Advanced inventory organization. Intermediate marketing and promotional strategies. Customer engagement and loyalty programs.<br>
                                  ',
              'price' => 2260,
-             'picture' => 'service.png'
+             'picture' => 'service55.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3185,7 +3185,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Comprehensive inventory management systems. Advanced marketing tactics and analytics. Extensive customer relationship management.<br>
                                  ',
              'price' => 6726.68,
-             'picture' => 'service.png'
+             'picture' => 'service55.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3203,7 +3203,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Guidelines for concise and compelling pitches. Examples of successful 100-word pitches. Techniques for capturing interest quickly.<br>
                                  ',
              'price' => 5293.33,
-             'picture' => 'service.png'
+             'picture' => 'service56.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3221,7 +3221,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Expansion techniques for a short pitch. Samples of effective 200-word pitches. Focus on storytelling within a limited word count.<br>
                                  ',
              'price' => 5826.68,
-             'picture' => 'service.png'
+             'picture' => 'service56.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3239,7 +3239,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Strategies for comprehensive yet concise pitches. Examples of well-crafted 300-word pitches. Insights on engaging publishers with a longer pitch.<br>
                                  ',
              'price' => 6393.33,
-             'picture' => 'service.png'
+             'picture' => 'service56.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3257,7 +3257,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Techniques for detailed storytelling in pitches. Case studies of successful 400-word pitches. Emphasis on narrative structure within the pitch.<br>
                                  ',
              'price' => 6960,
-             'picture' => 'service.png'
+             'picture' => 'service56.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3275,7 +3275,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'In-depth storytelling and narrative techniques. Analysis of top-tier 500-word pitches. Personal branding and author’s voice development.<br>
                                  ',
              'price' => 8693.33,
-             'picture' => 'service.png'
+             'picture' => 'service56.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3293,7 +3293,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => ' Writing service, media contact database, distribution to national and local news networks, and media monitoring. <br>
                                  ',
              'price' => 4126.68,
-             'picture' => 'service.png'
+             'picture' => 'service57.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3311,7 +3311,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Online press release distribution, SEO optimization, and targeting specific online communities or forums.<br>
                                  ',
              'price' => 1793.33,
-             'picture' => 'service.png'
+             'picture' => 'service57.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3329,7 +3329,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Content creation, scheduling posts, community engagement, analytics reports, and strategy consultation.<br>
                                  ',
              'price' => 4126.68,
-             'picture' => 'service.png'
+             'picture' => 'service58.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3347,7 +3347,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Includes all features of the 2-month service with additional strategic planning and long-term analytics.<br>
                                  ',
              'price' => 6493.33,
-             'picture' => 'service.png'
+             'picture' => 'service58.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3365,7 +3365,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Extended features of the 5-month service, reputation management, influencer collaboration, and continuous optimization.<br>
                                  ',
              'price' => 8860,
-             'picture' => 'service.png'
+             'picture' => 'service58.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3383,7 +3383,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Ad design, targeting specific demographics, budget management, A/B testing, and performance analytics.<br>
                                  ',
              'price' => 1793.33,
-             'picture' => 'service.png'
+             'picture' => 'service58.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3401,7 +3401,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Custom graphic design, branding alignment, social media optimized sizes, and multiple revisions.<br>
                                  ',
              'price' => 126.68,
-             'picture' => 'service.png'
+             'picture' => 'service58.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3422,7 +3422,7 @@ class ServicesSeeder extends Seeder
              Continuation of professional narration and editing, proportional pricing, and seamless integration with initial segment.<br>
                                  ',
              'price' => 5426.68,
-             'picture' => 'service.png'
+             'picture' => 'service59.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3440,7 +3440,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Custom content creation (e.g., ebooks, webinars), design services, and strategic placement for lead generation.<br>
                                  ',
              'price' => 7026.68,
-             'picture' => 'service.png'
+             'picture' => 'service60.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3458,7 +3458,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Video editing, SEO optimization, thumbnail creation, content strategy, and audience engagement analytics.<br>
                                  ',
              'price' => 5626.68,
-             'picture' => 'service.png'
+             'picture' => 'service61.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3478,7 +3478,7 @@ class ServicesSeeder extends Seeder
 
                                  ',
              'price' => 4960,
-             'picture' => 'service.png'
+             'picture' => 'service62.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3496,7 +3496,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Identification of relevant podcasts, outreach, scheduling, and preparation assistance for appearances.<br>
                                  ',
              'price' => 926.68,
-             'picture' => 'service.png'
+             'picture' => 'service62.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3514,7 +3514,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Maximum visibility and space for content, high reader engagement, suitable for extensive reviews or ads with rich visual content.<br>
                                  ',
              'price' => 140000,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3532,7 +3532,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Significant space for detailed content, allows for a mix of text and imagery, good visibility.<br>
                                  ',
              'price' => 95000,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3550,7 +3550,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Balanced space for content, suitable for concise reviews or ads, good visibility.<br>
                                  ',
              'price' => 90666.68,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3568,7 +3568,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Moderate space for content, ideal for focused messages with some visual elements.<br>
                                  ',
              'price' => 65668.68,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3586,7 +3586,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Limited space, suitable for brief reviews or ads with a focus on text and some imagery.<br>
                                  ',
              'price' => 50333.33,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3604,7 +3604,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Compact space, ideal for concise, impactful messages.<br>
                                  ',
              'price' => 34668.68,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3622,7 +3622,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => ' Unique format, suitable for eye-catching, brief content.<br>
                                  ',
              'price' => 34668.68,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3640,7 +3640,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Very limited space, ideal for very concise messages or small visuals.<br>
                                  ',
              'price' => 26000,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3658,7 +3658,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Minimal space, suitable for short, impactful text or a small image.<br>
                                  ',
              'price' => 17668.68,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3676,7 +3676,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Extremely limited space, best for very short messages or logos.<br>
                                  ',
              'price' => 9333.33,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3694,7 +3694,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'High readership, suitable for reaching a broad audience with engaging content.<br>
                                  ',
              'price' => 6500,
-             'picture' => 'service.png'
+             'picture' => 'service63.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3712,7 +3712,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'General purpose, flexible format for a range of content types.<br>
                                  ',
              'price' => 4500,
-             'picture' => 'service.png'
+             'picture' => 'service64.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3730,7 +3730,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Higher visibility and priority placement, suitable for high-impact messaging.<br>
                                  ',
              'price' => 5500,
-             'picture' => 'service.png'
+             'picture' => 'service64.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3748,7 +3748,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Maximum exposure, ideal for major promotions or important announcements.<br>
                                  ',
              'price' => 6500,
-             'picture' => 'service.png'
+             'picture' => 'service64.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3766,7 +3766,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Personalized focus, great for author promotion and detailed book discussions.<br>
                                  ',
              'price' => 11899,
-             'picture' => 'service.png'
+             'picture' => 'service65.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3784,7 +3784,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Flexible and versatile, suitable for a variety of book-related promotions.<br>
                                  ',
              'price' => 1963,
-             'picture' => 'service.png'
+             'picture' => 'service65.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3802,7 +3802,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Higher visibility, ideal for upcoming releases or major announcements.<br>
                                  ',
              'price' => 3645,
-             'picture' => 'service.png'
+             'picture' => 'service65.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3820,7 +3820,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Top-tier exposure, best for high-profile books or events.<br>
                                  ',
              'price' => 6893,
-             'picture' => 'service.png'
+             'picture' => 'service65.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3838,7 +3838,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Wide distribution, essential for bookstores and libraries, great for visibility in the book industry.<br>
                                  ',
              'price' => 3900,
-             'picture' => 'service.png'
+             'picture' => 'service66.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3856,7 +3856,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'National reach, focuses on thoughtful, in-depth book reviews.<br>
                                  ',
              'price' => 1790,
-             'picture' => 'service.png'
+             'picture' => 'service67.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3874,7 +3874,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Regional focus, personalized reviews, good for authors seeking exposure in the Pacific area.<br>
                                  ',
              'price' => 1500,
-             'picture' => 'service.png'
+             'picture' => 'service68.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3892,7 +3892,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Credibility, unbiased critiques, useful for authors seeking honest feedback.<br>
                                  ',
              'price' => 1500,
-             'picture' => 'service.png'
+             'picture' => 'service69.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3910,7 +3910,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Innovative approaches to book marketing, good for modern, tech-savvy audiences.<br>
                                  ',
              'price' => 1500,
-             'picture' => 'service.png'
+             'picture' => 'service70.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3928,7 +3928,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Prestigious and influential, great for credibility and wide exposure.<br>
                                  ',
              'price' => 2899,
-             'picture' => 'service.png'
+             'picture' => 'service71.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3946,7 +3946,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 20,000 to 50,000 per location per day. $80,000 per location for a 4 week period of Ads<br>
                                  ',
              'price' => 85000,
-             'picture' => 'service.png'
+             'picture' => 'service72.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3964,7 +3964,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 10,000 to 20,000 per location per day. $10,000 per location for a 4 week period of Ads<br>
                                  ',
              'price' => 15000,
-             'picture' => 'service.png'
+             'picture' => 'service72.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -3982,7 +3982,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 8,000 to 12,000 per location per day. $5,000 per location for a 4 week period of Ads<br>
                                  ',
              'price' => 10000,
-             'picture' => 'service.png'
+             'picture' => 'service72.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4000,7 +4000,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 35,000 to 65,000 per location per day. $100,000 per location for a 4 week period of Ads ~8 second spot in a loop of ~64 seconds<br>
                                  ',
              'price' => 105000,
-             'picture' => 'service.png'
+             'picture' => 'service72.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4018,7 +4018,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 50,000 to 100,000 per location per day. $80,000 per location for a 4 week period of Ads<br>
                                  ',
              'price' => 85000,
-             'picture' => 'service.png'
+             'picture' => 'service72.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4036,7 +4036,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 9,000 to 17,000 per ad per day.$3,000 per display per 4 week period"<br>
                                  ',
              'price' => 8000,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4057,7 +4057,7 @@ class ServicesSeeder extends Seeder
              4 week period"<br>
                                  ',
              'price' => 10000,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4075,7 +4075,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 20,000 to 40,000 per ad per day.$9,000 per display per 4 week period<br>
                                  ',
              'price' => 14000,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4095,7 +4095,7 @@ class ServicesSeeder extends Seeder
              4 week period"<br>
                                  ',
              'price' => 25000,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4114,7 +4114,7 @@ class ServicesSeeder extends Seeder
              9,000 per ad per day.$2,000 per display per 4 week period"<br>
                                  ',
              'price' => 7000,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4133,7 +4133,7 @@ class ServicesSeeder extends Seeder
              8,000 per ad per day.$2,500 per display per 4 week period"<br>
                                  ',
              'price' => 7500,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4153,7 +4153,7 @@ class ServicesSeeder extends Seeder
              4 week period"<br>
                                  ',
              'price' => 8500,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4171,7 +4171,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 50,000 to 100,000 per ad per day.$90,000 per display per 4 week period<br>
                                  ',
              'price' => 95000,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4191,7 +4191,7 @@ class ServicesSeeder extends Seeder
              4 week period"<br>
                                  ',
              'price' => 125000,
-             'picture' => 'service.png'
+             'picture' => 'service73.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4209,7 +4209,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 12,000 to 15,000 per display per day$25,000 per display per 4 week period<br>
                                  ',
              'price' => 30000,
-             'picture' => 'service.png'
+             'picture' => 'service74.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4228,7 +4228,7 @@ class ServicesSeeder extends Seeder
              day$38,000 per display per 4 week period"<br>
                                  ',
              'price' => 43000,
-             'picture' => 'service.png'
+             'picture' => 'service74.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4247,7 +4247,7 @@ class ServicesSeeder extends Seeder
              day$46,000 per display per 4 week period<br>
                                  ',
              'price' => 51000,
-             'picture' => 'service.png'
+             'picture' => 'service74.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4266,7 +4266,7 @@ class ServicesSeeder extends Seeder
              day$25,000 per display per 4 week period"<br>
                                  ',
              'price' => 30000,
-             'picture' => 'service.png'
+             'picture' => 'service74.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4284,7 +4284,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => 'Range of 40,000 to 60,000 per display per day$100,000 per display per 4 week period<br>
                                  ',
              'price' => 105000,
-             'picture' => 'service.png'
+             'picture' => 'service74.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4303,7 +4303,7 @@ class ServicesSeeder extends Seeder
              5,000 per display per day$35,000 per display per 4 week period"<br>
                                  ',
              'price' => 40000,
-             'picture' => 'service.png'
+             'picture' => 'service74.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4322,7 +4322,7 @@ class ServicesSeeder extends Seeder
              period"<br>
                                  ',
              'price' => 11000,
-             'picture' => 'service.png'
+             'picture' => 'service75.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4341,7 +4341,7 @@ class ServicesSeeder extends Seeder
              period"<br>
                                  ',
              'price' => 13000,
-             'picture' => 'service.png'
+             'picture' => 'service75.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4360,7 +4360,7 @@ class ServicesSeeder extends Seeder
              week period"<br>
                                  ',
              'price' => 15000,
-             'picture' => 'service.png'
+             'picture' => 'service75.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4378,7 +4378,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => '$12,000 per theater per 4 week period<br>
                                  ',
              'price' => 17000,
-             'picture' => 'service.png'
+             'picture' => 'service75.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4396,7 +4396,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => '$14,000 per theater per 4 week period<br>
                                  ',
              'price' => 19000,
-             'picture' => 'service.png'
+             'picture' => 'service75.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4414,7 +4414,7 @@ class ServicesSeeder extends Seeder
              'service_feature' => '$16,000 per theater per 4 week period<br>
                                  ',
              'price' => 21000,
-             'picture' => 'service.png'
+             'picture' => 'service75.png'
          ])
          ->create()
          ->each(function ($services) {
@@ -4436,7 +4436,7 @@ class ServicesSeeder extends Seeder
             'service_feature' => 'Simple editing tools  Basic design templates Up to 50 pages<br>
                                   ',
             'price' => 1993.33,
-            'picture' => 'service.png'
+            'picture' => 'service76.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4454,7 +4454,7 @@ class ServicesSeeder extends Seeder
             'service_feature' => 'Enhanced editing tools Additional design templates Up to 100 pages Email support<br>
                                   ',
             'price' => 5993.33,
-            'picture' => 'service.png'
+            'picture' => 'service76.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4471,7 +4471,7 @@ class ServicesSeeder extends Seeder
             'description' => 'For budding authors, includes improved formatting and marketing tips.',
             'service_feature' => 'Advanced editing tools Diverse design templates Up to 200 pages Marketing guide Phone support<br>',
             'price' => 19993.33,
-            'picture' => 'service.png'
+            'picture' => 'service76.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4488,7 +4488,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Professional package with full suite of tools for serious writers.',
             'service_feature' => 'Professional editing suite Premium design options Unlimited pages SEO optimization for eBook 1-on-1 professional consultation<br>',
             'price' => 33326.67,
-            'picture' => 'service.png'
+            'picture' => 'service76.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4505,7 +4505,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Top-tier package for experienced authors, offering extensive customization.',
             'service_feature' => 'All Pro features Advanced customization options Multi-format support  Personalized marketing strategy  Access to exclusive webinars<br>',
             'price' => 49993.33,
-            'picture' => 'service.png'
+            'picture' => 'service76.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4522,7 +4522,7 @@ class ServicesSeeder extends Seeder
             'description' => 'High-quality, customizable book cover design for a standout look.',
             'service_feature' => 'Custom design options 2 revision rounds High-resolution files<br>',
             'price' => 1326.67,
-            'picture' => 'service.png'
+            'picture' => 'service77.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4539,7 +4539,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Premium book cover design service with expert consultation.',
             'service_feature' => 'All Advanced features  Expert design consultation 3D mockup Additional revision round<br>',
             'price' => 893.33,
-            'picture' => 'service.png'
+            'picture' => 'service77.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4556,7 +4556,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Add images to your book with ease.',
             'service_feature' => 'Image placement in book Basic image editing  Up to 10 images per book<br>',
             'price' => 26.67,
-            'picture' => 'service.png'
+            'picture' => 'service78.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4573,7 +4573,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Unlimited image insertion for visually rich books.',
             'service_feature' => 'Unlimited image placement Advanced image editing Image sourcing assistance<br>',
             'price' => 660,
-            'picture' => 'service.png'
+            'picture' => 'service78.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4590,7 +4590,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Service to professionally format and layout your book for publication.',
             'service_feature' => 'Customized formatting Multiple layout designs Digital and print format compatibility<br>',
             'price' => 226.67,
-            'picture' => 'service.png'
+            'picture' => 'service79.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4607,7 +4607,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Creation of a unique logo to represent the authors brand.',
             'service_feature' => 'Custom logo design Multiple revisions High-resolution files<br>',
             'price' => 226.67,
-            'picture' => 'service.png'
+            'picture' => 'service80.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4624,7 +4624,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Option to publish your book in paperback format.',
             'service_feature' => 'High-quality printing Various paper and size options Distribution assistance<br>',
             'price' => 493.33,
-            'picture' => 'service.png'
+            'picture' => 'service81.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4641,7 +4641,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Option to publish your book with a durable hard cover.',
             'service_feature' => 'Premium cover material Dust jacket design Enhanced printing quality<br>',
             'price' => 826.67,
-            'picture' => 'service.png'
+            'picture' => 'service82.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4658,7 +4658,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Transcribing handwritten manuscripts into digital format.',
             'service_feature' => 'Accurate transcription  Formatting to match original script  Digital file delivery<br>',
             'price' => 13.33,
-            'picture' => 'service.png'
+            'picture' => 'service83.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4675,7 +4675,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Upgrading the quality of data entry for manuscripts already part of a package.',
             'service_feature' => 'Enhanced accuracy  Additional formatting options Priority processing<br>',
             'price' => 5,
-            'picture' => 'service.png'
+            'picture' => 'service83.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4692,7 +4692,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Conversion of typewritten documents into a digital format.',
             'service_feature' => 'High-accuracy transcription Consistent formatting Digital or editable file formats<br>',
             'price' => 8.33,
-            'picture' => 'service.png'
+            'picture' => 'service83.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4709,7 +4709,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Optimization of your book for discoverability using strategic keyword placement.',
             'service_feature' => 'Keyword research and implementation  ATA (Above the Title) optimization  ATB (Below the Title) optimization<br>',
             'price' => 626.67,
-            'picture' => 'service.png'
+            'picture' => 'service84.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4726,7 +4726,7 @@ class ServicesSeeder extends Seeder
             'description' => 'A service for making corrections in manuscripts, with each round consisting of a set of corrections.',
             'service_feature' => 'Comprehensive error checking One round of corrections per set Fast turnaround time<br>',
             'price' => 1160,
-            'picture' => 'service.png'
+            'picture' => 'service85.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4743,7 +4743,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Securing U.S. copyright protection for your book.',
             'service_feature' => 'Copyright filing assistance Legal advice for protection Certificate of registration<br>',
             'price' => 1660,
-            'picture' => 'service.png'
+            'picture' => 'service86.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4760,7 +4760,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Registration of your book with the Library of Congress.',
             'service_feature' => 'Cataloging in Publication (CIP) data Library of Congress Control Number (LCCN) assignment<br>',
             'price' => 493.33,
-            'picture' => 'service.png'
+            'picture' => 'service87.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4777,7 +4777,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Listing your book in the Books in Print database for wider visibility.',
             'service_feature' => 'ISBN assignment Inclusion in global database Increased discoverability<br>',
             'price' => 493.33,
-            'picture' => 'service.png'
+            'picture' => 'service88.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4794,7 +4794,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Assistance in setting the right price for your book in various markets.',
             'service_feature' => 'Market analysis Pricing strategy consultation Competitive pricing setup<br>',
             'price' => 293.33,
-            'picture' => 'service.png'
+            'picture' => 'service89.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4811,7 +4811,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Offering 100% royalty on book sales for a period of three years.',
             'service_feature' => 'No royalty sharing Transparent sales reporting Dedicated account manager<br>',
             'price' => 5660,
-            'picture' => 'service.png'
+            'picture' => 'service90.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4828,7 +4828,7 @@ class ServicesSeeder extends Seeder
             'description' => 'A unique package or service, possibly related to book retail or promotion.',
             'service_feature' => 'Specialized service feature (to be defined) Tailored to specific author needs Exclusive benefits<br>',
             'price' => 1160,
-            'picture' => 'service.png'
+            'picture' => 'service91.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4845,7 +4845,7 @@ class ServicesSeeder extends Seeder
             'description' => 'A 24-month book retail package offering extensive marketing and distribution.',
             'service_feature' => '24-month distribution Marketing campaigns Online and physical bookstore placement<br>',
             'price' => 2160,
-            'picture' => 'service.png'
+            'picture' => 'service91.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4862,7 +4862,7 @@ class ServicesSeeder extends Seeder
             'description' => 'A 36-month premium book retail package with enhanced marketing services.',
             'service_feature' => '36-month extended distribution Premium marketing services International bookstore placement<br>',
             'price' => 3160,
-            'picture' => 'service.png'
+            'picture' => 'service91.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4879,7 +4879,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Exclusive access to resources and events for authors reaching certain milestones.',
             'service_feature' => 'Invitations to exclusive events Access to premium resources Networking opportunities<br>',
             'price' => 2960,
-            'picture' => 'service.png'
+            'picture' => 'service92.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4896,7 +4896,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Personalized support and guidance for authors throughout the publishing process.',
             'service_feature' => 'Dedicated support Customized advice Regular progress updates<br>',
             'price' => 2993.33,
-            'picture' => 'service.png'
+            'picture' => 'service93.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4919,7 +4919,7 @@ class ServicesSeeder extends Seeder
                                   Grammar and spelling check Punctuation correction Consistency review<br>
             ',
             'price' => 2660,
-            'picture' => 'service.png'
+            'picture' => 'service94.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4942,7 +4942,7 @@ class ServicesSeeder extends Seeder
             Sentence structure refinement Clarity and tone adjustments Style consistency<br>
             ',
             'price' => 6680,
-            'picture' => 'service.png'
+            'picture' => 'service95.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4965,7 +4965,7 @@ class ServicesSeeder extends Seeder
             In-depth editing for additional words Charged per word<br>
             ',
             'price' => 13326.68,
-            'picture' => 'service.png'
+            'picture' => 'service95.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -4989,7 +4989,7 @@ class ServicesSeeder extends Seeder
             Detailed conceptual editing for additional words Charged per word<br>
             ',
             'price' => 19998.33,
-            'picture' => 'service.png'
+            'picture' => 'service95.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -5006,7 +5006,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Basic design service for page layout and formatting.',
             'service_feature' => 'Basic layout design Clean and simple style Charged per page<br>',
             'price' => 526.67,
-            'picture' => 'service.png'
+            'picture' => 'service96.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -5023,7 +5023,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Intermediate design service with enhanced artistic input.',
             'service_feature' => 'Enhanced design elements  Artistic touch Charged per page<br>',
             'price' => 693.33,
-            'picture' => 'service.png'
+            'picture' => 'service97.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -5040,7 +5040,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Bundle package for Level Two design services, covering 10 pages.',
             'service_feature' => '10-page bundle at a discounted rate  Consistent design across pages<br>',
             'price' => 6026.68,
-            'picture' => 'service.png'
+            'picture' => 'service97.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -5057,7 +5057,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Larger bundle package for Level Two design services, covering 15 pages.',
             'service_feature' => '15-page bundle at a discounted rate Uniform artistic style<br>',
             'price' => 8360,
-            'picture' => 'service.png'
+            'picture' => 'service97.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -5074,7 +5074,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Advanced design service with premium artistic elements and 3D effects.',
             'service_feature' => '3D design elements Premium artistic style Charged per page<br>',
             'price' => 1026.68,
-            'picture' => 'service.png'
+            'picture' => 'service98.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -5091,7 +5091,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Bundle package for Level Three design services, covering 10 pages.',
             'service_feature' => '10-page bundle with premium design at a discounted rate<br>',
             'price' => 9360,
-            'picture' => 'service.png'
+            'picture' => 'service98.png'
         ])
         ->create()
         ->each(function ($services) {
@@ -5108,7 +5108,7 @@ class ServicesSeeder extends Seeder
             'description' => 'Larger bundle package for Level Three design services, covering 15 pages.',
             'service_feature' => '15-page bundle with advanced design features at a discounted rate<br>',
             'price' => 13360,
-            'picture' => 'service.png'
+            'picture' => 'service98.png'
         ])
         ->create()
         ->each(function ($services) {
