@@ -103,7 +103,7 @@
                 element.classList.add('animate-fade-down');
             }
         });
-      }, 3000);
+      }, 0);
     });
 </script>
 </html>
