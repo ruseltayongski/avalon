@@ -1376,14 +1376,14 @@
          <?php
             $serviceCategoryData = [
                [
-                  "image" => asset('images/business12.JPG'),
+                  "image" => asset('images/business12.png'),
                   "tags" => "Hot",
                   "title" => "Book-To-Film/TV: Screenplay",
                   "services_reference" => "Book-To-Film/TV",
                   "content" => "Book-To-Film/TV: Transform written literature into visual narratives."
                ],
                [
-                  "image" => asset('images/business13.JPG'),
+                  "image" => asset('images/business13.png'),
                   "tags" => "New",
                   "title" => "Business Affairs: Consulting Services",
                   "services_reference" => "Business Affairs",
@@ -1397,11 +1397,11 @@
                   "content" => "Digital Media & Marketing: Promote brands and drive business growth."
                ],
                [
-                  "image" => asset('images/business15.WEBP'),
-                  "tags" => "New",
+                  "image" => asset('images/business15.png'),
+                  "tags" => "Hot",
                   "title" => "Strategic Landing Page Business",
                   "services_reference" => "Tech and Dev",
-                  "content" => "Tech &  Dev: Pioneering digital and technological solutions"
+                  "content" => "Tech &  Development: Pioneering digital and technological solutions"
                ]
             ];
          ?> 
