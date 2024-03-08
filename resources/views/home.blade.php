@@ -597,7 +597,7 @@
             <div class="relative mx-auto flex h-[500px] max-w-[440px]">
                <div class="absolute left-0 z-30 mr-14 max-w-[270px] rounded-lg">
                   <img
-                     src="{{ asset('/images/services/image-1.jpg') }}"
+                     src="{{ asset('/images/services/image-4.png') }}"
                      alt="about image"
                      class="w-full rounded-lg"
                      />
@@ -784,7 +784,7 @@
                   class="absolute right-0 top-20 z-30 ml-14 max-w-[300px] rounded-lg"
                   >
                   <img
-                     src="{{ asset('/images/services/image-1.jpg') }}"
+                     src="{{ asset('/images/services/image-5.png') }}"
                      alt="about image"
                      class="w-full rounded-lg"
                      />

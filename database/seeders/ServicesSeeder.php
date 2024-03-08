@@ -22,6 +22,66 @@ class ServicesSeeder extends Seeder
         ->count(1)
         ->state([
             'category' => 'Book-to-film/TV',
+            'title' => 'Short Film with Submissions',
+            'description' => 'A 10-15-minute short Film to be submitted to 5,000 film decision makers, events and festivals.
+                            ',
+            'service_feature' => '10-15-minute Short Film<br> 
+                                  film decision makers pitches<br> 
+                                  events pitches<br>
+                                  festivals pitches<br>
+                                  ',
+            'price' => 50000,
+            'picture' => 'service101.png'
+        ])
+        ->create()
+        ->each(function ($services) {
+            $user = User::inRandomOrder()->first();
+            $services->update([
+                'created_by' => $user->id
+            ]);
+        });
+            Services::factory()
+        ->count(1)
+        ->state([
+            'category' => 'Book-to-film/TV',
+            'title' => 'Promotional Film with Submissions',
+            'description' => 'A 6-8-minute Film to be submitted to 5,000 film decision makers.',
+            'service_feature' => '6-8-minute Short Film<br> 
+                                  film decision makers pitches<br>  
+                                  ',
+            'price' => 30000,
+            'picture' => 'service100.png'
+        ])
+        ->create()
+        ->each(function ($services) {
+            $user = User::inRandomOrder()->first();
+            $services->update([
+                'created_by' => $user->id
+            ]);
+        });
+            Services::factory()
+        ->count(1)
+        ->state([
+            'category' => 'Book-to-film/TV',
+            'title' => 'Cinematic Film Trailer with Submissions',
+            'description' => 'A 3-5-minute Video Trailer about your Book and submission to 5,000 related decision makers.',
+            'service_feature' => '3-5-minute Short Film<br> 
+                                  Decision makers pitches<br>  
+                                  ',
+            'price' => 15000,
+            'picture' => 'service99.png'
+        ])
+        ->create()
+        ->each(function ($services) {
+            $user = User::inRandomOrder()->first();
+            $services->update([
+                'created_by' => $user->id
+            ]);
+        });
+        Services::factory()
+        ->count(1)
+        ->state([
+            'category' => 'Book-to-film/TV',
             'title' => 'Film Synopsis',
             'description' => 'A film synopsis is a brief summary of a film storyline, intended to provide an overview of its narrative arc without 
                             giving away key plot twists or the ending. It is like a condensed version of the entire movie, boiled down to its essential elements. The synopsis includes the main characters, the setting, the central conflict, and the basic plot points, but it is careful not to reveal too much so as to maintain the film is intrigue and surprise for viewers.
@@ -90,7 +150,7 @@ class ServicesSeeder extends Seeder
                                   Emotion and Atmosphere<br> 
                                   Flexibility for Changes<br>
                                   ',
-            'price' => 6500,
+            'price' => 4999,
             'picture' => 'service3.png'
         ])
         ->create()
@@ -141,7 +201,7 @@ class ServicesSeeder extends Seeder
                                   Dialogue Structure<br> 
                                   Tone and Style Purpose<br>
                                   ',
-            'price' => 15000,
+            'price' => 3599,
             'picture' => 'service5.png'
         ])
         ->create()
@@ -219,7 +279,7 @@ class ServicesSeeder extends Seeder
                                   Formatting Purpose Revisions<br> 
                                   Visual Storytelling<br>
                                   ',
-            'price' => 20000,
+            'price' => 9998,
             'picture' => 'service8.png'
         ])
         ->create()
