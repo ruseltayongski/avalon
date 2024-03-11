@@ -23,14 +23,15 @@ class ServicesSeeder extends Seeder
         ->state([
             'category' => 'Book-to-film/TV',
             'title' => 'Short Film with Submissions',
-            'description' => 'A 10-15-minute short Film to be submitted to 5,000 film decision makers, events and festivals.
+            'description' => 'Short Film: A complete 10-15 minute movie length package with fully dedicated creatives working to create your film to your liking. 
+                              Includes submission to over 5,000 producers, production films and film festivals.
                             ',
             'service_feature' => '10-15-minute Short Film<br> 
-                                  film decision makers pitches<br> 
-                                  events pitches<br>
-                                  festivals pitches<br>
+                                  Producer pitches<br> 
+                                  Production Film pitches<br>
+                                  Film Festival pitches<br>
                                   ',
-            'price' => 50000,
+            'price' => 100000,
             'picture' => 'service101.png'
         ])
         ->create()
@@ -45,11 +46,14 @@ class ServicesSeeder extends Seeder
         ->state([
             'category' => 'Book-to-film/TV',
             'title' => 'Promotional Film with Submissions',
-            'description' => 'A 6-8-minute Film to be submitted to 5,000 film decision makers.',
+            'description' => 'Promotional Film Video: A 5-8 minute comprehensive cinematic presentation with character dialogue,  
+                              ready for submission to the industry decision-makers. 
+                              Includes submission to over 3,000 producers and production films.',
             'service_feature' => '6-8-minute Short Film<br> 
-                                  film decision makers pitches<br>  
+                                  Producer pitches<br> 
+                                  Production Film pitches<br>
                                   ',
-            'price' => 30000,
+            'price' => 60000,
             'picture' => 'service100.png'
         ])
         ->create()
@@ -64,11 +68,13 @@ class ServicesSeeder extends Seeder
         ->state([
             'category' => 'Book-to-film/TV',
             'title' => 'Cinematic Film Trailer with Submissions',
-            'description' => 'A 3-5-minute Video Trailer about your Book and submission to 5,000 related decision makers.',
+            'description' => 'Cinematic Film Trailer: A 3-5 minute live action preview capturing the essence and dynamics of your book, 
+                              offering a cinematic glimpse into its narrative depth. 
+                              Includes submission to over 1,000 producers.',
             'service_feature' => '3-5-minute Short Film<br> 
-                                  Decision makers pitches<br>  
+                                  Producer pitches<br>  
                                   ',
-            'price' => 15000,
+            'price' => 30000,
             'picture' => 'service99.png'
         ])
         ->create()
