@@ -2957,7 +2957,51 @@ class ServicesSeeder extends Seeder
 
 
          /* Digital Media and Marketing */
-
+         
+         Services::factory()
+         ->count(1)
+         ->state([
+             'category' => 'Digital Media and Marketing',
+             'title' => 'Miami Book Fair: Book Display',
+             'description' => 'An exhibition of a wide range of books from various genres available for the public to view.
+             ',
+             'service_feature' => 'Diverse genres 
+             <br>New releases 
+             <br>Bestsellers
+             <br>
+                                   ',
+             'price' => 799,
+             'picture' => 'service102.png'
+         ])
+         ->create()
+         ->each(function ($services) {
+             $user = User::inRandomOrder()->first();
+             $services->update([
+                 'created_by' => $user->id
+             ]);
+         });
+         Services::factory()
+         ->count(1)
+         ->state([
+             'category' => 'Digital Media and Marketing',
+             'title' => 'Miami Book Fair: Book Signing',
+             'description' => 'An opportunity for readers to meet authors, get books signed, and engage in discussions.
+             ',
+             'service_feature' => 'Meet authors
+             <br>Signed copies
+             <br>Q&A sessions
+             <br>
+                                   ',
+             'price' => 3899,
+             'picture' => 'service102.png'
+         ])
+         ->create()
+         ->each(function ($services) {
+             $user = User::inRandomOrder()->first();
+             $services->update([
+                 'created_by' => $user->id
+             ]);
+         });
          Services::factory()
          ->count(1)
          ->state([

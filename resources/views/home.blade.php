@@ -1392,7 +1392,7 @@
                [
                   "image" => asset('images/business14.png'),
                   "tags" => "Hot",
-                  "title" => "L.A. Times & Frankfurt Book Festival",
+                  "title" => "L.A. Times, Miami & Frankfurt Book Fest",
                   "services_reference" => "Digital Media and Marketing",
                   "content" => "Digital Media & Marketing: Promote brands and drive business growth."
                ],
